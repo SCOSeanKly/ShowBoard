@@ -51,54 +51,8 @@ struct WeatherElementView: View {
                 .padding(.horizontal)
                 .padding(.horizontal)
                 
-                LazyVGrid(columns: gridItems, spacing: 16) {
-                    ForEach(weatherIconsArray.indices, id: \.self) { index in
-                        ZStack {
-                            
-                            VStack {
-                                    Image(weatherIconsArray[index])
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 40, height: 40)
-                                        .scaleEffect(pressedButtonIndex == index ? 0.8 : 1)
-                                        .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: pressedButtonIndex)
-                                    
-                                    Text(weatherIconsArraytext[index])
-                                        .font(.caption)
-                                        .foregroundColor(.primary)
-                                        .padding(.top, -2)
-                                        .frame(width: 60)
-                                        .lineLimit(1)
-                                        .scaleEffect(pressedButtonIndex == index ? 0.9 : 1)
-                                        .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: pressedButtonIndex)
-                                }
-                            }
-                        .onTapGesture {
-                            if pressedButtonIndex == index {
-                                pressedButtonIndex = nil
-                            } else {
-                                pressedButtonIndex = index
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                    pressedButtonIndex = nil
-                                }
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    
-                                    showWeatherElementView.toggle()
-                                    
-                                }
-                            }
-                        }
-                        .padding(10)
-                        .background(.white)
-                        .cornerRadius(10)
-                        .shadow(color: Color.black.opacity(pressedButtonIndex == index ? 0.3 : 0.2), radius: pressedButtonIndex == index ? 1 : 5, x: 0, y: pressedButtonIndex == index ? 0 : 4)
-                        .tint(.black)
-                        .scaleEffect(pressedButtonIndex == index ? 0.95 : 1)
-                        .animation(.easeIn(duration: 0.1), value: pressedButtonIndex)
-                    }
-                }
-                .padding(.horizontal)
+       LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: weatherIconsArray, iconsArraytext: weatherIconsArraytext, viewToClose: $showWeatherElementView)
+                 
             }
         }
         .presentationDetents([.fraction(0.4)])
