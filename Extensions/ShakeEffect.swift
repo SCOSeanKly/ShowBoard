@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-
-
-
 struct ShakeEffect: AnimatableModifier {
     
     var delta: CGFloat = 0

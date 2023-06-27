@@ -288,8 +288,7 @@
 		3EA43C962A45AAC200A28C75 /* Layer Elements */ = {
 			isa = PBXGroup;
 			children = (
-				3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */,
-				3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */,
+				3ED771EC2A4B395500AFC1FC /* Layer View Buttons */,
 				3EADA5BC2A4354CA00FA1BCB /* LayerElementView.swift */,
 				3EEB89932A49F02300CF42AB /* LayerEditView.swift */,
 				3E3770F82A45DA1900E3AC43 /* TextElementView.swift */,
@@ -331,6 +330,15 @@
 				3ED4EF6B2A4586A7007CCAA6 /* BatteryCircularGuageView.swift */,
 			);
 			path = Widgets;
+			sourceTree = "<group>";
+		};
+		3ED771EC2A4B395500AFC1FC /* Layer View Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */,
+				3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */,
+			);
+			path = "Layer View Buttons";
 			sourceTree = "<group>";
 		};
 		3EEB89972A4A1F0100CF42AB /* Imported Images Views */ = {

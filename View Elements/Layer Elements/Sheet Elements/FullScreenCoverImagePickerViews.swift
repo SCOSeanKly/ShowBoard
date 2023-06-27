@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ImagePickerViews: View {
     
-    //MARK: TEMP...
     @Binding var importedImage1: UIImage?
     @Binding var showImagePickerSheet1: Bool
     @Binding var importedImage2: UIImage?
@@ -18,11 +17,11 @@ struct ImagePickerViews: View {
     @Binding var showImagePickerSheet3: Bool
     @Binding var importedBackground: UIImage?
     @Binding var showBgPickerSheet: Bool
-   
+    
     
     var body: some View {
         ZStack{
-            
+            /// Empty content placeholder
         }
         .fullScreenCover(isPresented: $showBgPickerSheet) {
             PhotoPicker(filter: .images, limit: 1) { results in

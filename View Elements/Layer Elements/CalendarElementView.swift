@@ -19,16 +19,12 @@ struct CalendarElementView: View {
     @State private var pressedButtonIndex: Int?
     
     var body: some View {
-        ZStack {
-            VStack{
-                
+ 
+         ScrollView{
                 LayerBackButton(selfViewToClose: $showCalendarElementView, showLayerElementView: $showLayerElementView, headerText: "Calendar")
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: calendarIconsArray, iconsArraytext: calendarIconsArraytext, viewToClose: $showCalendarElementView)
-                
-                Spacer()
             }
-        }
         .presentationDetents([.fraction(0.4)])
         .presentationDragIndicator(.visible)
     }

@@ -19,16 +19,13 @@ struct ChartsElementView: View {
     @State private var pressedButtonIndex: Int?
     
     var body: some View {
-        ZStack {
-            VStack{
-                
+  
+          ScrollView{
                 LayerBackButton(selfViewToClose: $showChartsElementView, showLayerElementView: $showLayerElementView, headerText: "Charts")
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: chartsIconsArray, iconsArraytext: chartsIconsArraytext, viewToClose: $showChartsElementView)
-                
-                Spacer()
+
             }
-        }
         .presentationDetents([.fraction(0.4)])
         .presentationDragIndicator(.visible)
     }

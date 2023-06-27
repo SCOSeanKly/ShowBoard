@@ -19,16 +19,12 @@ struct MapsElementView: View {
     @State private var pressedButtonIndex: Int?
     
     var body: some View {
-        ZStack {
-            VStack{
-                
+        
+        ScrollView{
                 LayerBackButton(selfViewToClose: $showMapsElementView, showLayerElementView: $showLayerElementView, headerText: "Maps")
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: mapsIconsArray, iconsArraytext: mapsIconsArraytext, viewToClose: $showMapsElementView)
-                
-                Spacer()
             }
-        }
         .presentationDetents([.fraction(0.4)])
         .presentationDragIndicator(.visible)
     }

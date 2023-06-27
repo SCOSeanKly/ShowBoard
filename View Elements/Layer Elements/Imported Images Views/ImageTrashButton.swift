@@ -11,7 +11,6 @@ struct ImageTrashButtonView: View {
     @Binding var buttonIsPressedAnimation: Bool
     @Binding var settingButtonIsPressedAnimation: Bool
     @State var buttonIsPressedAlert: Bool = false
-    
     @Binding var importedImage: UIImage?
     @State private var showAlert = false
     

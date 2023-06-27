@@ -54,17 +54,6 @@ struct SWAWidgetView: View {
                     .foregroundColor(.gray)
                     .frame(width: 130, height: 115)
                     .offset(y: -15)
-                /*
-                if let importedBackground = importedBackground {
-                    Image(uiImage: importedBackground)
-                        .resizable()
-                        .blur(radius: 5)
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 130, height: 115)
-                        .cornerRadius(13)
-                        .offset(y: -15)
-                }
-                 */
                 
                 ZStack {
                     Rectangle()
@@ -73,13 +62,12 @@ struct SWAWidgetView: View {
                     MapView(locationDataManager: locationDataManager)
                         .frame(width: 150, height: 160)
                     
-                    // Frame needs cropped to remove Apple legal info
-                       
+                    /// Frame needs cropped to remove Apple legal info
+                    
                 }
                 .frame(width: 130, height: 115)
                 .cornerRadius(13)
                 .offset(y: -15)
-                  
                 
                 VStack(alignment: .trailing) {
                     HStack {
@@ -117,38 +105,38 @@ struct SWAWidgetView: View {
             }
             .offset(x: 80)
             
-                VStack(alignment: .trailing) {
-                    Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                    
-                    Text(DynamicText.Placeholder.condition.withCurrentWeather(currentWeather, unit: .celsius))
-                        .font(.custom("Autone", size: 20))
-                        .foregroundColor(.white)
-                    
-                    Text(formattedDate(dateFormat: "E. d MMM"))
-                        .font(.custom("Autone", size: 26))
-                        .foregroundColor(.white)
-                    
-                    Text(DynamicText.Placeholder.temp.withCurrentWeather(currentWeather, unit: .celsius))
-                        .font(.custom("Autone", size: 24))
-                        .foregroundColor(.white)
+            VStack(alignment: .trailing) {
+                Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                
+                Text(DynamicText.Placeholder.condition.withCurrentWeather(currentWeather, unit: .celsius))
+                    .font(.custom("Autone", size: 20))
+                    .foregroundColor(.white)
+                
+                Text(formattedDate(dateFormat: "E. d MMM"))
+                    .font(.custom("Autone", size: 26))
+                    .foregroundColor(.white)
+                
+                Text(DynamicText.Placeholder.temp.withCurrentWeather(currentWeather, unit: .celsius))
+                    .font(.custom("Autone", size: 24))
+                    .foregroundColor(.white)
+            }
+            .foregroundColor(.white)
+            .offset(x: -100)
+            .shadow(radius: 5, y: 3)
+            .task {
+                
+                do {
+                    try await weatherKitManager.getWeather(locationDataManager.location)
                 }
-                .foregroundColor(.white)
-                .offset(x: -100)
-                .shadow(radius: 5, y: 3)
-                .task {
-                    
-                    do {
-                        try await weatherKitManager.getWeather(locationDataManager.location)
-                    }
-                    catch { } // handle error here
-                }
+                catch { } // handle error here
+            }
         }
         .frame(width: UIScreen.main.bounds.width)
         .contentShape(Rectangle())
-
+        
     }
 }
 

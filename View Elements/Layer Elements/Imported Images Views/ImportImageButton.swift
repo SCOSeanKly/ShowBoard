@@ -30,7 +30,6 @@ struct ImportImageButton: View {
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: buttonIsPressedAnimation)
                         .animation(.spring(), value: importedImage)
                     
-                    
                 } else {
                     Image(systemName: systemImage)
                         .resizable()

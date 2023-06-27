@@ -25,8 +25,6 @@ enum TemperatureUnit {
     
     @Published var weather: Weather?
     
-    
-    
     init() {
         self.weather = nil
     }

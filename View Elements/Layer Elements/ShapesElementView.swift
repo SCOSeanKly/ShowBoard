@@ -19,16 +19,12 @@ struct ShapesElementView: View {
     @State private var pressedButtonIndex: Int?
     
     var body: some View {
-        ZStack {
-            VStack{
-                
+    
+            ScrollView{
                 LayerBackButton(selfViewToClose: $showShapesElementView, showLayerElementView: $showLayerElementView, headerText: "Shapes")
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: shapesIconsArray, iconsArraytext: shapesIconsArraytext, viewToClose: $showShapesElementView)
-                
-                Spacer()
             }
-        }
         .presentationDetents([.fraction(0.4)])
         .presentationDragIndicator(.visible)
     }

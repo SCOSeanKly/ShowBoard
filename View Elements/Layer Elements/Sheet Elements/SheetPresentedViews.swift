@@ -30,7 +30,7 @@ struct SheetPresentedViews: View {
     
     var body: some View {
         ZStack{
-            // Empty Content Placeholder
+            /// Empty content placeholder
         }
         
         //MARK: Element Selection Menu
@@ -80,7 +80,7 @@ struct SheetPresentedViews: View {
         
         //MARK: Layer Edit View
         .sheet(isPresented: $showLayerEditView) {
-           LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
+            LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
         }
         
         
