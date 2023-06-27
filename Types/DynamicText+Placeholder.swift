@@ -131,12 +131,12 @@ extension DynamicText {
         private func tempteratureToSting(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""
             let convertedTemp = value.converted(to: unit)
-            let formattedTemp = String(format: "%.1f", convertedTemp.value)
+            let formattedTemp = String(format: "%.0f", convertedTemp.value) // change format for temp
             ret = "\(formattedTemp)°"
             
             switch unit {
-            case .celsius: ret += "C"
-            case .fahrenheit: ret += "F"
+            case .celsius: ret += "" // add C
+            case .fahrenheit: ret += "" // add F
             case .kelvin: ret += "K"
             default:
                 break // show only raw value

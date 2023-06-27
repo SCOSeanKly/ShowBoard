@@ -4,7 +4,7 @@
 //
 //  Created by Sean Kelly on 22/06/2023.
 //
-
+/*
 import SwiftUI
 
 struct DynamicTextView: View {
@@ -15,18 +15,18 @@ struct DynamicTextView: View {
     
     var replacedText: String {
         var text = userInput
-        let pattern = /\[.*?\]/
-        let regex = Regex(pattern)
-        let matches = userInput.matches(of: regex)
-        
-        for i in matches
-        {
-            let range = i.range
-            let tag = userInput.substring(with: range)
-            
-            guard let placeholder = DynamicText.Placeholder(rawValue: tag)
-            else { continue }
-            
+        let pattern = "\\[.*?\\]"
+        let regex = try! NSRegularExpression(pattern: pattern)
+        let matches = regex.matches(in: userInput, range: NSRange(userInput.startIndex..., in: userInput))
+
+        for match in matches {
+            let range = match.range
+            let tag = String(userInput[Range(range, in: userInput)!])
+
+            guard let placeholder = DynamicText.Placeholder(rawValue: tag) else {
+                continue
+            }
+
             text = text.replacingOccurrences(
                 of: tag,
                 with: placeholder.withCurrentDate()
@@ -34,6 +34,7 @@ struct DynamicTextView: View {
         }
         return text
     }
+
     
     
     
@@ -107,6 +108,7 @@ struct DynamicTextView_Previews: PreviewProvider {
         DynamicTextView()
     }
 }
+ */
 
 
 

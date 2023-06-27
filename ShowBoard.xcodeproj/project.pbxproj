@@ -14,6 +14,8 @@
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
 		3E41D31B2A42FA1600A29548 /* oldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D31A2A42FA1600A29548 /* oldView.swift */; };
+		3E4E6B492A4B733C00942494 /* DynamTextTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamTextTest.swift */; };
+		3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F89832A4B5865001763DC /* SWAWidget2.swift */; };
 		3E510DDE2A446B0A007D93F0 /* DynamicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E510DDD2A446B0A007D93F0 /* DynamicTextView.swift */; };
 		3E510DE02A44888A007D93F0 /* DynamicTextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E510DDF2A44888A007D93F0 /* DynamicTextExtension.swift */; };
 		3E61FC032A49C33D00BABEA5 /* ImportImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC022A49C33D00BABEA5 /* ImportImageButton.swift */; };
@@ -88,6 +90,8 @@
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
 		3E41D31A2A42FA1600A29548 /* oldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oldView.swift; sourceTree = "<group>"; };
+		3E4E6B482A4B733C00942494 /* DynamTextTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamTextTest.swift; sourceTree = "<group>"; };
+		3E4F89832A4B5865001763DC /* SWAWidget2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidget2.swift; sourceTree = "<group>"; };
 		3E510DDD2A446B0A007D93F0 /* DynamicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextView.swift; sourceTree = "<group>"; };
 		3E510DDF2A44888A007D93F0 /* DynamicTextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextExtension.swift; sourceTree = "<group>"; };
 		3E61FC022A49C33D00BABEA5 /* ImportImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImageButton.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */,
 				3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */,
 				3E510DDD2A446B0A007D93F0 /* DynamicTextView.swift */,
+				3E4E6B482A4B733C00942494 /* DynamTextTest.swift */,
 				3E41D3172A42F71900A29548 /* BatteryBar.swift */,
 				3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */,
 				3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */,
@@ -328,6 +333,7 @@
 			children = (
 				3EADA5B22A43343300FA1BCB /* SWAWidgetView.swift */,
 				3ED4EF6B2A4586A7007CCAA6 /* BatteryCircularGuageView.swift */,
+				3E4F89832A4B5865001763DC /* SWAWidget2.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 			files = (
 				3EC820812A460F7300EA8A88 /* ChartsElementView.swift in Sources */,
 				3E510DDE2A446B0A007D93F0 /* DynamicTextView.swift in Sources */,
+				3E4E6B492A4B733C00942494 /* DynamTextTest.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3EADA5BD2A4354CA00FA1BCB /* LayerElementView.swift in Sources */,
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
@@ -511,6 +518,7 @@
 				3E61FC032A49C33D00BABEA5 /* ImportImageButton.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
+				3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
@@ -700,7 +708,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.9;
+				CURRENT_PROJECT_VERSION = 0.0.10;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -719,7 +727,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.4;
@@ -743,7 +751,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.9;
+				CURRENT_PROJECT_VERSION = 0.0.10;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -762,7 +770,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.4;

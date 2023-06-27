@@ -17,7 +17,7 @@ struct BatteryCircularGuageView: View {
     let currentValueLabelFontSize: CGFloat
     let minimumValueLabelFontSize: CGFloat
     let maximumValueLabelFontSize: CGFloat
-    let gaugeColor: Color
+    let gaugeColor: String
     let opacity: CGFloat
  
     var body: some View {
@@ -28,16 +28,16 @@ struct BatteryCircularGuageView: View {
                 } currentValueLabel: {
                     Text("\(batteryViewModel.batteryLevel)")
                         .font(.system(size: currentValueLabelFontSize))
-                        .foregroundColor(gaugeColor)
+                        .foregroundColor(Color(gaugeColor))
                     
                 } minimumValueLabel: {
                     Text("0")
                         .font(.system(size: minimumValueLabelFontSize))
-                        .foregroundColor(gaugeColor)
+                        .foregroundColor(Color(gaugeColor))
                 } maximumValueLabel: {
                     Text("100")
                         .font(.system(size: maximumValueLabelFontSize))
-                        .foregroundColor(gaugeColor)
+                        .foregroundColor(Color(gaugeColor))
                 }
 
             }
@@ -45,7 +45,7 @@ struct BatteryCircularGuageView: View {
             .contentShape(Circle())
             .opacity(opacity)
             .gaugeStyle(.accessoryCircular)
-            .tint(gaugeColor)
+            .tint(Color(gaugeColor))
         }
         
     }

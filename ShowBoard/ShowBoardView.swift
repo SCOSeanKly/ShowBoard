@@ -82,8 +82,15 @@ struct ShowBoardView: View {
             //MARK: Widget Placeholder ZStack
             ZStack{
                 
+                /*
                 //MARK: This is a sample Widget 1
                 SWAWidgetView(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager, importedBackground: $importedBackground)
+                    .modifier(WidgetModifier(isDragging: $isDragging))
+                    .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
+                        runShortcut() }))
+                 */
+                
+                SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
                     .modifier(WidgetModifier(isDragging: $isDragging))
                     .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
                         runShortcut() }))
