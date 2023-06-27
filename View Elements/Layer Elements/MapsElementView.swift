@@ -21,38 +21,10 @@ struct MapsElementView: View {
     var body: some View {
         ZStack {
             VStack{
-                HStack {
-                    Button {
-                        
-                        showMapsElementView.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            showLayerElementView.toggle()
-                        }
-                        
-                    } label: {
-                        Image(systemName: "arrow.left.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                .padding(.horizontal)
                 
-                HStack{
-                    Text("Maps")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.horizontal)
-               
+                LayerBackButton(selfViewToClose: $showMapsElementView, showLayerElementView: $showLayerElementView, headerText: "Maps")
+                
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: mapsIconsArray, iconsArraytext: mapsIconsArraytext, viewToClose: $showMapsElementView)
-                 
                 
                 Spacer()
             }

@@ -21,38 +21,10 @@ struct GaugesElementView: View {
     var body: some View {
         ZStack {
             VStack{
-                HStack {
-                    Button {
-                        
-                        showGaugesElementView.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            showLayerElementView.toggle()
-                        }
-                        
-                    } label: {
-                        Image(systemName: "arrow.left.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                .padding(.horizontal)
                 
-                HStack{
-                    Text("Gauges")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.horizontal)
+                LayerBackButton(selfViewToClose: $showGaugesElementView, showLayerElementView: $showLayerElementView, headerText: "Gauges")
                 
-          LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: gaugesIconsArray, iconsArraytext: gaugesIconsArraytext, viewToClose: $showGaugesElementView)
-                
+                LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: gaugesIconsArray, iconsArraytext: gaugesIconsArraytext, viewToClose: $showGaugesElementView)
                 
                 Spacer()
             }

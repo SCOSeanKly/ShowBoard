@@ -22,37 +22,11 @@ struct WeatherElementView: View {
     var body: some View {
         ZStack {
             ScrollView {
-                HStack {
-                    Button {
-                        showWeatherElementView.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            showLayerElementView.toggle()
-                        }
-                        
-                    } label: {
-                        Image(systemName: "arrow.left.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                .padding(.horizontal)
                 
-                HStack{
-                    Text("Weather")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.horizontal)
+                LayerBackButton(selfViewToClose: $showWeatherElementView, showLayerElementView: $showLayerElementView, headerText: "Weather")
                 
-       LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: weatherIconsArray, iconsArraytext: weatherIconsArraytext, viewToClose: $showWeatherElementView)
-                 
+                LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: weatherIconsArray, iconsArraytext: weatherIconsArraytext, viewToClose: $showWeatherElementView)
+                
             }
         }
         .presentationDetents([.fraction(0.4)])
@@ -60,11 +34,11 @@ struct WeatherElementView: View {
     }
 }
 /*
-struct WeatherElementView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherElementView(showWeatherElementView: .constant(true))
-    }
-}
+ struct WeatherElementView_Previews: PreviewProvider {
+ static var previews: some View {
+ WeatherElementView(showWeatherElementView: .constant(true))
+ }
+ }
  */
 
 

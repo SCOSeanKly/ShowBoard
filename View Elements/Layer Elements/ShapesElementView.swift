@@ -21,39 +21,10 @@ struct ShapesElementView: View {
     var body: some View {
         ZStack {
             VStack{
-                HStack {
-                    Button {
-                        
-                        showShapesElementView.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            showLayerElementView.toggle()
-                        }
-                        
-                    } label: {
-                        Image(systemName: "arrow.left.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                .padding(.horizontal)
                 
-                HStack{
-                    Text("Shapes")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.horizontal)
-      
+                LayerBackButton(selfViewToClose: $showShapesElementView, showLayerElementView: $showLayerElementView, headerText: "Shapes")
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: shapesIconsArray, iconsArraytext: shapesIconsArraytext, viewToClose: $showShapesElementView)
-                 
                 
                 Spacer()
             }
