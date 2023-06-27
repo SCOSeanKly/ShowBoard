@@ -55,6 +55,7 @@
 		3ED4EF6C2A4586A7007CCAA6 /* BatteryCircularGuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4EF6B2A4586A7007CCAA6 /* BatteryCircularGuageView.swift */; };
 		3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */; };
 		3ED771E52A4AFE4300AFC1FC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E42A4AFE4300AFC1FC /* MapView.swift */; };
+		3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */; };
 		3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89932A49F02300CF42AB /* LayerEditView.swift */; };
 		3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
@@ -131,6 +132,7 @@
 		3ED4EF6B2A4586A7007CCAA6 /* BatteryCircularGuageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryCircularGuageView.swift; sourceTree = "<group>"; };
 		3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeView.swift; sourceTree = "<group>"; };
 		3ED771E42A4AFE4300AFC1FC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassShapeView.swift; sourceTree = "<group>"; };
 		3EEB89932A49F02300CF42AB /* LayerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEditView.swift; sourceTree = "<group>"; };
 		3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButton.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				3ED771E42A4AFE4300AFC1FC /* MapView.swift */,
 				3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */,
+				3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */,
 				3E510DDD2A446B0A007D93F0 /* DynamicTextView.swift */,
 				3E41D3172A42F71900A29548 /* BatteryBar.swift */,
 				3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */,
@@ -504,6 +507,7 @@
 				3EC820832A460FAD00EA8A88 /* CalendarElementView.swift in Sources */,
 				3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
+				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
 				3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */,
 				3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */,

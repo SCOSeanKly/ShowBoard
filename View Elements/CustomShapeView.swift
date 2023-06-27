@@ -16,7 +16,7 @@ public struct CustomShapeView: View {
     @State private var scale: CGFloat = 1
     @State private var rotation: Angle = Angle(degrees: 0)
     @State private var bgColor = Color.blue
-    @State private var shadowRadius: CGFloat = 5
+    @State private var shadowRadius: CGFloat = 0
     @State private var shadowOffset: CGFloat = 0
     @State private var blur: CGFloat = 0
     @State private var opacity: CGFloat = 1
@@ -26,7 +26,7 @@ public struct CustomShapeView: View {
     private let defaultScale: CGFloat = 1
     private let defaultRotation: Angle = Angle(degrees: 0)
     private let defaultBgColor: Color = Color.blue
-    private let defaultShadowRadius: CGFloat = 5
+    private let defaultShadowRadius: CGFloat = 0
     private let defaultShadowOffset: CGFloat = 0
     private let defaultBlur: CGFloat = 0
     private let defaultOpacity: CGFloat = 1
@@ -61,14 +61,38 @@ public struct CustomShapeView: View {
             // MARK: Settings
             VStack {
                 HStack {
+                
                     Spacer()
-                    Button("Reset") {
-                        resetValues()
+                    
+                    Button {
+                        square()
+                    }label: {
+                        Image(systemName: "square")
+                            .padding(.trailing)
                     }
+                    Button {
+                        triangle()
+                    }label: {
+                        Image(systemName: "triangle")
+                            .padding(.trailing)
+                    }
+                    Button {
+                        circle()
+                    }label: {
+                        Image(systemName: "circle")
+                            .padding(.trailing)
+                    }
+                    Button {
+                        resetValues()
+                    }label: {
+                        Image(systemName: "star")
+                           
+                    }
+                    
                 }
                 HStack {
                     Text("Count: ")
-                    Slider(value: $count, in: 2...20)
+                    Slider(value: $count, in: 2...30)
                     Text("\(count, specifier: "%.0f")")
                 }
                 HStack {
@@ -112,18 +136,52 @@ public struct CustomShapeView: View {
                     Slider(value: $opacity, in: 0...1)
                     Text("\(opacity, specifier: "%.0f")")
                 }
-                
-                
             }
             .padding()
-            .offset(y: 350)
-            .scaleEffect(0.7)
+            .offset(y: 300)
+            .scaleEffect(0.8)
         }
     }
     
     private func resetValues() {
         count = defaultCount
         ratio = defaultRatio
+        scale = defaultScale
+        rotation = defaultRotation
+        bgColor = defaultBgColor
+        shadowRadius = defaultShadowRadius
+        shadowOffset = defaultShadowOffset
+        blur = defaultBlur
+        opacity = defaultOpacity
+    }
+    
+    private func square() {
+        count = 4
+        ratio = 1.4
+        scale = defaultScale
+        rotation = Angle(degrees: 45)
+        bgColor = defaultBgColor
+        shadowRadius = defaultShadowRadius
+        shadowOffset = defaultShadowOffset
+        blur = defaultBlur
+        opacity = defaultOpacity
+    }
+    
+    private func triangle() {
+        count = 3
+        ratio = defaultRatio
+        scale = defaultScale
+        rotation = defaultRotation
+        bgColor = defaultBgColor
+        shadowRadius = defaultShadowRadius
+        shadowOffset = defaultShadowOffset
+        blur = defaultBlur
+        opacity = defaultOpacity
+    }
+    
+    private func circle() {
+        count = 30
+        ratio = 2
         scale = defaultScale
         rotation = defaultRotation
         bgColor = defaultBgColor

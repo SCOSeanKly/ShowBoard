@@ -12,8 +12,8 @@ struct ShapesElementView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showShapesElementView: Bool
     
-    let shapesIconsArray = ["square", "circle", "triangle", "star"]
-    let shapesIconsArraytext = ["Custom 1", "Custom 2", "Custom 3", "Custom 4"]
+    let shapesIconsArray = ["rectangle", "star"]
+    let shapesIconsArraytext = ["Glass", "Custom"]
     
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     @State private var pressedButtonIndex: Int?
