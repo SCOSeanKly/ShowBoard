@@ -46,6 +46,7 @@ struct LayerElementView: View {
                                                 .foregroundColor(.primary)
                                                 .padding(.top, -2)
                                                 .frame(width: 60)
+                                                .minimumScaleFactor(0.01)
                                                 .lineLimit(1)
                                                 .scaleEffect(pressedButtonObjectIndex == index ? 0.9 : 1)
                                                 .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: pressedButtonObjectIndex)

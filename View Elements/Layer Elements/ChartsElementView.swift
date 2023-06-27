@@ -50,7 +50,10 @@ import SwiftUI
                     }
                     .padding(.horizontal)
                     .padding(.horizontal)
+            
                     
+                    LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: chartsIconsArray, iconsArraytext: chartsIconsArraytext, viewToClose: $showChartsElementView)
+                    /*
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ForEach(chartsIconsArray.indices, id: \.self) { index in
                             ZStack {
@@ -68,6 +71,7 @@ import SwiftUI
                                             .foregroundColor(.primary)
                                             .padding(.top, -2)
                                             .frame(width: 60)
+                                            .minimumScaleFactor(0.01)
                                             .lineLimit(1)
                                             .scaleEffect(pressedButtonIndex == index ? 0.9 : 1)
                                             .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: pressedButtonIndex)
@@ -99,6 +103,8 @@ import SwiftUI
                         }
                     }
                     .padding(.horizontal)
+                     */
+                     
                     
                     Spacer()
                 }

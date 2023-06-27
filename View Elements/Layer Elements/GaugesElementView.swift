@@ -12,7 +12,7 @@ struct GaugesElementView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showGaugesElementView: Bool
     
-    let gaugesIconsArray = ["", "", "", "", "", ""]
+    let gaugesIconsArray = ["questionmark.circle", "questionmark.circle", "questionmark.circle", "questionmark.circle", "questionmark.circle", "questionmark.circle"]
     let gaugesIconsArraytext = ["Style1", "Style2", "Style3", "Style4", "Style5", "Style6"]
     
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
@@ -51,10 +51,12 @@ struct GaugesElementView: View {
                 .padding(.horizontal)
                 .padding(.horizontal)
                 
+          LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: gaugesIconsArray, iconsArraytext: gaugesIconsArraytext, viewToClose: $showGaugesElementView)
+                /*
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ForEach(gaugesIconsArray.indices, id: \.self) { index in
+                        
                         ZStack {
-                            
                             VStack {
                                     Image(gaugesIconsArray[index])
                                         .resizable()
@@ -68,11 +70,13 @@ struct GaugesElementView: View {
                                         .foregroundColor(.primary)
                                         .padding(.top, -2)
                                         .frame(width: 60)
+                                        .minimumScaleFactor(0.01)
                                         .lineLimit(1)
                                         .scaleEffect(pressedButtonIndex == index ? 0.9 : 1)
                                         .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: pressedButtonIndex)
                                 }
                             }
+                         
                         .onTapGesture {
                             if pressedButtonIndex == index {
                                 pressedButtonIndex = nil
@@ -99,6 +103,8 @@ struct GaugesElementView: View {
                     }
                 }
                 .padding(.horizontal)
+                 */
+                
                 
                 Spacer()
             }

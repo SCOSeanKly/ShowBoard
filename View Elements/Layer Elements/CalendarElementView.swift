@@ -51,6 +51,8 @@ struct CalendarElementView: View {
                 .padding(.horizontal)
                 .padding(.horizontal)
                 
+         LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: calendarIconsArray, iconsArraytext: calendarIconsArraytext, viewToClose: $showCalendarElementView)
+                /*
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ForEach(calendarIconsArray.indices, id: \.self) { index in
                         ZStack {
@@ -68,6 +70,7 @@ struct CalendarElementView: View {
                                         .foregroundColor(.primary)
                                         .padding(.top, -2)
                                         .frame(width: 60)
+                                        .minimumScaleFactor(0.01)
                                         .lineLimit(1)
                                         .scaleEffect(pressedButtonIndex == index ? 0.9 : 1)
                                         .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: pressedButtonIndex)
@@ -99,6 +102,8 @@ struct CalendarElementView: View {
                     }
                 }
                 .padding(.horizontal)
+                 */
+                 
                 
                 Spacer()
             }
