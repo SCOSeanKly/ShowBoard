@@ -90,7 +90,8 @@ struct ShowBoardView: View {
                     .modifier(WidgetModifier(isDragging: $isDragging))
                     .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
                         runShortcut() }))
-                
+                 
+
                 if let importedImage3 = importedImage3 {
                     Image(uiImage: importedImage3)
                         .resizable()

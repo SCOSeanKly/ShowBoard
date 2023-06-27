@@ -12,8 +12,8 @@ struct ShapesElementView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showShapesElementView: Bool
     
-    let shapesIconsArray = ["", "", "", "", "", ""]
-    let shapesIconsArraytext = ["Style1", "Style2", "Style3", "Style4", "Style5", "Style6"]
+    let shapesIconsArray = ["square", "circle", "triangle", "star"]
+    let shapesIconsArraytext = ["Custom 1", "Custom 2", "Custom 3", "Custom 4"]
     
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     @State private var pressedButtonIndex: Int?
@@ -56,7 +56,7 @@ struct ShapesElementView: View {
                         ZStack {
                             
                             VStack {
-                                    Image(shapesIconsArray[index])
+                                Image(systemName: shapesIconsArray[index])
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 40, height: 40)

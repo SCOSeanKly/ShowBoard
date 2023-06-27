@@ -12,8 +12,8 @@ import SwiftUI
         @Binding var showLayerElementView: Bool
         @Binding var showChartsElementView: Bool
         
-        let chartsIconsArray = ["", "", "", "", "", ""]
-        let chartsIconsArraytext = ["Style1", "Style2", "Style3", "Style4", "Style5", "Style6"]
+        let chartsIconsArray = ["chart.xyaxis.line", "chart.bar"]
+        let chartsIconsArraytext = ["Line", "Bar"]
         
         let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
         @State private var pressedButtonIndex: Int?
@@ -41,7 +41,7 @@ import SwiftUI
                     .padding(.horizontal)
                     
                     HStack{
-                        Text("Charts")
+                        Text("Weather Charts")
                             .font(.headline.weight(.heavy))
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
@@ -56,7 +56,7 @@ import SwiftUI
                             ZStack {
                                 
                                 VStack {
-                                        Image(chartsIconsArray[index])
+                                    Image(systemName: chartsIconsArray[index])
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 40, height: 40)

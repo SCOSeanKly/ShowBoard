@@ -54,7 +54,7 @@ struct SWAWidgetView: View {
                     .foregroundColor(.gray)
                     .frame(width: 130, height: 115)
                     .offset(y: -15)
-                
+                /*
                 if let importedBackground = importedBackground {
                     Image(uiImage: importedBackground)
                         .resizable()
@@ -64,6 +64,23 @@ struct SWAWidgetView: View {
                         .cornerRadius(13)
                         .offset(y: -15)
                 }
+                 */
+                
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.white)
+                    
+                    MapView(locationDataManager: locationDataManager)
+                        .frame(width: 150, height: 160)
+                    
+                    // Frame needs cropped to remove Apple legal info
+                       
+                }
+                .frame(width: 130, height: 115)
+                .cornerRadius(13)
+                .offset(y: -15)
+                  
+                
                 VStack(alignment: .trailing) {
                     HStack {
                         
@@ -78,7 +95,7 @@ struct SWAWidgetView: View {
                     }
                 }
                 .frame(width: 130, height: 115)
-                .offset(x: -5, y: 30)
+                .offset(x: -5, y: 95)
                 
                 HStack {
                     

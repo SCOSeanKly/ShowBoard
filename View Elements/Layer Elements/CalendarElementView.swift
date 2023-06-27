@@ -12,8 +12,8 @@ struct CalendarElementView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showCalendarElementView: Bool
     
-    let calendarIconsArray = ["", "", "", "", "", ""]
-    let calendarIconsArraytext = ["Style1", "Style2", "Style3", "Style4", "Style5", "Style6"]
+    let calendarIconsArray = ["calendar", "calendar.day.timeline.left"]
+    let calendarIconsArraytext = ["Calendar", "Timeline"]
     
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     @State private var pressedButtonIndex: Int?
@@ -56,7 +56,7 @@ struct CalendarElementView: View {
                         ZStack {
                             
                             VStack {
-                                    Image(calendarIconsArray[index])
+                                    Image(systemName: calendarIconsArray[index])
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 40, height: 40)

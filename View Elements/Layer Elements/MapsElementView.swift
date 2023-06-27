@@ -12,8 +12,8 @@ struct MapsElementView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showMapsElementView: Bool
     
-    let mapsIconsArray = ["", "", "", "", "", ""]
-    let mapsIconsArraytext = ["Style1", "Style2", "Style3", "Style4", "Style5", "Style6"]
+    let mapsIconsArray = ["map"]
+    let mapsIconsArraytext = ["Style1"]
     
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     @State private var pressedButtonIndex: Int?
@@ -56,7 +56,7 @@ struct MapsElementView: View {
                         ZStack {
                             
                             VStack {
-                                    Image(mapsIconsArray[index])
+                                    Image(systemName: mapsIconsArray[index])
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 40, height: 40)
