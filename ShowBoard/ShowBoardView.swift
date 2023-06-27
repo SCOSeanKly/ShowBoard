@@ -20,10 +20,7 @@ struct ShowBoardView: View {
     
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
-    //  @State private var position = CGSize.zero
-    //  @State private var scaleEffect: CGFloat = 0.9
-    //  @State private var rotationEnabled = false //MARK: Still to be implemented
-    
+   
     //MARK: View Variables
     @State private var showBgPickerSheet = false
     @State private var importedBackground: UIImage? = nil
