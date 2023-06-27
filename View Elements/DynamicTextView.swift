@@ -29,19 +29,19 @@ struct DynamicTextView: View {
         
         
         /*text = replacePlaceholder("[day]", with: currentDate.day, in: text, options: regexOptions)
-        text = replacePlaceholder("[date]", with: currentDate.date, in: text, options: regexOptions)
-        text = replacePlaceholder("[month]", with: currentDate.month, in: text, options: regexOptions)
-        text = replacePlaceholder("[year]", with: currentDate.year, in: text, options: regexOptions)
-        text = replacePlaceholder("[time]", with: currentDate.time, in: text, options: regexOptions)
-        text = replacePlaceholder("[daysRemaining]", with: "\(daysRemaining())", in: text, options: regexOptions)
-        text = replacePlaceholder("[daysCount]", with: "\(daysCount())", in: text, options: regexOptions)
-        text = replacePlaceholder("[timeofday]", with: currentDate.timeOfDay, in: text, options: regexOptions)*/
+         text = replacePlaceholder("[date]", with: currentDate.date, in: text, options: regexOptions)
+         text = replacePlaceholder("[month]", with: currentDate.month, in: text, options: regexOptions)
+         text = replacePlaceholder("[year]", with: currentDate.year, in: text, options: regexOptions)
+         text = replacePlaceholder("[time]", with: currentDate.time, in: text, options: regexOptions)
+         text = replacePlaceholder("[daysRemaining]", with: "\(daysRemaining())", in: text, options: regexOptions)
+         text = replacePlaceholder("[daysCount]", with: "\(daysCount())", in: text, options: regexOptions)
+         text = replacePlaceholder("[timeofday]", with: currentDate.timeOfDay, in: text, options: regexOptions)*/
         
         return text
     }
     
     var body: some View {
-        VStack {
+        ScrollView {
             
             HStack{
                 Text("Enter text...")
@@ -54,7 +54,7 @@ struct DynamicTextView: View {
             .padding(.horizontal)
             
             TextEditor(text: $userInput)
-                .frame(height: 150)
+                .frame(height: 100)
                 .padding(5)
                 .background(.ultraThinMaterial)
                 .padding(.horizontal)
@@ -65,22 +65,28 @@ struct DynamicTextView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.black) +
                 
-            Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeofday]")
-                                .font(.system(size: 10))
-                                .foregroundColor(.black)
-
+                Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeofday]")
+                    .font(.system(size: 10))
+                    .foregroundColor(.black)
+                
+               
                 Spacer()
             }
             .padding(.horizontal)
             .padding(.top, 5)
-          
-
-//        
-//            Text(replacedText)
-//                .font(.custom("Autone", size: 26))
-//                .multilineTextAlignment(.center)
-//                .padding()
             
+            HStack {
+                Text(replacedText)
+                    .font(.custom("Autone", size: 26))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 5)
+                    .background(.ultraThinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                
+                Spacer()
+            }
+            .padding(.leading)
             
         }
         .padding(.horizontal)
