@@ -71,10 +71,7 @@
                     SettingsButton(layerFrameSize: 35, cornerRadius: 10, systemImage: "arrow.down", colour: .gray, lineWidth: 0.5, fontSize: 15)
                 }
             }
-            .padding()
-            .background(.ultraThinMaterial.opacity(0.5))
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-            .contentShape(Rectangle())
+          
             .scaleEffect(0.8)
            
         }

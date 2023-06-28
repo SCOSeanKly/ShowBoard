@@ -20,7 +20,10 @@ struct ControlButtons: View {
             ScaleButton(frameWidth: $frameWidth, frameHeight: $frameHeight)
         }
         .padding()
+        .background(.ultraThinMaterial.opacity(0.5))
+        .clipShape(RoundedRectangle(cornerRadius: 20))
         .contentShape(Rectangle())
+        .shadow(radius: 5)
         
         
     }

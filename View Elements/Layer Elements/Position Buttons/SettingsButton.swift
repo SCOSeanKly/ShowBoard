@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsButton: View {
     
-    var layerFrameSize: Double = 35
+    var layerFrameSize: Double = 40
     var cornerRadius: Double = 12
     var systemImage:String = "arrow.up.left.and.arrow.down.right"
     var colour:Color = Color.black
