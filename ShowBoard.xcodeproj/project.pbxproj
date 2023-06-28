@@ -10,6 +10,9 @@
 		0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C4272A4875E4007AF26E /* DynamicText.swift */; };
 		0913C42B2A48766C007AF26E /* DynamicText+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */; };
 		0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */; };
+		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
+		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
+		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
 		3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3770F82A45DA1900E3AC43 /* TextElementView.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
@@ -93,6 +96,9 @@
 		0913C4272A4875E4007AF26E /* DynamicText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicText.swift; sourceTree = "<group>"; };
 		0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DynamicText+Placeholder.swift"; sourceTree = "<group>"; };
 		0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionAsset.swift; sourceTree = "<group>"; };
+		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
+		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
+		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
 		3E3770F82A45DA1900E3AC43 /* TextElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElementView.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
@@ -188,11 +194,30 @@
 		0913C4292A487643007AF26E /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				0913C4272A4875E4007AF26E /* DynamicText.swift */,
-				0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */,
+				0972742D2A4C806100429786 /* LayerObject */,
+				0972742C2A4C804500429786 /* DynamicText */,
 				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		0972742C2A4C804500429786 /* DynamicText */ = {
+			isa = PBXGroup;
+			children = (
+				0913C4272A4875E4007AF26E /* DynamicText.swift */,
+				0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */,
+			);
+			path = DynamicText;
+			sourceTree = "<group>";
+		};
+		0972742D2A4C806100429786 /* LayerObject */ = {
+			isa = PBXGroup;
+			children = (
+				0972742E2A4C809B00429786 /* LayerObject.swift */,
+				097274302A4C820C00429786 /* LayerObject+Appearance.swift */,
+				097274322A4C854B00429786 /* TextObject.swift */,
+			);
+			path = LayerObject;
 			sourceTree = "<group>";
 		};
 		3E41D3192A42F73000A29548 /* View Elements */ = {
@@ -547,12 +572,14 @@
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
 				3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */,
 				3E61FC032A49C33D00BABEA5 /* ImportImageButton.swift in Sources */,
+				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
 				3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
+				097274332A4C854B00429786 /* TextObject.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */,
 				3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */,
@@ -586,6 +613,7 @@
 				3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */,
 				3EADA5BF2A437D3600FA1BCB /* ShakeEffect.swift in Sources */,
 				3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */,
+				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

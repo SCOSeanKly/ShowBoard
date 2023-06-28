@@ -13,6 +13,7 @@ extension DynamicText {
     
     enum Placeholder: String {
         
+        // Calendar stuff
         case day = "[day]"
         case date = "[date]"
         case month = "[month]"

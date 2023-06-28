@@ -7,33 +7,12 @@
 
 import SwiftUI
 
-extension View {
-    func replacePlaceholders(userInput: String) -> some View {
-        var text = userInput
-        let pattern = "\\[.*?\\]"
-        let regex = try! NSRegularExpression(pattern: pattern)
-        let matches = regex.matches(in: userInput, range: NSRange(userInput.startIndex..., in: userInput))
-        
-        for match in matches {
-            let range = match.range
-            let tag = String(userInput[Range(range, in: userInput)!])
-            
-            guard let placeholder = DynamicText.Placeholder(rawValue: tag) else {
-                continue
-            }
-            
-            text = text.replacingOccurrences(
-                of: tag,
-                with: placeholder.withCurrentDate()
-            )
-        }
-        
-        return AnyView(Text(text))
-    }
-}
 
 struct DynamicTextView: View {
-    @State private var userInput: String = "day: [day], year: [year]"
+    
+    @StateObject private var text = TextObject()
+    
+    //@State private var userInput: String = "day: [day], year: [year]"
     @State private var fontSize: CGFloat = 16
     @State private var fontName: String = "Autone"
     @State private var fontWeight: Font.Weight = .black
@@ -41,8 +20,9 @@ struct DynamicTextView: View {
     @State private var fontAlignment: TextAlignment = .leading
     @State private var shadowRadius: CGFloat = 0
     @State private var shadowOffset: CGFloat = 0
-    @State private var rotation: Angle = Angle(degrees: 0)
-    @State private var blendMode: BlendMode = .normal
+    
+    
+    
     
     let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
     
@@ -50,6 +30,8 @@ struct DynamicTextView: View {
     let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
     
     var body: some View {
+        
+        Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("ASD") }
         ScrollView {
             VStack {
                 HStack {
@@ -62,7 +44,7 @@ struct DynamicTextView: View {
                 }
                 .padding(.horizontal)
                 
-                TextEditor(text: $userInput)
+                TextEditor(text: $text.inputText)
                     .frame(height: 100)
                     .padding(5)
                     .background(.ultraThinMaterial)
@@ -84,14 +66,14 @@ struct DynamicTextView: View {
                 .padding(.top, 5)
                 
                 HStack {
-                    Text(userInput)
-                        .replacePlaceholders(userInput: userInput)
+                    Text(String(text.appearance.rotation.degrees))
+                        //.replacePlaceholders(userInput: userInput)
                         .font(.custom(fontName, size: fontSize))
                         .multilineTextAlignment(fontAlignment)
                         .fontWeight(fontWeight)
                         .foregroundColor(fontColor)
-                        .blendMode(blendMode)
-                        .rotationEffect(rotation)
+                        .blendMode(text.appearance.blendMode)
+                        .rotationEffect(text.appearance.rotation)
                         .padding(6)
                         .background(.ultraThinMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -156,22 +138,25 @@ struct DynamicTextView: View {
                     HStack {
                         Text("Rotation: ")
                         Slider(value: Binding<Double>(
-                            get: { rotation.degrees },
-                            set: { rotation = Angle(degrees: $0) }
+                            get: { text.appearance.rotation.degrees },
+                            set: { text.appearance.rotation = Angle(degrees: $0) }
                         ), in: 0...360)
-                        Text("\(rotation.degrees, specifier: "%.1f")")
+                        Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
                     }
                     
                     HStack {
                         Text("Blend Mode: ")
                         Spacer()
-                        Picker("Blend Mode", selection: $blendMode) {
+                        Picker("Blend Mode", selection: $text.appearance.blendMode) {
                             ForEach(blendModes, id: \.self) { mode in
                                 Text(labelForBlendMode(mode))
                                     .tag(mode)
                             }
                         }
                         .pickerStyle(.menu)
+                        
+                        
+                        
                     }
                     
                     ColorPicker("Set the foreground color", selection: $fontColor)
@@ -192,7 +177,7 @@ struct DynamicTextView: View {
         fontColor = .black
         shadowRadius = 0.0
         shadowOffset = 0.0
-        rotation = .zero
+        text.appearance.rotation = .zero
     }
     
     private func labelForBlendMode(_ blendMode: BlendMode) -> String {
