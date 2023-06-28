@@ -23,8 +23,5 @@ struct ControlButtons: View {
         .background(.ultraThinMaterial.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .contentShape(Rectangle())
-        .shadow(radius: 5)
-        
-        
     }
 }
