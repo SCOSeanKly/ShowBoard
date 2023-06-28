@@ -13,7 +13,7 @@ public struct CustomShapeView: View {
     @State private var count: CGFloat = 5
     @State private var ratio: CGFloat = 1
     @State private var isPresented: Bool = true
-    @State private var scale: CGFloat = 1
+    @State private var scale: CGFloat = 0.5
     @State private var rotation: Angle = Angle(degrees: 0)
     @State private var bgColor = Color.blue
     @State private var shadowRadius: CGFloat = 0
@@ -23,7 +23,7 @@ public struct CustomShapeView: View {
     
     private let defaultCount: CGFloat = 5
     private let defaultRatio: CGFloat = 1
-    private let defaultScale: CGFloat = 1
+    private let defaultScale: CGFloat = 0.5
     private let defaultRotation: Angle = Angle(degrees: 0)
     private let defaultBgColor: Color = Color.blue
     private let defaultShadowRadius: CGFloat = 0
@@ -31,15 +31,18 @@ public struct CustomShapeView: View {
     private let defaultBlur: CGFloat = 0
     private let defaultOpacity: CGFloat = 1
     
+    @State private var isDragging = false
+    
     public init() {}
     
     public var body: some View {
         ZStack {
+            
             VStack {
                 GeometryReader { proxy in
                     let min = min(proxy.size.width, proxy.size.height)
                     ZStack {
-                        Color.clear
+                      
                         Star(count: round(count), innerRatio: ratio)
                             .fill(bgColor)
                             .background(.ultraThinMaterial.opacity(opacity))
@@ -56,7 +59,7 @@ public struct CustomShapeView: View {
             .padding()
             .animation(.easeInOut, value: count)
             .animation(.easeInOut, value: ratio)
-            .offset(y: -100)
+            .offset(y: 50)
             
             // MARK: Settings
             VStack {

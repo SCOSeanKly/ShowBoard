@@ -122,12 +122,6 @@ extension DynamicText {
         
         
         
-        
-        
-        
-        
-        
-        
         private func tempteratureToSting(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""
             let convertedTemp = value.converted(to: unit)

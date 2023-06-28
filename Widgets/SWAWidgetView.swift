@@ -59,7 +59,7 @@ struct SWAWidgetView: View {
                     Rectangle()
                         .foregroundColor(.white)
                     
-                    MapView(locationDataManager: locationDataManager)
+                   MapExtensionView(locationDataManager: locationDataManager)
                         .frame(width: 150, height: 160)
                     
                     /// Frame needs cropped to remove Apple legal info

@@ -20,7 +20,7 @@ struct ShowBoardView: View {
     
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
-   
+    
     //MARK: View Variables
     @State private var showBgPickerSheet = false
     @State private var importedBackground: UIImage? = nil
@@ -59,56 +59,35 @@ struct ShowBoardView: View {
     @ObservedObject var weatherKitManager = WeatherKitManager()
     @State private var isRefreshing = false // Refresh trigger
     
+    @State private var offsetX: CGFloat = 0.0
+    @State private var offsetY: CGFloat = 0.0
+    @State private var frameWidth: CGFloat = 0.0
+    @State private var frameHeight: CGFloat = 0.0
+    
     
     var body: some View {
         ZStack {
             //MARK: Background View
             BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, isDragging: $isDragging)
             
-            if let importedImage1 = importedImage1 {
-                Image(uiImage: importedImage1)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-               
-            if let importedImage2 = importedImage2 {
-                Image(uiImage: importedImage2)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            
             //MARK: Widget Placeholder ZStack
             ZStack{
-                
-                /*
-                //MARK: This is a sample Widget 1
-                SWAWidgetView(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager, importedBackground: $importedBackground)
-                    .modifier(WidgetModifier(isDragging: $isDragging))
-                    .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
-                        runShortcut() }))
-                 */
-                
-                SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
-                    .modifier(WidgetModifier(isDragging: $isDragging))
-                    .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
-                        runShortcut() }))
-                 
-
-                if let importedImage3 = importedImage3 {
-                    Image(uiImage: importedImage3)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: UIScreen.main.bounds.width)
-                        .allowsHitTesting(false)
-                }
+              
+                    SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
+                        .modifier(WidgetModifier(isDragging: $isDragging))
+                        .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
+                            runShortcut() }))
                 
                 GridOverlay(isDragging: $isDragging)
+                
+               ControlButtons(offsetX: $offsetX, offsetY: $offsetY, frameWidth: $frameWidth, frameHeight: $frameHeight)
+                    .modifier(VerticalDragModifier())
+                
             }
+            
             .opacity(onAppearOpacity ? 1.0 : 0.0)
             .onAppear{
-                performDelayedAction(after: 1.0) {
+                performDelayedAction(after: 2.0) {
                     onAppearOpacity.toggle()
                 }
             }
@@ -118,11 +97,12 @@ struct ShowBoardView: View {
             
             //MARK: Show Image Picker Sheets
             ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
-                
+            
             //MARK: View containig the SheetPresentedViews
             SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
         }
         .prefersPersistentSystemOverlaysHidden()
+        
     }
 }
 
@@ -133,3 +113,26 @@ struct ShowBoardView_Previews: PreviewProvider {
     }
 }
 
+
+/*
+ if let importedImage1 = importedImage1 {
+ Image(uiImage: importedImage1)
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ .frame(width: UIScreen.main.bounds.width)
+ }
+ 
+ if let importedImage2 = importedImage2 {
+ Image(uiImage: importedImage2)
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ .frame(width: UIScreen.main.bounds.width)
+ }
+ 
+ if let importedImage3 = importedImage3 {
+ Image(uiImage: importedImage3)
+ .resizable()
+ .aspectRatio(contentMode: .fit)
+ .frame(width: UIScreen.main.bounds.width)
+ .allowsHitTesting(false)
+ }*/
