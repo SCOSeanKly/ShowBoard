@@ -8,25 +8,33 @@
 import SwiftUI
 
 struct URLImages: View {
-    @ObservedObject var viewModelHeader = DataViewModelHeader()
+    @ObservedObject var viewModelURLImages = DataViewModelURLImages()
     let screenWidth = UIScreen.main.bounds.width
     @State private var currentIndex = 0
-    @State private var isPressing: Bool = false
+    @Binding var showUrlImageView: Bool
+    @Binding var showLayerElementView: Bool
+    @Binding var urlImage: String?
     
-    let gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())] // Define the grid layout
+    let gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         ZStack {
             VStack {
-                if !viewModelHeader.images.isEmpty {
+                if !viewModelURLImages.images.isEmpty {
                     ScrollView(.vertical, showsIndicators: false) {
+                        
+                        LayerBackButton(selfViewToClose: $showUrlImageView, showLayerElementView: $showLayerElementView, headerText: "URL Images")
+                        
                         LazyVGrid(columns: gridItemLayout, spacing: 0) { // Use LazyVGrid to create the grid
-                            ForEach(viewModelHeader.images.indices, id: \.self) { index in
+                            ForEach(viewModelURLImages.images.indices, id: \.self) { index in
                                 
                                 Button {
-                                    // Some Action
+                                    // Update the current image index and pass the URL string to the next view
+                                    currentIndex = index
+                                    urlImage = viewModelURLImages.images[currentIndex].image
+                                    showUrlImageView.toggle()
                                 } label: {
-                                    URLImageViewHeader(image: viewModelHeader.images[index])
+                                    URLImageViewURLImages(image: viewModelURLImages.images[index])
                                         .frame(width: screenWidth * 0.25, height: screenWidth * 0.5)
                                         .scaledToFill()
                                         .clipped()
@@ -41,25 +49,23 @@ struct URLImages: View {
                     Text("Loading images...")
                 }
             }
+            .padding(.top)
         }
+        .presentationDetents([.fraction(0.4)])
+        .presentationDragIndicator(.visible)
         .onAppear {
-            viewModelHeader.loadImages()
+            viewModelURLImages.loadImages()
         }
-        .onReceive(viewModelHeader.$forceRefresh) { refresh in
+        .onReceive(viewModelURLImages.$forceRefresh) { refresh in
             if refresh {
-                viewModelHeader.loadImages()
+                viewModelURLImages.loadImages()
             }
         }
     }
 }
 
-
-
-
-
-
-struct URLImageViewHeader: View {
-    let image: ImageModelHeader
+struct URLImageViewURLImages: View {
+    let image: ImageModelURLImages
     
     var body: some View {
         VStack {
@@ -89,12 +95,12 @@ struct URLImageViewHeader: View {
     }
 }
 
-struct ImageModelHeader {
+struct ImageModelURLImages {
     let image: String
 }
 
-class DataViewModelHeader: ObservableObject {
-    @Published var images: [ImageModelHeader] = []
+class DataViewModelURLImages: ObservableObject {
+    @Published var images: [ImageModelURLImages] = []
     @Published var forceRefresh: Bool = false {
         didSet {
             if forceRefresh {
@@ -128,7 +134,7 @@ class DataViewModelHeader: ObservableObject {
                     self.images = imageNames.indices.map { index in
                         let imageName = imageNames[index]
                         let imageUrlString = baseUrlString + imageName
-                        let image = ImageModelHeader(image: imageUrlString)
+                        let image = ImageModelURLImages(image: imageUrlString)
                         return image
                     }
                 }
@@ -138,13 +144,3 @@ class DataViewModelHeader: ObservableObject {
         }.resume()
     }
 }
-
-
-struct URLImages_Previews: PreviewProvider {
-    static var previews: some View {
-        URLImages()
-    }
-}
-
-
-

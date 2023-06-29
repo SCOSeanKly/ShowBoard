@@ -217,7 +217,6 @@
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
-				3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */,
 				0913C4292A487643007AF26E /* Types */,
 				3E8849BB2A41D59100B50BBD /* Extensions */,
 				3EADA5B42A433E9100FA1BCB /* Modifiers */,
@@ -321,6 +320,7 @@
 				3EC8207C2A460EE800EA8A88 /* ShapesElementView.swift */,
 				3EC820822A460FAD00EA8A88 /* CalendarElementView.swift */,
 				3EC820842A46136800EA8A88 /* MapsElementView.swift */,
+				3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */,
 				3EEB89972A4A1F0100CF42AB /* Imported Images Views */,
 				3EFAB1882A45CD6D001A9BC7 /* Sheet Elements */,
 			);

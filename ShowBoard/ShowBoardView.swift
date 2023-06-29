@@ -32,6 +32,7 @@ struct ShowBoardView: View {
     @State private var showImagePickerSheet2 = false
     @State private var importedImage3: UIImage? = nil
     @State private var showImagePickerSheet3 = false
+    @State private var urlImage: String?
     
     @State private var showClipboardAlert = false
     @State private var hideMenuButtons = false
@@ -52,6 +53,7 @@ struct ShowBoardView: View {
     @State private var showMapsElementView = false
     @State private var showImportImageElementView = false
     @State private var showLayerEditView = false
+    @State private var showUrlImageView: Bool = false
     
     //MARK: Observed Objects
     @ObservedObject private var batteryViewModel = BatteryViewModel()
@@ -88,6 +90,11 @@ struct ShowBoardView: View {
                     .frame(width: UIScreen.main.bounds.width)
             }
             
+            if let urlString = urlImage, let url = URL(string: urlString) {
+                      URLImageView(url: url)
+                    .aspectRatio(contentMode: .fill)
+                  }
+            
                 ZStack{
                     //MARK: Widget Placeholder ZStack - All Elements go here
                         SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
@@ -113,23 +120,45 @@ struct ShowBoardView: View {
                     .allowsHitTesting(false)
             }
             
-            //MARK: Grid Overlay appears when dragging or micro adjustments are on screen
-            GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
-            
-            MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)
-                .modifier(VerticalDragModifier())
-            
-            
-            //MARK:  Menu Buttons
-            MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls)
-            
-            //MARK: Show Image Picker Sheets
-            ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
-            
-            //MARK: View containig the SheetPresentedViews
-            SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
+            Group {
+                //MARK: Grid Overlay appears when dragging or micro adjustments are on screen
+                GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
+                
+                //MARK: Micro controller buttons
+                MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)
+                    .modifier(VerticalDragModifier())
+                
+                //MARK:  Menu Buttons
+                MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls)
+                
+                //MARK: Show Image Picker Sheets
+                ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
+                
+                //MARK: View containig the SheetPresentedViews
+                SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView, urlImage: $urlImage)
+            }
         }
         .prefersPersistentSystemOverlaysHidden()
+    }
+}
+
+struct URLImageView: View {
+    var url: URL
+    
+    var body: some View {
+        AsyncImage(url: url) { phase in
+            switch phase {
+            case .empty:
+                ProgressView()
+            case .success(let image):
+                image
+                    .resizable()
+            case .failure:
+                Image(systemName: "xmark.circle")
+            @unknown default:
+                EmptyView()
+            }
+        }
     }
 }
 

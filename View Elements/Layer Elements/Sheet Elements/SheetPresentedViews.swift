@@ -27,7 +27,9 @@ struct SheetPresentedViews: View {
     @Binding var importedImage1: UIImage?
     @Binding var importedImage2: UIImage?
     @Binding var importedImage3: UIImage?
-    
+    @Binding var showUrlImageView: Bool
+    @Binding var urlImage: String?
+  
     var body: some View {
         ZStack{
             /// Empty content placeholder
@@ -35,7 +37,7 @@ struct SheetPresentedViews: View {
         
         //MARK: Element Selection Menu
         .sheet(isPresented: $showLayerElementView) {
-            LayerElementView(showLayerElementView: $showLayerElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showImportImageElementView: $showImportImageElementView, showMapsElementView: $showMapsElementView, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
+            LayerElementView(showLayerElementView: $showLayerElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showImportImageElementView: $showImportImageElementView, showMapsElementView: $showMapsElementView, showUrlImageView: $showUrlImageView, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
         }
         
         //MARK: Text Element
@@ -77,10 +79,14 @@ struct SheetPresentedViews: View {
         .sheet(isPresented: $showImportImageElementView) {
             ImportImageElementView(showLayerElementView: $showLayerElementView, showImportImageElementView: $showImportImageElementView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
         }
+        //MARK: Import URL Image Element
+        .sheet(isPresented: $showUrlImageView) {
+            URLImages(showUrlImageView: $showUrlImageView, showLayerElementView: $showLayerElementView, urlImage: $urlImage)
+        }
         
         //MARK: Layer Edit View
         .sheet(isPresented: $showLayerEditView) {
-            LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
+         //   LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
         }
         
         
