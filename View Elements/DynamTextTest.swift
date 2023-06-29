@@ -19,8 +19,9 @@ struct DynamicTextView: View {
     @State private var fontWeight: Font.Weight = .black
     @State private var fontColor: Color = .black
     @State private var fontAlignment: TextAlignment = .leading
-    @State private var shadowRadius: CGFloat = 0
-    @State private var shadowOffset: CGFloat = 0
+    
+    // Dont forget this is just a helper for the settings view we are currently in
+    @State private var rotationDegrees: CGFloat = 0
     
     
     
@@ -68,18 +69,14 @@ struct DynamicTextView: View {
                 
                 HStack {
                     Text(String(text.appearance.rotation.degrees))
-                        //.replacePlaceholders(userInput: userInput)
+                        .appearance(text.appearance)
                         .font(.custom(fontName, size: fontSize))
                         .tracking(fontTracking)
                         .multilineTextAlignment(fontAlignment)
                         .fontWeight(fontWeight)
                         .foregroundColor(fontColor)
-                        .blendMode(text.appearance.blendMode)
-                        .rotationEffect(text.appearance.rotation)
                         .padding(6)
                         .background(.ultraThinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .shadow(radius: shadowRadius, y: shadowOffset)
                     
                     Spacer()
                 }
@@ -135,22 +132,20 @@ struct DynamicTextView: View {
                     
                     HStack {
                         Text("Shadow Radius: ")
-                        Slider(value: $shadowRadius, in: 0...20)
-                        Text("\(shadowRadius, specifier: "%.1f")")
+                        Slider(value: $text.appearance.shadow.radius, in: 0...20)
+                        Text("\(text.appearance.shadow.radius, specifier: "%.1f")")
                     }
                     HStack {
                         Text("Shadow Offset: ")
-                        Slider(value: $shadowOffset, in: 0...30)
-                        Text("\(shadowOffset, specifier: "%.1f")")
+                        Slider(value: $text.appearance.shadow.offset.y, in: 0...30)
+                        Text("\(text.appearance.shadow.offset.y, specifier: "%.1f")")
                     }
                     HStack {
                         Text("Rotation: ")
-                        Slider(value: Binding<Double>(
-                            get: { text.appearance.rotation.degrees },
-                            set: { text.appearance.rotation = Angle(degrees: $0) }
-                        ), in: 0...360)
-                        Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
+                        Slider(value: $rotationDegrees, in: 0...360)
+                        Text("\(rotationDegrees, specifier: "%.1f")")
                     }
+                    .onChange(of: rotationDegrees) { text.appearance.rotation.degrees = $0 }
                     
                     HStack {
                         Text("Blend Mode: ")
@@ -183,8 +178,6 @@ struct DynamicTextView: View {
         fontSize = 26
         fontWeight = .regular
         fontColor = .black
-        shadowRadius = 0.0
-        shadowOffset = 0.0
         text.appearance.rotation = .zero
     }
     

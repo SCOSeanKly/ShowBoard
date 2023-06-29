@@ -32,7 +32,15 @@ class LayerObjectAppearance {
     var rotation: Angle
     
     
+    /// The currently used blend mode
     var blendMode: BlendMode
+    
+    
+    /// The currently applied shadow settings
+    var shadow: ShadowSettings
+    
+    
+    
     
     
     init() {
@@ -41,14 +49,16 @@ class LayerObjectAppearance {
         self.scales = .zero
         self.rotation = .zero
         self.blendMode = .normal
+        self.shadow = ShadowSettings()
     }
     
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
         self.rotation = rotation
         self.blendMode = blendMode
+        self.shadow = ShadowSettings()
     }
 }

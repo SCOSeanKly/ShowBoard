@@ -13,6 +13,8 @@
 		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
+		097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274342A4DDCCB00429786 /* ShadowSettings.swift */; };
+		097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */; };
 		3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3770F82A45DA1900E3AC43 /* TextElementView.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
@@ -100,6 +102,8 @@
 		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
+		097274342A4DDCCB00429786 /* ShadowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettings.swift; sourceTree = "<group>"; };
+		097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectAppearanceModifier.swift; sourceTree = "<group>"; };
 		3E3770F82A45DA1900E3AC43 /* TextElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElementView.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
 				097274302A4C820C00429786 /* LayerObject+Appearance.swift */,
 				097274322A4C854B00429786 /* TextObject.swift */,
+				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
+				097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */,
 			);
 			path = LayerObject;
 			sourceTree = "<group>";
@@ -597,11 +603,13 @@
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
 				3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */,
+				097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */,
 				3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */,
 				3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */,
 				3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */,
 				3E8849B52A41D49400B50BBD /* LocationDataManager.swift in Sources */,
 				3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */,
+				097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */,
 				3EADA5AD2A432DD000FA1BCB /* CopyToClipboard.swift in Sources */,
 				3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */,
 				3EC820852A46136800EA8A88 /* MapsElementView.swift in Sources */,
