@@ -49,7 +49,7 @@ struct URLImages: View {
             }
             .padding(.top)
         }
-        .presentationDetents([.fraction(0.75)])
+        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
         .onAppear {
             viewModelURLImages.loadImages()

@@ -23,7 +23,7 @@ struct GaugesElementView: View {
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: gaugesIconsArray, iconsArraytext: gaugesIconsArraytext, viewToClose: $showGaugesElementView)
             }
-        .presentationDetents([.fraction(0.4)])
+            .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

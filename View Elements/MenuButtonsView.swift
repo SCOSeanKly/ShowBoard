@@ -21,6 +21,8 @@ struct MenuButtonsView: View {
     @State private var isPressingLayers: Bool = false
     @State private var isPressingExport: Bool = false
     
+    @State private var currentImageIndex = 0
+    private let images = ["square.3.layers.3d.top.filled", "square.3.layers.3d.middle.filled", "square.3.layers.3d.bottom.filled"] 
     
     var body: some View {
         Group {
@@ -61,7 +63,7 @@ struct MenuButtonsView: View {
                         
                         Spacer()
                         
-                        Image(systemName: "square.3.layers.3d.bottom.filled")
+                        Image(systemName: images[currentImageIndex])
                             .font(.title2)
                             .foregroundColor(.white)
                             .padding()
@@ -80,6 +82,8 @@ struct MenuButtonsView: View {
                                 }
                             }
                             .offset(x: 15)
+                            .id(currentImageIndex) // Add identifier for the image transition
+                            .transition(.opacity) // Set transition to fade animation
                         
                         Image(systemName: "square.and.arrow.up")
                             .font(.title2)
@@ -109,6 +113,17 @@ struct MenuButtonsView: View {
                 .opacity(hideMenuButtons ? 0.0 : 1.0)
             }
         }
+        .onAppear {
+            startImageTimer()
+        }
+    }
+    
+    private func startImageTimer() {
+        Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { timer in
+            withAnimation {
+                currentImageIndex = (currentImageIndex + 1) % images.count
+            }
+        }
     }
 }
 
@@ -117,4 +132,3 @@ struct MenuButtonsView_Previews: PreviewProvider {
         ShowBoardView()
     }
 }
-

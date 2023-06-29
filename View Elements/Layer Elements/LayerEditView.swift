@@ -7,18 +7,10 @@
 
 import SwiftUI
 
-//
-//  LayerEditView.swift
-//  ShowBoard
-//
-//  Created by Sean Kelly on 26/06/2023.
-//
-
-import SwiftUI
-
 struct LayerEditView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showLayerEditView: Bool
+    @State private var isEditing = false
     
     var body: some View {
         ZStack {
@@ -38,6 +30,15 @@ struct LayerEditView: View {
                             .tint(.black)
                     }
                     Spacer()
+                    Button {
+                        
+                        isEditing.toggle()
+                        
+                    } label: {
+                        Image(systemName: isEditing ? "xmark.circle" : "ellipsis.circle")
+                            .font(.title)
+                            .tint(.black)
+                    }
                 }
                 .padding()
                 .padding(.horizontal)
@@ -53,15 +54,10 @@ struct LayerEditView: View {
                 .padding(.horizontal)
                 .padding(.horizontal)
                 
-                
-                
-                
-                
-                
-                Spacer()
+                LayerItems(isEditing: $isEditing)
             }
         }
-        .presentationDetents([.fraction(0.4)])
+        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

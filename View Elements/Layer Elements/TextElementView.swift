@@ -55,7 +55,7 @@ struct TextElementView: View {
                 Spacer()
             }
         }
-        .presentationDetents([.fraction(0.4)])
+        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

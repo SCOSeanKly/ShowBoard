@@ -25,7 +25,7 @@ struct MapsElementView: View {
                 
                 LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: mapsIconsArray, iconsArraytext: mapsIconsArraytext, viewToClose: $showMapsElementView)
             }
-        .presentationDetents([.fraction(0.4)])
+        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

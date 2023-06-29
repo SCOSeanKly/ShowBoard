@@ -24,6 +24,7 @@
 		3E510DE02A44888A007D93F0 /* DynamicTextExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E510DDF2A44888A007D93F0 /* DynamicTextExtension.swift */; };
 		3E61FC032A49C33D00BABEA5 /* ImportImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC022A49C33D00BABEA5 /* ImportImageButton.swift */; };
 		3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */; };
+		3E6EDAC92A4E065C00223C8A /* LayerItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6EDAC82A4E065C00223C8A /* LayerItemsView.swift */; };
 		3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849892A41D47800B50BBD /* ShowBoardApp.swift */; };
 		3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E88498B2A41D47800B50BBD /* ContentView.swift */; };
 		3E88498E2A41D47800B50BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E88498D2A41D47800B50BBD /* Assets.xcassets */; };
@@ -113,6 +114,7 @@
 		3E510DDF2A44888A007D93F0 /* DynamicTextExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextExtension.swift; sourceTree = "<group>"; };
 		3E61FC022A49C33D00BABEA5 /* ImportImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImageButton.swift; sourceTree = "<group>"; };
 		3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverImagePickerViews.swift; sourceTree = "<group>"; };
+		3E6EDAC82A4E065C00223C8A /* LayerItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerItemsView.swift; sourceTree = "<group>"; };
 		3E8849862A41D47800B50BBD /* ShowBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8849892A41D47800B50BBD /* ShowBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardApp.swift; sourceTree = "<group>"; };
 		3E88498B2A41D47800B50BBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				3ED771EC2A4B395500AFC1FC /* Layer View Buttons */,
 				3EADA5BC2A4354CA00FA1BCB /* LayerElementView.swift */,
 				3EEB89932A49F02300CF42AB /* LayerEditView.swift */,
+				3E6EDAC82A4E065C00223C8A /* LayerItemsView.swift */,
 				3E3770F82A45DA1900E3AC43 /* TextElementView.swift */,
 				3EC8207E2A460F3700EA8A88 /* GaugesElementView.swift */,
 				3EA43C972A45AB2F00A28C75 /* WeatherElementView.swift */,
@@ -600,6 +603,7 @@
 				3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */,
+				3E6EDAC92A4E065C00223C8A /* LayerItemsView.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
 				3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */,
@@ -784,7 +788,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.10;
+				CURRENT_PROJECT_VERSION = 0.0.11;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -827,7 +831,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.10;
+				CURRENT_PROJECT_VERSION = 0.0.11;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

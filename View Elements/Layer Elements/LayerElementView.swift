@@ -132,7 +132,7 @@ struct LayerElementView: View {
         .onAppear {
             shouldShowRedDot = hasImages(for: 6) // Check if red dot should be initially shown
         }
-        .presentationDetents([.fraction(0.4)])
+        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
     
