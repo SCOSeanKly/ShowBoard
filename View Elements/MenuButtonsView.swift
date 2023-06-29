@@ -28,7 +28,7 @@ struct MenuButtonsView: View {
                 VStack {
                     HStack {
                         
-                        Image(systemName: showMicroContols ? "xmark" : "square.grid.2x2")
+                        Image(systemName: showMicroContols ? "arrow.up.and.down.and.arrow.left.and.right" : "square.grid.2x2")
                             .font(.title2)
                             .foregroundColor(showMicroContols ? .red : .white)
                             .padding()

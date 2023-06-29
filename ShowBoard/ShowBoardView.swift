@@ -105,7 +105,6 @@ struct ShowBoardView: View {
                 }
             
             
-            
             if let importedImage3 = importedImage3 {
                 Image(uiImage: importedImage3)
                     .resizable()
@@ -114,7 +113,7 @@ struct ShowBoardView: View {
                     .allowsHitTesting(false)
             }
             
-            //MARK: Grid Overlay appears when dragging
+            //MARK: Grid Overlay appears when dragging or micro adjustments are on screen
             GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
             
             MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)

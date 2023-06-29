@@ -29,6 +29,10 @@ struct PositionButton: View {
                     .font(.system(size: 10))
                     .textCase(.uppercase)
                     .foregroundColor(.black)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal)
+                    .background(.white.opacity(0.5))
+                    .clipShape(RoundedRectangle(cornerRadius: 50))
                     .offset(x: 22)
                 VStack {
                     Toggle("", isOn: $microAdjustment)
