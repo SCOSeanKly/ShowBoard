@@ -16,7 +16,6 @@
 		3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3770F82A45DA1900E3AC43 /* TextElementView.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
-		3E41D31B2A42FA1600A29548 /* oldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D31A2A42FA1600A29548 /* oldView.swift */; };
 		3E4E6B492A4B733C00942494 /* DynamTextTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamTextTest.swift */; };
 		3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F89832A4B5865001763DC /* SWAWidget2.swift */; };
 		3E510DDE2A446B0A007D93F0 /* DynamicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E510DDD2A446B0A007D93F0 /* DynamicTextView.swift */; };
@@ -36,6 +35,7 @@
 		3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849C02A41D5C600B50BBD /* PhotosPicker.swift */; };
 		3E8849C52A41D61D00B50BBD /* HexColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849C42A41D61D00B50BBD /* HexColour.swift */; };
 		3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849C62A41D66400B50BBD /* ShowBoardView.swift */; };
+		3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */; };
 		3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA43C972A45AB2F00A28C75 /* WeatherElementView.swift */; };
 		3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EADA59B2A4315CC00FA1BCB /* Autone.ttf */; };
 		3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */; };
@@ -62,7 +62,7 @@
 		3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34A72A4C40A3008794BC /* PositionButton.swift */; };
 		3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34A92A4C40C1008794BC /* SettingsButton.swift */; };
 		3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34AC2A4C6153008794BC /* ScaleButton.swift */; };
-		3ECC34AF2A4C619F008794BC /* ControlButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34AE2A4C619F008794BC /* ControlButtons.swift */; };
+		3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */; };
 		3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34B02A4C6905008794BC /* VerticalDragModifier.swift */; };
 		3ED4EF6C2A4586A7007CCAA6 /* BatteryCircularGuageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4EF6B2A4586A7007CCAA6 /* BatteryCircularGuageView.swift */; };
 		3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */; };
@@ -70,6 +70,7 @@
 		3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */; };
 		3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */; };
 		3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */; };
+		3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */; };
 		3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89932A49F02300CF42AB /* LayerEditView.swift */; };
 		3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
@@ -102,7 +103,6 @@
 		3E3770F82A45DA1900E3AC43 /* TextElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElementView.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
-		3E41D31A2A42FA1600A29548 /* oldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oldView.swift; sourceTree = "<group>"; };
 		3E4E6B482A4B733C00942494 /* DynamTextTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamTextTest.swift; sourceTree = "<group>"; };
 		3E4F89832A4B5865001763DC /* SWAWidget2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidget2.swift; sourceTree = "<group>"; };
 		3E510DDD2A446B0A007D93F0 /* DynamicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextView.swift; sourceTree = "<group>"; };
@@ -126,6 +126,7 @@
 		3E8849C02A41D5C600B50BBD /* PhotosPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPicker.swift; sourceTree = "<group>"; };
 		3E8849C42A41D61D00B50BBD /* HexColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColour.swift; sourceTree = "<group>"; };
 		3E8849C62A41D66400B50BBD /* ShowBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardView.swift; sourceTree = "<group>"; };
+		3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableButtonView.swift; sourceTree = "<group>"; };
 		3EA43C972A45AB2F00A28C75 /* WeatherElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherElementView.swift; sourceTree = "<group>"; };
 		3EADA59B2A4315CC00FA1BCB /* Autone.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Autone.ttf; sourceTree = "<group>"; };
 		3EADA59E2A43161900FA1BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -153,7 +154,7 @@
 		3ECC34A72A4C40A3008794BC /* PositionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionButton.swift; sourceTree = "<group>"; };
 		3ECC34A92A4C40C1008794BC /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		3ECC34AC2A4C6153008794BC /* ScaleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButton.swift; sourceTree = "<group>"; };
-		3ECC34AE2A4C619F008794BC /* ControlButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButtons.swift; sourceTree = "<group>"; };
+		3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroControlsView.swift; sourceTree = "<group>"; };
 		3ECC34B02A4C6905008794BC /* VerticalDragModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalDragModifier.swift; sourceTree = "<group>"; };
 		3ED4EF6B2A4586A7007CCAA6 /* BatteryCircularGuageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryCircularGuageView.swift; sourceTree = "<group>"; };
 		3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeView.swift; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassShapeView.swift; sourceTree = "<group>"; };
 		3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerButton.swift; sourceTree = "<group>"; };
 		3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerBackButton.swift; sourceTree = "<group>"; };
+		3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImages.swift; sourceTree = "<group>"; };
 		3EEB89932A49F02300CF42AB /* LayerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEditView.swift; sourceTree = "<group>"; };
 		3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButton.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
@@ -241,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				0913C4292A487643007AF26E /* Types */,
-				3E41D31A2A42FA1600A29548 /* oldView.swift */,
 				3E8849BB2A41D59100B50BBD /* Extensions */,
 				3EADA5B42A433E9100FA1BCB /* Modifiers */,
 				3EADA59D2A4315E500FA1BCB /* Custom Fonts */,
@@ -344,6 +345,7 @@
 				3EC8207C2A460EE800EA8A88 /* ShapesElementView.swift */,
 				3EC820822A460FAD00EA8A88 /* CalendarElementView.swift */,
 				3EC820842A46136800EA8A88 /* MapsElementView.swift */,
+				3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */,
 				3EEB89972A4A1F0100CF42AB /* Imported Images Views */,
 				3EFAB1882A45CD6D001A9BC7 /* Sheet Elements */,
 			);
@@ -387,7 +389,8 @@
 				3ECC34A72A4C40A3008794BC /* PositionButton.swift */,
 				3ECC34AC2A4C6153008794BC /* ScaleButton.swift */,
 				3ECC34A92A4C40C1008794BC /* SettingsButton.swift */,
-				3ECC34AE2A4C619F008794BC /* ControlButtons.swift */,
+				3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */,
+				3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */,
 			);
 			path = "Position Buttons";
 			sourceTree = "<group>";
@@ -587,14 +590,15 @@
 				3ED4EF6C2A4586A7007CCAA6 /* BatteryCircularGuageView.swift in Sources */,
 				3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */,
 				3EC820832A460FAD00EA8A88 /* CalendarElementView.swift in Sources */,
+				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
 				3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
+				3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
 				3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */,
 				3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */,
 				3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */,
-				3E41D31B2A42FA1600A29548 /* oldView.swift in Sources */,
 				3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */,
 				3E8849B52A41D49400B50BBD /* LocationDataManager.swift in Sources */,
 				3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */,
@@ -603,7 +607,7 @@
 				3EC820852A46136800EA8A88 /* MapsElementView.swift in Sources */,
 				0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */,
 				3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */,
-				3ECC34AF2A4C619F008794BC /* ControlButtons.swift in Sources */,
+				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,

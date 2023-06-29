@@ -4,7 +4,6 @@
 //
 //  Created by Sean Kelly on 28/06/2023.
 //
-
 import SwiftUI
 
 struct PositionButton: View {
@@ -14,13 +13,26 @@ struct PositionButton: View {
     @Binding var offsetX: CGFloat
     @Binding var offsetY: CGFloat
     
+    var offsetValue: CGFloat {
+        return microAdjustment ? 0.5 : 2
+    }
+    
+    func resetValues() {
+        offsetX = 0
+        offsetY = 0
+    }
+    
     var body: some View {
         VStack(spacing: stackSpacing) {
             HStack {
-                Text("SCALE")
+                Text("POSITION")
                     .font(.system(size: 10))
                     .textCase(.uppercase)
                     .foregroundColor(.black)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal)
+                    .background(.white.opacity(0.5))
+                    .clipShape(RoundedRectangle(cornerRadius: 50))
                     .offset(x: 22)
                 VStack {
                     Toggle("", isOn: $microAdjustment)
@@ -29,57 +41,38 @@ struct PositionButton: View {
                         .rotationEffect(Angle(degrees: -270))
                     Text("µ")
                         .font(.system(size: 10))
-                        .textCase(.uppercase)
                         .foregroundColor(.black)
                         .offset(y: -5)
                 }
-                .offset(x: 25, y: 32)
+                .offset(x: 17, y: 32)
             }
             .frame(width: 150, height: 10)
             
-            Button(action: {
-                offsetY -= 100 // Move up
-            }) {
-                SettingsButton(layerFrameSize: 35, cornerRadius: 10, systemImage: "arrow.up", colour: .gray, lineWidth: 0.5, fontSize: 15)
-                  
-            }
             
+            PressableButtonView(systemImage: "arrow.up") {
+                offsetY -= offsetValue
+            }
             HStack(spacing: stackSpacing) {
-                Button(action: {
-                    offsetX -= 10 // Move left
-                }) {
-                    SettingsButton(layerFrameSize: 35, cornerRadius: 10, systemImage: "arrow.left", colour: .gray, lineWidth: 0.5, fontSize: 15)
-                }
                 
-                Button(action: {
-                    // Open layer settings
-                }) {
-                    SettingsButton(layerFrameSize: 35, cornerRadius: 10, systemImage: "wrench.adjustable", colour: .gray, lineWidth: 0.5, fontSize: 15)
+                PressableButtonView(systemImage: "arrow.left") {
+                    offsetX -= offsetValue
                 }
-                
-                Button(action: {
-                    offsetX += 10 // Move right
-                }) {
-                    SettingsButton(layerFrameSize: 35, cornerRadius: 10, systemImage: "arrow.right", colour: .gray, lineWidth: 0.5, fontSize: 15)
+                PressableButtonView(systemImage: "arrow.counterclockwise") {
+                    resetValues() 
+                }
+                PressableButtonView(systemImage: "arrow.right") {
+                    offsetX += offsetValue
                 }
             }
-            
-            Button(action: {
-                offsetY += 10 // Move down
-            }) {
-                SettingsButton(layerFrameSize: 35, cornerRadius: 10, systemImage: "arrow.down", colour: .gray, lineWidth: 0.5, fontSize: 15)
+            PressableButtonView(systemImage: "arrow.down") {
+                offsetY += offsetValue
             }
         }
-       
-        .scaleEffect(0.8)
-       
+        .scaleEffect(0.9)
+        
     }
 }
 
-struct PositionButton_Previews: PreviewProvider {
-    static var previews: some View {
-        PositionButton(offsetX: .constant(0), offsetY: .constant(0))
-    }
-}
+
 
 

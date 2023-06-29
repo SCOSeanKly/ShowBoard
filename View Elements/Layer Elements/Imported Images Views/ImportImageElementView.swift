@@ -67,17 +67,17 @@ struct ImportImageElementView: View {
                 
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     
-                    ImportImageButton(systemImage: "photo.badge.plus", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage1)
+                    ImportImageButton(systemImage: "photo", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage1)
                         .overlay {
                             ImageTrashButtonView(buttonIsPressedAnimation: $buttonIsPressedAnimationImage1, settingButtonIsPressedAnimation: $settingsButtonIsPressedAnimationImage1, importedImage: $importedImage1)
                         }
                     
-                    ImportImageButton(systemImage: "photo.badge.plus", buttontext: "Image2", buttonAction: $showImagePickerSheet2, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage2)
+                    ImportImageButton(systemImage: "photo", buttontext: "Image2", buttonAction: $showImagePickerSheet2, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage2)
                         .overlay {
                             ImageTrashButtonView(buttonIsPressedAnimation: $buttonIsPressedAnimationImage2, settingButtonIsPressedAnimation: $settingsButtonIsPressedAnimationImage2, importedImage: $importedImage2)
                         }
                     
-                    ImportImageButton(systemImage: "photo.badge.plus", buttontext: "Image3", buttonAction: $showImagePickerSheet3, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage3)
+                    ImportImageButton(systemImage: "photo", buttontext: "Image3", buttonAction: $showImagePickerSheet3, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage3)
                         .overlay {
                             ImageTrashButtonView(buttonIsPressedAnimation: $buttonIsPressedAnimationImage3, settingButtonIsPressedAnimation: $settingsButtonIsPressedAnimationImage3, importedImage: $importedImage3)
                         }

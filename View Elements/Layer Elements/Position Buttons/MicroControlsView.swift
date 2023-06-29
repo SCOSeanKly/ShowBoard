@@ -7,21 +7,25 @@
 
 import SwiftUI
 
-struct ControlButtons: View {
+struct MicroControlsView: View {
     
     @Binding var offsetX: CGFloat
     @Binding var offsetY: CGFloat
-    @Binding var frameWidth: CGFloat
-    @Binding var frameHeight: CGFloat
-   
+    @Binding var widthRatio: CGFloat
+    @Binding var heightRatio: CGFloat
+    @Binding var showMicroControls: Bool
+    
     var body: some View {
+        
         HStack(spacing: 5){
             PositionButton(offsetX: $offsetX, offsetY: $offsetY)
-            ScaleButton(frameWidth: $frameWidth, frameHeight: $frameHeight)
+            ScaleButton(widthRatio: $widthRatio, heightRatio: $heightRatio)
         }
         .padding()
         .background(.ultraThinMaterial.opacity(0.5))
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .contentShape(Rectangle())
+        .offset(y: showMicroControls ? 0 : UIScreen.main.bounds.height)
+        .animation(.easeInOut, value: showMicroControls)
     }
 }

@@ -52,6 +52,7 @@ struct ShowBoardView: View {
     @State private var showMapsElementView = false
     @State private var showImportImageElementView = false
     @State private var showLayerEditView = false
+    @State private var showUrlImageView: Bool = false
     
     //MARK: Observed Objects
     @ObservedObject private var batteryViewModel = BatteryViewModel()
@@ -61,51 +62,81 @@ struct ShowBoardView: View {
     
     @State private var offsetX: CGFloat = 0.0
     @State private var offsetY: CGFloat = 0.0
-    @State private var frameWidth: CGFloat = 0.0
-    @State private var frameHeight: CGFloat = 0.0
     
+    @State private var widthRatio: CGFloat = 1.0
+    @State private var heightRatio: CGFloat = 1.0
+    
+    @State private var showMicroControls: Bool = false
     
     var body: some View {
         ZStack {
+            
             //MARK: Background View
             BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, isDragging: $isDragging)
             
-            //MARK: Widget Placeholder ZStack
-            ZStack{
-              
-                    SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
-                        .modifier(WidgetModifier(isDragging: $isDragging))
-                        .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
-                            runShortcut() }))
+            if let importedImage1 = importedImage1 {
+                Image(uiImage: importedImage1)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width)
+            }
+            
+       
+             
+            
+            if let importedImage2 = importedImage2 {
+                Image(uiImage: importedImage2)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width)
+            }
+            
+                ZStack{
+                    //MARK: Widget Placeholder ZStack - All Elements go here
+                        SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
+                            .scaleEffect(x: widthRatio, y: heightRatio, anchor: .center)
+                            .offset(x: offsetX, y: offsetY)
+                            .modifier(WidgetModifier(isDragging: $isDragging))
+                            .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
+                                runShortcut() }))
+                }
+                .opacity(onAppearOpacity ? 1.0 : 0.0)
+                .onAppear{
+                    performDelayedAction(after: 2.0) {
+                        onAppearOpacity.toggle()
+                    }
+                }
+            
+            
+            if let importedImage3 = importedImage3 {
+                Image(uiImage: importedImage3)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width)
+                    .allowsHitTesting(false)
+            }
+            
+            Group {
+                //MARK: Grid Overlay appears when dragging or micro adjustments are on screen
+                GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
                 
-                GridOverlay(isDragging: $isDragging)
-                
-               ControlButtons(offsetX: $offsetX, offsetY: $offsetY, frameWidth: $frameWidth, frameHeight: $frameHeight)
+                //MARK: Micro controller buttons
+                MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)
                     .modifier(VerticalDragModifier())
                 
+                //MARK:  Menu Buttons
+                MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls)
+                
+                //MARK: Show Image Picker Sheets
+                ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
+                
+                //MARK: View containig the SheetPresentedViews
+                SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView)
             }
-            
-            .opacity(onAppearOpacity ? 1.0 : 0.0)
-            .onAppear{
-                performDelayedAction(after: 2.0) {
-                    onAppearOpacity.toggle()
-                }
-            }
-            
-            //MARK:  Menu Buttons
-            MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView)
-            
-            //MARK: Show Image Picker Sheets
-            ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
-            
-            //MARK: View containig the SheetPresentedViews
-            SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
         }
         .prefersPersistentSystemOverlaysHidden()
-        
     }
 }
-
 
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
@@ -113,26 +144,3 @@ struct ShowBoardView_Previews: PreviewProvider {
     }
 }
 
-
-/*
- if let importedImage1 = importedImage1 {
- Image(uiImage: importedImage1)
- .resizable()
- .aspectRatio(contentMode: .fit)
- .frame(width: UIScreen.main.bounds.width)
- }
- 
- if let importedImage2 = importedImage2 {
- Image(uiImage: importedImage2)
- .resizable()
- .aspectRatio(contentMode: .fit)
- .frame(width: UIScreen.main.bounds.width)
- }
- 
- if let importedImage3 = importedImage3 {
- Image(uiImage: importedImage3)
- .resizable()
- .aspectRatio(contentMode: .fit)
- .frame(width: UIScreen.main.bounds.width)
- .allowsHitTesting(false)
- }*/

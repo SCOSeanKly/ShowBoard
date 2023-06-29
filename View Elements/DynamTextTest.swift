@@ -14,6 +14,7 @@ struct DynamicTextView: View {
     
     //@State private var userInput: String = "day: [day], year: [year]"
     @State private var fontSize: CGFloat = 16
+    @State private var fontTracking: CGFloat = 0
     @State private var fontName: String = "Autone"
     @State private var fontWeight: Font.Weight = .black
     @State private var fontColor: Color = .black
@@ -69,6 +70,7 @@ struct DynamicTextView: View {
                     Text(String(text.appearance.rotation.degrees))
                         //.replacePlaceholders(userInput: userInput)
                         .font(.custom(fontName, size: fontSize))
+                        .tracking(fontTracking)
                         .multilineTextAlignment(fontAlignment)
                         .fontWeight(fontWeight)
                         .foregroundColor(fontColor)
@@ -112,6 +114,12 @@ struct DynamicTextView: View {
                         Text("Font Size: ")
                         Slider(value: $fontSize, in: 1...200)
                         Text("\(fontSize, specifier: "%.1f")")
+                    }
+                    
+                    HStack {
+                        Text("Tracking: ")
+                        Slider(value: $fontTracking, in: 0...20)
+                        Text("\(fontTracking, specifier: "%.0f")")
                     }
                     
                     HStack {

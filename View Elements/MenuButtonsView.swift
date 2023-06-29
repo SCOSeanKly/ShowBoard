@@ -16,80 +16,105 @@ struct MenuButtonsView: View {
     @Binding var showAdjustmentsView: Bool
     @State var numberOfShakes: CGFloat = 0
     @Binding var showLayerEditView: Bool
+    @Binding var showMicroContols: Bool
+    @State private var isPressing: Bool = false
+    @State private var isPressingLayers: Bool = false
+    @State private var isPressingExport: Bool = false
     
     
     var body: some View {
         Group {
-            VStack {
-                HStack {
-                    Button {
+            ZStack {
+                VStack {
+                    HStack {
                         
-                        showAdjustmentsView.toggle()
-                        
-                        withAnimation(.linear(duration: 2.0)) {
-                            if numberOfShakes == 0 {
-                                numberOfShakes = 10
-                            }else {
-                                numberOfShakes = 0
-                            }
-                        }
-                    }label: {
-                        Image(systemName: "square.grid.2x2")
+                        Image(systemName: showMicroContols ? "arrow.up.and.down.and.arrow.left.and.right" : "square.grid.2x2")
                             .font(.title2)
-                            .tint(.white)
+                            .foregroundColor(.white)
                             .padding()
                             .shadow(radius: 5)
-                            .modifier(ShakeEffect(delta: numberOfShakes))
+                            .contentShape(Circle())
+                            .scaleEffect(isPressing ? 0.8 : 1)
+                            .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
+                            .onTapGesture(count: 2) {
+                                showMicroContols.toggle()
+                            }
+                            .onTapGesture {
+                                isPressing.toggle()
+                                
+                                if !showMicroContols {
+                                    
+                                    showAdjustmentsView.toggle()
+                               
+                                    
+                                } else {
+                                    
+                                    showMicroContols.toggle()
+                                  
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isPressing.toggle()
+                                    
+                                }
+                            }
                         
+                        Spacer()
+                        
+                        Image(systemName: "square.3.layers.3d.bottom.filled")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                            .shadow(radius: 5)
+                            .contentShape(Circle())
+                            .offset(y: 2)
+                            .scaleEffect(isPressingLayers ? 0.8 : 1)
+                            .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressingLayers)
+                            .onTapGesture {
+                                showLayerEditView.toggle()
+                                
+                                isPressingLayers.toggle()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isPressingLayers.toggle()
+                                }
+                            }
+                            .offset(x: 15)
+                        
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                            .padding()
+                            .shadow(radius: 5)
+                            .contentShape(Circle())
+                            .onTapGesture {
+                                hideMenuButtons = true
+                                
+                                performDelayedAction(after: 0.2) {
+                                    copyImageToClipboard()
+                                }
+                                performDelayedAction(after: 0.2) {
+                                    showClipboardAlert = true
+                                }
+                                performDelayedAction(after: 0.2) {
+                                    hideMenuButtons = false
+                                }
+                            }
                     }
                     
                     Spacer()
-                    
-                    Button {
-                        
-                        showLayerEditView.toggle()
-                        
-                    }label: {
-                        Image(systemName: "square.3.layers.3d.bottom.filled")
-                            .font(.title2)
-                            .tint(.white)
-                            .shadow(radius: 5)
-                            .offset(y: 2)
-                    }
-                    
-                    
-                    
-                    Button {
-                        
-                        hideMenuButtons = true
-                        
-                        performDelayedAction(after: 0.2) {
-                            copyImageToClipboard()
-                        }
-                        
-                        performDelayedAction(after: 0.2) {
-                            showClipboardAlert = true
-                        }
-                        
-                        performDelayedAction(after: 0.2) {
-                            hideMenuButtons = false
-                            
-                        }
-                    }label: {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.title2)
-                            .tint(.white)
-                            .padding()
-                            .shadow(radius: 5)
-                    }
                 }
-                
-                Spacer()
+                .padding()
+                .padding(.top)
+                .opacity(hideMenuButtons ? 0.0 : 1.0)
             }
-            .padding()
-            .opacity(hideMenuButtons ? 0.0 : 1.0)
         }
     }
 }
 
+struct MenuButtonsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ShowBoardView()
+    }
+}
 
