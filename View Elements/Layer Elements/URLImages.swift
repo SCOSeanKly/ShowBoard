@@ -13,7 +13,8 @@ struct URLImages: View {
     @State private var currentIndex = 0
     @Binding var showUrlImageView: Bool
     @Binding var showLayerElementView: Bool
-    @Binding var urlImage: String?
+   
+  
     
     let gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -23,16 +24,14 @@ struct URLImages: View {
                 if !viewModelURLImages.images.isEmpty {
                     ScrollView(.vertical, showsIndicators: false) {
                         
-                        LayerBackButton(selfViewToClose: $showUrlImageView, showLayerElementView: $showLayerElementView, headerText: "URL Images")
+                        LayerBackButton(selfViewToClose: $showUrlImageView, showLayerElementView: $showLayerElementView, headerText: "Gallery")
                         
                         LazyVGrid(columns: gridItemLayout, spacing: 0) { // Use LazyVGrid to create the grid
                             ForEach(viewModelURLImages.images.indices, id: \.self) { index in
                                 
                                 Button {
                                     // Update the current image index and pass the URL string to the next view
-                                    currentIndex = index
-                                    urlImage = viewModelURLImages.images[currentIndex].image
-                                    showUrlImageView.toggle()
+                                 //
                                 } label: {
                                     URLImageViewURLImages(image: viewModelURLImages.images[index])
                                         .frame(width: screenWidth * 0.25, height: screenWidth * 0.5)

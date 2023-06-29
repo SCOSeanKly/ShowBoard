@@ -28,7 +28,6 @@ struct SheetPresentedViews: View {
     @Binding var importedImage2: UIImage?
     @Binding var importedImage3: UIImage?
     @Binding var showUrlImageView: Bool
-    @Binding var urlImage: String?
   
     var body: some View {
         ZStack{
@@ -81,7 +80,7 @@ struct SheetPresentedViews: View {
         }
         //MARK: Import URL Image Element
         .sheet(isPresented: $showUrlImageView) {
-            URLImages(showUrlImageView: $showUrlImageView, showLayerElementView: $showLayerElementView, urlImage: $urlImage)
+            URLImages(showUrlImageView: $showUrlImageView, showLayerElementView: $showLayerElementView)
         }
         
         //MARK: Layer Edit View

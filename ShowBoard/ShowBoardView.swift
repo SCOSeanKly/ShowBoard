@@ -32,7 +32,6 @@ struct ShowBoardView: View {
     @State private var showImagePickerSheet2 = false
     @State private var importedImage3: UIImage? = nil
     @State private var showImagePickerSheet3 = false
-    @State private var urlImage: String?
     
     @State private var showClipboardAlert = false
     @State private var hideMenuButtons = false
@@ -82,23 +81,8 @@ struct ShowBoardView: View {
                     .frame(width: UIScreen.main.bounds.width)
             }
             
-            if let urlString = urlImage, let url = URL(string: urlString) {
-                      AsyncImage(url: url) { phase in
-                          // Handle different image loading phases
-                          switch phase {
-                          case .empty:
-                              ProgressView()
-                          case .success(let loadedImage):
-                              loadedImage
-                                  .resizable()
-                                  .aspectRatio(contentMode: .fit)
-                          case .failure:
-                              Text("Failed to load image")
-                          @unknown default:
-                              EmptyView()
-                          }
-                      }
-                  }
+       
+             
             
             if let importedImage2 = importedImage2 {
                 Image(uiImage: importedImage2)
@@ -147,14 +131,12 @@ struct ShowBoardView: View {
                 ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
                 
                 //MARK: View containig the SheetPresentedViews
-                SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView, urlImage: $urlImage)
+                SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView)
             }
         }
         .prefersPersistentSystemOverlaysHidden()
     }
 }
-
-
 
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
@@ -162,26 +144,3 @@ struct ShowBoardView_Previews: PreviewProvider {
     }
 }
 
-
-/*
- if let importedImage1 = importedImage1 {
- Image(uiImage: importedImage1)
- .resizable()
- .aspectRatio(contentMode: .fit)
- .frame(width: UIScreen.main.bounds.width)
- }
- 
- if let importedImage2 = importedImage2 {
- Image(uiImage: importedImage2)
- .resizable()
- .aspectRatio(contentMode: .fit)
- .frame(width: UIScreen.main.bounds.width)
- }
- 
- if let importedImage3 = importedImage3 {
- Image(uiImage: importedImage3)
- .resizable()
- .aspectRatio(contentMode: .fit)
- .frame(width: UIScreen.main.bounds.width)
- .allowsHitTesting(false)
- }*/

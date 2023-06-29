@@ -13,8 +13,8 @@ struct LayerElementView: View {
     @Binding var pressedButtonObjectIndex: Int?
 
     // Arrays
-    let sfSymbolsArray = ["character.textbox", "barometer", "cloud.sun", "chart.xyaxis.line", "dot.squareshape", "calendar", "photo", "globe.europe.africa", "map"]
-    let sfSymbolsText = ["Text", "Gauges", "Weather", "Charts", "Shapes", "Calendar", "Image", "URL Image", "Maps"]
+    let sfSymbolsArray = ["character.textbox", "barometer", "cloud.sun", "chart.xyaxis.line", "dot.squareshape", "calendar", "photo", "map", "platter.filled.bottom.and.arrow.down.iphone"]
+    let sfSymbolsText = ["Text", "Gauges", "Weather", "Charts", "Shapes", "Calendar", "Image", "Maps", "Gallery"]
 
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
@@ -27,8 +27,8 @@ struct LayerElementView: View {
         "Shapes": \.showShapesElementView,
         "Calendar": \.showCalendarElementView,
         "Image": \.showImportImageElementView,
-        "URL Image": \.showUrlImageView,
-        "Maps": \.showMapsElementView
+        "Maps": \.showMapsElementView,
+        "Gallery": \.showUrlImageView
     ]
 
     @Binding var showWeatherElementView: Bool
