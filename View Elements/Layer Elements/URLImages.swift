@@ -13,8 +13,7 @@ struct URLImages: View {
     @State private var currentIndex = 0
     @Binding var showUrlImageView: Bool
     @Binding var showLayerElementView: Bool
-   
-  
+    @State private var showAlert = false
     
     let gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -30,8 +29,8 @@ struct URLImages: View {
                             ForEach(viewModelURLImages.images.indices, id: \.self) { index in
                                 
                                 Button {
-                                    // Update the current image index and pass the URL string to the next view
-                                 //
+                                    showAlert = true
+                                    currentIndex = index
                                 } label: {
                                     URLImageViewURLImages(image: viewModelURLImages.images[index])
                                         .frame(width: screenWidth * 0.25, height: screenWidth * 0.5)
@@ -50,7 +49,7 @@ struct URLImages: View {
             }
             .padding(.top)
         }
-        .presentationDetents([.fraction(0.4)])
+        .presentationDetents([.fraction(0.75)])
         .presentationDragIndicator(.visible)
         .onAppear {
             viewModelURLImages.loadImages()
@@ -60,8 +59,21 @@ struct URLImages: View {
                 viewModelURLImages.loadImages()
             }
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Import Board"),
+                message: Text("Are you sure you want to import this Board?"),
+                primaryButton: .default(Text("Import")) {
+                    showUrlImageView.toggle()
+                },
+                secondaryButton: .cancel()
+            )
+        }
     }
 }
+
+// Rest of the code remains the same
+
 
 struct URLImageViewURLImages: View {
     let image: ImageModelURLImages
