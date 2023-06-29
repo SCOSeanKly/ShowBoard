@@ -35,7 +35,7 @@ struct SheetPresentedViews: View {
         
         //MARK: Element Selection Menu
         .sheet(isPresented: $showLayerElementView) {
-            LayerElementView(showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex)
+            LayerElementView(showLayerElementView: $showLayerElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showImportImageElementView: $showImportImageElementView, showMapsElementView: $showMapsElementView, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
         }
         
         //MARK: Text Element

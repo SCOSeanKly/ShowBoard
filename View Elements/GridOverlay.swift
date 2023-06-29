@@ -15,6 +15,7 @@ struct GridOverlay : View {
     
     let gridColor = Color(.systemBlue)
     @Binding var isDragging: Bool
+    @Binding var showMicroContols: Bool
     
     var body: some View {
         ZStack{
@@ -57,7 +58,7 @@ struct GridOverlay : View {
                 .stroke(gridColor, lineWidth: 1)
                 .opacity(0.4)
         }
-        .opacity(isDragging ? 1 : 0)
+        .opacity(isDragging || showMicroContols ? 1 : 0)
         .animation(.easeInOut, value: isDragging)
     }
 }
