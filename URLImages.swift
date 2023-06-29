@@ -104,8 +104,8 @@ class DataViewModelHeader: ObservableObject {
     }
     
     func loadImages() {
-        let baseUrlString = "https://raw.githubusercontent.com/SCOSeanKly/kerrandsmith/main/scrollingHeaderImages/headerImages/"
-        let urlString = "https://raw.githubusercontent.com/SCOSeanKly/kerrandsmith/main/scrollingHeaderImages/scrollingHeaderImages.json"
+        let baseUrlString = "https://raw.githubusercontent.com/SCOSeanKly/ShowBoard/main/JSON/Images/"
+        let urlString = "https://raw.githubusercontent.com/SCOSeanKly/ShowBoard/main/JSON/ShowBoard.json"
         
         guard let url = URL(string: urlString) else {
             return
