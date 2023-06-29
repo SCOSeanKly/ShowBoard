@@ -86,7 +86,7 @@ struct SheetPresentedViews: View {
         
         //MARK: Layer Edit View
         .sheet(isPresented: $showLayerEditView) {
-         //   LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
+            LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
         }
         
         

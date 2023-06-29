@@ -30,7 +30,7 @@ struct MenuButtonsView: View {
                         
                         Image(systemName: showMicroContols ? "arrow.up.and.down.and.arrow.left.and.right" : "square.grid.2x2")
                             .font(.title2)
-                            .foregroundColor(showMicroContols ? .red : .white)
+                            .foregroundColor(.white)
                             .padding()
                             .shadow(radius: 5)
                             .contentShape(Circle())

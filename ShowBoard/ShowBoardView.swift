@@ -69,7 +69,6 @@ struct ShowBoardView: View {
     
     @State private var showMicroControls: Bool = false
     
-    
     var body: some View {
         ZStack {
             
@@ -83,17 +82,30 @@ struct ShowBoardView: View {
                     .frame(width: UIScreen.main.bounds.width)
             }
             
+            if let urlString = urlImage, let url = URL(string: urlString) {
+                      AsyncImage(url: url) { phase in
+                          // Handle different image loading phases
+                          switch phase {
+                          case .empty:
+                              ProgressView()
+                          case .success(let loadedImage):
+                              loadedImage
+                                  .resizable()
+                                  .aspectRatio(contentMode: .fit)
+                          case .failure:
+                              Text("Failed to load image")
+                          @unknown default:
+                              EmptyView()
+                          }
+                      }
+                  }
+            
             if let importedImage2 = importedImage2 {
                 Image(uiImage: importedImage2)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width)
             }
-            
-            if let urlString = urlImage, let url = URL(string: urlString) {
-                      URLImageView(url: url)
-                    .aspectRatio(contentMode: .fill)
-                  }
             
                 ZStack{
                     //MARK: Widget Placeholder ZStack - All Elements go here
@@ -142,25 +154,7 @@ struct ShowBoardView: View {
     }
 }
 
-struct URLImageView: View {
-    var url: URL
-    
-    var body: some View {
-        AsyncImage(url: url) { phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-            case .success(let image):
-                image
-                    .resizable()
-            case .failure:
-                Image(systemName: "xmark.circle")
-            @unknown default:
-                EmptyView()
-            }
-        }
-    }
-}
+
 
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
