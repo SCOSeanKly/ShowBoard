@@ -32,7 +32,11 @@ struct MenuButtonsView: View {
                     HStack {
                         microControlsButton()
                         Spacer()
-                        layersButton()
+                        ZStack {
+                            layersButton()
+                            CounterView()
+                                .offset(x: 15, y: -20)
+                        }
                         clipboardButton()
                     }
                     Spacer()
