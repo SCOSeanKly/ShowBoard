@@ -250,7 +250,7 @@
 				3E8849BB2A41D59100B50BBD /* Extensions */,
 				3EADA5B42A433E9100FA1BCB /* Modifiers */,
 				3EADA59D2A4315E500FA1BCB /* Custom Fonts */,
-				3EADA5BB2A434EF700FA1BCB /* Widgets */,
+				3EADA5BB2A434EF700FA1BCB /* Example Widgets */,
 				3E41D3192A42F73000A29548 /* View Elements */,
 				3E8849BA2A41D57B00B50BBD /* WeatherKit & Location Manager */,
 				3E8849882A41D47800B50BBD /* ShowBoard */,
@@ -338,7 +338,7 @@
 		3EA43C962A45AAC200A28C75 /* Layer Elements */ = {
 			isa = PBXGroup;
 			children = (
-				3ECC34AB2A4C4163008794BC /* Position Buttons */,
+				3ECC34AB2A4C4163008794BC /* Micro Control Position Buttons */,
 				3ED771EC2A4B395500AFC1FC /* Layer View Buttons */,
 				3EB671962A4EEEEE00DF2678 /* LayerViews */,
 				3EEB89972A4A1F0100CF42AB /* Imported Images Views */,
@@ -368,13 +368,13 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		3EADA5BB2A434EF700FA1BCB /* Widgets */ = {
+		3EADA5BB2A434EF700FA1BCB /* Example Widgets */ = {
 			isa = PBXGroup;
 			children = (
 				3EADA5B22A43343300FA1BCB /* SWAWidgetView.swift */,
 				3E4F89832A4B5865001763DC /* SWAWidget2.swift */,
 			);
-			path = Widgets;
+			path = "Example Widgets";
 			sourceTree = "<group>";
 		};
 		3EB671962A4EEEEE00DF2678 /* LayerViews */ = {
@@ -394,7 +394,7 @@
 			path = LayerViews;
 			sourceTree = "<group>";
 		};
-		3ECC34AB2A4C4163008794BC /* Position Buttons */ = {
+		3ECC34AB2A4C4163008794BC /* Micro Control Position Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				3ECC34A72A4C40A3008794BC /* PositionButton.swift */,
@@ -403,7 +403,7 @@
 				3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */,
 				3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */,
 			);
-			path = "Position Buttons";
+			path = "Micro Control Position Buttons";
 			sourceTree = "<group>";
 		};
 		3ED771EC2A4B395500AFC1FC /* Layer View Buttons */ = {
