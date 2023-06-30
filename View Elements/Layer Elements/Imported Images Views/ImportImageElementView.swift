@@ -35,36 +35,9 @@ struct ImportImageElementView: View {
     var body: some View {
         ZStack {
             VStack{
-                HStack {
-                    Button {
-                        
-                        showImportImageElementView.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            showLayerElementView.toggle()
-                        }
-                        
-                    } label: {
-                        Image(systemName: "arrow.left.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                    Spacer()
-                }
-                .padding()
-                .padding(.horizontal)
                 
-                HStack{
-                    Text("Import Image")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.horizontal)
-                
+                LayerBackButton(selfViewToClose: $showImportImageElementView, showLayerElementView: $showLayerElementView, headerText: "Import Image", systemImage: "arrow.left.circle")
+               
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     
                     ImportImageButton(systemImage: "photo", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showImportImageElementView: $showImportImageElementView, importedImage: $importedImage1)

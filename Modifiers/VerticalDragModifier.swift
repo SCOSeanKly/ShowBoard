@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VerticalDragModifier: ViewModifier {
+    
     @State private var location: CGPoint = .zero
 
     private var drag: some Gesture {

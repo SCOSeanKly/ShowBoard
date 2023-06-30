@@ -23,9 +23,6 @@ struct DynamicTextView: View {
     // Dont forget this is just a helper for the settings view we are currently in
     @State private var rotationDegrees: CGFloat = 0
     
-    
-    
-    
     let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
     
     let fontStyleArray = ["Autone", "ModernAge"]
@@ -33,8 +30,11 @@ struct DynamicTextView: View {
     
     var body: some View {
         
-        Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("ASD") }
+       
         ScrollView {
+            
+            Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("ASD") }
+            
             VStack {
                 HStack {
                     Text("Enter text...")
@@ -226,7 +226,6 @@ extension Text {
         return self.font(.system(style))
     }
 }
-
 
 
 struct DynamicTextView_Previews: PreviewProvider {

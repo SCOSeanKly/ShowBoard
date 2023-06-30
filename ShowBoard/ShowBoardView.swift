@@ -10,14 +10,6 @@ import CoreLocation
 import Photos
 
 struct ShowBoardView: View {
-    
-    //MARK: Date formatter
-    private var currentDate: String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E. d MMM"
-        return formatter.string(from: Date()).uppercased()
-    }
-    
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
     
@@ -35,8 +27,6 @@ struct ShowBoardView: View {
     
     @State private var showClipboardAlert = false
     @State private var hideMenuButtons = false
-    let width = UIScreen.main.bounds.width
-    let height = UIScreen.main.bounds.height
     @State private var isDragging = false
     @State private var onAppearOpacity: Bool = false
     
@@ -44,6 +34,7 @@ struct ShowBoardView: View {
     @State private var pressedButtonObjectIndex: Int? = nil
     @State private var showLayerElementView = false
     @State private var showTextElementView = false
+    // @State private var showDynamicTextEditView = false
     @State private var showGaugesElementView = false
     @State private var showWeatherElementView = false
     @State private var showChartsElementView = false
@@ -60,79 +51,33 @@ struct ShowBoardView: View {
     @ObservedObject var weatherKitManager = WeatherKitManager()
     @State private var isRefreshing = false // Refresh trigger
     
+    //MARK: Micro controls - Should work on all elements once implemented correctly
     @State private var offsetX: CGFloat = 0.0
     @State private var offsetY: CGFloat = 0.0
-    
     @State private var widthRatio: CGFloat = 1.0
     @State private var heightRatio: CGFloat = 1.0
-    
     @State private var showMicroControls: Bool = false
+    
+    
     
     var body: some View {
         ZStack {
             
-            //MARK: Background View
+            /// Imported Background (Wallpaper) Image
             BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, isDragging: $isDragging)
             
-            if let importedImage1 = importedImage1 {
-                Image(uiImage: importedImage1)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            
-       
-             
-            
-            if let importedImage2 = importedImage2 {
-                Image(uiImage: importedImage2)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            
-                ZStack{
-                    //MARK: Widget Placeholder ZStack - All Elements go here
-                        SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
-                            .scaleEffect(x: widthRatio, y: heightRatio, anchor: .center)
-                            .offset(x: offsetX, y: offsetY)
-                            .modifier(WidgetModifier(isDragging: $isDragging))
-                            .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
-                                runShortcut() }))
-                }
-                .opacity(onAppearOpacity ? 1.0 : 0.0)
-                .onAppear{
-                    performDelayedAction(after: 2.0) {
-                        onAppearOpacity.toggle()
-                    }
-                }
-            
-            
-            if let importedImage3 = importedImage3 {
-                Image(uiImage: importedImage3)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-                    .allowsHitTesting(false)
-            }
-            
-            Group {
-                //MARK: Grid Overlay appears when dragging or micro adjustments are on screen
-                GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
+            //MARK: Widget Placeholder ZStack - All Elements go here
+            ZStack{
+                /// These Image views should be able to be placed in and zInde order
+                ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
-                //MARK: Micro controller buttons
-                MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)
-                    .modifier(VerticalDragModifier())
-                
-                //MARK:  Menu Buttons
-                MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls)
-                
-                //MARK: Show Image Picker Sheets
-                ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
-                
-                //MARK: View containig the SheetPresentedViews
-                SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView)
+                /// Example Widget with example micro adjustment options. Modifiers for drag are in the SWAWidget2 View
+                SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
             }
+            .fadeOnAppear()
+            
+            /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
+            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showUrlImageView: $showUrlImageView)
         }
         .prefersPersistentSystemOverlaysHidden()
     }
@@ -143,4 +88,38 @@ struct ShowBoardView_Previews: PreviewProvider {
         ShowBoardView()
     }
 }
+
+struct ImageViews: View {
+    let importedImage1: UIImage?
+    let importedImage2: UIImage?
+    let importedImage3: UIImage?
+    
+    var body: some View {
+        ZStack {
+            if let importedImage1 = importedImage1 {
+                Image(uiImage: importedImage1)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width)
+            }
+            
+            if let importedImage2 = importedImage2 {
+                Image(uiImage: importedImage2)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width)
+            }
+            
+            if let importedImage3 = importedImage3 {
+                Image(uiImage: importedImage3)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width)
+                    .allowsHitTesting(false)
+            }
+        }
+    }
+}
+
+
 

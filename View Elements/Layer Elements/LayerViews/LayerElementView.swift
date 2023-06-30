@@ -46,10 +46,15 @@ struct LayerElementView: View {
     @Binding var importedImage3: UIImage?
     
     @State private var shouldShowRedDot = false // New state variable
+    @State private var showNoView = false
+    
 
     var body: some View {
         ZStack {
             ScrollView {
+                
+                LayerBackButton(selfViewToClose: $showNoView, showLayerElementView: $showNoView, headerText: "Home", systemImage: "house")
+                
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ForEach(sfSymbolsArray.indices, id: \.self) { index in
                         let symbol = sfSymbolsArray[index]
@@ -125,8 +130,7 @@ struct LayerElementView: View {
                         }
                     }
                 }
-                .padding()
-                .padding(.top)
+                .padding(.horizontal)
             }
         }
         .onAppear {

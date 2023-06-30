@@ -13,6 +13,13 @@ struct SWAWidget2: View {
     @ObservedObject var locationDataManager: LocationDataManager
     @ObservedObject var weatherKitManager: WeatherKitManager
     
+    @Binding var offsetX: CGFloat
+    @Binding var offsetY: CGFloat
+    @Binding var widthRatio: CGFloat
+    @Binding var heightRatio: CGFloat
+    @Binding var isDragging: Bool
+    @Binding var showClipboardAlert: Bool
+    
     
     //MARK: Date formatter
     private func formattedDate(dateFormat: String) -> String {
@@ -125,7 +132,14 @@ struct SWAWidget2: View {
             .frame(width: UIScreen.main.bounds.width)
             .contentShape(Rectangle())
             
-        }}
+        }
+        .scaleEffect(x: widthRatio, y: heightRatio, anchor: .center)
+        .offset(x: offsetX, y: offsetY)
+        .modifier(WidgetModifier(isDragging: $isDragging))
+        .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
+            runShortcut() }))
+        
+    }
 }
 
 struct SWAWidget2_Previews: PreviewProvider {

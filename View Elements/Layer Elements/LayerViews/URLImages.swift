@@ -23,7 +23,7 @@ struct URLImages: View {
                 if !viewModelURLImages.images.isEmpty {
                     ScrollView(.vertical, showsIndicators: false) {
                         
-                        LayerBackButton(selfViewToClose: $showUrlImageView, showLayerElementView: $showLayerElementView, headerText: "Gallery")
+                        LayerBackButton(selfViewToClose: $showUrlImageView, showLayerElementView: $showLayerElementView, headerText: "Gallery", systemImage: "arrow.left.circle")
                         
                         LazyVGrid(columns: gridItemLayout, spacing: 0) { // Use LazyVGrid to create the grid
                             ForEach(viewModelURLImages.images.indices, id: \.self) { index in

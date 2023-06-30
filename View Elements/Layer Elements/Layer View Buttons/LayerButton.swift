@@ -13,6 +13,7 @@ struct LayerButton: View {
     let iconsArraytext: [String]
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     let viewToClose: Binding<Bool>
+    let viewToOpen: Binding<Bool>
     
     var body: some View {
         LazyVGrid(columns: gridItems, spacing: 16) {
@@ -58,6 +59,9 @@ struct LayerButton: View {
                         }
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             viewToClose.wrappedValue.toggle()
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                            viewToOpen.wrappedValue.toggle()
                         }
                     }
                 }

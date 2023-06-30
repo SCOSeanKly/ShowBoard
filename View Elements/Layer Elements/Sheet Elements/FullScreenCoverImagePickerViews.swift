@@ -20,72 +20,42 @@ struct ImagePickerViews: View {
     
     
     var body: some View {
-        ZStack{
+        ZStack {
             /// Empty content placeholder
         }
         .fullScreenCover(isPresented: $showBgPickerSheet) {
-            PhotoPicker(filter: .images, limit: 1) { results in
-                PhotoPicker.convertToUIImageArray(fromResults: results) { (imagesOrNil, errorOrNil) in
-                    if let error = errorOrNil {
-                        print(error)
-                    }
-                    if let images = imagesOrNil {
-                        if let first = images.first {
-                            print(first)
-                            importedBackground = first
-                        }
-                    }
-                }
+            createFullScreenCover(for: $importedBackground) { images in
+                importedBackground = images.first
             }
-            .edgesIgnoringSafeArea(.all)
         }
         .fullScreenCover(isPresented: $showImagePickerSheet1) {
-            PhotoPicker(filter: .images, limit: 1) { results in
-                PhotoPicker.convertToUIImageArray(fromResults: results) { (imagesOrNil, errorOrNil) in
-                    if let error = errorOrNil {
-                        print(error)
-                    }
-                    if let images = imagesOrNil {
-                        if let first = images.first {
-                            print(first)
-                            importedImage1 = first
-                        }
-                    }
-                }
+            createFullScreenCover(for: $importedImage1) { images in
+                importedImage1 = images.first
             }
-            .edgesIgnoringSafeArea(.all)
         }
         .fullScreenCover(isPresented: $showImagePickerSheet2) {
-            PhotoPicker(filter: .images, limit: 1) { results in
-                PhotoPicker.convertToUIImageArray(fromResults: results) { (imagesOrNil, errorOrNil) in
-                    if let error = errorOrNil {
-                        print(error)
-                    }
-                    if let images = imagesOrNil {
-                        if let first = images.first {
-                            print(first)
-                            importedImage2 = first
-                        }
-                    }
-                }
+            createFullScreenCover(for: $importedImage2) { images in
+                importedImage2 = images.first
             }
-            .edgesIgnoringSafeArea(.all)
         }
         .fullScreenCover(isPresented: $showImagePickerSheet3) {
-            PhotoPicker(filter: .images, limit: 1) { results in
-                PhotoPicker.convertToUIImageArray(fromResults: results) { (imagesOrNil, errorOrNil) in
-                    if let error = errorOrNil {
-                        print(error)
-                    }
-                    if let images = imagesOrNil {
-                        if let first = images.first {
-                            print(first)
-                            importedImage3 = first
-                        }
-                    }
+            createFullScreenCover(for: $importedImage3) { images in
+                importedImage3 = images.first
+            }
+        }
+    }
+    
+    private func createFullScreenCover(for binding: Binding<UIImage?>, completion: @escaping ([UIImage]) -> Void) -> some View {
+        PhotoPicker(filter: .images, limit: 1) { results in
+            PhotoPicker.convertToUIImageArray(fromResults: results) { (imagesOrNil, errorOrNil) in
+                if let error = errorOrNil {
+                    print(error)
+                }
+                if let images = imagesOrNil {
+                    completion(images)
                 }
             }
-            .edgesIgnoringSafeArea(.all)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }

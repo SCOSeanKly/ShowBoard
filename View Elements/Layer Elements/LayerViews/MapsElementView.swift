@@ -7,24 +7,21 @@
 
 import SwiftUI
 
-
 struct MapsElementView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showMapsElementView: Bool
-    
     let mapsIconsArray = ["map"]
     let mapsIconsArraytext = ["Style1"]
-    
-    let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     @State private var pressedButtonIndex: Int?
+    @State private var showAnotherView = false
     
     var body: some View {
         
         ScrollView{
-                LayerBackButton(selfViewToClose: $showMapsElementView, showLayerElementView: $showLayerElementView, headerText: "Maps")
-                
-                LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: mapsIconsArray, iconsArraytext: mapsIconsArraytext, viewToClose: $showMapsElementView)
-            }
+            LayerBackButton(selfViewToClose: $showMapsElementView, showLayerElementView: $showLayerElementView, headerText: "Maps", systemImage: "arrow.left.circle")
+            
+            LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: mapsIconsArray, iconsArraytext: mapsIconsArraytext, viewToClose: $showMapsElementView, viewToOpen: $showAnotherView)
+        }
         .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }

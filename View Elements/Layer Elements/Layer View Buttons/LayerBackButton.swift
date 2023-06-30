@@ -12,8 +12,11 @@ struct LayerBackButton: View {
     let selfViewToClose: Binding<Bool>
     let showLayerElementView: Binding<Bool>
     let headerText: String
+    let systemImage: String
     
     var body: some View {
+        
+        
         HStack {
             Button {
                 
@@ -24,25 +27,24 @@ struct LayerBackButton: View {
                 }
                 
             } label: {
-                Image(systemName: "arrow.left.circle")
-                    .font(.title)
+                Image(systemName: systemImage)
+                    .font(.title3)
                     .tint(.black)
             }
+            
+            HStack{
+                Text(headerText)
+                    .font(.headline.weight(.heavy))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.black)
+            }
+            
             Spacer()
+          
         }
         .padding()
         .padding(.horizontal)
-        
-        HStack{
-            Text(headerText)
-                .font(.headline.weight(.heavy))
-                .fontWeight(.semibold)
-                .foregroundColor(.black)
-            
-            Spacer()
-        }
-        .padding(.horizontal)
-        .padding(.horizontal)
+    
     }
 }
 
