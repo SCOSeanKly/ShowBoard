@@ -11,18 +11,15 @@ struct LayerEditView: View {
     @Binding var showLayerElementView: Bool
     @Binding var showLayerEditView: Bool
     @State private var isEditing = false
-    //MARK: This array should be populated with the items we add to the view
     @State private var items = ["Text", "Gauges", "Weather", "Charts", "Shapes", "Calendar", "Image", "Maps", "Gallery"]
-    
-    //MARK: id Tag would determine what image to use based on the item added to the view
     private let itemImages = ["character.textbox", "barometer", "cloud.sun", "chart.xyaxis.line", "dot.squareshape", "calendar", "photo", "map", "platter.filled.bottom.and.arrow.down.iphone"]
-    
+    @State private var itemButtons = Array(repeating: false, count: 9) // Create an array of boolean values to track the button states
+
     var body: some View {
         ZStack {
-            VStack{
+            VStack {
                 HStack {
                     Button {
-                        
                         showLayerEditView.toggle()
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -36,9 +33,7 @@ struct LayerEditView: View {
                     }
                     Spacer()
                     Button {
-                        
                         isEditing.toggle()
-                        
                     } label: {
                         Image(systemName: isEditing ? "xmark.circle" : "ellipsis.circle")
                             .font(.title)
@@ -48,7 +43,7 @@ struct LayerEditView: View {
                 .padding()
                 .padding(.horizontal)
                 
-                HStack{
+                HStack {
                     Text("Edit Layers")
                         .font(.headline.weight(.heavy))
                         .fontWeight(.semibold)
@@ -70,6 +65,16 @@ struct LayerEditView: View {
                             } else {
                                 Text(items[index])
                             }
+                            
+                            Spacer()
+                            
+                            
+                            Button(action: {
+                                itemButtons[index].toggle() // Toggle the button state for the corresponding item
+                            }, label: {
+                                Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
+                                    .font(.footnote)
+                            })
                         }
                     }
                     .onDelete(perform: delete)
@@ -85,10 +90,11 @@ struct LayerEditView: View {
     
     func delete(at offsets: IndexSet) {
         items.remove(atOffsets: offsets)
+        itemButtons.remove(atOffsets: offsets) // Remove the corresponding button state when deleting an item
     }
     
     func move(from source: IndexSet, to destination: Int) {
         items.move(fromOffsets: source, toOffset: destination)
+        itemButtons.move(fromOffsets: source, toOffset: destination) // Move the corresponding button state along with the item
     }
 }
-
