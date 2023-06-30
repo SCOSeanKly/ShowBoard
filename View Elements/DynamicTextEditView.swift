@@ -82,7 +82,7 @@ struct DynamicTextView: View {
                 }
                 .padding(.leading)
                 
-                // MARK: Settings
+                // MARK: Settings for Dynamic Text
                 VStack {
                     
                     HStack {

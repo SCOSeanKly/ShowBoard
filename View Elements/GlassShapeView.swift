@@ -33,7 +33,7 @@ struct GlassShapeView: View {
             .shadow(radius: shadowRadius, y: shadowOffset)
             .ignoresSafeArea()
             
-            // MARK: Settings
+            // MARK: Settings for Glass
             VStack {
                 
                 HStack {

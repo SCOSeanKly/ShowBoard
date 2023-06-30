@@ -53,10 +53,6 @@ struct GridOverlay : View {
                 }
                 .stroke(gridColor.opacity(0.2), lineWidth: 1.0)
             }
-            
-            RoundedRectangle(cornerRadius: 57)
-                .stroke(gridColor, lineWidth: 1)
-                .opacity(0.4)
         }
         .opacity(isDragging || showMicroContols ? 1 : 0)
         .animation(.easeInOut, value: isDragging)

@@ -12,7 +12,7 @@ struct BackgroundView: View {
     @Binding var importedBackground: UIImage?
     @Binding var hideMenuButtons: Bool
     @Binding var isDragging: Bool
-  
+    
     var body: some View {
         ZStack{
             // Background placeholder image
@@ -22,7 +22,7 @@ struct BackgroundView: View {
                 .onTapGesture(count: 2, perform: {
                     showBgPickerSheet = true
                 })
-              
+            
             // Imported user background image
             if let importedBackground = importedBackground {
                 Image(uiImage: importedBackground)
@@ -33,11 +33,6 @@ struct BackgroundView: View {
                         showBgPickerSheet = true
                     }
             }
-            
-//            if !hideMenuButtons {
-//                GridOverlay(isDragging: $isDragging)
-//            }
-            
         }
     }
 }

@@ -61,7 +61,7 @@ public struct CustomShapeView: View {
             .animation(.easeInOut, value: ratio)
             .offset(y: 50)
             
-            // MARK: Settings
+            // MARK: Settings for custom shapes
             VStack {
                 HStack {
                 

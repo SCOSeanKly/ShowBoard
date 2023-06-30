@@ -35,6 +35,8 @@ struct MapView: View {
                 .blendMode(blendMode)
                 .overlay(colorOverlay)
             
+            
+            //MARK: Settings for Maps
             VStack {
                 
                 HStack {
