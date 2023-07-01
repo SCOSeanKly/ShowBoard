@@ -28,7 +28,7 @@ struct SheetPresentedViews: View {
     @Binding var importedImage2: UIImage?
     @Binding var importedImage3: UIImage?
     @Binding var showUrlImageView: Bool
-  //  @Binding var showDynamicTextEditView: Bool
+ //   @Binding var showDynamicTextEditView: Bool
    
   
     var body: some View {
@@ -40,7 +40,7 @@ struct SheetPresentedViews: View {
         .sheet(isPresented: $showLayerElementView) {
             LayerElementView(showLayerElementView: $showLayerElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showImportImageElementView: $showImportImageElementView, showMapsElementView: $showMapsElementView, showUrlImageView: $showUrlImageView, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
         }
-        
+    
         //MARK: Text Element
         .sheet(isPresented: $showTextElementView) {
             TextElementView(showLayerElementView: $showLayerElementView, showTextElementView: $showTextElementView)
@@ -89,8 +89,6 @@ struct SheetPresentedViews: View {
         .sheet(isPresented: $showLayerEditView) {
             LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
         }
-        
-        
     }
 }
 
