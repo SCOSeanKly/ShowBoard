@@ -74,15 +74,7 @@
 		3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */; };
 		3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89932A49F02300CF42AB /* LayerEditView.swift */; };
 		3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */; };
-		3EF8CEFA2A5035F70051DC39 /* GoogleFontService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CEF92A5035F70051DC39 /* GoogleFontService.swift */; };
-		3EF8CEFC2A5036090051DC39 /* GoogleFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CEFB2A5036090051DC39 /* GoogleFont.swift */; };
-		3EF8CEFE2A5036910051DC39 /* GoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CEFD2A5036910051DC39 /* GoogleView.swift */; };
-		3EF8CF002A5036F40051DC39 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CEFF2A5036F40051DC39 /* DetailsView.swift */; };
-		3EF8CF022A5037130051DC39 /* Font+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CF012A5037130051DC39 /* Font+Register.swift */; };
-		3EF8CF042A5037270051DC39 /* StyleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CF032A5037270051DC39 /* StyleCell.swift */; };
-		3EF8CF062A50373B0051DC39 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CF052A50373B0051DC39 /* Style.swift */; };
-		3EF8CF082A5037510051DC39 /* FontList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CF072A5037510051DC39 /* FontList.swift */; };
-		3EF8CF0A2A5039FD0051DC39 /* SWAWidget3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CF092A5039FD0051DC39 /* SWAWidget3.swift */; };
+		3EF8CEF32A4F371B0051DC39 /* RollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CEF22A4F371B0051DC39 /* RollingText.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -176,15 +168,7 @@
 		3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImages.swift; sourceTree = "<group>"; };
 		3EEB89932A49F02300CF42AB /* LayerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEditView.swift; sourceTree = "<group>"; };
 		3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButton.swift; sourceTree = "<group>"; };
-		3EF8CEF92A5035F70051DC39 /* GoogleFontService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFontService.swift; sourceTree = "<group>"; };
-		3EF8CEFB2A5036090051DC39 /* GoogleFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleFont.swift; sourceTree = "<group>"; };
-		3EF8CEFD2A5036910051DC39 /* GoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleView.swift; sourceTree = "<group>"; };
-		3EF8CEFF2A5036F40051DC39 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
-		3EF8CF012A5037130051DC39 /* Font+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Register.swift"; sourceTree = "<group>"; };
-		3EF8CF032A5037270051DC39 /* StyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCell.swift; sourceTree = "<group>"; };
-		3EF8CF052A50373B0051DC39 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
-		3EF8CF072A5037510051DC39 /* FontList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontList.swift; sourceTree = "<group>"; };
-		3EF8CF092A5039FD0051DC39 /* SWAWidget3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidget3.swift; sourceTree = "<group>"; };
+		3EF8CEF22A4F371B0051DC39 /* RollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingText.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,7 +248,7 @@
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
-				3EF8CEF82A5035CF0051DC39 /* Google Fonts */,
+				3EF8CEF22A4F371B0051DC39 /* RollingText.swift */,
 				3E8849BA2A41D57B00B50BBD /* WeatherKit & Location Manager */,
 				0913C4292A487643007AF26E /* Types */,
 				3E8849BB2A41D59100B50BBD /* Extensions */,
@@ -391,7 +375,6 @@
 			children = (
 				3EADA5B22A43343300FA1BCB /* SWAWidgetView.swift */,
 				3E4F89832A4B5865001763DC /* SWAWidget2.swift */,
-				3EF8CF092A5039FD0051DC39 /* SWAWidget3.swift */,
 			);
 			path = "Example Widgets";
 			sourceTree = "<group>";
@@ -443,21 +426,6 @@
 				3EB671942A4ED6A700DF2678 /* ImportImageButton.swift */,
 			);
 			path = "Imported Image Element";
-			sourceTree = "<group>";
-		};
-		3EF8CEF82A5035CF0051DC39 /* Google Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				3EF8CEF92A5035F70051DC39 /* GoogleFontService.swift */,
-				3EF8CEFB2A5036090051DC39 /* GoogleFont.swift */,
-				3EF8CEFD2A5036910051DC39 /* GoogleView.swift */,
-				3EF8CEFF2A5036F40051DC39 /* DetailsView.swift */,
-				3EF8CF012A5037130051DC39 /* Font+Register.swift */,
-				3EF8CF032A5037270051DC39 /* StyleCell.swift */,
-				3EF8CF052A50373B0051DC39 /* Style.swift */,
-				3EF8CF072A5037510051DC39 /* FontList.swift */,
-			);
-			path = "Google Fonts";
 			sourceTree = "<group>";
 		};
 		3EFAB1882A45CD6D001A9BC7 /* Cover Sheet Views */ = {
@@ -611,7 +579,6 @@
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3EADA5BD2A4354CA00FA1BCB /* LayerElementView.swift in Sources */,
-				3EF8CF002A5036F40051DC39 /* DetailsView.swift in Sources */,
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
 				3EB671952A4ED6A700DF2678 /* ImportImageButton.swift in Sources */,
 				3EC820872A46154A00EA8A88 /* ImportImageElementView.swift in Sources */,
@@ -625,10 +592,8 @@
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
-				3EF8CF082A5037510051DC39 /* FontList.swift in Sources */,
 				3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
-				3EF8CEFC2A5036090051DC39 /* GoogleFont.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
@@ -637,16 +602,11 @@
 				3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */,
 				3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */,
 				3ED4EF6C2A4586A7007CCAA6 /* BatteryCircularGuageView.swift in Sources */,
-				3EF8CF062A50373B0051DC39 /* Style.swift in Sources */,
-				3EF8CEFA2A5035F70051DC39 /* GoogleFontService.swift in Sources */,
 				3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */,
 				3EC820832A460FAD00EA8A88 /* CalendarElementView.swift in Sources */,
 				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
-				3EF8CF022A5037130051DC39 /* Font+Register.swift in Sources */,
 				3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */,
-				3EF8CEFE2A5036910051DC39 /* GoogleView.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
-				3EF8CF0A2A5039FD0051DC39 /* SWAWidget3.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
@@ -668,12 +628,12 @@
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
-				3EF8CF042A5037270051DC39 /* StyleCell.swift in Sources */,
 				3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */,
 				3EADA5B32A43343300FA1BCB /* SWAWidgetView.swift in Sources */,
 				3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */,
 				3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
+				3EF8CEF32A4F371B0051DC39 /* RollingText.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

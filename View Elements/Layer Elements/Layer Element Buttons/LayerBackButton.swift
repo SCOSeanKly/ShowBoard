@@ -22,7 +22,7 @@ struct LayerBackButton: View {
                 
                 selfViewToClose.wrappedValue.toggle()
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     showLayerElementView.wrappedValue.toggle()
                 }
                 
