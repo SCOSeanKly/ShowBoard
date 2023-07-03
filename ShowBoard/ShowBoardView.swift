@@ -44,6 +44,7 @@ struct ShowBoardView: View {
     @State private var showImportImageElementView = false
     @State private var showLayerEditView = false
     @State private var showUrlImageView: Bool = false
+    @State private var showAppSettings: Bool = false ///Still to be added
     
     //MARK: Observed Objects
     @ObservedObject private var batteryViewModel = BatteryViewModel()

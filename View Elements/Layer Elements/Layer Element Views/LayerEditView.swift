@@ -14,8 +14,10 @@ struct LayerEditView: View {
     @State private var items = ["Text", "Gauges", "Weather", "Charts", "Shapes", "Calendar", "Image", "Maps", "Gallery"]
     private let itemImages = ["character.textbox", "barometer", "cloud.sun", "chart.xyaxis.line", "dot.squareshape", "calendar", "photo", "map", "platter.filled.bottom.and.arrow.down.iphone"]
     @State private var itemButtons = Array(repeating: false, count: 9) // Create an array of boolean values to track the button states
-
+    
     var body: some View {
+        ///List Idea
+        
         ZStack {
             VStack {
                 HStack {
@@ -32,6 +34,7 @@ struct LayerEditView: View {
                             .tint(.black)
                     }
                     Spacer()
+                    /*
                     Button {
                         isEditing.toggle()
                     } label: {
@@ -39,6 +42,7 @@ struct LayerEditView: View {
                             .font(.title)
                             .tint(.black)
                     }
+                     */
                 }
                 .padding()
                 .padding(.horizontal)
@@ -58,12 +62,14 @@ struct LayerEditView: View {
                     ForEach(items.indices, id: \.self) { index in
                         HStack {
                             Image(systemName: itemImages[index % itemImages.count])
-                                .foregroundColor(.blue)
+                                .foregroundColor(.blue.opacity(itemButtons[index] ? 0.3 : 1.0))
+                                
                             
                             if isEditing {
                                 TextField("Enter text", text: $items[index])
                             } else {
                                 Text(items[index])
+                                    .opacity(itemButtons[index] ? 0.3 : 1.0)
                             }
                             
                             Spacer()
@@ -74,7 +80,13 @@ struct LayerEditView: View {
                             }, label: {
                                 Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
                                     .font(.footnote)
+                                    .foregroundColor(itemButtons[index] ? Color.red : Color.black)
                             })
+                            
+                            Image(systemName: "line.3.horizontal")
+                                .font(.footnote)
+                                .padding(.horizontal)
+                             
                         }
                     }
                     .onDelete(perform: delete)
@@ -86,6 +98,14 @@ struct LayerEditView: View {
         }
         .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
+        
+        
+        /*
+         ///Moveable Grid Idea
+         LayerBackButton(selfViewToClose: $showLayerEditView, showLayerElementView: $showLayerElementView, headerText: "Edit Layers", systemImage: "arrow.left.circle")
+         
+         MoveableGrid(showLayerElementView: $showLayerElementView)
+         */
     }
     
     func delete(at offsets: IndexSet) {

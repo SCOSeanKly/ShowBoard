@@ -32,11 +32,13 @@ struct ImportImageElementView: View {
     @State private var settingsButtonIsPressedAnimationImage2: Bool = false
     @State private var settingsButtonIsPressedAnimationImage3: Bool = false
     
+    @State private var showAnotherView = false
+    
     var body: some View {
         ZStack {
             VStack{
                 
-                LayerBackButton(selfViewToClose: $showImportImageElementView, showLayerElementView: $showLayerElementView, headerText: "Import Image", systemImage: "arrow.left.circle")
+                LayerBackButton(selfViewToClose: $showImportImageElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Import Image", systemImage: "arrow.left.circle", systemImage2: "")
                
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     

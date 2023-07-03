@@ -18,7 +18,7 @@ struct ChartsElementView: View {
     var body: some View {
         
         ScrollView{
-            LayerBackButton(selfViewToClose: $showChartsElementView, showLayerElementView: $showLayerElementView, headerText: "Charts", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showChartsElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Charts", systemImage: "arrow.left.circle", systemImage2: "")
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: chartsIconsArray, iconsArraytext: chartsIconsArraytext, viewToClose: $showChartsElementView, viewToOpen: $showAnotherView)
             

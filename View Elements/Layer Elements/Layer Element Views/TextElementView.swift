@@ -21,7 +21,7 @@ struct TextElementView: View {
     var body: some View {
         
         ScrollView{
-            LayerBackButton(selfViewToClose: $showTextElementView, showLayerElementView: $showLayerElementView, headerText: "Dynamic Text", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showTextElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Dynamic Text", systemImage: "arrow.left.circle", systemImage2: "")
             
             /// Edit this $showLayerElementView to open the correct view - Dynamic Text Edit View
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: textIconsArray, iconsArraytext: textIconsArraytext, viewToClose: $showTextElementView, viewToOpen: $openNoView)

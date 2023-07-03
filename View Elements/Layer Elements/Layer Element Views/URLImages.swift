@@ -15,6 +15,8 @@ struct URLImages: View {
     @Binding var showLayerElementView: Bool
     @State private var showAlert = false
     
+    @State private var showAnotherView = false
+    
     let gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -23,7 +25,7 @@ struct URLImages: View {
                 if !viewModelURLImages.images.isEmpty {
                     ScrollView(.vertical, showsIndicators: false) {
                         
-                        LayerBackButton(selfViewToClose: $showUrlImageView, showLayerElementView: $showLayerElementView, headerText: "Gallery", systemImage: "arrow.left.circle")
+                        LayerBackButton(selfViewToClose: $showUrlImageView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Gallery", systemImage: "arrow.left.circle", systemImage2: "")
                         
                         LazyVGrid(columns: gridItemLayout, spacing: 0) { // Use LazyVGrid to create the grid
                             ForEach(viewModelURLImages.images.indices, id: \.self) { index in
@@ -44,7 +46,7 @@ struct URLImages: View {
                         }
                     }
                 } else {
-                    Text("Loading images...")
+                    Text("Loading...")
                 }
             }
             .padding(.top)

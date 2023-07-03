@@ -18,7 +18,7 @@ struct ShapesElementView: View {
     var body: some View {
         
         ScrollView{
-            LayerBackButton(selfViewToClose: $showShapesElementView, showLayerElementView: $showLayerElementView, headerText: "Shapes", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showShapesElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Shapes", systemImage: "arrow.left.circle", systemImage2: "")
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: shapesIconsArray, iconsArraytext: shapesIconsArraytext, viewToClose: $showShapesElementView, viewToOpen: $showAnotherView)
         }

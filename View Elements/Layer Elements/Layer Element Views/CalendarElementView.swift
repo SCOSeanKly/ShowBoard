@@ -17,7 +17,7 @@ struct CalendarElementView: View {
     
     var body: some View {
         ScrollView {
-            LayerBackButton(selfViewToClose: $showCalendarElementView, showLayerElementView: $showLayerElementView, headerText: "Calendar", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showCalendarElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Calendar", systemImage: "arrow.left.circle", systemImage2: "")
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: calendarIconsArray, iconsArraytext: calendarIconsArraytext, viewToClose: $showCalendarElementView, viewToOpen: $showAnotherView)
         }

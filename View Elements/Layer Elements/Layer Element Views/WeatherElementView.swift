@@ -19,7 +19,7 @@ struct WeatherElementView: View {
     var body: some View {
         
         ScrollView {
-            LayerBackButton(selfViewToClose: $showWeatherElementView, showLayerElementView: $showLayerElementView, headerText: "Weather", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showWeatherElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Weather", systemImage: "arrow.left.circle", systemImage2: "")
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: weatherIconsArray, iconsArraytext: weatherIconsArraytext, viewToClose: $showWeatherElementView, viewToOpen: $showAnotherView)
         }

@@ -18,7 +18,7 @@ struct GaugesElementView: View {
     var body: some View {
         
         ScrollView{
-            LayerBackButton(selfViewToClose: $showGaugesElementView, showLayerElementView: $showLayerElementView, headerText: "Gauges", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showGaugesElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Gauges", systemImage: "arrow.left.circle", systemImage2: "")
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: gaugesIconsArray, iconsArraytext: gaugesIconsArraytext, viewToClose: $showGaugesElementView, viewToOpen: $showAnotherView)
         }

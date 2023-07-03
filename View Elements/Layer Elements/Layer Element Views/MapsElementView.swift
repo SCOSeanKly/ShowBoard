@@ -18,7 +18,7 @@ struct MapsElementView: View {
     var body: some View {
         
         ScrollView{
-            LayerBackButton(selfViewToClose: $showMapsElementView, showLayerElementView: $showLayerElementView, headerText: "Maps", systemImage: "arrow.left.circle")
+            LayerBackButton(selfViewToClose: $showMapsElementView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Maps", systemImage: "arrow.left.circle", systemImage2: "")
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: mapsIconsArray, iconsArraytext: mapsIconsArraytext, viewToClose: $showMapsElementView, viewToOpen: $showAnotherView)
         }
