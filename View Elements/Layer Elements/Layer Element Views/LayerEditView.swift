@@ -96,7 +96,6 @@ struct LayerEditView: View {
                 .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive))
             }
         }
-        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
         
         

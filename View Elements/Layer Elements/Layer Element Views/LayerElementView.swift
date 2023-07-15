@@ -45,8 +45,8 @@ struct LayerElementView: View {
     @Binding var importedImage2: UIImage?
     @Binding var importedImage3: UIImage?
     
-    @State private var shouldShowRedDot = false // New state variable
-    @State private var showNoView = false
+    @State private var shouldShowRedDot = false
+    @State private var showNoView = false // This is a dummy Bool for the LayerBackbutton
     
 
     var body: some View {
@@ -136,7 +136,6 @@ struct LayerElementView: View {
         .onAppear {
             shouldShowRedDot = hasImages(for: 6) // Check if red dot should be initially shown
         }
-        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
     

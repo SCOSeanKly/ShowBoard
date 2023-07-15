@@ -46,7 +46,7 @@ struct MenuButtonsView: View {
             }
         }
         .onAppear {
-            startImageTimer()
+        //    startImageTimer()
         }
     }
     
@@ -126,13 +126,13 @@ struct MenuButtonsView: View {
             }
     }
     
-    private func startImageTimer() {
-        Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { timer in
-            withAnimation {
-                currentImageIndex = (currentImageIndex + 1) % images.count
-            }
-        }
-    }
+//    private func startImageTimer() {
+//        Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { timer in
+//            withAnimation {
+//                currentImageIndex = (currentImageIndex + 1) % images.count
+//            }
+//        }
+//    }
 }
 
 struct MenuButtonsView_Previews: PreviewProvider {

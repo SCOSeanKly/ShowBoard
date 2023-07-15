@@ -23,7 +23,6 @@ struct ChartsElementView: View {
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: chartsIconsArray, iconsArraytext: chartsIconsArraytext, viewToClose: $showChartsElementView, viewToOpen: $showAnotherView)
             
         }
-        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

@@ -26,7 +26,6 @@ struct TextElementView: View {
             /// Edit this $showLayerElementView to open the correct view - Dynamic Text Edit View
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: textIconsArray, iconsArraytext: textIconsArraytext, viewToClose: $showTextElementView, viewToOpen: $openNoView)
         }
-        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

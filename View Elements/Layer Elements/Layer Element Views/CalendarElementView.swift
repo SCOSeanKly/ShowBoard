@@ -21,7 +21,6 @@ struct CalendarElementView: View {
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: calendarIconsArray, iconsArraytext: calendarIconsArraytext, viewToClose: $showCalendarElementView, viewToOpen: $showAnotherView)
         }
-        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

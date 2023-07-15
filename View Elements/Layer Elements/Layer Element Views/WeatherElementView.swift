@@ -23,7 +23,6 @@ struct WeatherElementView: View {
             
             LayerButton(pressedButtonIndex: $pressedButtonIndex, iconsArray: weatherIconsArray, iconsArraytext: weatherIconsArraytext, viewToClose: $showWeatherElementView, viewToOpen: $showAnotherView)
         }
-        .presentationDetents([.fraction(0.45)])
         .presentationDragIndicator(.visible)
     }
 }

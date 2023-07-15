@@ -61,7 +61,6 @@ import SwiftUI
                     .padding(15)
                     .offset(y: -15)
                 }
-                .presentationDetents([.fraction(0.45)])
                 .presentationDragIndicator(.visible)
         }
     }
