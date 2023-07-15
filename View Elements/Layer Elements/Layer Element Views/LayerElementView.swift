@@ -53,7 +53,7 @@ struct LayerElementView: View {
         ZStack {
             ScrollView {
                 
-                LayerBackButton(selfViewToClose: $showNoView, viewToOpen: $showNoView, showLayerElementView: $showNoView, headerText: "Home", systemImage: "house", systemImage2: "gear")
+                LayerBackButton(selfViewToClose: $showNoView, viewToOpen: $showNoView, showLayerElementView: $showNoView, headerText: "Home", systemImage: "house", systemImage2: "gearshape")
                 
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ForEach(sfSymbolsArray.indices, id: \.self) { index in
