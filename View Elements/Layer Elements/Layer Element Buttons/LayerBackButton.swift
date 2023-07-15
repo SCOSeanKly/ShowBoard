@@ -25,14 +25,14 @@ struct LayerBackButton: View {
             } label: {
                 Image(systemName: systemImage)
                     .font(.title3)
-                    .tint(.black)
+                  //  .tint(.black)
             }
             
             HStack {
                 Text(headerText)
                     .font(.headline.weight(.heavy))
                     .fontWeight(.semibold)
-                    .foregroundColor(.black)
+                 //   .foregroundColor(.black)
             }
             
             Spacer()
@@ -46,10 +46,11 @@ struct LayerBackButton: View {
                 } label: {
                     Image(systemName: systemImage2)
                         .font(.title3)
-                        .tint(.black)
+                      //  .tint(.black)
                 }
             }
         }
+        .buttonStyle(.plain)
         .padding()
         .padding(.horizontal)
     }

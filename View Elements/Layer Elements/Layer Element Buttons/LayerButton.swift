@@ -66,7 +66,7 @@ struct LayerButton: View {
                     }
                 }
                 .padding(10)
-                .background(.white)
+                .background(.ultraThinMaterial)
                 .cornerRadius(10)
                 .shadow(color: Color.black.opacity(pressedButtonIndex.wrappedValue == index ? 0.3 : 0.2), radius: pressedButtonIndex.wrappedValue == index ? 1 : 5, x: 0, y: pressedButtonIndex.wrappedValue == index ? 0 : 4)
                 .tint(.black)

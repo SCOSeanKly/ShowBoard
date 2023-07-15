@@ -20,49 +20,14 @@ struct LayerEditView: View {
         
         ZStack {
             VStack {
-                HStack {
-                    Button {
-                        showLayerEditView.toggle()
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            showLayerElementView.toggle()
-                        }
-                        
-                    } label: {
-                        Image(systemName: "arrow.left.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                    Spacer()
-                    /*
-                    Button {
-                        isEditing.toggle()
-                    } label: {
-                        Image(systemName: isEditing ? "xmark.circle" : "ellipsis.circle")
-                            .font(.title)
-                            .tint(.black)
-                    }
-                     */
-                }
-                .padding()
-                .padding(.horizontal)
-                
-                HStack {
-                    Text("Edit Layers")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-                .padding(.horizontal)
+              
+                LayerBackButton(selfViewToClose: $showLayerEditView, viewToOpen: $showLayerEditView, showLayerElementView: $showLayerElementView, headerText: "Edit Layers", systemImage: "arrow.left.circle", systemImage2: "")
                 
                 List {
                     ForEach(items.indices, id: \.self) { index in
                         HStack {
                             Image(systemName: itemImages[index % itemImages.count])
-                                .foregroundColor(.blue.opacity(itemButtons[index] ? 0.3 : 1.0))
+                                .foregroundColor(.primary.opacity(itemButtons[index] ? 0.3 : 1.0))
                                 
                             
                             if isEditing {
@@ -80,8 +45,9 @@ struct LayerEditView: View {
                             }, label: {
                                 Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
                                     .font(.footnote)
-                                    .foregroundColor(itemButtons[index] ? Color.red : Color.black)
+                                    .foregroundColor(itemButtons[index] ? Color.red : Color.primary)
                             })
+                            .buttonStyle(.plain)
                             
                             Image(systemName: "line.3.horizontal")
                                 .font(.footnote)
@@ -92,9 +58,11 @@ struct LayerEditView: View {
                     .onDelete(perform: delete)
                     .onMove(perform: move)
                 }
+                .padding(.horizontal)
                 .listStyle(PlainListStyle())
                 .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive))
             }
+           
         }
         .presentationDragIndicator(.visible)
         

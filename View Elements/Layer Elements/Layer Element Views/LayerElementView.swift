@@ -102,7 +102,7 @@ struct LayerElementView: View {
                             }
                         }
                         .padding(10)
-                        .background(.white)
+                        .background(.ultraThinMaterial)
                         .cornerRadius(10)
                         .shadow(color: Color.black.opacity(pressedButtonObjectIndex == index ? 0.3 : 0.2),
                                 radius: pressedButtonObjectIndex == index ? 1 : 5,
