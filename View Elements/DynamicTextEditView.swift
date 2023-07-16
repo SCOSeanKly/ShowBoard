@@ -54,7 +54,7 @@ struct DynamicTextView: View {
                 .padding(.top, 5)
                 
                 HStack {
-                    Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
+                    Text(text.dynamicText)
                         .shadow(
                             radius: text.appearance.shadow.radius,
                             x: text.appearance.shadow.offset.x,

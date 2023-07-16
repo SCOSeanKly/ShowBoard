@@ -91,7 +91,7 @@ class LayerObjectAppearance {
     init() {
         self.position = .zero
         self.originalSize = .zero
-        self.scales = .zero
+        self.scales = .init(x: 1, y: 1)
         self.rotation = .zero
         self.blendMode = .normal
         self.shadow = ShadowSettings()
@@ -105,5 +105,14 @@ class LayerObjectAppearance {
         self.rotation = rotation
         self.blendMode = blendMode
         self.shadow = ShadowSettings()
+    }
+    
+    
+    
+    /// Sets bot horizontal and vertical scale values with the given value
+    /// - Parameter value: The new scale value
+    public func setScales(with value: CGFloat) {
+        self.scales.x = value
+        self.scales.y = value
     }
 }

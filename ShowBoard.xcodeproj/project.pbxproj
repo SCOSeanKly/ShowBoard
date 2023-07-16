@@ -10,6 +10,8 @@
 		0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C4272A4875E4007AF26E /* DynamicText.swift */; };
 		0913C42B2A48766C007AF26E /* DynamicText+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */; };
 		0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */; };
+		091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */; };
+		091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */; };
 		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
@@ -100,6 +102,8 @@
 		0913C4272A4875E4007AF26E /* DynamicText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicText.swift; sourceTree = "<group>"; };
 		0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DynamicText+Placeholder.swift"; sourceTree = "<group>"; };
 		0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionAsset.swift; sourceTree = "<group>"; };
+		091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeObject.swift; sourceTree = "<group>"; };
+		091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateLayerObject.swift; sourceTree = "<group>"; };
 		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				097274322A4C854B00429786 /* TextObject.swift */,
 				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
 				097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */,
+				091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */,
+				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 			);
 			path = LayerObject;
 			sourceTree = "<group>";
@@ -608,6 +614,7 @@
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
+				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */,
 				3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */,
@@ -637,6 +644,7 @@
 				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
+				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
 				3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */,

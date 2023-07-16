@@ -10,10 +10,12 @@ import SwiftUI
 
 public struct CustomShapeView: View {
     
+    @StateObject var shape = CustomShapeObject()
+
+    
     @State private var count: CGFloat = 5
     @State private var ratio: CGFloat = 1
     @State private var isPresented: Bool = true
-    @State private var scale: CGFloat = 0.5
     @State private var rotation: Angle = Angle(degrees: 0)
     @State private var bgColor = Color.blue
     @State private var shadowRadius: CGFloat = 0
@@ -48,7 +50,10 @@ public struct CustomShapeView: View {
                             .background(.ultraThinMaterial.opacity(opacity))
                             .clipShape(Star(count: round(count), innerRatio: ratio))
                             .frame(width: min, height: min)
-                            .scaleEffect(scale)
+                            .scaleEffect(
+                                x: shape.appearance.scales.x,
+                                y: shape.appearance.scales.y
+                            )
                             .rotationEffect(rotation)
                             .shadow(radius: shadowRadius, y: shadowOffset)
                             .blur(radius: blur)
@@ -105,8 +110,12 @@ public struct CustomShapeView: View {
                 }
                 HStack {
                     Text("Scale: ")
-                    Slider(value: $scale, in: 0...5)
-                    Text("\(scale, specifier: "%.1f")")
+                    Slider(value: $shape.appearance.scales.x, in: 0...5)
+                    Text("\(shape.appearance.scales.x, specifier: "%.1f")")
+                        .onChange(of: shape.appearance.scales) { _ in
+                            shape.appearance.scales.y =
+                            shape.appearance.scales.x
+                        }
                 }
                 HStack {
                     Text("Rotation: ")
@@ -149,7 +158,7 @@ public struct CustomShapeView: View {
     private func resetValues() {
         count = defaultCount
         ratio = defaultRatio
-        scale = defaultScale
+        //scale = defaultScale
         rotation = defaultRotation
         bgColor = defaultBgColor
         shadowRadius = defaultShadowRadius
@@ -161,7 +170,7 @@ public struct CustomShapeView: View {
     private func square() {
         count = 4
         ratio = 1.4
-        scale = defaultScale
+        shape.appearance.setScales(with: defaultScale)
         rotation = Angle(degrees: 45)
         bgColor = defaultBgColor
         shadowRadius = defaultShadowRadius
@@ -173,7 +182,7 @@ public struct CustomShapeView: View {
     private func triangle() {
         count = 3
         ratio = defaultRatio
-        scale = defaultScale
+        //scale = defaultScale
         rotation = defaultRotation
         bgColor = defaultBgColor
         shadowRadius = defaultShadowRadius
@@ -185,7 +194,7 @@ public struct CustomShapeView: View {
     private func circle() {
         count = 30
         ratio = 2
-        scale = defaultScale
+        //scale = defaultScale
         rotation = defaultRotation
         bgColor = defaultBgColor
         shadowRadius = defaultShadowRadius
