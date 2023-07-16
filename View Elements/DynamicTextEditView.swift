@@ -12,20 +12,6 @@ struct DynamicTextView: View {
     
     @StateObject private var text = TextObject()
     
-    //@State private var userInput: String = "day: [day], year: [year]"
-    @State private var fontSize: CGFloat = 16
-    @State private var fontTracking: CGFloat = 0
-    @State private var fontName: String = "Autone"
-    @State private var fontWeight: Font.Weight = .black
-    @State private var fontColor: Color = .black
-    @State private var fontAlignment: TextAlignment = .leading
-    
-    // Dont forget this is just a helper for the settings view we are currently in
-    @State private var rotationDegrees: CGFloat = 0
-    
-    let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
-    
-    let fontStyleArray = ["Autone", "ModernAge"]
     let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
     
     var body: some View {
@@ -33,7 +19,7 @@ struct DynamicTextView: View {
        
         ScrollView {
             
-            Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("ASD") }
+            Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("TEST") }
             
             VStack {
                 HStack {
@@ -68,15 +54,20 @@ struct DynamicTextView: View {
                 .padding(.top, 5)
                 
                 HStack {
-                    Text(String(text.appearance.rotation.degrees))
-                        .appearance(text.appearance)
-                        .font(.custom(fontName, size: fontSize))
-                        .tracking(fontTracking)
-                        .multilineTextAlignment(fontAlignment)
-                        .fontWeight(fontWeight)
-                        .foregroundColor(fontColor)
-                        .padding(6)
+                    Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
+                        .shadow(
+                            radius: text.appearance.shadow.radius,
+                            x: text.appearance.shadow.offset.x,
+                            y: text.appearance.shadow.offset.y
+                        )
+                        .font(text.font)
+                        .tracking(text.fontTracking)
+                        .multilineTextAlignment(text.textAlignment)
+                        .fontWeight(text.fontWeight)
+                        .foregroundColor(text.fontColor)
                         .background(.ultraThinMaterial)
+                        .blendMode(text.appearance.blendMode)
+                        .rotationEffect(text.appearance.rotation)
                     
                     Spacer()
                 }
@@ -99,8 +90,8 @@ struct DynamicTextView: View {
                     HStack {
                         Text("Font Style: ")
                         Spacer()
-                        Picker("Font Style", selection: $fontName) {
-                            ForEach(fontStyleArray, id: \.self) { style in
+                        Picker("Font Style", selection: $text.selectedFontName) {
+                            ForEach(TextObject.fontList, id: \.self) { style in
                                 Text(style ?? "System Font")
                             }
                         }
@@ -109,20 +100,20 @@ struct DynamicTextView: View {
                     
                     HStack {
                         Text("Font Size: ")
-                        Slider(value: $fontSize, in: 1...200)
-                        Text("\(fontSize, specifier: "%.1f")")
+                        Slider(value: $text.fontSize, in: 1...200)
+                        Text("\(text.fontSize, specifier: "%.1f")")
                     }
                     
                     HStack {
                         Text("Tracking: ")
-                        Slider(value: $fontTracking, in: 0...20)
-                        Text("\(fontTracking, specifier: "%.0f")")
+                        Slider(value: $text.fontTracking, in: 0...20)
+                        Text("\(text.fontTracking, specifier: "%.0f")")
                     }
                     
                     HStack {
                         Text("Font Alignment: ")
                         Spacer()
-                        Picker("Font Alignment", selection: $fontAlignment) {
+                        Picker("Font Alignment", selection: $text.textAlignment) {
                             ForEach(alignmentOptions, id: \.self) { style in
                              //  Text(alignmentOptions)
                             }
@@ -142,17 +133,17 @@ struct DynamicTextView: View {
                     }
                     HStack {
                         Text("Rotation: ")
-                        Slider(value: $rotationDegrees, in: 0...360)
-                        Text("\(rotationDegrees, specifier: "%.1f")")
+                        Slider(value: $text.appearance.rotation.degrees, in: 0...360)
+                        Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
                     }
-                    .onChange(of: rotationDegrees) { text.appearance.rotation.degrees = $0 }
+                    .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
                     
                     HStack {
                         Text("Blend Mode: ")
                         Spacer()
                         Picker("Blend Mode", selection: $text.appearance.blendMode) {
-                            ForEach(blendModes, id: \.self) { mode in
-                                Text(labelForBlendMode(mode))
+                            ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
+                                Text(LayerObjectAppearance.labelForBlendMode(mode))
                                     .tag(mode)
                             }
                         }
@@ -162,7 +153,7 @@ struct DynamicTextView: View {
                         
                     }
                     
-                    ColorPicker("Set the foreground color", selection: $fontColor)
+                    ColorPicker("Set the foreground color", selection: $text.fontColor)
                     
                 }
                 .padding()
@@ -174,50 +165,11 @@ struct DynamicTextView: View {
     }
     
     private func resetSettings() {
-        fontName = "Autone"
+        /*fontName = "Autone"
         fontSize = 26
         fontWeight = .regular
         fontColor = .black
-        text.appearance.rotation = .zero
-    }
-    
-    private func labelForBlendMode(_ blendMode: BlendMode) -> String {
-        switch blendMode {
-        case .normal:
-            return "Normal"
-        case .multiply:
-            return "Multiply"
-        case .screen:
-            return "Screen"
-        case .overlay:
-            return "Overlay"
-        case .darken:
-            return "Darken"
-        case .lighten:
-            return "Lighten"
-        case .colorDodge:
-            return "Color Dodge"
-        case .colorBurn:
-            return "Color Burn"
-        case .softLight:
-            return "Soft Light"
-        case .hardLight:
-            return "Hard Light"
-        case .difference:
-            return "Difference"
-        case .exclusion:
-            return "Exclusion"
-        case .hue:
-            return "Hue"
-        case .saturation:
-            return "Saturation"
-        case .color:
-            return "Color"
-        case .luminosity:
-            return "Luminosity"
-        @unknown default:
-            return ""
-        }
+        text.appearance.rotation = .zero*/
     }
 }
 

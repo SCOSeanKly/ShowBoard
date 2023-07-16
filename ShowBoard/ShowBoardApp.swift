@@ -12,7 +12,7 @@ struct ShowBoardApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-           // DynamicTextView()
+            DynamicTextView()
                // .preferredColorScheme(.light)
                 .environment(\.sizeCategory, .small)
             //    .environment(\.colorScheme, .light)
