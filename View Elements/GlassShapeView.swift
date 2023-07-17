@@ -73,7 +73,6 @@ struct GlassShapeView: View {
                     Slider(value: $shape.appearance.shadow.offset.y, in: 0...30)
                     Text("\(shape.appearance.shadow.offset.y, specifier: "%.1f")")
                 }
-                
             }
             .padding()
             .offset(y: 250)

@@ -11,6 +11,8 @@ import SwiftUI
 public struct CustomShapeView: View {
 
     @StateObject var shape = CustomShapeObject()
+    
+    @State private var isSliderMode = true
 
     public init() {}
 
@@ -50,58 +52,39 @@ public struct CustomShapeView: View {
             .offset(y: 30)
 
             VStack {
-                HStack {
-                    Text("Count: ")
-                    Slider(value: $shape.shapePointCount, in: 2...30, step: 1.0)
-                    Text("\(shape.shapePointCount, specifier: "%.1f")")
-                }
-                HStack {
-                    Text("Inner Ratio: ")
-                    Slider(value: $shape.shapeRatio, in: 0...2)
-                    Text("\(shape.shapeRatio, specifier: "%.1f")")
-                }
                
-                    HStack {
-                        Text("Width: ")
-                        Slider(value: $shape.shapeFrameWidth, in: 0...UIScreen.main.bounds.width)
-                        Text("\(shape.shapeFrameWidth, specifier: "%.0f")")
-                    }
-                    HStack {
-                        Text("Height: ")
-                        Slider(value: $shape.shapeFrameHeight, in: 0...UIScreen.main.bounds.height)
-                        Text("\(shape.shapeFrameHeight, specifier: "%.0f")")
+
+                SliderStepper(title: "Count: ", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
+                
+                SliderStepper(title: "Inner Ratio: ", sliderBindingValue: $shape.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.1, specifier: 1, defaultValue: 1)
+                
+                SliderStepper(title: "Width: ", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
+                 
+                SliderStepper(title: "Height: ", sliderBindingValue: $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
+                   
+                SliderStepper(title: "Scale: ", sliderBindingValue: $shape.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
+                    .onChange(of: shape.appearance.scales) { _ in
+                        shape.appearance.scales.y =
+                        shape.appearance.scales.x
                     }
                 
-                HStack {
-                    Text("Scale: ")
-                    Slider(value: $shape.appearance.scales.x, in: 0...5)
-                    Text("\(shape.appearance.scales.x, specifier: "%.1f")")
-                        .onChange(of: shape.appearance.scales) { _ in
-                            shape.appearance.scales.y =
-                            shape.appearance.scales.x
-                        }
-                }
+                /*
+                SliderStepper(title: "Rotation: ", sliderBindingValue: $shape.appearance.rotation.degrees, minValue: 0.0, maxValue: 360, step: 1, specifier: 1)
+                 */
+                 
+                
                 HStack {
                     Text("Rotation: ")
                     Slider(value: $shape.appearance.rotation.degrees, in: 0...360)
                     Text("\(shape.appearance.rotation.degrees, specifier: "%.1f")")
                 }
-                HStack {
-                    Text("Shadow Radius: ")
-                    Slider(value: $shape.appearance.shadow.radius, in: 0...20)
-                    Text("\(shape.appearance.shadow.radius, specifier: "%.1f")")
-                }
-                HStack {
-                    Text("Shadow Offset: ")
-                    Slider(value: $shape.appearance.shadow.offset.y, in: 0...30)
-                    Text("\(shape.appearance.shadow.offset.y, specifier: "%.1f")")
-                }
-                HStack {
-                    Text("Blur Radius: ")
-                    Slider(value: $shape.appearance.blur, in: 0...50)
-                    Text("\(shape.appearance.blur, specifier: "%.0f")")
-                }
-
+                 
+                SliderStepper(title: "Shadow Radius: ", sliderBindingValue: $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1.0, specifier: 1, defaultValue: 0)
+               
+                SliderStepper(title: "Shadow Offet: ", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1.0, specifier: 1, defaultValue: 0)
+                
+                SliderStepper(title: "Blur Radius: ", sliderBindingValue: $shape.appearance.blur, minValue: 0, maxValue: 50, step: 1.0, specifier: 0, defaultValue: 0)
+                
                 ColorPicker("Set the background color", selection: $shape.shapeColor)
                 
                 HStack {
@@ -114,17 +97,9 @@ public struct CustomShapeView: View {
                         }
                     }
                     .pickerStyle(.menu)
-                    
-                    
-                    
                 }
 
-                HStack {
-                    Text("Opacity: ")
-                    Slider(value: $shape.appearance.opacity, in: 0...1)
-                    Text("\(shape.appearance.opacity, specifier: "%.1f")")
-                }
-
+                SliderStepper(title: "Opacity: ", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
             }
             .padding()
             .offset(y: 250)
