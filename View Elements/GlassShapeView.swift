@@ -8,85 +8,88 @@
 import SwiftUI
 
 struct GlassShapeView: View {
-    
-    @State private var width: CGFloat = 300
-    @State private var height: CGFloat = 150
-    @State private var cornerRadius: CGFloat = 20
-    @State private var shadowRadius: CGFloat = 0
-    @State private var shadowOffset: CGFloat = 0
-    
+        
+    @StateObject var shape = CustomShapeObject()
     
     var body: some View {
         
         ZStack {
             ZStack {
-                RoundedRectangle(cornerRadius: cornerRadius)
+                RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
                     .foregroundColor(.clear)
                     .background(.ultraThinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: shape.appearance.cornerRadius))
                 
-                RoundedRectangle(cornerRadius: cornerRadius)
+                RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
                     .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1)
                 
             }
-            .frame(width: width,  height: height)
-            .shadow(radius: shadowRadius, y: shadowOffset)
+            .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
+            .shadow(
+                radius: shape.appearance.shadow.radius,
+                x: shape.appearance.shadow.offset.x,
+                y: shape.appearance.shadow.offset.y
+            )
             .ignoresSafeArea()
             
             // MARK: Settings for Glass
             VStack {
                 
-                HStack {
+                 HStack {
+                 
+                 Spacer()
+                 
+                 Button {
+                 resetValues()
+                 }label: {
+                 Text("Reset")
+                 }
+                 
+                 }
+                 
                 
-                    Spacer()
-                    
-                    Button {
-                        resetValues()
-                    }label: {
-                        Text("Reset")
-                    }
-                    
-                }
                 HStack {
                     Text("Width: ")
-                    Slider(value: $width, in: 0...UIScreen.main.bounds.width)
-                    Text("\(width, specifier: "%.0f")")
+                    Slider(value: $shape.shapeFrameWidth, in: 0...UIScreen.main.bounds.width)
+                    Text("\(shape.shapeFrameWidth, specifier: "%.0f")")
                 }
                 HStack {
                     Text("Height: ")
-                    Slider(value: $height, in: 0...UIScreen.main.bounds.height)
-                    Text("\(height, specifier: "%.0f")")
+                    Slider(value: $shape.shapeFrameHeight, in: 0...UIScreen.main.bounds.height)
+                    Text("\(shape.shapeFrameHeight, specifier: "%.0f")")
                 }
                 HStack {
                     Text("Corner Radius: ")
-                    Slider(value: $cornerRadius, in: 0...200)
-                    Text("\(cornerRadius, specifier: "%.0f")")
+                    Slider(value: $shape.appearance.cornerRadius, in: 0...200)
+                    Text("\(shape.appearance.cornerRadius, specifier: "%.0f")")
                 }
                 HStack {
                     Text("Shadow Radius: ")
-                    Slider(value: $shadowRadius, in: 0...20)
-                    Text("\(shadowRadius, specifier: "%.1f")")
+                    Slider(value: $shape.appearance.shadow.radius, in: 0...20)
+                    Text("\(shape.appearance.shadow.radius, specifier: "%.1f")")
                 }
                 HStack {
                     Text("Shadow Offset: ")
-                    Slider(value: $shadowOffset, in: 0...30)
-                    Text("\(shadowOffset, specifier: "%.1f")")
+                    Slider(value: $shape.appearance.shadow.offset.y, in: 0...30)
+                    Text("\(shape.appearance.shadow.offset.y, specifier: "%.1f")")
                 }
                 
             }
             .padding()
-            .offset(y: 300)
+            .offset(y: 250)
             .scaleEffect(0.8)
         }
         
     }
-    private func resetValues() {
-        width = 300
-        height = 150
-        cornerRadius = 20
-        shadowRadius = 0
-        shadowOffset = 0
-    }
+    
+     private func resetValues() {
+         shape.shapeFrameWidth = 300
+         shape.shapeFrameHeight = 150
+         shape.appearance.cornerRadius = 20
+         shape.appearance.shadow.radius = 0
+         shape.appearance.shadow.offset.y = 0
+     }
+     
 }
 
 struct GlassShapeView_Previews: PreviewProvider {

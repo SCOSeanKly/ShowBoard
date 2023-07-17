@@ -23,15 +23,16 @@ public struct CustomShapeView: View {
                     ZStack {
                         Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
                             .fill(shape.shapeColor)
+                            .blendMode(shape.appearance.blendMode)
                             .background(.ultraThinMaterial.opacity(shape.appearance.opacity))
                             .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
-                            .frame(width: min, height: min)
+                            .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
                             .scaleEffect(
                                 x: shape.appearance.scales.x,
                                 y: shape.appearance.scales.y
                             )
                             .rotationEffect(shape.appearance.rotation)
-                            .blendMode(shape.appearance.blendMode)
+                           
                             .shadow(
                                 radius: shape.appearance.shadow.radius,
                                 x: shape.appearance.shadow.offset.x,
@@ -39,13 +40,14 @@ public struct CustomShapeView: View {
                             )
                             .blur(radius: shape.appearance.blur)
                             .opacity(shape.appearance.opacity)
+                        
                           
                     }
                 }
             }
             .padding()
             .animation(.spring())
-            .offset(y: 50)
+            .offset(y: 30)
 
             VStack {
                 HStack {
@@ -58,6 +60,18 @@ public struct CustomShapeView: View {
                     Slider(value: $shape.shapeRatio, in: 0...2)
                     Text("\(shape.shapeRatio, specifier: "%.1f")")
                 }
+               
+                    HStack {
+                        Text("Width: ")
+                        Slider(value: $shape.shapeFrameWidth, in: 0...UIScreen.main.bounds.width)
+                        Text("\(shape.shapeFrameWidth, specifier: "%.0f")")
+                    }
+                    HStack {
+                        Text("Height: ")
+                        Slider(value: $shape.shapeFrameHeight, in: 0...UIScreen.main.bounds.height)
+                        Text("\(shape.shapeFrameHeight, specifier: "%.0f")")
+                    }
+                
                 HStack {
                     Text("Scale: ")
                     Slider(value: $shape.appearance.scales.x, in: 0...5)
@@ -113,7 +127,7 @@ public struct CustomShapeView: View {
 
             }
             .padding()
-            .offset(y: 300)
+            .offset(y: 250)
             .scaleEffect(0.8)
         }
     }
