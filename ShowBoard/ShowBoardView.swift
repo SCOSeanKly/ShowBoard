@@ -76,7 +76,12 @@ struct ShowBoardView: View {
                 ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
                 /// Example Widget with example micro adjustment options. Modifiers for drag are in the SWAWidget2 View
+               /*
                 SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
+                */
+                
+                CustomShapeView()
+                
                 
             }
             .fadeOnAppear()

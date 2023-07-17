@@ -9,104 +9,54 @@
 import SwiftUI
 
 public struct CustomShapeView: View {
-    
+
     @StateObject var shape = CustomShapeObject()
 
-    
-    @State private var count: CGFloat = 5
-    @State private var ratio: CGFloat = 1
-    @State private var isPresented: Bool = true
-    @State private var rotation: Angle = Angle(degrees: 0)
-    @State private var bgColor = Color.blue
-    @State private var shadowRadius: CGFloat = 0
-    @State private var shadowOffset: CGFloat = 0
-    @State private var blur: CGFloat = 0
-    @State private var opacity: CGFloat = 1
-    
-    private let defaultCount: CGFloat = 5
-    private let defaultRatio: CGFloat = 1
-    private let defaultScale: CGFloat = 0.5
-    private let defaultRotation: Angle = Angle(degrees: 0)
-    private let defaultBgColor: Color = Color.blue
-    private let defaultShadowRadius: CGFloat = 0
-    private let defaultShadowOffset: CGFloat = 0
-    private let defaultBlur: CGFloat = 0
-    private let defaultOpacity: CGFloat = 1
-    
-    @State private var isDragging = false
-    
     public init() {}
-    
+
     public var body: some View {
         ZStack {
-            
+
             VStack {
                 GeometryReader { proxy in
                     let min = min(proxy.size.width, proxy.size.height)
                     ZStack {
-                      
-                        Star(count: round(count), innerRatio: ratio)
-                            .fill(bgColor)
-                            .background(.ultraThinMaterial.opacity(opacity))
-                            .clipShape(Star(count: round(count), innerRatio: ratio))
+                        Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
+                            .fill(shape.shapeColor)
+                            .background(.ultraThinMaterial.opacity(shape.appearance.opacity))
+                            .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
                             .frame(width: min, height: min)
                             .scaleEffect(
                                 x: shape.appearance.scales.x,
                                 y: shape.appearance.scales.y
                             )
-                            .rotationEffect(rotation)
-                            .shadow(radius: shadowRadius, y: shadowOffset)
-                            .blur(radius: blur)
-                            .opacity(opacity)
+                            .rotationEffect(shape.appearance.rotation)
+                            .blendMode(shape.appearance.blendMode)
+                            .shadow(
+                                radius: shape.appearance.shadow.radius,
+                                x: shape.appearance.shadow.offset.x,
+                                y: shape.appearance.shadow.offset.y
+                            )
+                            .blur(radius: shape.appearance.blur)
+                            .opacity(shape.appearance.opacity)
+                          
                     }
                 }
             }
             .padding()
-            .animation(.easeInOut, value: count)
-            .animation(.easeInOut, value: ratio)
+            .animation(.spring())
             .offset(y: 50)
-            
-            // MARK: Settings for custom shapes
+
             VStack {
                 HStack {
-                
-                    Spacer()
-                    
-                    Button {
-                        square()
-                    }label: {
-                        Image(systemName: "square")
-                            .padding(.trailing)
-                    }
-                    Button {
-                        triangle()
-                    }label: {
-                        Image(systemName: "triangle")
-                            .padding(.trailing)
-                    }
-                    Button {
-                        circle()
-                    }label: {
-                        Image(systemName: "circle")
-                            .padding(.trailing)
-                    }
-                    Button {
-                        resetValues()
-                    }label: {
-                        Image(systemName: "star")
-                           
-                    }
-                    
-                }
-                HStack {
                     Text("Count: ")
-                    Slider(value: $count, in: 2...30)
-                    Text("\(count, specifier: "%.0f")")
+                    Slider(value: $shape.shapePointCount, in: 2...30, step: 1.0)
+                    Text("\(shape.shapePointCount, specifier: "%.1f")")
                 }
                 HStack {
                     Text("Inner Ratio: ")
-                    Slider(value: $ratio, in: 0...2)
-                    Text("\(ratio, specifier: "%.2f")")
+                    Slider(value: $shape.shapeRatio, in: 0...2)
+                    Text("\(shape.shapeRatio, specifier: "%.1f")")
                 }
                 HStack {
                     Text("Scale: ")
@@ -119,121 +69,75 @@ public struct CustomShapeView: View {
                 }
                 HStack {
                     Text("Rotation: ")
-                    Slider(value: Binding<Double>(
-                        get: { rotation.degrees },
-                        set: { rotation = Angle(degrees: $0) }
-                    ), in: 0...360)
-                    Text("\(rotation.degrees, specifier: "%.1f")")
+                    Slider(value: $shape.appearance.rotation.degrees, in: 0...360)
+                    Text("\(shape.appearance.rotation.degrees, specifier: "%.1f")")
                 }
                 HStack {
                     Text("Shadow Radius: ")
-                    Slider(value: $shadowRadius, in: 0...20)
-                    Text("\(shadowRadius, specifier: "%.1f")")
+                    Slider(value: $shape.appearance.shadow.radius, in: 0...20)
+                    Text("\(shape.appearance.shadow.radius, specifier: "%.1f")")
                 }
                 HStack {
                     Text("Shadow Offset: ")
-                    Slider(value: $shadowOffset, in: 0...30)
-                    Text("\(shadowOffset, specifier: "%.1f")")
+                    Slider(value: $shape.appearance.shadow.offset.y, in: 0...30)
+                    Text("\(shape.appearance.shadow.offset.y, specifier: "%.1f")")
                 }
                 HStack {
                     Text("Blur Radius: ")
-                    Slider(value: $blur, in: 0...50)
-                    Text("\(blur, specifier: "%.0f")")
+                    Slider(value: $shape.appearance.blur, in: 0...50)
+                    Text("\(shape.appearance.blur, specifier: "%.0f")")
                 }
-                
-                ColorPicker("Set the background color", selection: $bgColor)
+
+                ColorPicker("Set the background color", selection: $shape.shapeColor)
                 
                 HStack {
-                    Text("Opacity: ")
-                    Slider(value: $opacity, in: 0...1)
-                    Text("\(opacity, specifier: "%.0f")")
+                    Text("Blend Mode: ")
+                    Spacer()
+                    Picker("Blend Mode", selection: $shape.appearance.blendMode) {
+                        ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
+                            Text(LayerObjectAppearance.labelForBlendMode(mode))
+                                .tag(mode)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    
+                    
+                    
                 }
+
+                HStack {
+                    Text("Opacity: ")
+                    Slider(value: $shape.appearance.opacity, in: 0...1)
+                    Text("\(shape.appearance.opacity, specifier: "%.1f")")
+                }
+
             }
             .padding()
             .offset(y: 300)
             .scaleEffect(0.8)
         }
     }
-    
-    private func resetValues() {
-        count = defaultCount
-        ratio = defaultRatio
-        //scale = defaultScale
-        rotation = defaultRotation
-        bgColor = defaultBgColor
-        shadowRadius = defaultShadowRadius
-        shadowOffset = defaultShadowOffset
-        blur = defaultBlur
-        opacity = defaultOpacity
-    }
-    
-    private func square() {
-        count = 4
-        ratio = 1.4
-        shape.appearance.setScales(with: defaultScale)
-        rotation = Angle(degrees: 45)
-        bgColor = defaultBgColor
-        shadowRadius = defaultShadowRadius
-        shadowOffset = defaultShadowOffset
-        blur = defaultBlur
-        opacity = defaultOpacity
-    }
-    
-    private func triangle() {
-        count = 3
-        ratio = defaultRatio
-        //scale = defaultScale
-        rotation = defaultRotation
-        bgColor = defaultBgColor
-        shadowRadius = defaultShadowRadius
-        shadowOffset = defaultShadowOffset
-        blur = defaultBlur
-        opacity = defaultOpacity
-    }
-    
-    private func circle() {
-        count = 30
-        ratio = 2
-        //scale = defaultScale
-        rotation = defaultRotation
-        bgColor = defaultBgColor
-        shadowRadius = defaultShadowRadius
-        shadowOffset = defaultShadowOffset
-        blur = defaultBlur
-        opacity = defaultOpacity
-    }
 }
 
+fileprivate struct Star: Shape {
 
-fileprivate
-struct Star: Shape {
-    
-    var count: CGFloat
-    var innerRatio: CGFloat
-    
-    var animatableData: AnimatablePair<CGFloat, CGFloat> {
-        get { AnimatablePair(count, innerRatio) }
-        set {
-            count = newValue.first
-            innerRatio = newValue.second
-        }
-    }
-    
+    var shapePointCount: CGFloat
+    var shapeRatio: CGFloat
+
     func path(in rect: CGRect) -> Path {
         let center = CGPoint(x: rect.width * 0.5, y: rect.height * 0.5)
-        let pointAngle = .pi / count
-        
-        let innerPoint = CGPoint(x: center.x * innerRatio * 0.5, y: center.y * innerRatio * 0.5)
-        let totalPoints = Int(count * 2.0)
-        
+        let pointAngle = .pi / shapePointCount
+
+        let innerPoint = CGPoint(x: center.x * shapeRatio * 0.5, y: center.y * shapeRatio * 0.5)
+        let totalPoints = Int(shapePointCount * 2.0)
+
         var currentAngle = CGFloat.pi * -0.5
         var currentBottom: CGFloat = 0
-        
+
         var path = Path()
-        path.move(to: CGPoint(x: center.x * cos(currentAngle),
-                              y: center.y * sin(currentAngle)))
-        
-        let correction = count != round(count) ? 1 : 0
+        path.move(to: CGPoint(x: center.x * cos(currentAngle), y: center.y * sin(currentAngle)))
+
+        let correction = shapePointCount != round(shapePointCount) ? 1 : 0
         for corner in 0..<totalPoints + correction  {
             var bottom: CGFloat = 0
             let sin = sin(currentAngle)
@@ -248,7 +152,7 @@ struct Star: Shape {
             currentBottom = max(bottom, currentBottom)
             currentAngle += pointAngle
         }
-        
+
         let transform = CGAffineTransform(translationX: center.x, y: center.y + ((rect.height * 0.5 - currentBottom) * 0.5))
         return path.applying(transform)
     }
@@ -259,5 +163,6 @@ struct CustomShapeView_Previews: PreviewProvider {
         CustomShapeView()
     }
 }
+
 
 

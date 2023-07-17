@@ -228,9 +228,9 @@
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
 				097274302A4C820C00429786 /* LayerObject+Appearance.swift */,
 				097274322A4C854B00429786 /* TextObject.swift */,
+				091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */,
 				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
 				097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */,
-				091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */,
 				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 			);
 			path = LayerObject;

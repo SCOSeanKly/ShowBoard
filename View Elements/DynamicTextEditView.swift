@@ -68,6 +68,7 @@ struct DynamicTextView: View {
                         .background(.ultraThinMaterial)
                         .blendMode(text.appearance.blendMode)
                         .rotationEffect(text.appearance.rotation)
+                        .opacity(text.appearance.opacity)
                     
                     Spacer()
                 }
@@ -130,6 +131,11 @@ struct DynamicTextView: View {
                         Text("Shadow Offset: ")
                         Slider(value: $text.appearance.shadow.offset.y, in: 0...30)
                         Text("\(text.appearance.shadow.offset.y, specifier: "%.1f")")
+                    }
+                    HStack {
+                        Text("Opacity: ")
+                        Slider(value: $text.appearance.opacity, in: 0...1)
+                        Text("\(text.appearance.opacity, specifier: "%.1f")")
                     }
                     HStack {
                         Text("Rotation: ")

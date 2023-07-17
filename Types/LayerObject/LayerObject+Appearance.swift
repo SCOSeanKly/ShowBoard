@@ -39,6 +39,12 @@ class LayerObjectAppearance {
     /// The currently applied shadow settings
     var shadow: ShadowSettings
     
+    /// Blur radius
+    var blur: CGFloat
+    
+    /// Opacity ammount
+    var opacity: CGFloat
+    
     
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
@@ -95,17 +101,21 @@ class LayerObjectAppearance {
         self.rotation = .zero
         self.blendMode = .normal
         self.shadow = ShadowSettings()
+        self.blur = 0.0
+        self.opacity = 1.0
     }
-    
-    
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings) {
+
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
         self.rotation = rotation
         self.blendMode = blendMode
-        self.shadow = ShadowSettings()
+        self.shadow = shadow
+        self.blur = blur
+        self.opacity = opacity
     }
+
     
     
     
