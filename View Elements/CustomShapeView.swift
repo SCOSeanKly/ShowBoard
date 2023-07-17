@@ -18,92 +18,90 @@ public struct CustomShapeView: View {
 
     public var body: some View {
         ZStack {
-
-            VStack {
-                GeometryReader { proxy in
-                    let min = min(proxy.size.width, proxy.size.height)
-                    ZStack {
-                        Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
-                            .fill(shape.shapeColor)
-                            .blendMode(shape.appearance.blendMode)
-                            .background(.ultraThinMaterial.opacity(shape.appearance.opacity))
-                            .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
-                            .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
-                            .scaleEffect(
-                                x: shape.appearance.scales.x,
-                                y: shape.appearance.scales.y
-                            )
-                            .rotationEffect(shape.appearance.rotation)
-                           
-                            .shadow(
-                                radius: shape.appearance.shadow.radius,
-                                x: shape.appearance.shadow.offset.x,
-                                y: shape.appearance.shadow.offset.y
-                            )
-                            .blur(radius: shape.appearance.blur)
-                            .opacity(shape.appearance.opacity)
-                        
-                          
-                    }
-                }
-            }
-            .padding()
-            .animation(.spring())
-            .offset(y: 30)
-
             VStack {
                
-
-                SliderStepper(title: "Count: ", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
-                
-                SliderStepper(title: "Inner Ratio: ", sliderBindingValue: $shape.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.1, specifier: 1, defaultValue: 1)
-                
-                SliderStepper(title: "Width: ", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
-                 
-                SliderStepper(title: "Height: ", sliderBindingValue: $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
+                Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
+                    .fill(shape.shapeColor)
+                    .blendMode(shape.appearance.blendMode)
+                    .background(.ultraThinMaterial.opacity(shape.appearance.opacity))
+                    .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
+                    .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
+                    .scaleEffect(
+                        x: shape.appearance.scales.x,
+                        y: shape.appearance.scales.y
+                    )
+                    .rotationEffect(shape.appearance.rotation)
+                    .shadow(
+                        radius: shape.appearance.shadow.radius,
+                        x: shape.appearance.shadow.offset.x,
+                        y: shape.appearance.shadow.offset.y
+                    )
+                    .blur(radius: shape.appearance.blur)
+                    .opacity(shape.appearance.opacity)
+                    .rotation3DEffect(.degrees(shape.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
+                    .rotation3DEffect(.degrees(shape.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
                    
-                SliderStepper(title: "Scale: ", sliderBindingValue: $shape.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
-                    .onChange(of: shape.appearance.scales) { _ in
-                        shape.appearance.scales.y =
-                        shape.appearance.scales.x
-                    }
                 
-                /*
-                SliderStepper(title: "Rotation: ", sliderBindingValue: $shape.appearance.rotation.degrees, minValue: 0.0, maxValue: 360, step: 1, specifier: 1)
-                 */
-                 
-                
-                HStack {
-                    Text("Rotation: ")
-                    Slider(value: $shape.appearance.rotation.degrees, in: 0...360)
-                    Text("\(shape.appearance.rotation.degrees, specifier: "%.1f")")
-                }
-                 
-                SliderStepper(title: "Shadow Radius: ", sliderBindingValue: $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1.0, specifier: 1, defaultValue: 0)
-               
-                SliderStepper(title: "Shadow Offet: ", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1.0, specifier: 1, defaultValue: 0)
-                
-                SliderStepper(title: "Blur Radius: ", sliderBindingValue: $shape.appearance.blur, minValue: 0, maxValue: 50, step: 1.0, specifier: 0, defaultValue: 0)
-                
-                ColorPicker("Set the background color", selection: $shape.shapeColor)
-                
-                HStack {
-                    Text("Blend Mode: ")
-                    Spacer()
-                    Picker("Blend Mode", selection: $shape.appearance.blendMode) {
-                        ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
-                            Text(LayerObjectAppearance.labelForBlendMode(mode))
-                                .tag(mode)
+                ScrollView {
+                    SliderStepper(title: "Count: ", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
+                    
+                    SliderStepper(title: "Inner Ratio: ", sliderBindingValue: $shape.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
+                    
+                    SliderStepper(title: "Width: ", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
+                    
+                    SliderStepper(title: "Height: ", sliderBindingValue: $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
+                    
+                    // TODO: resetting only resets X and not Y
+                    SliderStepper(title: "Scale: ", sliderBindingValue: $shape.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
+                        .onChange(of: shape.appearance.scales) { _ in
+                            shape.appearance.scales.y =
+                            shape.appearance.scales.x
                         }
+                    
+                    SliderStepper(title: "Skew X", sliderBindingValue: $shape.appearance.skewY, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                    
+                    SliderStepper(title: "Skew Y", sliderBindingValue: $shape.appearance.skewX, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                    
+                    /*
+                     SliderStepper(title: "Rotation: ", sliderBindingValue: $shape.appearance.rotation.degrees, minValue: 0.0, maxValue: 360, step: 1, specifier: 1)
+                     */
+                    
+                    
+                    HStack {
+                        Text("Rotation: ")
+                        Slider(value: $shape.appearance.rotation.degrees, in: 0...360)
+                        Text("\(shape.appearance.rotation.degrees, specifier: "%.1f")")
                     }
-                    .pickerStyle(.menu)
+                    
+                    SliderStepper(title: "Shadow Radius: ", sliderBindingValue: $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1.0, specifier: 1, defaultValue: 0)
+                    
+                    SliderStepper(title: "Shadow Offet: ", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1.0, specifier: 1, defaultValue: 0)
+                    
+                    SliderStepper(title: "Blur Radius: ", sliderBindingValue: $shape.appearance.blur, minValue: 0, maxValue: 50, step: 1.0, specifier: 0, defaultValue: 0)
+                    
+                    ColorPicker("Set the background color", selection: $shape.shapeColor)
+                    
+                    HStack {
+                        Text("Blend Mode: ")
+                        Spacer()
+                        Picker("Blend Mode", selection: $shape.appearance.blendMode) {
+                            ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
+                                Text(LayerObjectAppearance.labelForBlendMode(mode))
+                                    .tag(mode)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                    }
+                    
+                    SliderStepper(title: "Opacity: ", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+                   
+                    Spacer()
+                        .frame(height: 200)
                 }
-
-                SliderStepper(title: "Opacity: ", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+                .offset(y: 100)
+                
             }
             .padding()
-            .offset(y: 250)
-            .scaleEffect(0.8)
         }
     }
 }

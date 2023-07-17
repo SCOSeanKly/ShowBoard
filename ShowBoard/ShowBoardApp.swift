@@ -11,8 +11,9 @@ import SwiftUI
 struct ShowBoardApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            DynamicTextView()
+            CustomShapeView()
+            //ContentView()
+           // DynamicTextView()
                // .preferredColorScheme(.light)
                 .environment(\.sizeCategory, .small)
             //    .environment(\.colorScheme, .light)

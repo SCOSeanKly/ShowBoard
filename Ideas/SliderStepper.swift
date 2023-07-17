@@ -25,7 +25,7 @@ struct SliderStepper: View {
             if isSliderMode {
                 HStack {
                     Text(title)
-                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .bold)
+                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .heavy)
                         .onTapGesture (count: 2) {
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }
@@ -37,7 +37,7 @@ struct SliderStepper: View {
             } else {
                 HStack {
                     Text(title)
-                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .bold)
+                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .heavy)
                         .onTapGesture (count: 2) {
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }
@@ -80,7 +80,7 @@ struct SliderStepper: View {
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 5)
                     .padding(.horizontal, 10)
                     .fixedSize()
                     .overlay(

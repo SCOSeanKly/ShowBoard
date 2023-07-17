@@ -48,6 +48,12 @@ class LayerObjectAppearance {
     /// Corner Radius
     var cornerRadius: CGFloat
     
+    /// Skew Effect X
+    var skewX: CGFloat
+    
+    /// Skew Effect Y
+    var skewY: CGFloat
+    
     
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
@@ -107,9 +113,11 @@ class LayerObjectAppearance {
         self.blur = 0.0
         self.opacity = 1.0
         self.cornerRadius = 0.0
+        self.skewX = 0.0
+        self.skewY = 0.0
     }
 
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -119,6 +127,8 @@ class LayerObjectAppearance {
         self.blur = blur
         self.opacity = opacity
         self.cornerRadius = cornerRadius
+        self.skewX = skewX
+        self.skewY = skewY
     }
 
     
