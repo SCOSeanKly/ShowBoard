@@ -76,14 +76,11 @@ struct SWAWidget2: View {
                     .frame(width: 400)
                 
                 ZStack {
-                    Circle()
-                        .frame(width: 32)
-                        .foregroundColor(Color("#ff1f28")?.opacity(0.2))
                     
-                    BatteryCircularGuageView(batteryViewModel: batteryViewModel, currentValueLabelFontSize: 20, minimumValueLabelFontSize: 6, maximumValueLabelFontSize: 6, gaugeColor: "#ff1f28", opacity: 1.0)
-                        .scaleEffect(0.5)
+                    BatteryCircularGuageView(batteryViewModel: batteryViewModel, minValue: 0, maxValue: 100, currentValueLabelFontSize: 10, minMaxValueLabelFontSize: 6, gaugeColor: "#ff1f28", opacity: 1.0, showCurrentValueLabel: true, showMinMaxValueLabels: true, scaleEffect: 2.0, currentValueLabelColor: "#000000", minMaxValueLabelColor: "#ffffff", shadowRadius: 5, shadowOffset: 5)
+                       
                 }
-                .offset(y: -25)
+                .offset(y: 155)
                 .scaleEffect(0.7)
                 
                 VStack {

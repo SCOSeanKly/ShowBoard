@@ -43,6 +43,9 @@ public struct CustomShapeView: View {
                    
                 
                 ScrollView {
+                    
+                  ResetValues(resetValues: resetValues)
+                    
                     SliderStepper(title: "Count: ", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
                     
                     SliderStepper(title: "Inner Ratio: ", sliderBindingValue: $shape.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
@@ -62,11 +65,11 @@ public struct CustomShapeView: View {
                     
                     SliderStepper(title: "Skew Y", sliderBindingValue: $shape.appearance.skewX, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
                     
+                    // TODO: Cant get this to work?
                     /*
                      SliderStepper(title: "Rotation: ", sliderBindingValue: $shape.appearance.rotation.degrees, minValue: 0.0, maxValue: 360, step: 1, specifier: 1)
                      */
-                    
-                    
+                     
                     HStack {
                         Text("Rotation: ")
                         Slider(value: $shape.appearance.rotation.degrees, in: 0...360)
@@ -98,11 +101,21 @@ public struct CustomShapeView: View {
                     Spacer()
                         .frame(height: 200)
                 }
-                .offset(y: 100)
-                
             }
             .padding()
         }
+    }
+    
+    private func resetValues() {
+        /*
+        width = 300
+        height = 150
+        cornerRadius = 0
+        shadowRadius = 0
+        shadowOffset = 0
+        blendMode = .normal
+        colorOverlay = .clear
+         */
     }
 }
 

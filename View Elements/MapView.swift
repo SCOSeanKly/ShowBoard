@@ -10,12 +10,8 @@ import SwiftUI
 struct MapView: View {
     
     @ObservedObject var locationDataManager: LocationDataManager
+    @StateObject var map = MapObject()
     
-    @State private var width: CGFloat = 300
-    @State private var height: CGFloat = 150
-    @State private var cornerRadius: CGFloat = 0
-    @State private var shadowRadius: CGFloat = 0
-    @State private var shadowOffset: CGFloat = 0
     @State private var blendMode: BlendMode = .normal
     @State private var colorOverlay: Color = .clear
     
@@ -25,65 +21,42 @@ struct MapView: View {
         ZStack {
             
             MapExtensionView(locationDataManager: locationDataManager)
-                .frame(width: width, height: height * 1.3)
+                .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.3)
                 .mask(
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .frame(width: width, height: height)
-                        .cornerRadius(cornerRadius)
+                    RoundedRectangle(cornerRadius: map.mapCornerRadius)
+                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
+                        .cornerRadius(map.mapCornerRadius)
                 )
-                .shadow(radius: shadowRadius, y: shadowOffset)
-                .blendMode(blendMode)
+                .shadow(radius: map.mapShadowRadius, y: map.mapShadowOffset)
+                .blendMode(map.appearance.blendMode)
                 .overlay(colorOverlay)
+                .opacity(map.mapOpacity)
+                .offset(y: -200)
             
             
             //MARK: Settings for Maps
             VStack {
                 
-                HStack {
-                    Spacer()
-                    
-                    Button {
-                        resetValues()
-                    } label: {
-                        Text("Reset")
-                    }
-                }
+              ResetValues(resetValues: resetValues)
                 
-                HStack {
-                    Text("Width: ")
-                    Slider(value: $width, in: 0...UIScreen.main.bounds.width)
-                    Text("\(width, specifier: "%.0f")")
-                }
+                SliderStepper(title: "Width: ", sliderBindingValue: $map.mapFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
                 
-                HStack {
-                    Text("Height: ")
-                    Slider(value: $height, in: 0...UIScreen.main.bounds.height)
-                    Text("\(height, specifier: "%.0f")")
-                }
+                SliderStepper(title: "Height: ", sliderBindingValue: $map.mapFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 150)
                 
-                HStack {
-                    Text("Corner Radius: ")
-                    Slider(value: $cornerRadius, in: 0...200)
-                    Text("\(cornerRadius, specifier: "%.0f")")
-                }
+                SliderStepper(title: "Corner Radius: ", sliderBindingValue: $map.mapCornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 
-                HStack {
-                    Text("Shadow Radius: ")
-                    Slider(value: $shadowRadius, in: 0...20)
-                    Text("\(shadowRadius, specifier: "%.1f")")
-                }
+                SliderStepper(title: "Opacity: ", sliderBindingValue: $map.mapOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
-                HStack {
-                    Text("Shadow Offset: ")
-                    Slider(value: $shadowOffset, in: 0...30)
-                    Text("\(shadowOffset, specifier: "%.1f")")
-                }
+                SliderStepper(title: "Shadow Radius: ", sliderBindingValue: $map.mapShadowRadius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
+                
+                SliderStepper(title: "Shadow Offset: ", sliderBindingValue: $map.mapShadowOffset, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
+                
                 HStack {
                     Text("Blend Mode: ")
                     Spacer()
-                    Picker("Blend Mode", selection: $blendMode) {
-                        ForEach(blendModes, id: \.self) { mode in
-                            Text(labelForBlendMode(mode))
+                    Picker("Blend Mode", selection: $map.appearance.blendMode) {
+                        ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
+                            Text(LayerObjectAppearance.labelForBlendMode(mode))
                                 .tag(mode)
                         }
                     }
@@ -94,13 +67,13 @@ struct MapView: View {
                 
             }
             .padding()
-            .offset(y: 300)
-            .scaleEffect(0.8)
+            .offset(y: 200)
         }
         .ignoresSafeArea()
     }
     
     private func resetValues() {
+        /*
         width = 300
         height = 150
         cornerRadius = 0
@@ -108,45 +81,7 @@ struct MapView: View {
         shadowOffset = 0
         blendMode = .normal
         colorOverlay = .clear
-    }
-    
-    private func labelForBlendMode(_ blendMode: BlendMode) -> String {
-        switch blendMode {
-        case .normal:
-            return "Normal"
-        case .multiply:
-            return "Multiply"
-        case .screen:
-            return "Screen"
-        case .overlay:
-            return "Overlay"
-        case .darken:
-            return "Darken"
-        case .lighten:
-            return "Lighten"
-        case .colorDodge:
-            return "Color Dodge"
-        case .colorBurn:
-            return "Color Burn"
-        case .softLight:
-            return "Soft Light"
-        case .hardLight:
-            return "Hard Light"
-        case .difference:
-            return "Difference"
-        case .exclusion:
-            return "Exclusion"
-        case .hue:
-            return "Hue"
-        case .saturation:
-            return "Saturation"
-        case .color:
-            return "Color"
-        case .luminosity:
-            return "Luminosity"
-        @unknown default:
-            return ""
-        }
+         */
     }
 }
 

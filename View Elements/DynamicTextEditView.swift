@@ -78,16 +78,7 @@ struct DynamicTextView: View {
                 // MARK: Settings for Dynamic Text
                 VStack {
                     
-                    HStack {
-                        
-                        Spacer()
-                        
-                        Button {
-                            resetSettings()
-                        }label: {
-                            Text("Reset")
-                        }
-                    }
+                   ResetValues(resetValues: resetValues)
                     
                     HStack {
                         Text("Font Style: ")
@@ -169,14 +160,12 @@ struct DynamicTextView: View {
                     
                 }
                 .padding()
-                
-                .scaleEffect(0.8)
             }
             .padding(.horizontal)
         }
     }
     
-    private func resetSettings() {
+    private func resetValues() {
         /*fontName = "Autone"
         fontSize = 26
         fontWeight = .regular

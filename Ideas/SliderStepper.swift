@@ -24,15 +24,19 @@ struct SliderStepper: View {
         HStack {
             if isSliderMode {
                 HStack {
+                    
                     Text(title)
                         .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .heavy)
                         .onTapGesture (count: 2) {
+                            feedback()
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }
                     
                     Slider(value: sliderBindingValue, in: CGFloat(minValue)...CGFloat(maxValue), step: CGFloat(step))
                         .scaleEffect(0.9)
+                    
                     Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
+                    
                 }
             } else {
                 HStack {
@@ -49,33 +53,37 @@ struct SliderStepper: View {
                     HStack {
                         if Double(sliderBindingValue.wrappedValue) > minValue {
                             Button(action: {
+                                feedback()
                                 buttonPressed = true
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                                                    buttonPressed.toggle()
-                                                                }
+                                    buttonPressed.toggle()
+                                }
                                 let newValue = sliderBindingValue.wrappedValue - CGFloat(step)
                                 sliderBindingValue.wrappedValue = max(newValue, CGFloat(minValue))
                                 resetTimer()
                             }) {
                                 Image(systemName: "chevron.left")
+                                    .fontWeight(.bold)
                             }
                         }
                         
                         Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
-                            .scaleEffect(buttonPressed ? 0.8 : 1)
-                            .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: buttonPressed)
+                            .scaleEffect(buttonPressed ? 0.8 : 1.0)
+                            .animation(.interpolatingSpring(stiffness: 300, damping: 15), value: buttonPressed)
                         
                         if Double(sliderBindingValue.wrappedValue) < maxValue {
                             Button(action: {
+                                feedback()
                                 buttonPressed = true
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                                                    buttonPressed.toggle()
-                                                                }
+                                    buttonPressed.toggle()
+                                }
                                 let newValue = sliderBindingValue.wrappedValue + CGFloat(step)
                                 sliderBindingValue.wrappedValue = min(newValue, CGFloat(maxValue))
                                 resetTimer()
                             }) {
                                 Image(systemName: "chevron.right")
+                                    .fontWeight(.bold)
                             }
                         }
                     }
@@ -92,6 +100,7 @@ struct SliderStepper: View {
             }
             
             Button(action: {
+                feedback()
                 isSliderMode.toggle()
                 if !isSliderMode {
                     resetTimer()
@@ -104,7 +113,7 @@ struct SliderStepper: View {
                     .padding(.leading)
             }
         }
-       
+        
         .frame(height: 30)
         .animation(.easeInOut(duration: 0.1), value: isSliderMode)
         .onAppear(perform: resetTimer) // Reset timer when the view appears
@@ -113,7 +122,7 @@ struct SliderStepper: View {
     func resetTimer() {
         buttonPressed = false
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: false) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
             isSliderMode = true
         }
     }

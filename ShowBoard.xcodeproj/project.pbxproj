@@ -18,6 +18,10 @@
 		097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274342A4DDCCB00429786 /* ShadowSettings.swift */; };
 		097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
+		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
+		3E371CD92A6689C800DE743C /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD82A6689C800DE743C /* MapObject.swift */; };
+		3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CDA2A668DD400DE743C /* ResetValues.swift */; };
+		3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */; };
 		3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3770F82A45DA1900E3AC43 /* TextElementView.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
@@ -111,6 +115,10 @@
 		097274342A4DDCCB00429786 /* ShadowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettings.swift; sourceTree = "<group>"; };
 		097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectAppearanceModifier.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
+		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
+		3E371CD82A6689C800DE743C /* MapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
+		3E371CDA2A668DD400DE743C /* ResetValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetValues.swift; sourceTree = "<group>"; };
+		3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGaugeObject.swift; sourceTree = "<group>"; };
 		3E3770F82A45DA1900E3AC43 /* TextElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElementView.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
@@ -234,6 +242,8 @@
 				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
 				097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */,
 				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
+				3E371CD82A6689C800DE743C /* MapObject.swift */,
+				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
 			);
 			path = LayerObject;
 			sourceTree = "<group>";
@@ -260,6 +270,7 @@
 			children = (
 				3EF8CEF22A4F371B0051DC39 /* RollingText.swift */,
 				3E222AF92A659CBD001EC288 /* SliderStepper.swift */,
+				3E371CDA2A668DD400DE743C /* ResetValues.swift */,
 			);
 			path = Ideas;
 			sourceTree = "<group>";
@@ -344,6 +355,7 @@
 		3E8849BB2A41D59100B50BBD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3E371CD62A66807A00DE743C /* Feedback.swift */,
 				3ED771E42A4AFE4300AFC1FC /* MapExtensionView.swift */,
 				3EADA5AA2A432C6D00FA1BCB /* performDelayedAction.swift */,
 				3EADA5AC2A432DD000FA1BCB /* CopyToClipboard.swift */,
@@ -595,8 +607,10 @@
 			files = (
 				3EC820812A460F7300EA8A88 /* ChartsElementView.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
+				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
+				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3EADA5BD2A4354CA00FA1BCB /* LayerElementView.swift in Sources */,
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
@@ -608,6 +622,7 @@
 				3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */,
 				3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */,
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
+				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
 				3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
@@ -655,6 +670,7 @@
 				3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */,
 				3EADA5B32A43343300FA1BCB /* SWAWidgetView.swift in Sources */,
 				3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */,
+				3E371CD72A66807A00DE743C /* Feedback.swift in Sources */,
 				3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
 				3EF8CEF32A4F371B0051DC39 /* RollingText.swift in Sources */,

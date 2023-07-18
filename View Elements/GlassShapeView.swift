@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GlassShapeView: View {
-        
+    
     @StateObject var shape = CustomShapeObject()
     
     var body: some View {
@@ -35,60 +35,33 @@ struct GlassShapeView: View {
             // MARK: Settings for Glass
             VStack {
                 
-                 HStack {
-                 
-                 Spacer()
-                 
-                 Button {
-                 resetValues()
-                 }label: {
-                 Text("Reset")
-                 }
-                 
-                 }
-                 
+                ResetValues(resetValues: resetValues)
                 
-                HStack {
-                    Text("Width: ")
-                    Slider(value: $shape.shapeFrameWidth, in: 0...UIScreen.main.bounds.width)
-                    Text("\(shape.shapeFrameWidth, specifier: "%.0f")")
-                }
-                HStack {
-                    Text("Height: ")
-                    Slider(value: $shape.shapeFrameHeight, in: 0...UIScreen.main.bounds.height)
-                    Text("\(shape.shapeFrameHeight, specifier: "%.0f")")
-                }
-                HStack {
-                    Text("Corner Radius: ")
-                    Slider(value: $shape.appearance.cornerRadius, in: 0...200)
-                    Text("\(shape.appearance.cornerRadius, specifier: "%.0f")")
-                }
-                HStack {
-                    Text("Shadow Radius: ")
-                    Slider(value: $shape.appearance.shadow.radius, in: 0...20)
-                    Text("\(shape.appearance.shadow.radius, specifier: "%.1f")")
-                }
-                HStack {
-                    Text("Shadow Offset: ")
-                    Slider(value: $shape.appearance.shadow.offset.y, in: 0...30)
-                    Text("\(shape.appearance.shadow.offset.y, specifier: "%.1f")")
-                }
+                SliderStepper(title: "Width: ", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
+                
+                SliderStepper(title: "Height: ", sliderBindingValue:  $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
+                
+                SliderStepper(title: "Corner Radius: ", sliderBindingValue: $shape.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
+                
+                SliderStepper(title: "Shadow Radius: ", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
+                
+                SliderStepper(title: "Shadow Offset: ", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
+                
             }
             .padding()
             .offset(y: 250)
-            .scaleEffect(0.8)
         }
         
     }
     
-     private func resetValues() {
-         shape.shapeFrameWidth = 300
-         shape.shapeFrameHeight = 150
-         shape.appearance.cornerRadius = 20
-         shape.appearance.shadow.radius = 0
-         shape.appearance.shadow.offset.y = 0
-     }
-     
+    private func resetValues() {
+        shape.shapeFrameWidth = 250
+        shape.shapeFrameHeight = 250
+        shape.appearance.cornerRadius = 20
+        shape.appearance.shadow.radius = 0
+        shape.appearance.shadow.offset.y = 0
+    }
+    
 }
 
 struct GlassShapeView_Previews: PreviewProvider {
