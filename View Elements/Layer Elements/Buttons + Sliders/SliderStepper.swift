@@ -5,6 +5,8 @@
 //  Created by Sean Kelly on 17/07/2023.
 //
 
+//TODO: Add logic so that the max cant be less than min and min cant be more than max
+
 import SwiftUI
 
 struct SliderStepper: View {
@@ -68,8 +70,8 @@ struct SliderStepper: View {
                         }
                         
                         Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
-                            .scaleEffect(buttonPressed ? 0.8 : 1.0)
-                            .animation(.interpolatingSpring(stiffness: 300, damping: 15), value: buttonPressed)
+                            .scaleEffect(buttonPressed ? 1.0 : 0.9)
+                            .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: buttonPressed)
                         
                         if Double(sliderBindingValue.wrappedValue) < maxValue {
                             Button(action: {

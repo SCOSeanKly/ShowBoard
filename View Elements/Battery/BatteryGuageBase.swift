@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BatteryCircularGuageView: View {
+struct BatteryGuageBase: View {
     @ObservedObject var batteryViewModel: BatteryViewModel
     
     @State private var batteryLevel = 0.0
@@ -17,14 +17,14 @@ struct BatteryCircularGuageView: View {
     
     let currentValueLabelFontSize: CGFloat
     let minMaxValueLabelFontSize: CGFloat
-    let gaugeColor: String
+    let gaugeColor: Color
     let opacity: CGFloat
     
     let showCurrentValueLabel: Bool
     let showMinMaxValueLabels: Bool
     let scaleEffect: CGFloat
-    let currentValueLabelColor: String
-    let minMaxValueLabelColor: String
+    let currentValueLabelColor: Color
+    let minMaxValueLabelColor: Color
     let shadowRadius: CGFloat
     let shadowOffset: CGFloat
     
@@ -38,19 +38,19 @@ struct BatteryCircularGuageView: View {
                     if showCurrentValueLabel { // Show only if true
                         Text("\(batteryViewModel.batteryLevel)")
                             .font(.system(size: currentValueLabelFontSize))
-                            .foregroundColor(Color(currentValueLabelColor))
+                            .foregroundColor(currentValueLabelColor)
                     }
                 } minimumValueLabel: {
                     if showMinMaxValueLabels { // Show only if true
                         Text("0")
                             .font(.system(size: minMaxValueLabelFontSize))
-                            .foregroundColor(Color(minMaxValueLabelColor))
+                            .foregroundColor(minMaxValueLabelColor)
                     }
                 } maximumValueLabel: {
                     if showMinMaxValueLabels { // Show only if true
                         Text("100")
                             .font(.system(size: minMaxValueLabelFontSize))
-                            .foregroundColor(Color(minMaxValueLabelColor))
+                            .foregroundColor(minMaxValueLabelColor)
                     }
                 }
             }
@@ -58,7 +58,7 @@ struct BatteryCircularGuageView: View {
             .contentShape(Circle())
             .opacity(opacity)
             .gaugeStyle(.accessoryCircular)
-            .tint(Color(gaugeColor))
+            .tint(gaugeColor)
             .scaleEffect(scaleEffect)
             .shadow(radius: shadowRadius, y: shadowOffset)
         }

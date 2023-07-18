@@ -64,7 +64,7 @@ class CircleGaugeObject: LayerObject {
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), minValue: CGFloat = 0.0, maxValue: CGFloat = 100.0, currentValueLabelFontSize: CGFloat = 12, minMaxValueLabelFontSize: CGFloat = 6,  gaugeColor: Color = Color.blue, opacity: CGFloat = 1.0, showCurrentValueLabel: Bool = true, showMinMaxValueLabels: Bool = true, scaleEffect: CGFloat = 1.0, currentValueLabelColor: Color = Color.white, minMaxValueLabelColor: Color = Color.white, shadowRadius: CGFloat = 0.0, shadowOffset: CGFloat = 0.0) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), minValue: CGFloat = 0.0, maxValue: CGFloat = 100.0, currentValueLabelFontSize: CGFloat = 12, minMaxValueLabelFontSize: CGFloat = 6,  gaugeColor: Color = Color.blue, opacity: CGFloat = 1.0, showCurrentValueLabel: Bool = true, showMinMaxValueLabels: Bool = true, scaleEffect: CGFloat = 1.0, currentValueLabelColor: Color = Color.blue, minMaxValueLabelColor: Color = Color.blue, shadowRadius: CGFloat = 0.0, shadowOffset: CGFloat = 0.0) {
         self.id = id
         self.appearance = appearance
         self.minValue = minValue
