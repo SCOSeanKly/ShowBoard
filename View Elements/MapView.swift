@@ -22,6 +22,7 @@ struct MapView: View {
             
             MapExtensionView(locationDataManager: locationDataManager)
                 .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.3)
+                .overlay(colorOverlay)
                 .mask(
                     RoundedRectangle(cornerRadius: map.mapCornerRadius)
                         .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
@@ -29,7 +30,7 @@ struct MapView: View {
                 )
                 .shadow(radius: map.mapShadowRadius, y: map.mapShadowOffset)
                 .blendMode(map.appearance.blendMode)
-                .overlay(colorOverlay)
+              
                 .opacity(map.mapOpacity)
                 .offset(y: -200)
             

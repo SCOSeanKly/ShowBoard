@@ -243,9 +243,9 @@
 				091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */,
 				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
 				097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */,
-				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 				3E371CD82A6689C800DE743C /* MapObject.swift */,
 				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
+				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 			);
 			path = LayerObject;
 			sourceTree = "<group>";
