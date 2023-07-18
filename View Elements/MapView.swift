@@ -12,7 +12,6 @@ struct MapView: View {
     @ObservedObject var locationDataManager: LocationDataManager
     @StateObject var map = MapObject()
     
-    @State private var blendMode: BlendMode = .normal
     @State private var colorOverlay: Color = .clear
     
     let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
@@ -21,17 +20,17 @@ struct MapView: View {
         ZStack {
             
             MapExtensionView(locationDataManager: locationDataManager)
-                .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.3)
-                .overlay(colorOverlay)
+                .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
+                .overlay(map.mapOverlayColor)
                 .mask(
                     RoundedRectangle(cornerRadius: map.mapCornerRadius)
                         .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
                         .cornerRadius(map.mapCornerRadius)
                 )
-                .shadow(radius: map.mapShadowRadius, y: map.mapShadowOffset)
+                .shadow(color: .black.opacity(map.mapShadowOpacity), radius: map.mapShadowRadius, y: map.mapShadowOffset)
                 .blendMode(map.appearance.blendMode)
-              
                 .opacity(map.mapOpacity)
+                .animation(.spring())
                 .offset(y: -200)
             
             
@@ -40,20 +39,22 @@ struct MapView: View {
                 
               ResetValues(resetValues: resetValues)
                 
-                SliderStepper(title: "Width: ", sliderBindingValue: $map.mapFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
+                SliderStepper(title: "Width:", sliderBindingValue: $map.mapFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
                 
-                SliderStepper(title: "Height: ", sliderBindingValue: $map.mapFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 150)
+                SliderStepper(title: "Height:", sliderBindingValue: $map.mapFrameHeight, minValue: 150, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 150)
                 
-                SliderStepper(title: "Corner Radius: ", sliderBindingValue: $map.mapCornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
+                SliderStepper(title: "Corner Radius:", sliderBindingValue: $map.mapCornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Opacity: ", sliderBindingValue: $map.mapOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+                SliderStepper(title: "Opacity:", sliderBindingValue: $map.mapOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
-                SliderStepper(title: "Shadow Radius: ", sliderBindingValue: $map.mapShadowRadius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
+                SliderStepper(title: "Shadow Radius:", sliderBindingValue: $map.mapShadowRadius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
                 
-                SliderStepper(title: "Shadow Offset: ", sliderBindingValue: $map.mapShadowOffset, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
+                SliderStepper(title: "Shadow Offset:", sliderBindingValue: $map.mapShadowOffset, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
+                
+                SliderStepper(title: "Shadow Opacity:", sliderBindingValue: $map.mapShadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                 
                 HStack {
-                    Text("Blend Mode: ")
+                    Text("Blend Mode:")
                     Spacer()
                     Picker("Blend Mode", selection: $map.appearance.blendMode) {
                         ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
@@ -64,7 +65,7 @@ struct MapView: View {
                     .pickerStyle(.menu)
                 }
                
-                ColorPicker("Color Overlay", selection: $colorOverlay)
+                CustomColorPicker(titleText: "Color Overlay", pickerBindingValue:  $map.mapOverlayColor)
                 
             }
             .padding()
@@ -74,15 +75,17 @@ struct MapView: View {
     }
     
     private func resetValues() {
-        /*
-        width = 300
-        height = 150
-        cornerRadius = 0
-        shadowRadius = 0
-        shadowOffset = 0
-        blendMode = .normal
-        colorOverlay = .clear
-         */
+        
+        map.mapFrameWidth = 300
+        map.mapFrameHeight = 150
+        map.mapCornerRadius = 0
+        map.mapOpacity = 1
+        map.mapCornerRadius = 0
+        map.mapShadowRadius = 0
+        map.mapShadowOffset = 0
+        map.appearance.blendMode = .normal
+        map.mapOverlayColor = .clear
+         
     }
 }
 

@@ -24,6 +24,7 @@
 		3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */; };
 		3E371CDF2A66B10500DE743C /* BatteryCircleGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CDE2A66B10500DE743C /* BatteryCircleGauge.swift */; };
 		3E371CE42A66C8FF00DE743C /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CE32A66C8FF00DE743C /* CustomToggle.swift */; };
+		3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */; };
 		3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3770F82A45DA1900E3AC43 /* TextElementView.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
@@ -122,6 +123,7 @@
 		3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGaugeObject.swift; sourceTree = "<group>"; };
 		3E371CDE2A66B10500DE743C /* BatteryCircleGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryCircleGauge.swift; sourceTree = "<group>"; };
 		3E371CE32A66C8FF00DE743C /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
+		3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPicker.swift; sourceTree = "<group>"; };
 		3E3770F82A45DA1900E3AC43 /* TextElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElementView.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				3E222AF92A659CBD001EC288 /* SliderStepper.swift */,
 				3E371CDA2A668DD400DE743C /* ResetValues.swift */,
 				3E371CE32A66C8FF00DE743C /* CustomToggle.swift */,
+				3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */,
 			);
 			path = "Buttons + Sliders";
 			sourceTree = "<group>";
@@ -286,17 +289,9 @@
 			path = "View Elements";
 			sourceTree = "<group>";
 		};
-		3E81F1522A52A60200137304 /* Ideas */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Ideas;
-			sourceTree = "<group>";
-		};
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
-				3E81F1522A52A60200137304 /* Ideas */,
 				3E8849BA2A41D57B00B50BBD /* WeatherKit & Location Manager */,
 				0913C4292A487643007AF26E /* Types */,
 				3E8849BB2A41D59100B50BBD /* Extensions */,
@@ -626,6 +621,7 @@
 			files = (
 				3EC820812A460F7300EA8A88 /* ChartsElementView.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
+				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,

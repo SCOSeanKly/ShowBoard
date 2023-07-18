@@ -35,8 +35,14 @@ class MapObject: LayerObject {
     /// Map Shadow Offset
     @Published var mapShadowOffset: CGFloat
     
+    /// Map Shadow Opacity
+    @Published var mapShadowOpacity: CGFloat
+    
     /// Map Opacity
     @Published var mapOpacity: CGFloat
+    
+    /// Map Color Overlay
+    @Published var mapOverlayColor: Color
     
     
     
@@ -47,15 +53,17 @@ class MapObject: LayerObject {
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), mapFrameWidth: CGFloat = 300.0, mapFrameHeight: CGFloat = 150, mapCornerRadius: CGFloat = 0.0, mapShadowRadius: CGFloat = 0.0, mapShadowOffset: CGFloat = 0.0, mapOpacity: CGFloat = 1.0 ) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), mapFrameWidth: CGFloat = 300.0, mapFrameHeight: CGFloat = 150, mapCornerRadius: CGFloat = 0.0, mapShadowRadius: CGFloat = 0.0, mapShadowOffset: CGFloat = 0.0, mapShadowOpacity: CGFloat = 0.0, mapOpacity: CGFloat = 1.0, mapOverlayColor: Color = Color.clear ) {
         self.id = id
         self.appearance = appearance
         self.mapFrameWidth = mapFrameWidth
         self.mapFrameHeight = mapFrameHeight
         self.mapCornerRadius = mapCornerRadius
         self.mapShadowRadius = mapShadowRadius
+        self.mapShadowOpacity = mapShadowOpacity
         self.mapShadowOffset = mapShadowOffset
         self.mapOpacity = mapOpacity
+        self.mapOverlayColor = mapOverlayColor
     }
 }
 

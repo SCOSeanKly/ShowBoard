@@ -13,7 +13,7 @@ struct ShowBoardApp: App {
         WindowGroup {
             
             ContentView()
-            // DynamicTextView()
+         // DynamicTextView()
         }
     }
 }

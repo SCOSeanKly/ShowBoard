@@ -10,6 +10,9 @@
 import SwiftUI
 
 struct SliderStepper: View {
+    
+    
+    
     @State private var isSliderMode = true
     @State private var buttonPressed = false
     @State private var timer: Timer?
@@ -28,7 +31,8 @@ struct SliderStepper: View {
                 HStack {
                     
                     Text(title)
-                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .heavy)
+                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .bold)
+                        .minimumScaleFactor(0.5)
                         .onTapGesture (count: 2) {
                             feedback()
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
@@ -43,7 +47,7 @@ struct SliderStepper: View {
             } else {
                 HStack {
                     Text(title)
-                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .heavy)
+                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .bold)
                         .onTapGesture (count: 2) {
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }
@@ -115,7 +119,6 @@ struct SliderStepper: View {
                     .padding(.leading)
             }
         }
-        
         .frame(height: 30)
         .animation(.easeInOut(duration: 0.1), value: isSliderMode)
         .onAppear(perform: resetTimer) // Reset timer when the view appears
@@ -134,3 +137,5 @@ struct SliderStepper: View {
         timer = nil
     }
 }
+
+

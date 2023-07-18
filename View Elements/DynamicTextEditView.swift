@@ -81,7 +81,7 @@ struct DynamicTextView: View {
                    ResetValues(resetValues: resetValues)
                     
                     HStack {
-                        Text("Font Style: ")
+                        Text("Font Style:")
                         Spacer()
                         Picker("Font Style", selection: $text.selectedFontName) {
                             ForEach(TextObject.fontList, id: \.self) { style in
@@ -92,19 +92,19 @@ struct DynamicTextView: View {
                     }
                     
                     HStack {
-                        Text("Font Size: ")
+                        Text("Font Size:")
                         Slider(value: $text.fontSize, in: 1...200)
                         Text("\(text.fontSize, specifier: "%.1f")")
                     }
                     
                     HStack {
-                        Text("Tracking: ")
+                        Text("Tracking:")
                         Slider(value: $text.fontTracking, in: 0...20)
                         Text("\(text.fontTracking, specifier: "%.0f")")
                     }
                     
                     HStack {
-                        Text("Font Alignment: ")
+                        Text("Font Alignment:")
                         Spacer()
                         Picker("Font Alignment", selection: $text.textAlignment) {
                             ForEach(alignmentOptions, id: \.self) { style in
@@ -115,34 +115,34 @@ struct DynamicTextView: View {
                     }
                     
                     HStack {
-                        Text("Shadow Radius: ")
+                        Text("Shadow Radius:")
                         Slider(value: $text.appearance.shadow.radius, in: 0...20)
                         Text("\(text.appearance.shadow.radius, specifier: "%.1f")")
                     }
                     HStack {
-                        Text("Shadow Offset: ")
+                        Text("Shadow Offset:")
                         Slider(value: $text.appearance.shadow.offset.y, in: 0...30)
                         Text("\(text.appearance.shadow.offset.y, specifier: "%.1f")")
                     }
                     HStack {
-                        Text("Blur Radius: ")
+                        Text("Blur Radius:")
                         Slider(value: $text.appearance.blur, in: 0...50)
                         Text("\(text.appearance.blur, specifier: "%.0f")")
                     }
                     HStack {
-                        Text("Opacity: ")
+                        Text("Opacity:")
                         Slider(value: $text.appearance.opacity, in: 0...1)
                         Text("\(text.appearance.opacity, specifier: "%.1f")")
                     }
                     HStack {
-                        Text("Rotation: ")
+                        Text("Rotation:")
                         Slider(value: $text.appearance.rotation.degrees, in: 0...360)
                         Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
                     }
                     .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
                     
                     HStack {
-                        Text("Blend Mode: ")
+                        Text("Blend Mode:")
                         Spacer()
                         Picker("Blend Mode", selection: $text.appearance.blendMode) {
                             ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
@@ -150,13 +150,10 @@ struct DynamicTextView: View {
                                     .tag(mode)
                             }
                         }
-                        .pickerStyle(.menu)
-                        
-                        
-                        
+                        .pickerStyle(.menu)  
                     }
                     
-                    ColorPicker("Set the foreground color", selection: $text.fontColor)
+                CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.fontColor)
                     
                 }
                 .padding()

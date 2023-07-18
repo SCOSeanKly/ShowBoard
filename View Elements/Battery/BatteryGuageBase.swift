@@ -61,8 +61,7 @@ struct BatteryGuageBase: View {
             .tint(gaugeColor)
             .scaleEffect(scaleEffect)
             .shadow(radius: shadowRadius, y: shadowOffset)
-        }
-        
+        }        
     }
 }
 
