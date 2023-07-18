@@ -54,7 +54,7 @@ struct BatteryGuageBase: View {
                     }
                 }
             }
-            .frame(width: 150, height: 150)
+            .frame(width: 300, height: 300)
             .contentShape(Circle())
             .opacity(opacity)
             .gaugeStyle(.accessoryCircular)

@@ -84,7 +84,6 @@
 		3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */; };
 		3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89932A49F02300CF42AB /* LayerEditView.swift */; };
 		3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */; };
-		3EF8CEF32A4F371B0051DC39 /* RollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF8CEF22A4F371B0051DC39 /* RollingText.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -188,7 +187,6 @@
 		3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImages.swift; sourceTree = "<group>"; };
 		3EEB89932A49F02300CF42AB /* LayerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEditView.swift; sourceTree = "<group>"; };
 		3EEB89952A4A157700CF42AB /* ImageTrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButton.swift; sourceTree = "<group>"; };
-		3EF8CEF22A4F371B0051DC39 /* RollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingText.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -291,7 +289,6 @@
 		3E81F1522A52A60200137304 /* Ideas */ = {
 			isa = PBXGroup;
 			children = (
-				3EF8CEF22A4F371B0051DC39 /* RollingText.swift */,
 			);
 			path = Ideas;
 			sourceTree = "<group>";
@@ -697,7 +694,6 @@
 				3E371CD72A66807A00DE743C /* Feedback.swift in Sources */,
 				3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
-				3EF8CEF32A4F371B0051DC39 /* RollingText.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

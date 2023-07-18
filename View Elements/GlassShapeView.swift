@@ -57,7 +57,7 @@ struct GlassShapeView: View {
     private func resetValues() {
         shape.shapeFrameWidth = 250
         shape.shapeFrameHeight = 250
-        shape.appearance.cornerRadius = 20
+        shape.appearance.cornerRadius = 0
         shape.appearance.shadow.radius = 0
         shape.appearance.shadow.offset.y = 0
     }

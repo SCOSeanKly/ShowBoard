@@ -42,7 +42,7 @@ struct BatteryCircleGauge: View {
                 
                 SliderStepper(title: "Shadow Offset: ", sliderBindingValue: $bat.shadowOffset, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Scale Effect: : ", sliderBindingValue: $bat.scaleEffect, minValue: 1, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 1)
+                SliderStepper(title: "Scale Effect: : ", sliderBindingValue: $bat.scaleEffect, minValue: 0, maxValue: 3, step: 0.1, specifier: 1, defaultValue: 1)
             }
             .scaleEffect(0.8)
             

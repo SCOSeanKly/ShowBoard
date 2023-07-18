@@ -29,8 +29,9 @@ struct CustomToggle: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(.white)
                     
-                  //  Image(systemName: bindingValue.wrappedValue ? "checkmark" : "xmark")
-                  //      .font(.footnote)
+                    Image(systemName: bindingValue.wrappedValue ? "" : "xmark")
+                        .font(.footnote)
+                       
                 }
                 .shadow(color: .black.opacity(0.14), radius: 2, x: 0, y: 1)
                 .offset(x: bindingValue.wrappedValue ? 9 : -9)
