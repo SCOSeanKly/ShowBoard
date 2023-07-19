@@ -21,6 +21,11 @@ struct LayerObjectAppearanceModifier: ViewModifier {
                 x: layerObject.appearance.shadow.offset.x,
                 y: layerObject.appearance.shadow.offset.y
             )
+            .blendMode(layerObject.appearance.blendMode)
+            .rotationEffect(layerObject.appearance.rotation)
+            .opacity(layerObject.appearance.opacity)
+            .blur(radius: layerObject.appearance.blur)
+        
             
     }
 }

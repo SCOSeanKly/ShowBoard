@@ -8,7 +8,7 @@
 import SwiftUI
 
     
-class LayerObjectAppearance {
+struct LayerObjectAppearance {
     
     
     // MARK: - Public Properties
@@ -55,7 +55,7 @@ class LayerObjectAppearance {
     var skewY: CGFloat
     
     /// Shadow Opacity
-    @Published var shadowOpacity: CGFloat
+    var shadowOpacity: CGFloat
     
     
     /// The list of the avaliable blend modes
@@ -141,7 +141,7 @@ class LayerObjectAppearance {
     
     /// Sets bot horizontal and vertical scale values with the given value
     /// - Parameter value: The new scale value
-    public func setScales(with value: CGFloat) {
+    public mutating func setScales(with value: CGFloat) {
         self.scales.x = value
         self.scales.y = value
     }
