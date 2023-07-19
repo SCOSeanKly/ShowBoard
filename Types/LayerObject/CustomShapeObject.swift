@@ -8,12 +8,12 @@
 import SwiftUI
 
 
-class CustomShapeObject: LayerObject {
+class CustomShapeObject: LayerObject {    
     
     // Conforming LayerObject
     var id: UUID
-    
     @Published var appearance: LayerObjectAppearance
+    public let objectType: LayerObjectType = .customShape
     
     
     

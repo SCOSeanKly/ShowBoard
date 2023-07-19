@@ -59,6 +59,9 @@ struct ShowBoardView: View {
     @State private var heightRatio: CGFloat = 1.0
     @State private var showMicroControls: Bool = false
     
+    
+    @State var objects: [any LayerObject] = Array()
+    
 
     var body: some View {
         ZStack {
@@ -73,14 +76,10 @@ struct ShowBoardView: View {
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
                 /// These Image views should be able to be placed in and zInde order
-                ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
+                //ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
-                /// Example Widget with example micro adjustment options. Modifiers for drag are in the SWAWidget2 View
-               /*
-                SWAWidget2(batteryViewModel: batteryViewModel, locationDataManager: locationDataManager, weatherKitManager: weatherKitManager, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
-                */
-                
-                MapView(locationDataManager: locationDataManager)
+               
+
                 
             }
             .fadeOnAppear()

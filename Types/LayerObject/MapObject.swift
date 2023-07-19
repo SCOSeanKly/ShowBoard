@@ -12,8 +12,8 @@ class MapObject: LayerObject {
     
     // Conforming LayerObject
     var id: UUID
-    
     @Published var appearance: LayerObjectAppearance
+    public let objectType: LayerObjectType = .map
     
     
     // MARK: - Public Properties

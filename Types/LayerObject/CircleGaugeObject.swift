@@ -12,8 +12,8 @@ class CircleGaugeObject: LayerObject {
     
     // Conforming LayerObject
     var id: UUID
-    
     @Published var appearance: LayerObjectAppearance
+    public let objectType: LayerObjectType = .circleGauge
     
     
     // MARK: - Public Properties

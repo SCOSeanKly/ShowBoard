@@ -15,8 +15,8 @@ class TextObject: LayerObject {
     
     // Conforming LayerObject
     public var id: UUID
-    
     @Published var appearance: LayerObjectAppearance
+    public let objectType: LayerObjectType = .text
     
     
     /// The user sets this text in a text field. This should contain some Placeholder tags too.

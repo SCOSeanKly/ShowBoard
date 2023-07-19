@@ -20,4 +20,7 @@ protocol LayerObject: Identifiable, ObservableObject {
     /// The class which defines the objects appearance on the screen
     var appearance: LayerObjectAppearance { get set }
     
+    /// The type of the object
+    var objectType: LayerObjectType { get }
+    
 }
