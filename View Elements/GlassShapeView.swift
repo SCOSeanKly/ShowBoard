@@ -35,7 +35,7 @@ struct GlassShapeView: View {
             // MARK: Settings for Glass
             VStack {
                 
-                ResetValues(resetValues: resetValues)
+                ResetValues(resetValues: resetGlassShapeValues)
                 
                 SliderStepper(title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
                 
@@ -54,7 +54,7 @@ struct GlassShapeView: View {
         
     }
     
-    private func resetValues() {
+    private func resetGlassShapeValues() {
         shape.shapeFrameWidth = 250
         shape.shapeFrameHeight = 250
         shape.appearance.cornerRadius = 0

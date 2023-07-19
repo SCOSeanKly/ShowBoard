@@ -45,7 +45,7 @@ public struct CustomShapeView: View {
                 
                 ScrollView {
                     
-                  ResetValues(resetValues: resetValues)
+                  ResetValues(resetValues: resetCustomShapeValues)
                     
                     SliderStepper(title: "Count:", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
                     
@@ -107,7 +107,7 @@ public struct CustomShapeView: View {
         }
     }
     
-    private func resetValues() {
+    private func resetCustomShapeValues() {
         /*
         width = 300
         height = 150

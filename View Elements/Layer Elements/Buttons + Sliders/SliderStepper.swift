@@ -31,7 +31,7 @@ struct SliderStepper: View {
                 HStack {
                     
                     Text(title)
-                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .bold)
+                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .semibold)
                         .minimumScaleFactor(0.5)
                         .onTapGesture (count: 2) {
                             feedback()
@@ -47,7 +47,7 @@ struct SliderStepper: View {
             } else {
                 HStack {
                     Text(title)
-                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .bold)
+                        .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .semibold)
                         .onTapGesture (count: 2) {
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }

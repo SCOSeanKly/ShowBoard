@@ -20,7 +20,7 @@ struct BatteryCircleGauge: View {
             /// Settings
             VStack {
                 
-                ResetValues(resetValues: resetValues)
+                ResetValues(resetValues: resetBatteryCircleGaugeValues)
                 
                 SliderStepper(title: "Min Value:", sliderBindingValue: $bat.minValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 0)
                 
@@ -54,7 +54,7 @@ struct BatteryCircleGauge: View {
         
     }
     
-    private func resetValues() {
+    private func resetBatteryCircleGaugeValues() {
         
         bat.minValue = 0
         bat.maxValue = 100

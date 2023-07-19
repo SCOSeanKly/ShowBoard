@@ -12,10 +12,6 @@ struct MapView: View {
     @ObservedObject var locationDataManager: LocationDataManager
     @StateObject var map = MapObject()
     
-    @State private var colorOverlay: Color = .clear
-    
-    let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
-    
     var body: some View {
         ZStack {
             
@@ -37,7 +33,7 @@ struct MapView: View {
             //MARK: Settings for Maps
             VStack {
                 
-              ResetValues(resetValues: resetValues)
+              ResetValues(resetValues: resetMapValues)
                 
                 SliderStepper(title: "Width:", sliderBindingValue: $map.mapFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
                 
@@ -74,7 +70,7 @@ struct MapView: View {
         .ignoresSafeArea()
     }
     
-    private func resetValues() {
+    private func resetMapValues() {
         
         map.mapFrameWidth = 300
         map.mapFrameHeight = 150
@@ -83,6 +79,7 @@ struct MapView: View {
         map.mapCornerRadius = 0
         map.mapShadowRadius = 0
         map.mapShadowOffset = 0
+        map.mapShadowOpacity = 0
         map.appearance.blendMode = .normal
         map.mapOverlayColor = .clear
          

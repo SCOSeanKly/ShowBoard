@@ -252,14 +252,14 @@
 			path = LayerObject;
 			sourceTree = "<group>";
 		};
-		3E371CE02A66C10E00DE743C /* Battery */ = {
+		3E371CE02A66C10E00DE743C /* Battery Circle Gauge */ = {
 			isa = PBXGroup;
 			children = (
 				3E371CDE2A66B10500DE743C /* BatteryCircleGauge.swift */,
 				3ED4EF6B2A4586A7007CCAA6 /* BatteryGuageBase.swift */,
 				3E41D3172A42F71900A29548 /* BatteryBar.swift */,
 			);
-			path = Battery;
+			path = "Battery Circle Gauge";
 			sourceTree = "<group>";
 		};
 		3E371CE52A66D00000DE743C /* Buttons + Sliders */ = {
@@ -280,7 +280,7 @@
 				3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */,
 				3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */,
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
-				3E371CE02A66C10E00DE743C /* Battery */,
+				3E371CE02A66C10E00DE743C /* Battery Circle Gauge */,
 				3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */,
 				3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */,
 				3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */,
