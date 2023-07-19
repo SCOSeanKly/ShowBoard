@@ -17,6 +17,9 @@ struct MapView: View {
             
             MapExtensionView(locationDataManager: locationDataManager)
                 .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
+                .if(map.mapInvertColor) { view in
+                                   view.colorInvert()
+                               }
                 .overlay(map.mapOverlayColor)
                 .mask(
                     RoundedRectangle(cornerRadius: map.mapCornerRadius)
@@ -61,6 +64,8 @@ struct MapView: View {
                     .pickerStyle(.menu)
                 }
                
+                CustomToggle(titleText: "Invert", bindingValue: $map.mapInvertColor, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                
                 CustomColorPicker(titleText: "Color Overlay", pickerBindingValue:  $map.mapOverlayColor)
                 
             }
@@ -85,7 +90,19 @@ struct MapView: View {
         map.mapShadowOpacity = 0
         map.appearance.blendMode = .normal
         map.mapOverlayColor = .clear
+        map.mapInvertColor = false
          
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, modifier: (Self) -> Content) -> some View {
+        if condition {
+            modifier(self)
+        } else {
+            self
+        }
     }
 }
 

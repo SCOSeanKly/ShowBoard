@@ -24,10 +24,11 @@ struct MapExtensionView: UIViewRepresentable {
         // Disable user interaction, scrolling, and zooming
         mapView.isUserInteractionEnabled = false
         mapView.isScrollEnabled = false
-        mapView.isZoomEnabled = false
+        mapView.isZoomEnabled = true
         
-        // Hide Apple Maps overlay
-        mapView.mapType = .standard
+      
+        // mapView.mapType = .standard
+        // mapView.mapType = .mutedStandard
         
         return mapView
         

@@ -32,9 +32,9 @@ struct BatteryCircleGauge: View {
                 
                 SliderStepper(title: "Opacity:", sliderBindingValue: $bat.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
-                CustomToggle(titleText: "Show Current Label:", bindingValue: $bat.showCurrentValueLabel)
+                CustomToggle(titleText: "Show Current Label:", bindingValue: $bat.showCurrentValueLabel, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                 
-                CustomToggle(titleText: "Show Min/Max Label:", bindingValue: $bat.showMinMaxValueLabels)
+                CustomToggle(titleText: "Show Min/Max Label:", bindingValue: $bat.showMinMaxValueLabels, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                 
                 CustomColorPicker(titleText: "Gauge Colour", pickerBindingValue:  $bat.gaugeColor)
                 

@@ -63,6 +63,8 @@
 		3EB671952A4ED6A700DF2678 /* ImportImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671942A4ED6A700DF2678 /* ImportImageButton.swift */; };
 		3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671972A4EF20A00DF2678 /* GroupView.swift */; };
 		3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */; };
+		3EC3926F2A67F846001066D3 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3926E2A67F846001066D3 /* BarChart.swift */; };
+		3EC392712A67F9EA001066D3 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC392702A67F9EA001066D3 /* LineChart.swift */; };
 		3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8207C2A460EE800EA8A88 /* ShapesElementView.swift */; };
 		3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8207E2A460F3700EA8A88 /* GaugesElementView.swift */; };
 		3EC820812A460F7300EA8A88 /* ChartsElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC820802A460F7300EA8A88 /* ChartsElementView.swift */; };
@@ -167,6 +169,8 @@
 		3EB671942A4ED6A700DF2678 /* ImportImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImageButton.swift; sourceTree = "<group>"; };
 		3EB671972A4EF20A00DF2678 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOnAppear.swift; sourceTree = "<group>"; };
+		3EC3926E2A67F846001066D3 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		3EC392702A67F9EA001066D3 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 		3EC8207C2A460EE800EA8A88 /* ShapesElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesElementView.swift; sourceTree = "<group>"; };
 		3EC8207E2A460F3700EA8A88 /* GaugesElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugesElementView.swift; sourceTree = "<group>"; };
 		3EC820802A460F7300EA8A88 /* ChartsElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsElementView.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */,
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3E371CE02A66C10E00DE743C /* Battery Circle Gauge */,
+				3EC3926E2A67F846001066D3 /* BarChart.swift */,
+				3EC392702A67F9EA001066D3 /* LineChart.swift */,
 				3EA43C962A45AAC200A28C75 /* Layer Elements */,
 			);
 			path = "View Elements";
@@ -649,6 +655,7 @@
 				3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
+				3EC392712A67F9EA001066D3 /* LineChart.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
 				3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
@@ -694,6 +701,7 @@
 				3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */,
 				3EADA5B32A43343300FA1BCB /* SWAWidgetView.swift in Sources */,
 				3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */,
+				3EC3926F2A67F846001066D3 /* BarChart.swift in Sources */,
 				3E371CE42A66C8FF00DE743C /* CustomToggle.swift in Sources */,
 				3E371CD72A66807A00DE743C /* Feedback.swift in Sources */,
 				3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */,

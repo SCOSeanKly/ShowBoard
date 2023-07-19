@@ -10,6 +10,11 @@ import SwiftUI
 struct CustomToggle: View {
     let titleText: String
     let bindingValue: Binding<Bool>
+    let onSymbol : String
+    let offSymbol: String
+    let rotate: Bool
+    @State private var rotationAngle: Angle = .degrees(0)
+    @State private var isResetConfirmed: Bool = false
   
     
     var body: some View {
@@ -29,8 +34,10 @@ struct CustomToggle: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(.white)
                     
-                    Image(systemName: bindingValue.wrappedValue ? "" : "xmark")
+                    Image(systemName: bindingValue.wrappedValue ? onSymbol : offSymbol)
                         .font(.footnote)
+                        .rotationEffect(rotationAngle)
+                        .animation(isResetConfirmed ? .easeInOut(duration: 0.0) : .easeInOut(duration: 0.5), value: rotationAngle)
                        
                 }
                 .shadow(color: .black.opacity(0.14), radius: 2, x: 0, y: 1)
@@ -40,6 +47,16 @@ struct CustomToggle: View {
             }
             .onTapGesture {
                 bindingValue.wrappedValue.toggle()
+                if rotate {
+                    rotationAngle = .degrees(180)
+                    isResetConfirmed.toggle()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                        isResetConfirmed.toggle()
+                        rotationAngle = .degrees(0)
+                    }
+                }
+                
             }
         }
     }
