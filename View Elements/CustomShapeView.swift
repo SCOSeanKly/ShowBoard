@@ -102,6 +102,7 @@ public struct CustomShapeView: View {
                     Spacer()
                         .frame(height: 200)
                 }
+               
             }
             .padding()
         }

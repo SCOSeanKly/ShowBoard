@@ -65,6 +65,9 @@ struct MapView: View {
                 
             }
             .padding()
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
+            .padding()
             .offset(y: 200)
         }
         .ignoresSafeArea()
