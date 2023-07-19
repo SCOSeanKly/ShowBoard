@@ -22,13 +22,13 @@ struct MapView: View {
                                }
                 .overlay(map.mapOverlayColor)
                 .mask(
-                    RoundedRectangle(cornerRadius: map.mapCornerRadius)
+                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
                         .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
-                        .cornerRadius(map.mapCornerRadius)
+                        .cornerRadius(map.appearance.cornerRadius)
                 )
-                .shadow(color: .black.opacity(map.mapShadowOpacity), radius: map.mapShadowRadius, y: map.mapShadowOffset)
+                .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
                 .blendMode(map.appearance.blendMode)
-                .opacity(map.mapOpacity)
+                .opacity(map.appearance.opacity)
                 .animation(.spring())
                 .offset(y: -200)
             
@@ -42,15 +42,15 @@ struct MapView: View {
                 
                 SliderStepper(title: "Height:", sliderBindingValue: $map.mapFrameHeight, minValue: 150, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 150)
                 
-                SliderStepper(title: "Corner Radius:", sliderBindingValue: $map.mapCornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
+                SliderStepper(title: "Corner Radius:", sliderBindingValue: $map.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Opacity:", sliderBindingValue: $map.mapOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+                SliderStepper(title: "Opacity:", sliderBindingValue: $map.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
-                SliderStepper(title: "Shadow Radius:", sliderBindingValue: $map.mapShadowRadius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
+                SliderStepper(title: "Shadow Radius:", sliderBindingValue: $map.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
                 
-                SliderStepper(title: "Shadow Offset:", sliderBindingValue: $map.mapShadowOffset, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
+                SliderStepper(title: "Shadow Offset:", sliderBindingValue: $map.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
                 
-                SliderStepper(title: "Shadow Opacity:", sliderBindingValue: $map.mapShadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
+                SliderStepper(title: "Shadow Opacity:", sliderBindingValue: $map.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                 
                 HStack {
                     Text("Blend Mode:")
@@ -82,12 +82,11 @@ struct MapView: View {
         
         map.mapFrameWidth = 300
         map.mapFrameHeight = 150
-        map.mapCornerRadius = 0
-        map.mapOpacity = 1
-        map.mapCornerRadius = 0
-        map.mapShadowRadius = 0
-        map.mapShadowOffset = 0
-        map.mapShadowOpacity = 0
+        map.appearance.cornerRadius = 0
+        map.appearance.opacity = 1
+        map.appearance.shadow.radius = 0
+        map.appearance.shadow.offset.y = 0
+        map.appearance.shadowOpacity = 0
         map.appearance.blendMode = .normal
         map.mapOverlayColor = .clear
         map.mapInvertColor = false

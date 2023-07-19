@@ -20,4 +20,8 @@ struct ShadowSettings {
     
     /// The color of the shadow effect.
     var color: Color = .clear
+    
+    
+    // TODO: d
+    var opcaity: CGFloat = 1
 }

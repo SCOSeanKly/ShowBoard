@@ -14,11 +14,11 @@ struct BatteryCircleGauge: View {
     
     var body: some View {
         VStack {
-            BatteryGuageBase(batteryViewModel: batteryViewModel, minValue: bat.minValue, maxValue: bat.maxValue, currentValueLabelFontSize: bat.currentValueLabelFontSize, minMaxValueLabelFontSize: bat.minMaxValueLabelFontSize, gaugeColor: bat.gaugeColor, opacity: bat.opacity, showCurrentValueLabel: bat.showCurrentValueLabel, showMinMaxValueLabels: bat.showMinMaxValueLabels, scaleEffect: bat.scaleEffect, currentValueLabelColor: bat.currentValueLabelColor, minMaxValueLabelColor: bat.minMaxValueLabelColor, shadowRadius: bat.shadowRadius, shadowOffset: bat.shadowOffset)
+            BatteryGuageBase(batteryViewModel: batteryViewModel, minValue: bat.minValue, maxValue: bat.maxValue, currentValueLabelFontSize: bat.currentValueLabelFontSize, minMaxValueLabelFontSize: bat.minMaxValueLabelFontSize, gaugeColor: bat.gaugeColor, opacity: bat.appearance.opacity, showCurrentValueLabel: bat.showCurrentValueLabel, showMinMaxValueLabels: bat.showMinMaxValueLabels, scaleEffect: bat.appearance.scales.y, currentValueLabelColor: bat.currentValueLabelColor, minMaxValueLabelColor: bat.minMaxValueLabelColor, shadowRadius: bat.appearance.shadow.radius, shadowOffset: bat.appearance.shadow.offset.y)
                 .animation(.spring())
             
             /// Settings
-            VStack {
+            ScrollView {
                 
                 ResetValues(resetValues: resetBatteryCircleGaugeValues)
                 
@@ -30,7 +30,7 @@ struct BatteryCircleGauge: View {
                 
                 SliderStepper(title: "Min/Max FontSize:", sliderBindingValue: $bat.minMaxValueLabelFontSize, minValue: 4, maxValue: 15, step: 1, specifier: 0, defaultValue: 6)
                 
-                SliderStepper(title: "Opacity:", sliderBindingValue: $bat.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+                SliderStepper(title: "Opacity:", sliderBindingValue: $bat.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
                 CustomToggle(titleText: "Show Current Label:", bindingValue: $bat.showCurrentValueLabel, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                 
@@ -42,12 +42,17 @@ struct BatteryCircleGauge: View {
                 
                 CustomColorPicker(titleText: "Min/Max Colour:", pickerBindingValue: $bat.minMaxValueLabelColor)
                 
-                SliderStepper(title: "Shadow Radius:", sliderBindingValue: $bat.shadowRadius, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
+                SliderStepper(title: "Shadow Radius:", sliderBindingValue: $bat.appearance.shadow.radius, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Shadow Offset:", sliderBindingValue: $bat.shadowOffset, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
+                SliderStepper(title: "Shadow Offset:", sliderBindingValue: $bat.appearance.shadow.offset.y, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Scale Effect:", sliderBindingValue: $bat.scaleEffect, minValue: 0, maxValue: 3, step: 0.1, specifier: 1, defaultValue: 1)
-            }    
+                SliderStepper(title: "Scale Effect:", sliderBindingValue: $bat.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
+                    .onChange(of: bat.appearance.scales) { _ in
+                        bat.appearance.scales.y =
+                        bat.appearance.scales.x
+                    }
+                    .padding(.bottom, 100)
+            }
         }
         .padding()
         
@@ -60,16 +65,14 @@ struct BatteryCircleGauge: View {
         bat.maxValue = 100
         bat.currentValueLabelFontSize = 10
         bat.minMaxValueLabelFontSize = 6
-        bat.opacity = 1
+        bat.appearance.opacity = 1
         bat.showCurrentValueLabel = true
         bat.showMinMaxValueLabels = true
         bat.gaugeColor = .blue
         bat.currentValueLabelColor = .blue
         bat.minMaxValueLabelColor = .blue
-        bat.shadowRadius = 0
-        bat.shadowOffset = 0
-        bat.scaleEffect = 1
-         
+        bat.appearance.shadow.radius = 0
+        bat.appearance.shadow.offset.y = 0
     }
 }
 

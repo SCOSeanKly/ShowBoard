@@ -34,17 +34,11 @@ class CircleGaugeObject: LayerObject {
     /// Gauge Colour
     @Published var gaugeColor: Color
     
-    /// Opacity
-    @Published var opacity: CGFloat
-    
     /// Show current value label
     @Published var showCurrentValueLabel: Bool
     
     /// Show Min and Max value labels
     @Published var showMinMaxValueLabels: Bool
-    
-    /// Scale Effect
-    @Published var scaleEffect: CGFloat
     
     /// Current value label color
     @Published var currentValueLabelColor: Color
@@ -52,11 +46,7 @@ class CircleGaugeObject: LayerObject {
     /// Min Max value label colour
     @Published var minMaxValueLabelColor: Color
     
-    /// ShadowRaadius
-    @Published var shadowRadius: CGFloat
-    
-    /// Shadow Offset
-    @Published var shadowOffset: CGFloat
+
     
     
     
@@ -64,7 +54,19 @@ class CircleGaugeObject: LayerObject {
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), minValue: CGFloat = 0.0, maxValue: CGFloat = 100.0, currentValueLabelFontSize: CGFloat = 12, minMaxValueLabelFontSize: CGFloat = 6,  gaugeColor: Color = Color.blue, opacity: CGFloat = 1.0, showCurrentValueLabel: Bool = true, showMinMaxValueLabels: Bool = true, scaleEffect: CGFloat = 1.0, currentValueLabelColor: Color = Color.blue, minMaxValueLabelColor: Color = Color.blue, shadowRadius: CGFloat = 0.0, shadowOffset: CGFloat = 0.0) {
+    init(
+        id: UUID = UUID(),
+        appearance: LayerObjectAppearance = LayerObjectAppearance(),
+        minValue: CGFloat = 0.0,
+        maxValue: CGFloat = 100.0,
+        currentValueLabelFontSize: CGFloat = 12,
+        minMaxValueLabelFontSize: CGFloat = 6,
+        gaugeColor: Color = Color.blue,
+        showCurrentValueLabel: Bool = true,
+        showMinMaxValueLabels: Bool = true,
+        currentValueLabelColor: Color = Color.blue,
+        minMaxValueLabelColor: Color = Color.blue) {
+            
         self.id = id
         self.appearance = appearance
         self.minValue = minValue
@@ -72,13 +74,9 @@ class CircleGaugeObject: LayerObject {
         self.currentValueLabelFontSize = currentValueLabelFontSize
         self.minMaxValueLabelFontSize = minMaxValueLabelFontSize
         self.gaugeColor = gaugeColor
-        self.opacity = opacity
         self.showCurrentValueLabel = showCurrentValueLabel
         self.showMinMaxValueLabels = showCurrentValueLabel
-        self.scaleEffect = scaleEffect
         self.currentValueLabelColor = currentValueLabelColor
         self.minMaxValueLabelColor = minMaxValueLabelColor
-        self.shadowRadius = shadowRadius
-        self.shadowOffset = shadowOffset
     }
 }
