@@ -99,9 +99,6 @@ struct ToggleView: View {
     }
 }
 
-#Preview {
-    ToggleView()
-}
 
 
 

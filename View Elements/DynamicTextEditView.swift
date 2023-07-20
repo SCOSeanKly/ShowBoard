@@ -16,7 +16,7 @@ struct DynamicTextView: View {
     
     var body: some View {
         
-       
+        
         ScrollView {
             
             Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("TEST") }
@@ -76,87 +76,93 @@ struct DynamicTextView: View {
                 .padding(.leading)
                 
                 // MARK: Settings for Dynamic Text
-                VStack {
-                    
-                   ResetValues(resetValues: resetDynamicTextValues)
-                    
-                    HStack {
-                        Text("Font Style:")
-                        Spacer()
-                        Picker("Font Style", selection: $text.selectedFontName) {
-                            ForEach(TextObject.fontList, id: \.self) { style in
-                                Text(style ?? "System Font")
+                Group {
+                    VStack {
+                        Group {
+                            ResetValues(resetValues: resetDynamicTextValues)
+                            
+                            HStack {
+                                Text("Font Style:")
+                                Spacer()
+                                Picker("Font Style", selection: $text.selectedFontName) {
+                                    ForEach(TextObject.fontList, id: \.self) { style in
+                                        Text(style ?? "System Font")
+                                    }
+                                }
+                                .pickerStyle(MenuPickerStyle())
+                            }
+                            
+                            HStack {
+                                Text("Font Size:")
+                                Slider(value: $text.fontSize, in: 1...200)
+                                Text("\(text.fontSize, specifier: "%.1f")")
+                            }
+                            
+                            HStack {
+                                Text("Tracking:")
+                                Slider(value: $text.fontTracking, in: 0...20)
+                                Text("\(text.fontTracking, specifier: "%.0f")")
+                            }
+                            
+                            HStack {
+                                Text("Font Alignment:")
+                                Spacer()
+                                Picker("Font Alignment", selection: $text.textAlignment) {
+                                    ForEach(alignmentOptions, id: \.self) { style in
+                                        //  Text(alignmentOptions)
+                                    }
+                                }
+                                .pickerStyle(MenuPickerStyle())
+                            }
+                            
+                            HStack {
+                                Text("Shadow Radius:")
+                                Slider(value: $text.appearance.shadow.radius, in: 0...20)
+                                Text("\(text.appearance.shadow.radius, specifier: "%.1f")")
                             }
                         }
-                        .pickerStyle(MenuPickerStyle())
-                    }
-                    
-                    HStack {
-                        Text("Font Size:")
-                        Slider(value: $text.fontSize, in: 1...200)
-                        Text("\(text.fontSize, specifier: "%.1f")")
-                    }
-                    
-                    HStack {
-                        Text("Tracking:")
-                        Slider(value: $text.fontTracking, in: 0...20)
-                        Text("\(text.fontTracking, specifier: "%.0f")")
-                    }
-                    
-                    HStack {
-                        Text("Font Alignment:")
-                        Spacer()
-                        Picker("Font Alignment", selection: $text.textAlignment) {
-                            ForEach(alignmentOptions, id: \.self) { style in
-                             //  Text(alignmentOptions)
+                        
+                        Group {
+                            HStack {
+                                Text("Shadow Offset:")
+                                Slider(value: $text.appearance.shadow.offset.y, in: 0...30)
+                                Text("\(text.appearance.shadow.offset.y, specifier: "%.1f")")
                             }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                    }
-                    
-                    HStack {
-                        Text("Shadow Radius:")
-                        Slider(value: $text.appearance.shadow.radius, in: 0...20)
-                        Text("\(text.appearance.shadow.radius, specifier: "%.1f")")
-                    }
-                    HStack {
-                        Text("Shadow Offset:")
-                        Slider(value: $text.appearance.shadow.offset.y, in: 0...30)
-                        Text("\(text.appearance.shadow.offset.y, specifier: "%.1f")")
-                    }
-                    HStack {
-                        Text("Blur Radius:")
-                        Slider(value: $text.appearance.blur, in: 0...50)
-                        Text("\(text.appearance.blur, specifier: "%.0f")")
-                    }
-                    HStack {
-                        Text("Opacity:")
-                        Slider(value: $text.appearance.opacity, in: 0...1)
-                        Text("\(text.appearance.opacity, specifier: "%.1f")")
-                    }
-                    HStack {
-                        Text("Rotation:")
-                        Slider(value: $text.appearance.rotation.degrees, in: 0...360)
-                        Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
-                    }
-                    .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
-                    
-                    HStack {
-                        Text("Blend Mode:")
-                        Spacer()
-                        Picker("Blend Mode", selection: $text.appearance.blendMode) {
-                            ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
-                                Text(LayerObjectAppearance.labelForBlendMode(mode))
-                                    .tag(mode)
+                            HStack {
+                                Text("Blur Radius:")
+                                Slider(value: $text.appearance.blur, in: 0...50)
+                                Text("\(text.appearance.blur, specifier: "%.0f")")
                             }
+                            HStack {
+                                Text("Opacity:")
+                                Slider(value: $text.appearance.opacity, in: 0...1)
+                                Text("\(text.appearance.opacity, specifier: "%.1f")")
+                            }
+                            HStack {
+                                Text("Rotation:")
+                                Slider(value: $text.appearance.rotation.degrees, in: 0...360)
+                                Text("\(text.appearance.rotation.degrees, specifier: "%.1f")")
+                            }
+                            .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
+                            
+                            HStack {
+                                Text("Blend Mode:")
+                                Spacer()
+                                Picker("Blend Mode", selection: $text.appearance.blendMode) {
+                                    ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
+                                        Text(LayerObjectAppearance.labelForBlendMode(mode))
+                                            .tag(mode)
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                            }
+                            
+                            CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.fontColor)
                         }
-                        .pickerStyle(.menu)  
+                        
                     }
-                    
-                CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.fontColor)
-                    
+                    .padding()
                 }
-                .padding()
             }
             .padding(.horizontal)
         }
@@ -164,10 +170,10 @@ struct DynamicTextView: View {
     
     private func resetDynamicTextValues() {
         /*fontName = "Autone"
-        fontSize = 26
-        fontWeight = .regular
-        fontColor = .black
-        text.appearance.rotation = .zero*/
+         fontSize = 26
+         fontWeight = .regular
+         fontColor = .black
+         text.appearance.rotation = .zero*/
     }
 }
 

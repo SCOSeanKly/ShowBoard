@@ -229,8 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				0972742D2A4C806100429786 /* LayerObject */,
-				0972742C2A4C804500429786 /* DynamicText */,
-				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -247,6 +245,7 @@
 		0972742D2A4C806100429786 /* LayerObject */ = {
 			isa = PBXGroup;
 			children = (
+				0972742C2A4C804500429786 /* DynamicText */,
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
 				097274302A4C820C00429786 /* LayerObject+Appearance.swift */,
 				097274322A4C854B00429786 /* TextObject.swift */,
@@ -257,6 +256,7 @@
 				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
 				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 				0940CCF22A6860DC009CE54C /* LayerObjectType.swift */,
+				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 			);
 			path = LayerObject;
 			sourceTree = "<group>";
@@ -872,7 +872,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.11;
+				CURRENT_PROJECT_VERSION = 0.0.12;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -915,7 +915,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.11;
+				CURRENT_PROJECT_VERSION = 0.0.12;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
