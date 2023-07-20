@@ -14,6 +14,7 @@ struct CustomColorPicker: View {
     var body: some View {
         HStack {
             Text(titleText)
+                .titleFont()
             Spacer()
             ColorPicker("", selection: pickerBindingValue)
         }

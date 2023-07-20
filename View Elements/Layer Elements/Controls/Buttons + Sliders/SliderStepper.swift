@@ -17,6 +17,10 @@ struct SliderStepper: View {
     @State private var buttonPressed = false
     @State private var timer: Timer?
     
+    let color: Color
+    private var normalFillColor: Color { color.opacity(0.6) }
+    private var emptyColor: Color { color.opacity(0.2) }
+    
     let title: String
     let sliderBindingValue: Binding<CGFloat>
     let minValue: Double
@@ -25,36 +29,49 @@ struct SliderStepper: View {
     let specifier: Int
     var defaultValue: Double
     
+   
+    
+    
+    
     var body: some View {
         HStack {
             if isSliderMode {
                 HStack {
                     
                     Text(title)
+                        .titleFont()
                         .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .semibold)
-                        .minimumScaleFactor(0.5)
                         .onTapGesture (count: 2) {
                             feedback()
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }
+               
+                    CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
+                    }
+                    .frame(height: 20)
                     
-                    Slider(value: sliderBindingValue, in: CGFloat(minValue)...CGFloat(maxValue), step: CGFloat(step))
-                        .scaleEffect(0.9)
                     
                     Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
+                        .specifierFont()
+                        .frame(width: 30)
+                        .offset(x: 10)
                     
                 }
             } else {
                 HStack {
                     Text(title)
+                        .titleFont()
                         .fontWeight(sliderBindingValue.wrappedValue == CGFloat(defaultValue) ? .regular : .semibold)
                         .onTapGesture (count: 2) {
                             sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                         }
                     
-                    Slider(value: sliderBindingValue, in: CGFloat(minValue)...CGFloat(maxValue), step: CGFloat(step))
-                        .scaleEffect(0.9)
-                        .padding(.trailing, 5)
+                    CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
+                        
+                    }
+                    .frame(height: 20)
+                    
+                
                     
                     HStack {
                         if Double(sliderBindingValue.wrappedValue) > minValue {
@@ -70,10 +87,12 @@ struct SliderStepper: View {
                             }) {
                                 Image(systemName: "chevron.left")
                                     .fontWeight(.bold)
+                                    .padding(.horizontal, 10)
                             }
                         }
                         
                         Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
+                            .fontWeight(.semibold)
                             .scaleEffect(buttonPressed ? 1.0 : 0.9)
                             .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: buttonPressed)
                         
@@ -90,6 +109,7 @@ struct SliderStepper: View {
                             }) {
                                 Image(systemName: "chevron.right")
                                     .fontWeight(.bold)
+                                    .padding(.horizontal, 10)
                             }
                         }
                     }
@@ -100,8 +120,11 @@ struct SliderStepper: View {
                     .overlay(
                         Capsule()
                             .strokeBorder(lineWidth: 1, antialiased: true)
+                            .shadow(color: .black.opacity(0.25), radius: 2, x: 2, y: 2)
                     )
                     .clipShape(Capsule())
+                
+                    
                 }
             }
             

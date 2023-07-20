@@ -22,6 +22,7 @@ struct CustomToggle: View {
             HStack {
                 
                 Text(titleText)
+                    .titleFont()
                 
                 Spacer()
                 

@@ -25,12 +25,13 @@ struct ResetValues: View {
             {
                 HStack {
                     Text("\(Image(systemName: "arrow.counterclockwise"))")
-                        .fontWeight(.semibold)
+                        .font(.system(size: 14).weight(.semibold))
                         .rotationEffect(rotationAngle)
                         .animation(isResetConfirmed ? .easeInOut(duration: 0.0) : .easeInOut(duration: 0.5), value: rotationAngle)
                         .scaleEffect(0.75)
                     
                     Text("Reset")
+                        .font(.system(size: 14).weight(.semibold))
                 }
             }
             .alert(isPresented: $isShowingConfirmationAlert) {

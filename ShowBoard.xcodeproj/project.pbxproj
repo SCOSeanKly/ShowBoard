@@ -32,6 +32,8 @@
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
 		3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */; };
 		3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F89832A4B5865001763DC /* SWAWidget2.swift */; };
+		3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A702A69526500AE1ED7 /* CustomSlider.swift */; };
+		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
 		3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */; };
 		3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E81F1532A52A68200137304 /* MoveableGrid.swift */; };
 		3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849892A41D47800B50BBD /* ShowBoardApp.swift */; };
@@ -133,6 +135,8 @@
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
 		3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditView.swift; sourceTree = "<group>"; };
 		3E4F89832A4B5865001763DC /* SWAWidget2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidget2.swift; sourceTree = "<group>"; };
+		3E546A702A69526500AE1ED7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
 		3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverImagePickerViews.swift; sourceTree = "<group>"; };
 		3E81F1532A52A68200137304 /* MoveableGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableGrid.swift; sourceTree = "<group>"; };
 		3E8849862A41D47800B50BBD /* ShowBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +278,7 @@
 				3E371CDA2A668DD400DE743C /* ResetValues.swift */,
 				3E371CE32A66C8FF00DE743C /* CustomToggle.swift */,
 				3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */,
+				3E546A702A69526500AE1ED7 /* CustomSlider.swift */,
 			);
 			path = "Buttons + Sliders";
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */,
 				3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */,
 				3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */,
+				3E546A722A69672100AE1ED7 /* SettingsFonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -679,8 +685,10 @@
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
 				3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */,
+				3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */,
 				097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */,
 				3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */,
+				3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */,
 				3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */,
 				3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */,
 				0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */,

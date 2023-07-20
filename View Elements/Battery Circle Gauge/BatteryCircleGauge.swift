@@ -22,15 +22,15 @@ struct BatteryCircleGauge: View {
                 
                 ResetValues(resetValues: resetBatteryCircleGaugeValues)
                 
-                SliderStepper(title: "Min Value:", sliderBindingValue: $bat.minValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 0)
+                SliderStepper(color: .blue, title: "Min Value:", sliderBindingValue: $bat.minValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Max Value:", sliderBindingValue: $bat.maxValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 100)
+                SliderStepper(color: .blue, title: "Max Value:", sliderBindingValue: $bat.maxValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 100)
                 
-                SliderStepper(title: "Current FontSize:", sliderBindingValue: $bat.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: 1, specifier: 0, defaultValue: 10)
+                SliderStepper(color: .blue, title: "Current FontSize:", sliderBindingValue: $bat.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: 1, specifier: 0, defaultValue: 10)
                 
-                SliderStepper(title: "Min/Max FontSize:", sliderBindingValue: $bat.minMaxValueLabelFontSize, minValue: 4, maxValue: 15, step: 1, specifier: 0, defaultValue: 6)
+                SliderStepper(color: .blue, title: "Min/Max FontSize:", sliderBindingValue: $bat.minMaxValueLabelFontSize, minValue: 4, maxValue: 15, step: 1, specifier: 0, defaultValue: 6)
                 
-                SliderStepper(title: "Opacity:", sliderBindingValue: $bat.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+                SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $bat.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
                 CustomToggle(titleText: "Show Current Label:", bindingValue: $bat.showCurrentValueLabel, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                 
@@ -42,11 +42,11 @@ struct BatteryCircleGauge: View {
                 
                 CustomColorPicker(titleText: "Min/Max Colour:", pickerBindingValue: $bat.minMaxValueLabelColor)
                 
-                SliderStepper(title: "Shadow Radius:", sliderBindingValue: $bat.appearance.shadow.radius, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
+                SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $bat.appearance.shadow.radius, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Shadow Offset:", sliderBindingValue: $bat.appearance.shadow.offset.y, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
+                SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $bat.appearance.shadow.offset.y, minValue: 0, maxValue: 10, step: 0.1, specifier: 0, defaultValue: 0)
                 
-                SliderStepper(title: "Scale Effect:", sliderBindingValue: $bat.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
+                SliderStepper(color: .blue, title: "Scale Effect:", sliderBindingValue: $bat.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
                     .onChange(of: bat.appearance.scales) { _ in
                         bat.appearance.scales.y =
                         bat.appearance.scales.x
