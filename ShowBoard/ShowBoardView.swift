@@ -34,7 +34,7 @@ struct ShowBoardView: View {
     @State private var pressedButtonObjectIndex: Int? = nil
     @State private var showLayerElementView = false
     @State private var showTextElementView = false
- //   @State private var showDynamicTextEditView = false
+    //   @State private var showDynamicTextEditView = false
     @State private var showGaugesElementView = false
     @State private var showWeatherElementView = false
     @State private var showChartsElementView = false
@@ -62,7 +62,7 @@ struct ShowBoardView: View {
     
     @State var objects: [any LayerObject] = Array()
     
-
+    
     var body: some View {
         ZStack {
             
@@ -78,8 +78,8 @@ struct ShowBoardView: View {
                 /// These Image views should be able to be placed in and zInde order
                 //ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
-               
-
+                
+                MapView(locationDataManager: locationDataManager)
                 
             }
             .fadeOnAppear()
