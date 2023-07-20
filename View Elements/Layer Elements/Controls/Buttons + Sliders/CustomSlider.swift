@@ -45,6 +45,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                       
                      
                             ZStack {
+                                
                                 Circle()
                                     .frame(width: 20, height: 20)
                                     .foregroundColor(.white)
@@ -55,6 +56,15 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                     .foregroundColor(.clear)
                                     .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.4), .white.opacity(0.5), .white]), startPoint: .top, endPoint: .bottom))
                                     .clipShape(Circle())
+                                
+                                /*
+                                Image(systemName: "xmark")
+                                    .foregroundColor(.blue.opacity(1.0))
+                                    .clipShape(Circle())
+                                    .scaleEffect(0.8)
+                                    .rotationEffect(.degrees(Double(180 * (localRealProgress - 0.5))))
+                                 */
+                             
                             }
                             .frame(width: height * 2, height: height * 2)
                             .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
