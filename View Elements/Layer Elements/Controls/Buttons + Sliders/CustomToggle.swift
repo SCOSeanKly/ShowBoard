@@ -76,6 +76,7 @@ struct CustomToggle: View {
                     .animation(.interpolatingSpring(stiffness: 300, damping: 20))
                 }
                 .onTapGesture {
+                    feedback()
                     bindingValue.wrappedValue.toggle()
                     if rotate {
                         withAnimation(.easeInOut(duration: 0.5)) {

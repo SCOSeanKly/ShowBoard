@@ -20,6 +20,7 @@ struct ResetValues: View {
             Spacer()
             
             Button(action: {
+                feedback()
                 isShowingConfirmationAlert = true
             })
             {
