@@ -121,9 +121,10 @@ struct SliderStepper: View {
                     .overlay(
                         Capsule()
                             .strokeBorder(lineWidth: 1, antialiased: true)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 2, y: 2)
+                            .shadow(color: .black.opacity(0.25), radius: 3, x: 1, y: 1)
                     )
                     .clipShape(Capsule())
+                    .padding(.leading, 10)
                 
                     
                 }

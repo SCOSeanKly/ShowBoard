@@ -36,7 +36,6 @@ struct CustomToggle: View {
                         .frame(width: 40, height: 24)
                         .cornerRadius(100)
                     
-                    
                     ZStack {
                         
                         Circle()
