@@ -15,6 +15,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
     let emptyColor: Color
     let height: CGFloat
     let onEditingChanged: (Bool) -> Void
+  
     
     // private variables
     @State private var localRealProgress: T = 0
@@ -40,6 +41,31 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                     Spacer(minLength: 0)
                                 }
                             })
+                        
+                      
+                     
+                            ZStack {
+                                Circle()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.white)
+                                    .shadow(color: .black.opacity(0.15), radius: 1, x: 2, y: 2)
+                                
+                                Circle()
+                                    .frame(width: 16, height: 16)
+                                    .foregroundColor(.clear)
+                                    .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.4), .white.opacity(0.5), .white]), startPoint: .top, endPoint: .bottom))
+                                    .clipShape(Circle())
+                            }
+                            .frame(width: height * 2, height: height * 2)
+                            .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
+                            .gesture(DragGesture(minimumDistance: 0)
+                                .onChanged { gesture in
+                                    let sliderWidth = bounds.size.width
+                                    let percentage = min(max(gesture.location.x / sliderWidth, 0), 1)
+                                    localRealProgress = T(percentage)
+                                    value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
+                                }
+                            )
                     }
                     .frame(width: isActive ? bounds.size.width * 1.04 : bounds.size.width, alignment: .center)
                 }

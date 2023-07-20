@@ -28,9 +28,7 @@ struct SliderStepper: View {
     let step: Double
     let specifier: Int
     var defaultValue: Double
-    
-   
-    
+  
     
     
     var body: some View {
@@ -49,6 +47,7 @@ struct SliderStepper: View {
                     CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
                     }
                     .frame(height: 20)
+                    .padding(.leading, 5)
                     
                     
                     Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
@@ -70,6 +69,8 @@ struct SliderStepper: View {
                         
                     }
                     .frame(height: 20)
+                    .padding(.leading, 5)
+                    
                     
                 
                     
