@@ -24,14 +24,14 @@ struct MapExtensionView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         
         // Disable user interaction, scrolling, and zooming
-        // mapView.isScrollEnabled = false
-        // mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = false
+        mapView.isZoomEnabled = false
         mapView.isUserInteractionEnabled = false
         mapView.mapType = .mutedStandard
         
-        // MARK: Dark mode doesnt work when toggled on
+        // Map dark and light mode
         mapView.overrideUserInterfaceStyle = map.appearance.darkMode ? .dark : .light
-        
+    
         return mapView
     }
     
@@ -41,6 +41,7 @@ struct MapExtensionView: UIViewRepresentable {
         let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)
+        
         
         view.overrideUserInterfaceStyle = map.appearance.darkMode ? .dark : .light
         
@@ -77,3 +78,6 @@ struct MapExtensionView: UIViewRepresentable {
         }
     }
 }
+
+
+ 
