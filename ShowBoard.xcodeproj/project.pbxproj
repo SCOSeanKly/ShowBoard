@@ -31,11 +31,12 @@
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
 		3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */; };
-		3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4F89832A4B5865001763DC /* SWAWidget2.swift */; };
 		3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A702A69526500AE1ED7 /* CustomSlider.swift */; };
 		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
 		3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */; };
 		3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E81F1532A52A68200137304 /* MoveableGrid.swift */; };
+		3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */; };
+		3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABD2A6A86E100E344C9 /* CustomShape.swift */; };
 		3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849892A41D47800B50BBD /* ShowBoardApp.swift */; };
 		3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E88498B2A41D47800B50BBD /* ContentView.swift */; };
 		3E88498E2A41D47800B50BBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E88498D2A41D47800B50BBD /* Assets.xcassets */; };
@@ -57,7 +58,6 @@
 		3EADA5AD2A432DD000FA1BCB /* CopyToClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5AC2A432DD000FA1BCB /* CopyToClipboard.swift */; };
 		3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5AE2A43300B00FA1BCB /* RunShortcut.swift */; };
 		3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */; };
-		3EADA5B32A43343300FA1BCB /* SWAWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5B22A43343300FA1BCB /* SWAWidgetView.swift */; };
 		3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5B52A433EBF00FA1BCB /* WidgetModifier.swift */; };
 		3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5B72A433EE300FA1BCB /* AlertModifier.swift */; };
 		3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */; };
@@ -134,11 +134,12 @@
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
 		3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditView.swift; sourceTree = "<group>"; };
-		3E4F89832A4B5865001763DC /* SWAWidget2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidget2.swift; sourceTree = "<group>"; };
 		3E546A702A69526500AE1ED7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
 		3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverImagePickerViews.swift; sourceTree = "<group>"; };
 		3E81F1532A52A68200137304 /* MoveableGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableGrid.swift; sourceTree = "<group>"; };
+		3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepperDegrees.swift; sourceTree = "<group>"; };
+		3E83AABD2A6A86E100E344C9 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		3E8849862A41D47800B50BBD /* ShowBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8849892A41D47800B50BBD /* ShowBoardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardApp.swift; sourceTree = "<group>"; };
 		3E88498B2A41D47800B50BBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,7 +166,6 @@
 		3EADA5AC2A432DD000FA1BCB /* CopyToClipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyToClipboard.swift; sourceTree = "<group>"; };
 		3EADA5AE2A43300B00FA1BCB /* RunShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunShortcut.swift; sourceTree = "<group>"; };
 		3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		3EADA5B22A43343300FA1BCB /* SWAWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidgetView.swift; sourceTree = "<group>"; };
 		3EADA5B52A433EBF00FA1BCB /* WidgetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModifier.swift; sourceTree = "<group>"; };
 		3EADA5B72A433EE300FA1BCB /* AlertModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModifier.swift; sourceTree = "<group>"; };
 		3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridOverlay.swift; sourceTree = "<group>"; };
@@ -279,6 +279,7 @@
 				3E371CE32A66C8FF00DE743C /* CustomToggle.swift */,
 				3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */,
 				3E546A702A69526500AE1ED7 /* CustomSlider.swift */,
+				3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */,
 			);
 			path = "Buttons + Sliders";
 			sourceTree = "<group>";
@@ -305,7 +306,6 @@
 				3E8849BB2A41D59100B50BBD /* Extensions */,
 				3EADA5B42A433E9100FA1BCB /* Modifiers */,
 				3EADA59D2A4315E500FA1BCB /* Custom Fonts */,
-				3EADA5BB2A434EF700FA1BCB /* Example Widgets */,
 				3E41D3192A42F73000A29548 /* View Elements */,
 				3E8849882A41D47800B50BBD /* ShowBoard */,
 				3E88499A2A41D47800B50BBD /* ShowBoardTests */,
@@ -389,6 +389,7 @@
 				3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */,
 				3EADA5B02A4332C700FA1BCB /* BackgroundView.swift */,
 				3E546A722A69672100AE1ED7 /* SettingsFonts.swift */,
+				3E83AABD2A6A86E100E344C9 /* CustomShape.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,15 +423,6 @@
 				3ECC34B02A4C6905008794BC /* VerticalDragModifier.swift */,
 			);
 			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		3EADA5BB2A434EF700FA1BCB /* Example Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				3EADA5B22A43343300FA1BCB /* SWAWidgetView.swift */,
-				3E4F89832A4B5865001763DC /* SWAWidget2.swift */,
-			);
-			path = "Example Widgets";
 			sourceTree = "<group>";
 		};
 		3EB671962A4EEEEE00DF2678 /* Layer Element Menu Views */ = {
@@ -663,7 +655,6 @@
 				0940CCF12A686079009CE54C /* LayerObjectProviderView.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
-				3E4F89842A4B5865001763DC /* SWAWidget2.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
@@ -677,6 +668,7 @@
 				3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */,
 				3ED4EF6C2A4586A7007CCAA6 /* BatteryGuageBase.swift in Sources */,
 				3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */,
+				3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */,
 				3EC820832A460FAD00EA8A88 /* CalendarElementView.swift in Sources */,
 				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
 				3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */,
@@ -708,13 +700,13 @@
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
 				3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */,
 				3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */,
-				3EADA5B32A43343300FA1BCB /* SWAWidgetView.swift in Sources */,
 				3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */,
 				3E371CE42A66C8FF00DE743C /* CustomToggle.swift in Sources */,
 				3E371CD72A66807A00DE743C /* Feedback.swift in Sources */,
 				3EEB89962A4A157700CF42AB /* ImageTrashButton.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
+				3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

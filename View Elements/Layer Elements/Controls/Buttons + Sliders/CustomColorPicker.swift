@@ -17,6 +17,8 @@ struct CustomColorPicker: View {
                 .titleFont()
             Spacer()
             ColorPicker("", selection: pickerBindingValue)
+                .scaleEffect(0.9)
+                .offset(x: 10)
         }
     }
 }

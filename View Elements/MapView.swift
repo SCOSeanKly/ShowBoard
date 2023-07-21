@@ -11,28 +11,30 @@ struct MapView: View {
     
     @ObservedObject var locationDataManager: LocationDataManager
     @StateObject var map = MapObject()
-    
+    @State private var refresh: Int = 0
+   
+
     var body: some View {
         ZStack {
-            
-            MapExtensionView(locationDataManager: locationDataManager)
-                .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
-                .if(map.mapInvertColor) { view in
-                    view.colorInvert()
-                }
-                .overlay(map.mapOverlayColor)
-                .mask(
-                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
-                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
-                        .cornerRadius(map.appearance.cornerRadius)
-                )
-                .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
-                .blendMode(map.appearance.blendMode)
-                .opacity(map.appearance.opacity)
-                .animation(.spring())
-                .offset(y: -200)
-            
-            
+          
+            MapExtensionView(locationDataManager: locationDataManager, map: map)
+                    .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
+                    .if(map.mapInvertColor) { view in
+                        view.colorInvert()
+                    }
+                    .overlay(map.mapOverlayColor)
+                    .mask(
+                        RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
+                            .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
+                            .cornerRadius(map.appearance.cornerRadius)
+                    )
+                    .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
+                    .blendMode(map.appearance.blendMode)
+                    .opacity(map.appearance.opacity)
+                    .animation(.spring())
+                    .offset(y: -200)
+                
+              
             //MARK: Settings for Maps
             Group {
                 VStack {
@@ -53,6 +55,8 @@ struct MapView: View {
                         SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $map.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $map.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
+                        
+                        CustomToggle(titleText: "View In Dark Mode", bindingValue: $map.mapDarkMode, onSymbol: "moon", offSymbol: "sun.max", rotate: true)
                         
                         HStack {
                             Text("Blend Mode:")
@@ -78,7 +82,7 @@ struct MapView: View {
                 .background(.ultraThinMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .padding()
-                .offset(y: 175)
+                .offset(y: 195)
             }
         }
         .ignoresSafeArea()

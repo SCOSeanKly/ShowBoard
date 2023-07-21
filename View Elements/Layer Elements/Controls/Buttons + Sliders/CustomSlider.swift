@@ -15,7 +15,9 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
     let emptyColor: Color
     let height: CGFloat
     let onEditingChanged: (Bool) -> Void
+    
   
+    
     
     // private variables
     @State private var localRealProgress: T = 0
@@ -27,11 +29,12 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
             ZStack {
                 VStack {
                     ZStack(alignment: .center) {
-                        
-                        LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.3), Color.white.opacity(isActive ? 0.3 : 0.6)]), startPoint: .top, endPoint: .bottom)
-                            .cornerRadius(100)
                         Capsule()
                             .fill(emptyColor)
+                        
+                        LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.1), Color.white.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
+                            .cornerRadius(100)
+                        
                         Capsule()
                             .fill(isActive ? activeFillColor : fillColor)
                             .mask({
@@ -42,40 +45,41 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 }
                             })
                         
-                      
-                     
-                            ZStack {
-                                
-                                Circle()
-                                    .frame(width: 20, height: 20)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .black.opacity(0.15), radius: 1, x: 2, y: 2)
-                                
-                                Circle()
-                                    .frame(width: 16, height: 16)
-                                    .foregroundColor(.clear)
-                                    .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.4), .white.opacity(0.5), .white]), startPoint: .top, endPoint: .bottom))
-                                    .clipShape(Circle())
-                                
-                                /*
-                                Image(systemName: "xmark")
-                                    .foregroundColor(.blue.opacity(1.0))
-                                    .clipShape(Circle())
-                                    .scaleEffect(0.8)
-                                    .rotationEffect(.degrees(Double(180 * (localRealProgress - 0.5))))
-                                 */
+                        ZStack {
+                            
+                            Circle()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.white)
+                                .shadow(color: .black.opacity(0.15), radius: 1.25, x: 1, y: 1)
+                            
+                            Circle()
+                                .frame(width: 16, height: 16)
+                                .foregroundColor(.clear)
+                                .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
+                                .clipShape(Circle())
                              
+                            
+                            /// Optional button Image that rotates as the sliuder is dragged
+                            /*
+                             Image(systemName: "xmark")
+                             .foregroundColor(.black.opacity(1.0))
+                             .clipShape(Circle())
+                             .scaleEffect(0.8)
+                             .rotationEffect(.degrees(Double(180 * (localRealProgress - 0.5))))
+                             */
+                             
+                            
+                        }
+                        .frame(width: height * 2, height: height * 2)
+                        .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
+                        .gesture(DragGesture(minimumDistance: 0)
+                            .onChanged { gesture in
+                                let sliderWidth = bounds.size.width
+                                let percentage = min(max(gesture.location.x / sliderWidth, 0), 1)
+                                localRealProgress = T(percentage)
+                                value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
                             }
-                            .frame(width: height * 2, height: height * 2)
-                            .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
-                            .gesture(DragGesture(minimumDistance: 0)
-                                .onChanged { gesture in
-                                    let sliderWidth = bounds.size.width
-                                    let percentage = min(max(gesture.location.x / sliderWidth, 0), 1)
-                                    localRealProgress = T(percentage)
-                                    value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
-                                }
-                            )
+                        )
                     }
                     .frame(width: isActive ? bounds.size.width * 1.04 : bounds.size.width, alignment: .center)
                 }

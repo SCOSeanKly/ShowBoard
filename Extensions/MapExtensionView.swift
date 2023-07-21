@@ -10,6 +10,8 @@ import MapKit
 
 struct MapExtensionView: UIViewRepresentable {
     @ObservedObject var locationDataManager = LocationDataManager()
+    @StateObject var map: MapObject
+    
     
     let delta: CLLocationDegrees = 0.006
     
@@ -22,17 +24,17 @@ struct MapExtensionView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         
         // Disable user interaction, scrolling, and zooming
+        // mapView.isScrollEnabled = false
+        // mapView.isZoomEnabled = true
         mapView.isUserInteractionEnabled = false
-        mapView.isScrollEnabled = false
-        mapView.isZoomEnabled = true
+        mapView.mapType = .standard
         
-      
-        // mapView.mapType = .standard
-        // mapView.mapType = .mutedStandard
+        // MARK: Dark mode doesnt work when toggled on
+        mapView.overrideUserInterfaceStyle = map.mapDarkMode ? .dark : .light
         
         return mapView
-        
     }
+    
     
     func updateUIView(_ view: MKMapView, context: Context) {
         let coordinate = CLLocationCoordinate2D(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)

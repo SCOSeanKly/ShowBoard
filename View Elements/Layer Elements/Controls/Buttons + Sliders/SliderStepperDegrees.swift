@@ -1,15 +1,15 @@
 //
-//  SliderStepper.swift
+//  SliderStepperDegrees.swift
 //  ShowBoard
 //
-//  Created by Sean Kelly on 17/07/2023.
+//  Created by Sean Kelly on 21/07/2023.
 //
 
 //TODO: Add logic so that the max cant be less than min and min cant be more than max
 
 import SwiftUI
 
-struct SliderStepper: View {
+struct SliderStepperDegrees: View {
     
     
     
@@ -22,7 +22,7 @@ struct SliderStepper: View {
     private var emptyColor: Color { color.opacity(0.2) }
     
     let title: String
-    let sliderBindingValue: Binding<CGFloat>
+    let sliderBindingValue: Binding<Double>
     let minValue: Double
     let maxValue: Double
     let step: Double
@@ -162,5 +162,3 @@ struct SliderStepper: View {
         timer = nil
     }
 }
-
-

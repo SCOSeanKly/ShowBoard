@@ -31,8 +31,9 @@ struct CustomToggle: View {
                         .frame(width: 40, height: 24)
                         .foregroundColor(Color(bindingValue.wrappedValue ? .systemGreen : .systemGray))
                         .animation(.easeInOut, value: bindingValue.wrappedValue)
+                      
                     
-                    LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.3), Color.white.opacity(bindingValue.wrappedValue ? 0.3 : 0.6)]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.1), Color.white.opacity(0.1), Color.white.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
                         .frame(width: 40, height: 24)
                         .cornerRadius(100)
                     
@@ -42,12 +43,14 @@ struct CustomToggle: View {
                             .frame(width: 20, height: 20)
                             .foregroundColor(.white)
                             .shadow(color: .black.opacity(0.15), radius: 1, x: 2, y: 2)
+                          
                         
                         Circle()
                             .frame(width: 16, height: 16)
                             .foregroundColor(.clear)
-                            .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.4), .white.opacity(0.5), .white]), startPoint: .top, endPoint: .bottom))
+                            .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
                             .clipShape(Circle())
+                         
                         
                         ZStack {
                             Image(systemName: bindingValue.wrappedValue ? onSymbol : offSymbol)

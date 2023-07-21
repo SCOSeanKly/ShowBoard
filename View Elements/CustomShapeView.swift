@@ -17,8 +17,8 @@ public struct CustomShapeView: View {
     public init() {}
 
     public var body: some View {
-        ZStack {
-            VStack {
+       
+     VStack {
                
                 Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
                     .fill(shape.shapeColor)
@@ -43,77 +43,69 @@ public struct CustomShapeView: View {
                     .animation(.spring())
                    
                 // MARK: Settings
-                Group {
-                    ScrollView {
-                        
-                        Group {
-                            ResetValues(resetValues: resetCustomShapeValues)
-                            
-                            SliderStepper(color: .blue, title: "Count:", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
-                            
-                            SliderStepper(color: .blue, title: "Inner Ratio:", sliderBindingValue: $shape.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
-                            
-                            SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
-                            
-                            SliderStepper(color: .blue, title: "Height:", sliderBindingValue: $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
-                            
-                            // TODO: resetting only resets X and not Y
-                            SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $shape.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
-                                .onChange(of: shape.appearance.scales) { _ in
-                                    shape.appearance.scales.y =
-                                    shape.appearance.scales.x
-                                }
-                        }
-                        
-                        Group {
-                            SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $shape.appearance.skewY, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
-                            
-                            SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $shape.appearance.skewX, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
-                            
-                            // TODO: Cant get this to work?
-                            /*
-                             SliderStepper(title: "Rotation: ", sliderBindingValue: $shape.appearance.rotation.degrees, minValue: 0.0, maxValue: 360, step: 1, specifier: 1)
-                             */
-                            
-                            HStack {
-                                Text("Rotation:")
-                                    .font(.system(size: 14))
-                                Slider(value: $shape.appearance.rotation.degrees, in: 0...360)
-                                Text("\(shape.appearance.rotation.degrees, specifier: "%.1f")")
-                                    .font(.system(size: 10).weight(.semibold))
-                            }
-                            
-                            SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1.0, specifier: 1, defaultValue: 0)
-                            
-                            SliderStepper(color: .blue, title: "Shadow Offet:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1.0, specifier: 1, defaultValue: 0)
-                            
-                            SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.appearance.blur, minValue: 0, maxValue: 50, step: 1.0, specifier: 0, defaultValue: 0)
-                            
-                            CustomColorPicker(titleText: "Set the background color", pickerBindingValue:  $shape.shapeColor)
-                            
-                            HStack {
-                                Text("Blend Mode:")
-                                    .titleFont()
-                                Spacer()
-                                Picker("Blend Mode", selection: $shape.appearance.blendMode) {
-                                    ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
-                                        Text(LayerObjectAppearance.labelForBlendMode(mode))
-                                            .tag(mode)
-                                    }
-                                }
-                                .pickerStyle(.menu)
-                            }
-                            
-                            SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
-                        }
-                        
-                        Spacer()
-                            .frame(height: 100)
-                    }
-                }
+     
+                  
+         ScrollView{
+             Group {
+                 ResetValues(resetValues: resetCustomShapeValues)
+                 
+                 SliderStepper(color: .blue, title: "Count:", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
+                 
+                 SliderStepper(color: .blue, title: "Inner Ratio:", sliderBindingValue: $shape.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
+                 
+                 SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
+                 
+                 SliderStepper(color: .blue, title: "Height:", sliderBindingValue: $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
+                 
+                 // TODO: resetting only resets X and not Y
+                 SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $shape.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
+                     .onChange(of: shape.appearance.scales) { _ in
+                         shape.appearance.scales.y =
+                         shape.appearance.scales.x
+                     }
+             }
+             
+             Group {
+                 SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $shape.appearance.skewY, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                 
+                 SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $shape.appearance.skewX, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                 
+                 SliderStepperDegrees(color: .blue, title: "Rotation", sliderBindingValue: $shape.appearance.rotation.degrees, minValue: 0, maxValue: 360, step: 1, specifier: 1, defaultValue: 0)
+                 
+                 SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1.0, specifier: 1, defaultValue: 0)
+                 
+                 SliderStepper(color: .blue, title: "Shadow Offet:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1.0, specifier: 1, defaultValue: 0)
+                 
+                 SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.appearance.blur, minValue: 0, maxValue: 50, step: 1.0, specifier: 0, defaultValue: 0)
+                 
+                 CustomColorPicker(titleText: "Set the background color", pickerBindingValue:  $shape.shapeColor)
+                  
+                 
+                 HStack {
+                     Text("Blend Mode:")
+                         .titleFont()
+                     Spacer()
+                     Picker("Blend Mode", selection: $shape.appearance.blendMode) {
+                         ForEach(LayerObjectAppearance.blendModes, id: \.self) { mode in
+                             Text(LayerObjectAppearance.labelForBlendMode(mode))
+                                 .tag(mode)
+                         }
+                     }
+                     .pickerStyle(.menu)
+                     .scaleEffect(0.8)
+                     .offset(x: 20)
+                 }
+                 .frame(height: 20)
+            
+                 
+                 SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
+             }
+         }
             }
             .padding()
-        }
+           
+            .ignoresSafeArea()
+        
     }
     
     private func resetCustomShapeValues() {
@@ -129,44 +121,7 @@ public struct CustomShapeView: View {
     }
 }
 
-fileprivate struct Star: Shape {
 
-    var shapePointCount: CGFloat
-    var shapeRatio: CGFloat
-
-    func path(in rect: CGRect) -> Path {
-        let center = CGPoint(x: rect.width * 0.5, y: rect.height * 0.5)
-        let pointAngle = .pi / shapePointCount
-
-        let innerPoint = CGPoint(x: center.x * shapeRatio * 0.5, y: center.y * shapeRatio * 0.5)
-        let totalPoints = Int(shapePointCount * 2.0)
-
-        var currentAngle = CGFloat.pi * -0.5
-        var currentBottom: CGFloat = 0
-
-        var path = Path()
-        path.move(to: CGPoint(x: center.x * cos(currentAngle), y: center.y * sin(currentAngle)))
-
-        let correction = shapePointCount != round(shapePointCount) ? 1 : 0
-        for corner in 0..<totalPoints + correction  {
-            var bottom: CGFloat = 0
-            let sin = sin(currentAngle)
-            let cos = cos(currentAngle)
-            if (corner % 2) == 0 {
-                bottom = center.y * sin
-                path.addLine(to: CGPoint(x: center.x * cos, y: bottom))
-            } else {
-                bottom = innerPoint.y * sin
-                path.addLine(to: CGPoint(x: innerPoint.x * cos, y: bottom))
-            }
-            currentBottom = max(bottom, currentBottom)
-            currentAngle += pointAngle
-        }
-
-        let transform = CGAffineTransform(translationX: center.x, y: center.y + ((rect.height * 0.5 - currentBottom) * 0.5))
-        return path.applying(transform)
-    }
-}
 
 struct CustomShapeView_Previews: PreviewProvider {
     static var previews: some View {
