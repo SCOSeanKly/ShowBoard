@@ -104,7 +104,7 @@ struct MapView: View {
         map.appearance.blendMode = .normal
         map.mapOverlayColor = .clear
         map.mapInvertColor = false
-        
+        map.appearance.darkMode = false
     }
 }
 
