@@ -32,29 +32,19 @@ class MapObject: LayerObject {
     /// Map Image Invert Colors
     @Published var mapInvertColor: Bool
     
-    /// Map Dark Mode
-    @Published var mapDarkMode: Bool
-    
-    
-
-    
-    
-    
-    
     
     
     
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), mapFrameWidth: CGFloat = 300.0, mapFrameHeight: CGFloat = 150, mapOverlayColor: Color = Color.clear, mapInvertColor: Bool = false, mapDarkMode: Bool = false) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), mapFrameWidth: CGFloat = 300.0, mapFrameHeight: CGFloat = 150, mapOverlayColor: Color = Color.clear, mapInvertColor: Bool = false) {
         self.id = id
         self.appearance = appearance
         self.mapFrameWidth = mapFrameWidth
         self.mapFrameHeight = mapFrameHeight
         self.mapOverlayColor = mapOverlayColor
         self.mapInvertColor = mapInvertColor
-        self.mapDarkMode = mapDarkMode
     }
 }
 

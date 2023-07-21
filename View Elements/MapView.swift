@@ -11,12 +11,10 @@ struct MapView: View {
     
     @ObservedObject var locationDataManager: LocationDataManager
     @StateObject var map = MapObject()
-    @State private var refresh: Int = 0
-   
+    
 
     var body: some View {
         ZStack {
-          
             MapExtensionView(locationDataManager: locationDataManager, map: map)
                     .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
                     .if(map.mapInvertColor) { view in
@@ -56,7 +54,7 @@ struct MapView: View {
                         
                         SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $map.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                         
-                        CustomToggle(titleText: "View In Dark Mode", bindingValue: $map.mapDarkMode, onSymbol: "moon", offSymbol: "sun.max", rotate: true)
+                        CustomToggle(titleText: "Map Dark Mode:", bindingValue: $map.appearance.darkMode, onSymbol: "moon", offSymbol: "sun.max", rotate: true)
                         
                         HStack {
                             Text("Blend Mode:")
@@ -73,7 +71,11 @@ struct MapView: View {
                             .offset(x: 20)
                         }
                         
+                        
                         CustomToggle(titleText: "Invert", bindingValue: $map.mapInvertColor, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                        
+                      
+                        
                         
                         CustomColorPicker(titleText: "Color Overlay", pickerBindingValue:  $map.mapOverlayColor)
                     }

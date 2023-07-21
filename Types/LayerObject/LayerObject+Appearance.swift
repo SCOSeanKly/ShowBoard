@@ -57,6 +57,11 @@ struct LayerObjectAppearance {
     /// Shadow Opacity
     var shadowOpacity: CGFloat
     
+    /// Appearnce Dark Mode
+    var darkMode: Bool
+    
+    
+    
     
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
@@ -119,9 +124,10 @@ struct LayerObjectAppearance {
         self.skewX = 0.0
         self.skewY = 0.0
         self.shadowOpacity = 0.0
+        self.darkMode = false
     }
 
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -134,6 +140,7 @@ struct LayerObjectAppearance {
         self.skewX = skewX
         self.skewY = skewY
         self.shadowOpacity = shadowOpacity
+        self.darkMode = darkMode
     }
 
     

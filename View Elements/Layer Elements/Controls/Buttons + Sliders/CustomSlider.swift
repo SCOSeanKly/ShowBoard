@@ -46,7 +46,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                             })
                         
                         ZStack {
-                            
                             Circle()
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.white)
@@ -57,7 +56,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 .foregroundColor(.clear)
                                 .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
                                 .clipShape(Circle())
-                             
                             
                             /// Optional button Image that rotates as the sliuder is dragged
                             /*

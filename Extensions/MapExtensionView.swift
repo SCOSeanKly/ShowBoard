@@ -30,7 +30,7 @@ struct MapExtensionView: UIViewRepresentable {
         mapView.mapType = .standard
         
         // MARK: Dark mode doesnt work when toggled on
-        mapView.overrideUserInterfaceStyle = map.mapDarkMode ? .dark : .light
+        mapView.overrideUserInterfaceStyle = map.appearance.darkMode ? .dark : .light
         
         return mapView
     }
@@ -41,6 +41,8 @@ struct MapExtensionView: UIViewRepresentable {
         let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)
+        
+        view.overrideUserInterfaceStyle = map.appearance.darkMode ? .dark : .light
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
