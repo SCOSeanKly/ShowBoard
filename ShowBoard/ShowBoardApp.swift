@@ -14,6 +14,7 @@ struct ShowBoardApp: App {
             
             ContentView()
          // DynamicTextView()
+            
         }
     }
 }

@@ -11,32 +11,43 @@ struct MapView: View {
     
     @ObservedObject var locationDataManager: LocationDataManager
     @StateObject var map = MapObject()
+    @State private var isDragging: Bool = false
+    @State private var showSettings: Bool = false
     
-
+    
     var body: some View {
         ZStack {
             MapExtensionView(locationDataManager: locationDataManager, map: map)
-                    .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
-                    .if(map.mapInvertColor) { view in
-                        view.colorInvert()
-                    }
-                    .overlay(map.mapOverlayColor)
-                    .mask(
-                        RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
-                            .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
-                            .cornerRadius(map.appearance.cornerRadius)
-                    )
-                    .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
-                    .blendMode(map.appearance.blendMode)
-                    .opacity(map.appearance.opacity)
-                    .animation(.spring())
-                    .offset(y: -200)
-                
-              
+                .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
+                .if(map.mapInvertColor) { view in
+                    view.colorInvert()
+                }
+                .overlay(map.mapOverlayColor)
+                .mask(
+                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
+                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
+                        .cornerRadius(map.appearance.cornerRadius)
+                )
+                .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
+                .blendMode(map.appearance.blendMode)
+                .opacity(map.appearance.opacity)
+                .animation(.spring())
+                .modifier(WidgetModifier(isDragging: $isDragging))
+                .onTapGesture{
+                    showSettings.toggle()
+                }
+        }
+        
+        .sheet(isPresented: $showSettings){
             //MARK: Settings for Maps
-            Group {
-                VStack {
+            
+            
+            LayerBackButton(selfViewToClose: $showSettings, viewToOpen: $showSettings, showLayerElementView: $showSettings, headerText: "Maps", systemImage: "questionmark.circle", systemImage2: "")
+            VStack {
+                ScrollView (showsIndicators: false){
                     Group {
+                        
+                        
                         ResetValues(resetValues: resetMapValues)
                         
                         SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $map.mapFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
@@ -71,23 +82,25 @@ struct MapView: View {
                             .offset(x: 20)
                         }
                         
-                        
                         CustomToggle(titleText: "Invert", bindingValue: $map.mapInvertColor, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                         
-                      
-                        
-                        
                         CustomColorPicker(titleText: "Color Overlay", pickerBindingValue:  $map.mapOverlayColor)
+                        
+                        Spacer()
+                            .frame(height: 100)
                     }
+                    
                 }
-                .padding()
-                .background(.ultraThinMaterial)
-                .clipShape(RoundedRectangle(cornerRadius: 25))
-                .padding()
-                .offset(y: 195)
+                .padding(.horizontal)
+                .padding(.horizontal)
+                .ignoresSafeArea()
+                
+               
+                
             }
+            .presentationDetents([.fraction(0.45)])
+            .presentationBackground(.ultraThinMaterial)
         }
-        .ignoresSafeArea()
     }
     
     
