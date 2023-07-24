@@ -78,7 +78,9 @@ struct ShowBoardView: View {
                 ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
                 
-                MapView(locationDataManager: locationDataManager)
+                GlassShapeView()
+                
+               // MapView(locationDataManager: locationDataManager)
                 
             }
             .fadeOnAppear()
