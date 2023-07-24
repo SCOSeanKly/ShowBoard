@@ -15,7 +15,7 @@ struct BackgroundView: View {
     
     var body: some View {
         ZStack{
-            // Background placeholder image
+      
             AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center, startAngle: .zero, endAngle: .degrees(360))
                 .blur(radius: 50)
                 .scaleEffect(2)
@@ -23,7 +23,6 @@ struct BackgroundView: View {
                     showBgPickerSheet = true
                 })
             
-            // Imported user background image
             if let importedBackground = importedBackground {
                 Image(uiImage: importedBackground)
                     .resizable()

@@ -71,20 +71,17 @@ struct ShowBoardView: View {
             
             
             
-            
-            
+        
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
                 /// These Image views should be able to be placed in and zInde order
-                //ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
+                ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
                 
                 MapView(locationDataManager: locationDataManager)
                 
             }
             .fadeOnAppear()
-            
-            
             
             
             

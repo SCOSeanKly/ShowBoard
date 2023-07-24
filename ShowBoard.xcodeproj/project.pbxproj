@@ -34,6 +34,7 @@
 		3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A702A69526500AE1ED7 /* CustomSlider.swift */; };
 		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
 		3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */; };
+		3E73E5272A6E7CB100DBE1D2 /* MapSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */; };
 		3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E81F1532A52A68200137304 /* MoveableGrid.swift */; };
 		3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */; };
 		3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABD2A6A86E100E344C9 /* CustomShape.swift */; };
@@ -137,6 +138,7 @@
 		3E546A702A69526500AE1ED7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
 		3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverImagePickerViews.swift; sourceTree = "<group>"; };
+		3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSettings.swift; sourceTree = "<group>"; };
 		3E81F1532A52A68200137304 /* MoveableGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableGrid.swift; sourceTree = "<group>"; };
 		3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepperDegrees.swift; sourceTree = "<group>"; };
 		3E83AABD2A6A86E100E344C9 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECC34962A4C1F6B008794BC /* MapView.swift */,
+				3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */,
 				3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */,
 				3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */,
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
@@ -674,6 +677,7 @@
 				3EA43C982A45AB2F00A28C75 /* WeatherElementView.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* URLImages.swift in Sources */,
+				3E73E5272A6E7CB100DBE1D2 /* MapSettings.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3EC8207D2A460EE800EA8A88 /* ShapesElementView.swift in Sources */,
 				3EC8207F2A460F3700EA8A88 /* GaugesElementView.swift in Sources */,
