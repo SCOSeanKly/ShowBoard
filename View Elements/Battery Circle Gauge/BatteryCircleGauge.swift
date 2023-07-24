@@ -16,13 +16,13 @@ struct BatteryCircleGauge: View {
     
     var body: some View {
         VStack {
-            BatteryGuageBase(batteryViewModel: batteryViewModel, minValue: bat.minValue, maxValue: bat.maxValue, currentValueLabelFontSize: bat.currentValueLabelFontSize, minMaxValueLabelFontSize: bat.minMaxValueLabelFontSize, gaugeColor: bat.gaugeColor, opacity: bat.appearance.opacity, showCurrentValueLabel: bat.showCurrentValueLabel, showMinMaxValueLabels: bat.showMinMaxValueLabels, scaleEffect: bat.appearance.scales.y, currentValueLabelColor: bat.currentValueLabelColor, minMaxValueLabelColor: bat.minMaxValueLabelColor, shadowRadius: bat.appearance.shadow.radius, shadowOffset: bat.appearance.shadow.offset.y)
+            BatteryGuageBase(batteryViewModel: batteryViewModel, currentValueLabelFontSize: bat.currentValueLabelFontSize, minMaxValueLabelFontSize: bat.minMaxValueLabelFontSize, gaugeColor: bat.gaugeColor, opacity: bat.appearance.opacity, showCurrentValueLabel: bat.showCurrentValueLabel, showMinMaxValueLabels: bat.showMinMaxValueLabels, scaleEffect: bat.appearance.scales.y, currentValueLabelColor: bat.currentValueLabelColor, minMaxValueLabelColor: bat.minMaxValueLabelColor, shadowRadius: bat.appearance.shadow.radius, shadowOffset: bat.appearance.shadow.offset.y, shadowOpacity: bat.appearance.shadowOpacity)
                 .animation(.spring())
                 .onTapGesture {
                     showSettings.toggle()
                 }
             
-          
+            Spacer()
         }
         .sheet(isPresented: $showSettings){
           BatteryCircleGaugeSettings(bat: bat)

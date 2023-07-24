@@ -12,8 +12,8 @@ struct BatteryGuageBase: View {
     
     @State private var batteryLevel = 0.0
     
-    let minValue: CGFloat
-    let maxValue: CGFloat
+    let minValue: CGFloat = 0
+    let maxValue: CGFloat = 100
     
     let currentValueLabelFontSize: CGFloat
     let minMaxValueLabelFontSize: CGFloat
@@ -27,6 +27,7 @@ struct BatteryGuageBase: View {
     let minMaxValueLabelColor: Color
     let shadowRadius: CGFloat
     let shadowOffset: CGFloat
+    let shadowOpacity: CGFloat
     
     
     var body: some View {
@@ -60,7 +61,7 @@ struct BatteryGuageBase: View {
             .gaugeStyle(.accessoryCircular)
             .tint(gaugeColor)
             .scaleEffect(scaleEffect)
-            .shadow(radius: shadowRadius, y: shadowOffset)
+            .shadow(color: .black.opacity(shadowOpacity), radius: shadowRadius, y: shadowOffset)
         }        
     }
 }
