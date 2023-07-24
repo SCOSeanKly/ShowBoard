@@ -76,6 +76,7 @@
 		3EC820872A46154A00EA8A88 /* ImportImageElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC820862A46154A00EA8A88 /* ImportImageElementView.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECBE3602A6E9D8C004B59F2 /* GlassShapeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35F2A6E9D8C004B59F2 /* GlassShapeSettings.swift */; };
+		3ECBE3622A6EAFFA004B59F2 /* CustomShapeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE3612A6EAFFA004B59F2 /* CustomShapeSettings.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
 		3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC34A52A4C3866008794BC /* ModernAge.ttf */; };
 		3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34A72A4C40A3008794BC /* PositionButton.swift */; };
@@ -187,6 +188,7 @@
 		3EC820862A46154A00EA8A88 /* ImportImageElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportImageElementView.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECBE35F2A6E9D8C004B59F2 /* GlassShapeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassShapeSettings.swift; sourceTree = "<group>"; };
+		3ECBE3612A6EAFFA004B59F2 /* CustomShapeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeSettings.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3ECC34A52A4C3866008794BC /* ModernAge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ModernAge.ttf; sourceTree = "<group>"; };
 		3ECC34A72A4C40A3008794BC /* PositionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionButton.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				3ECC34962A4C1F6B008794BC /* MapView.swift */,
 				3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */,
 				3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */,
+				3ECBE3612A6EAFFA004B59F2 /* CustomShapeSettings.swift */,
 				3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */,
 				3ECBE35F2A6E9D8C004B59F2 /* GlassShapeSettings.swift */,
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
@@ -641,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC820812A460F7300EA8A88 /* ChartsElementView.swift in Sources */,
+				3ECBE3622A6EAFFA004B59F2 /* CustomShapeSettings.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,

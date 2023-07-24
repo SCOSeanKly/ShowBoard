@@ -16,30 +16,33 @@ struct GlassShapeSettings: View {
             VStack {
                 
                 Spacer()
+                Group {
+                    ResetValues(resetValues: resetGlassShapeValues)
+                    
+                    SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
+                    
+                    SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
+                    
+                    SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.shapeBlur, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 8)
+                    
+                    SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $shape.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
+                    
+                    SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
+                }
+                Group {
+                    
+                    SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
+                    
+                    SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $shape.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                 
-                ResetValues(resetValues: resetGlassShapeValues)
-                
-                SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
-                
-                SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
-                
-                SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.shapeBlur, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 8)
-                
-                SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $shape.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
-                
-                SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
-                
-                SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
-                
-                SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $shape.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
-                
-                CustomToggle(titleText: "Add Grain Effect:", bindingValue: $shape.shapeGrain, onSymbol: "camera.filters", offSymbol: "xmark", rotate: true)
-                
+                    CustomToggle(titleText: "Add Grain Effect:", bindingValue: $shape.shapeGrain, onSymbol: "camera.filters", offSymbol: "xmark", rotate: true)
+                }
             }
             .padding()
             .padding(.bottom)
         }
     }
+    
     private func resetGlassShapeValues() {
         shape.shapeFrameWidth = 250
         shape.shapeFrameHeight = 250
@@ -48,6 +51,7 @@ struct GlassShapeSettings: View {
         shape.appearance.shadow.offset.y = 0
         shape.shapeBlur = 8
         shape.appearance.shadowOpacity = 0
+        shape.shapeGrain = false
     }
 }
 
