@@ -7,10 +7,10 @@
 
 import SwiftUI
 
+
 struct GlassShapeView: View {
     
    @StateObject var shape = CustomShapeObject()
-    
     
     var body: some View {
         
@@ -25,20 +25,30 @@ struct GlassShapeView: View {
                     }
                     .clipShape(RoundedRectangle(cornerRadius: shape.appearance.cornerRadius))
                 
+                if shape.shapeGrain {
+                    Image("grain")
+                        .resizable()
+                        .clipShape(RoundedRectangle(cornerRadius: shape.appearance.cornerRadius))
+                        .blendMode(.multiply)
+                        .opacity(0.2)
+                }
+                
                 RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
                     .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1)
+                
             }
             .padding(.top, 100)
             .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
             .shadow(color: .black.opacity(shape.appearance.shadowOpacity), radius: shape.appearance.shadow.radius, y: shape.appearance.shadow.offset.y)
-            
             .animation(.spring())
             
             //MARK: Glass shape settings
            GlassShapeSettings(shape: shape)
         }
-    }    
+    }
 }
+
+
 
 struct GlassShapeView_Previews: PreviewProvider {
     static var previews: some View {

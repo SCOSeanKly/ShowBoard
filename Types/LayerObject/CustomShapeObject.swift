@@ -39,6 +39,9 @@ class CustomShapeObject: LayerObject {
     /// Shape Transparent Blur effect
     @Published var shapeBlur: CGFloat
     
+    /// Shape Overlay Grain Effect
+    @Published var shapeGrain: Bool
+    
      
      
     
@@ -48,7 +51,7 @@ class CustomShapeObject: LayerObject {
     
     // MARK: - Public Methods
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeFrameWidth: CGFloat = 250, shapeFrameHeight: CGFloat = 250, shapeBlur: CGFloat = 8.0) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeFrameWidth: CGFloat = 250, shapeFrameHeight: CGFloat = 250, shapeBlur: CGFloat = 8.0, shapeGrain: Bool = false) {
         self.id = id
         self.appearance = appearance
         self.shapePointCount = shapePointCount
@@ -57,6 +60,7 @@ class CustomShapeObject: LayerObject {
         self.shapeFrameWidth = shapeFrameWidth
         self.shapeFrameHeight = shapeFrameHeight
         self.shapeBlur = shapeBlur
+        self.shapeGrain = shapeGrain
     }
 
    

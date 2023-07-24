@@ -33,6 +33,8 @@ struct GlassShapeSettings: View {
                 
                 SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $shape.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                 
+                CustomToggle(titleText: "Add Grain Effect:", bindingValue: $shape.shapeGrain, onSymbol: "camera.filters", offSymbol: "xmark", rotate: true)
+                
             }
             .padding()
             .padding(.bottom)
