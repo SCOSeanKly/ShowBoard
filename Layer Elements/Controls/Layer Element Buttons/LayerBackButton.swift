@@ -51,8 +51,8 @@ struct LayerBackButton: View {
             }
         }
         .buttonStyle(.plain)
-        .padding()
-      //  .padding(.horizontal)
+        .padding(.top)
+      
     }
 }
 

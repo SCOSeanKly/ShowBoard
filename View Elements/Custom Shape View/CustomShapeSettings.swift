@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomShapeSettings: View {
     
     @StateObject var shape = CustomShapeObject()
+ 
     
     var body: some View {
         ScrollView{

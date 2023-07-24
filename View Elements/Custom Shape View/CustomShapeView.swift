@@ -11,7 +11,7 @@ import SwiftUI
 public struct CustomShapeView: View {
 
     @StateObject var shape = CustomShapeObject()
-    
+  
     @State private var isSliderMode = true
 
     public init() {}
@@ -49,6 +49,7 @@ public struct CustomShapeView: View {
             }
             .padding()
             .ignoresSafeArea()
+           
     }
 }
 

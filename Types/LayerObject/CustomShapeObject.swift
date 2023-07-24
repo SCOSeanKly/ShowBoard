@@ -51,7 +51,7 @@ class CustomShapeObject: LayerObject {
     
     // MARK: - Public Methods
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeFrameWidth: CGFloat = 250, shapeFrameHeight: CGFloat = 250, shapeBlur: CGFloat = 8.0, shapeGrain: Bool = false) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeFrameWidth: CGFloat = 300, shapeFrameHeight: CGFloat = 150, shapeBlur: CGFloat = 8.0, shapeGrain: Bool = false) {
         self.id = id
         self.appearance = appearance
         self.shapePointCount = shapePointCount

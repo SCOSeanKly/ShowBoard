@@ -11,6 +11,7 @@ struct MapView: View {
     
     @ObservedObject var locationDataManager: LocationDataManager
     @StateObject var map = MapObject()
+    
     @State private var isDragging: Bool = false
     @State private var showSettings: Bool = false
     

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct GlassShapeView: View {
     
-   @StateObject var shape = CustomShapeObject()
+    @StateObject var shape = CustomShapeObject()
+    @State private var showSettings: Bool = false
     
     var body: some View {
         
@@ -37,14 +38,21 @@ struct GlassShapeView: View {
                     .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1)
                 
             }
-            .padding(.top, 100)
             .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
             .shadow(color: .black.opacity(shape.appearance.shadowOpacity), radius: shape.appearance.shadow.radius, y: shape.appearance.shadow.offset.y)
             .animation(.spring())
-            
-            //MARK: Glass shape settings
-           GlassShapeSettings(shape: shape)
+            .padding(.top, 100)
+            .onTapGesture {
+                showSettings.toggle()
+            }
+            Spacer()
         }
+        .sheet(isPresented: $showSettings){
+            //MARK: Glass shape settings
+            GlassShapeSettings(shape: shape)
+        }
+      
+        
     }
 }
 
