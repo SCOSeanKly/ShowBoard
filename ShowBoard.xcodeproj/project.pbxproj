@@ -324,7 +324,7 @@
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
 				3EB671962A4EEEEE00DF2678 /* Layer Element Menu (Views) */,
 				3EFAB1882A45CD6D001A9BC7 /* Cover Sheet Views */,
-				3EA43C962A45AAC200A28C75 /* Layer Elements */,
+				3EA43C962A45AAC200A28C75 /* Layer Elements (Controls) */,
 				0913C4292A487643007AF26E /* Types */,
 				3EADA59D2A4315E500FA1BCB /* Custom Fonts */,
 				3E41D3192A42F73000A29548 /* View Elements */,
@@ -417,12 +417,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3EA43C962A45AAC200A28C75 /* Layer Elements */ = {
+		3EA43C962A45AAC200A28C75 /* Layer Elements (Controls) */ = {
 			isa = PBXGroup;
 			children = (
 				3EC03DF72A67E63C001F1965 /* Controls */,
 			);
-			path = "Layer Elements";
+			path = "Layer Elements (Controls)";
 			sourceTree = "<group>";
 		};
 		3EADA59D2A4315E500FA1BCB /* Custom Fonts */ = {

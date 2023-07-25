@@ -39,66 +39,66 @@ struct SheetPresentedViews: View {
         //MARK: Element Selection Menu
         .sheet(isPresented: $showLayerElementView) {
             LayerElementView(showLayerElementView: $showLayerElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showImportImageElementView: $showImportImageElementView, showMapsElementView: $showMapsElementView, showUrlImageView: $showUrlImageView, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Text Element
         .sheet(isPresented: $showTextElementView) {
             TextElementView(showLayerElementView: $showLayerElementView, showTextElementView: $showTextElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Gauges Element
         .sheet(isPresented: $showGaugesElementView) {
             GaugesElementView(showLayerElementView: $showLayerElementView, showGaugesElementView: $showGaugesElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Weather Element Selection Menu
         .sheet(isPresented: $showWeatherElementView) {
             WeatherElementView(showWeatherElementView: $showWeatherElementView, showLayerElementView: $showLayerElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Charts Element
         .sheet(isPresented: $showChartsElementView) {
             ChartsElementView(showLayerElementView: $showLayerElementView, showChartsElementView: $showChartsElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Shapes Element
         .sheet(isPresented: $showShapesElementView) {
             ShapesElementView(showLayerElementView: $showLayerElementView, showShapesElementView: $showShapesElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Calendar Element
         .sheet(isPresented: $showCalendarElementView) {
             CalendarElementView(showLayerElementView: $showLayerElementView, showCalendarElementView: $showCalendarElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Maps Element
         .sheet(isPresented: $showMapsElementView) {
             MapsElementView(showLayerElementView: $showLayerElementView, showMapsElementView: $showMapsElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Import Image Element
         .sheet(isPresented: $showImportImageElementView) {
             ImportImageElementView(showLayerElementView: $showLayerElementView, showImportImageElementView: $showImportImageElementView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         //MARK: Import URL Image Element
         .sheet(isPresented: $showUrlImageView) {
             URLImages(showUrlImageView: $showUrlImageView, showLayerElementView: $showLayerElementView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         //MARK: Layer Edit View
         .sheet(isPresented: $showLayerEditView) {
             LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
-                .presentationDetents([.fraction(0.45), .large])
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
         // App Settings still to be added

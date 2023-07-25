@@ -59,9 +59,7 @@ struct ShowBoardView: View {
     @State private var heightRatio: CGFloat = 1.0
     @State private var showMicroControls: Bool = false
     
-    
     @State var objects: [any LayerObject] = Array()
-    
     
     var body: some View {
         ZStack {

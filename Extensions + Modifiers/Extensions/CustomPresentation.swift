@@ -26,9 +26,7 @@ enum DetentType {
 }
 
 extension View {
-    
-    func customPresentation(detent: DetentType, detent2: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
-        
+    func customPresentationWithBlur(detent: DetentType, detent2: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
         self.presentationDetents([
             .fraction(detent.fractionValue),
             .fraction(detent2.fractionValue)
@@ -37,7 +35,6 @@ extension View {
             TransparentBlurView(removeAllFilters: true)
                 .blur(radius: blurRadius, opaque: true)
                 .background(Color.primary.opacity(backgroundColorOpacity).colorInvert())
-              
         }
         .presentationCornerRadius(15)
         .presentationDragIndicator(.visible)
@@ -45,10 +42,29 @@ extension View {
     }
     
     // Overload the function with a version that accepts only one fraction
-    func customPresentation(detent: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
-        self.customPresentation(detent: detent, detent2: detent, blurRadius: blurRadius, backgroundColorOpacity: backgroundColorOpacity)
+    func customPresentationWithBlur(detent: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
+        self.customPresentationWithBlur(detent: detent, detent2: detent, blurRadius: blurRadius, backgroundColorOpacity: backgroundColorOpacity)
+    }
+    
+    func customPresentationWithPrimaryBackground(detent: DetentType, detent2: DetentType, backgroundColorOpacity: Double) -> some View {
+        self.presentationDetents([
+            .fraction(detent.fractionValue),
+            .fraction(detent2.fractionValue)
+        ])
+        .presentationBackground {
+            Color.primary.opacity(backgroundColorOpacity).colorInvert()
+        }
+        .presentationCornerRadius(15)
+        .presentationDragIndicator(.visible)
+        .ignoresSafeArea()
+    }
+    
+    // Overload the function with a version that accepts only one fraction
+    func customPresentationWithPrimaryBackground(detent: DetentType, backgroundColorOpacity: Double) -> some View {
+        self.customPresentationWithPrimaryBackground(detent: detent, detent2: detent, backgroundColorOpacity: backgroundColorOpacity)
     }
 }
+
 
 
 

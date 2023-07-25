@@ -29,7 +29,7 @@ struct WidgetModifier: ViewModifier {
     func body(content: Content) -> some View {
         GeometryReader { proxy in
             let min = min(proxy.size.width, proxy.size.height)
-            let size = CGSize(width: min * 0.5, height: min * 0.5)
+            // let size = CGSize(width: min * 0.5, height: min * 0.5)
             content
                 .opacity(isDragging ? 0.5 : 1.0)
                 .frame(width: UIScreen.main.bounds.width)
@@ -39,8 +39,8 @@ struct WidgetModifier: ViewModifier {
                 .if(enableZoom) { view in
                     view.modifier(ZoomModifier(minimum: 0.50, maximum: 1.50))
                 }
-//                .rotationEffect(.degrees(Double(self.angle)))
-//                .gesture(RotateGesture(angle: $angle, prevAngle: $prevAngle, size: size))
+            // .rotationEffect(.degrees(Double(self.angle)))
+            // .gesture(RotateGesture(angle: $angle, prevAngle: $prevAngle, size: size))
                 .onTapGesture(count: 2) {
                     location = CGPoint(x: proxy.size.width * 0.5, y: location.y)
                 }
@@ -51,6 +51,6 @@ struct WidgetModifier: ViewModifier {
     }
 }
 
- 
+
 
 
