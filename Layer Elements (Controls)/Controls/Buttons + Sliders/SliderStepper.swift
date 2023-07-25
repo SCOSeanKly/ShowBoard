@@ -135,7 +135,7 @@ struct SliderStepper: View {
                     cancelTimer()
                 }
             }) {
-                Text(isSliderMode ? "\(Image(systemName: "chevron.right"))" : "\(Image(systemName: "slider.horizontal.2.gobackward"))")
+                Text(isSliderMode ? "\(Image(systemName: "chevron.right"))" : "\(Image(systemName: "xmark"))")
                     .foregroundColor(isSliderMode ? Color.primary : buttonColor)
                     .padding(.leading)
                     .padding(.trailing, 5)

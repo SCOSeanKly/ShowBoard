@@ -46,12 +46,14 @@ struct GlassShapeView: View {
             .shadow(color: .black.opacity(shape.appearance.shadowOpacity), radius: shape.appearance.shadow.radius, y: shape.appearance.shadow.offset.y)
             .animation(.spring())
             .padding(.top, 100)
+            //MARK: Testing purposes only - will be removed into own section.
             .onTapGesture {
                 showSettings.toggle()
             }
             
             Spacer()
         }
+        //MARK: Testing purposes only - will be removed into own section.
         .sheet(isPresented: $showSettings){
             //MARK: Glass shape settings
             GlassShapeSettings(shape: shape)

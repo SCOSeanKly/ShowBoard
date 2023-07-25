@@ -26,6 +26,7 @@ struct DynamicTextView: View {
                         .font(.headline.weight(.heavy))
                         .fontWeight(.semibold)
                         .foregroundColor(.black)
+                    //MARK: Testing purposes only - will be removed
                         .onTapGesture {
                             showSettings.toggle()
                         }
@@ -79,8 +80,8 @@ struct DynamicTextView: View {
             }
             .padding(.horizontal)
         }
+        //MARK: Testing purposes only - will be removed into own section.
         .sheet(isPresented: $showSettings){
-            // MARK: Settings for Dynamic Text
             DynamicTextEditViewSettings(text: text)
         }
     }

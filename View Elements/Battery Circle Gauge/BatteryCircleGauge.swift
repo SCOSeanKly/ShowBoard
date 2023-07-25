@@ -11,24 +11,49 @@ struct BatteryCircleGauge: View {
     
     @ObservedObject var batteryViewModel: BatteryViewModel
     @StateObject var bat = CircleGaugeObject()
+    
     @State private var showSettings: Bool = false
     
     
     var body: some View {
-        VStack {
-            BatteryGuageBase(batteryViewModel: batteryViewModel, currentValueLabelFontSize: bat.currentValueLabelFontSize, minMaxValueLabelFontSize: bat.minMaxValueLabelFontSize, gaugeColor: bat.gaugeColor, opacity: bat.appearance.opacity, showCurrentValueLabel: bat.showCurrentValueLabel, showMinMaxValueLabels: bat.showMinMaxValueLabels, scaleEffect: bat.appearance.scales.y, currentValueLabelColor: bat.currentValueLabelColor, minMaxValueLabelColor: bat.minMaxValueLabelColor, shadowRadius: bat.appearance.shadow.radius, shadowOffset: bat.appearance.shadow.offset.y, shadowOpacity: bat.appearance.shadowOpacity)
-                .animation(.spring())
-                .onTapGesture {
-                    showSettings.toggle()
-                }
-            
-            Spacer()
+        Gauge(value: Double(batteryViewModel.batteryLevel), in: bat.minValue...bat.maxValue) {
+            Label("\(batteryViewModel.batteryLevel)", systemImage: "battery.50percent")
+        } currentValueLabel: {
+            if bat.showCurrentValueLabel {
+                Text("\(batteryViewModel.batteryLevel)")
+                    .font(.system(size: bat.currentValueLabelFontSize))
+                    .foregroundColor(bat.currentValueLabelColor)
+            }
+        } minimumValueLabel: {
+            if bat.showMinMaxValueLabels {
+                Text("0")
+                    .font(.system(size: bat.minMaxValueLabelFontSize))
+                    .foregroundColor(bat.minMaxValueLabelColor)
+            }
+        } maximumValueLabel: {
+            if bat.showMinMaxValueLabels {
+                Text("100")
+                    .font(.system(size: bat.minMaxValueLabelFontSize))
+                    .foregroundColor(bat.minMaxValueLabelColor)
+            }
+        }
+        .frame(width: 300, height: 300)
+        .contentShape(Circle())
+        .opacity(bat.appearance.opacity)
+        .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
+        .tint(bat.gaugeColor)
+        .scaleEffect(bat.appearance.scales.x)
+        .shadow(color: .black.opacity(bat.appearance.shadowOpacity), radius: bat.appearance.shadow.radius, y: bat.appearance.shadow.offset.y)
+        .animation(.spring())
+        
+        //MARK: Testing purposes only - will be removed into own section.
+        .onTapGesture {
+            showSettings.toggle()
         }
         .sheet(isPresented: $showSettings){
-          BatteryCircleGaugeSettings(bat: bat)
+            BatteryCircleGaugeSettings(bat: bat)
         }
     }
-
 }
 
 struct BatteryCircleGauge_Previews: PreviewProvider {

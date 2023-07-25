@@ -15,8 +15,8 @@ struct GlassShapeSettings: View {
     var body: some View {
         
         ScrollView (showsIndicators: false){
+            
             Group {
-                
                 LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "questionmark.circle", systemImage2: "")
                 
                 ResetValues(resetValues: resetGlassShapeValues)
@@ -28,11 +28,9 @@ struct GlassShapeSettings: View {
                 SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.shapeBlur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 8)
                 
                 SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $shape.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
-                
-                SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
-                
             }
             Group {
+                SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
                 
                 SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
                 
@@ -43,10 +41,10 @@ struct GlassShapeSettings: View {
                 CustomToggle(titleText: "Show Glass Border:", bindingValue: $shape.showBorder, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                 
                 SliderStepper(color: .blue, title: "Glass Border Width:", sliderBindingValue:  $shape.borderWidth, minValue: 0.2, maxValue: 2.5, step: 0.1, specifier: 1, defaultValue: 0.5)
-                
-                Spacer()
-                    .frame(height: 100)
             }
+            
+            Spacer()
+                .frame(height: 100)
         }
         .customPresentationWithBlur(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.3)
     }
@@ -63,6 +61,9 @@ struct GlassShapeSettings: View {
         shape.showBorder = true
         shape.borderWidth = 0.5
     }
+    
 }
+
+
 
 

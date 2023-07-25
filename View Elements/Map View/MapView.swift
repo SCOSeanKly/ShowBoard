@@ -33,19 +33,20 @@ struct MapView: View {
                 .opacity(map.appearance.opacity)
                 .animation(.spring())
                 .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                //MARK: Testing purposes only - will be removed into own section.
                 .onTapGesture{
                     showSettings.toggle()
                 }
         }
+        //MARK: Testing purposes only - will be removed into own section.
         .sheet(isPresented: $showSettings){
-            
-            //MARK: Settings for Maps
             MapSettings(map: map, showSettings: $showSettings)
         }
     }
 }
 
-//MARK: Extension for invertColor toggle
+//MARK: Extension for invertColor toggle using if statement.
+
 extension View {
     @ViewBuilder
     func `if`<Content: View>(_ condition: Bool, modifier: (Self) -> Content) -> some View {
@@ -56,6 +57,7 @@ extension View {
         }
     }
 }
+ 
 
 
 struct MapView_Previews: PreviewProvider {
@@ -63,3 +65,4 @@ struct MapView_Previews: PreviewProvider {
         MapView(locationDataManager: LocationDataManager())
     }
 }
+

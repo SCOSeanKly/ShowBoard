@@ -83,9 +83,6 @@ struct ShowBoardView: View {
                 
                 // CustomShapeView()
                 
-                
-                
-                
             }
             .fadeOnAppear()
             
