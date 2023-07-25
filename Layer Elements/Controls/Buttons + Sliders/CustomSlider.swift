@@ -47,12 +47,12 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                         
                         ZStack {
                             Circle()
-                                .frame(width: 20, height: 20)
+                                .frame(width: 20)
                                 .foregroundColor(.white)
                                 .shadow(color: .black.opacity(0.15), radius: 1.25, x: 1, y: 1)
                             
                             Circle()
-                                .frame(width: 16, height: 16)
+                                .frame(width: 16)
                                 .foregroundColor(.clear)
                                 .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
                                 .clipShape(Circle())
@@ -68,9 +68,12 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                              
                             
                         }
-                        .frame(width: height * 2, height: height * 2)
+                        .frame(height: isActive ? height * 4 : height * 2, alignment: .center) // Increases the size of the button when dragging
                         .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
                         .gesture(DragGesture(minimumDistance: 0)
+                            .updating($isActive) { value, state, transaction in
+                                state = true // This is what triggers the scale increase of the slider and button
+                            }
                             .onChanged { gesture in
                                 let sliderWidth = bounds.size.width
                                 let percentage = min(max(gesture.location.x / sliderWidth, 0), 1)
@@ -84,6 +87,8 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                 .animation(animation, value: isActive)
             }
             .frame(width: bounds.size.width, height: bounds.size.height, alignment: .center)
+            
+            /* //MARK: This code allows dragging the slider without the button
             .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
                 .updating($isActive) { value, state, transaction in
                     state = true
@@ -95,6 +100,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                     localRealProgress = max(min(localRealProgress + localTempProgress, 1), 0)
                     localTempProgress = 0
                 })
+            */
             .onChange(of: isActive) { newValue in
                 value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
                 onEditingChanged(newValue)
@@ -106,9 +112,11 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                 if !isActive {
                     localRealProgress = getPrgPercentage(newValue)
                 }
+             
             }
         }
         .frame(height: isActive ? height * 2 : height, alignment: .center)
+        .padding(.horizontal)
     }
     
     private var animation: Animation {

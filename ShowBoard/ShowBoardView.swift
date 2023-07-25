@@ -77,11 +77,14 @@ struct ShowBoardView: View {
                 /// These Image views should be able to be placed in and zInde order
                 ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
-                //  GlassShapeView()
+                 GlassShapeView()
                 
                 // MapView(locationDataManager: locationDataManager)
                 
-                BatteryCircleGauge(batteryViewModel: batteryViewModel)
+                // BatteryCircleGauge(batteryViewModel: batteryViewModel)
+                
+                // CustomShapeView()
+                
                 
                 
                 

@@ -145,6 +145,7 @@ struct SliderStepperDegrees: View {
             }
         }
         .frame(height: 30)
+        .padding(.horizontal)
         .animation(.easeInOut(duration: 0.1), value: isSliderMode)
         .onAppear(perform: resetTimer) // Reset timer when the view appears
     }

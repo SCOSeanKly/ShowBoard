@@ -14,12 +14,12 @@ struct BatteryCircleGaugeSettings: View {
     
     var body: some View {
         // MARK: Settings
-        Group {
+
             ScrollView (showsIndicators: false){
                 
+                LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "questionmark.circle", systemImage2: "")
+                
                 Group {
-                    
-                    LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "questionmark.circle", systemImage2: "")
                     
                     ResetValues(resetValues: resetBatteryCircleGaugeValues)
                     
@@ -64,7 +64,7 @@ struct BatteryCircleGaugeSettings: View {
                 }
             }
             .customPresentation(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.01)
-        }
+        
     }
     
     private func resetBatteryCircleGaugeValues() {

@@ -54,6 +54,8 @@ struct ResetValues: View {
                 )
             }
         }
+        .frame(height: 30)
+        .padding(.horizontal)
     }
 }
 

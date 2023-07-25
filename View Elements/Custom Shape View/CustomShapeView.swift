@@ -23,7 +23,12 @@ public struct CustomShapeView: View {
                 Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
                     .fill(shape.shapeColor)
                     .blendMode(shape.appearance.blendMode)
-                    .background(.ultraThinMaterial.opacity(shape.appearance.opacity))
+                    .background {
+                        TransparentBlurView(removeAllFilters: true)
+                            .blur(radius: shape.shapeBlur, opaque: true)
+                            .background(.white.opacity(0.05))
+                            .opacity(shape.appearance.opacity)
+                    }
                     .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
                     .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
                     .scaleEffect(

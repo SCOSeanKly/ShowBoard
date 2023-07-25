@@ -132,7 +132,6 @@ struct LayerElementView: View {
                 }
               
             }
-            .padding(.horizontal)
         }
         .onAppear {
             shouldShowRedDot = hasImages(for: 6) // Check if red dot should be initially shown

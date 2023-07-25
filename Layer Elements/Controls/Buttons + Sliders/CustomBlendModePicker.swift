@@ -27,6 +27,7 @@ struct CustomBlendModePicker: View {
             .offset(x: 20)
         }
         .frame(height: 30)
+        .padding(.horizontal)
     }
 }
 

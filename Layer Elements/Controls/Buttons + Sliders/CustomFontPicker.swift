@@ -25,6 +25,7 @@ struct CustomFontPicker: View {
             .offset(x: 20)
         }
         .frame(height: 30)
+        .padding(.horizontal)
     }
 }
 

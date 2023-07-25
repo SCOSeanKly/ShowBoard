@@ -20,7 +20,7 @@ struct LayerEditView: View {
         
         ZStack {
             VStack {
-              
+                
                 LayerBackButton(selfViewToClose: $showLayerEditView, viewToOpen: $showLayerEditView, showLayerElementView: $showLayerElementView, headerText: "Edit Layers", systemImage: "arrow.left.circle", systemImage2: "")
                 
                 List {
@@ -28,7 +28,6 @@ struct LayerEditView: View {
                         HStack {
                             Image(systemName: itemImages[index % itemImages.count])
                                 .foregroundColor(.primary.opacity(itemButtons[index] ? 0.3 : 1.0))
-                                
                             
                             if isEditing {
                                 TextField("Enter text", text: $items[index])
@@ -38,7 +37,6 @@ struct LayerEditView: View {
                             }
                             
                             Spacer()
-                            
                             
                             Button(action: {
                                 itemButtons[index].toggle() // Toggle the button state for the corresponding item
@@ -52,17 +50,14 @@ struct LayerEditView: View {
                             Image(systemName: "line.3.horizontal")
                                 .font(.footnote)
                                 .padding(.horizontal)
-                             
                         }
                     }
                     .onDelete(perform: delete)
                     .onMove(perform: move)
                 }
-                .padding(.horizontal)
                 .listStyle(PlainListStyle())
                 .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive))
             }
-           
         }
         .presentationDragIndicator(.visible)
         

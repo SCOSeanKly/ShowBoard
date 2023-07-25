@@ -89,6 +89,7 @@ struct CustomToggle: View {
                 }
         }
             .frame(height: 30)
+            .padding(.horizontal)
     }
 }
 

@@ -21,6 +21,7 @@ struct CustomColorPicker: View {
                 .offset(x: 10)
         }
         .frame(height: 30)
+        .padding(.horizontal)
     }
 }
 

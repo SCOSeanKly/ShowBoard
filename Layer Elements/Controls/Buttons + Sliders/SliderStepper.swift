@@ -72,8 +72,6 @@ struct SliderStepper: View {
                     .padding(.leading, 5)
                     
                     
-                
-                    
                     HStack {
                         if Double(sliderBindingValue.wrappedValue) > minValue {
                             Button(action: {
@@ -125,8 +123,6 @@ struct SliderStepper: View {
                     )
                     .clipShape(Capsule())
                     .padding(.leading, 10)
-                
-                    
                 }
             }
             
@@ -146,6 +142,7 @@ struct SliderStepper: View {
             }
         }
         .frame(height: 30)
+        .padding(.horizontal)
         .animation(.easeInOut(duration: 0.1), value: isSliderMode)
         .onAppear(perform: resetTimer) // Reset timer when the view appears
     }

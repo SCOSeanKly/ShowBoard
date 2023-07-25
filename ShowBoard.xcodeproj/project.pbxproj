@@ -322,7 +322,7 @@
 			children = (
 				3E8849BA2A41D57B00B50BBD /* WeatherKit & Location Manager */,
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
-				3EB671962A4EEEEE00DF2678 /* Layer Element Menu Views */,
+				3EB671962A4EEEEE00DF2678 /* Layer Element Menu (Views) */,
 				3EFAB1882A45CD6D001A9BC7 /* Cover Sheet Views */,
 				3EA43C962A45AAC200A28C75 /* Layer Elements */,
 				0913C4292A487643007AF26E /* Types */,
@@ -446,7 +446,7 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
-		3EB671962A4EEEEE00DF2678 /* Layer Element Menu Views */ = {
+		3EB671962A4EEEEE00DF2678 /* Layer Element Menu (Views) */ = {
 			isa = PBXGroup;
 			children = (
 				0940CCF02A686079009CE54C /* LayerObjectProviderView.swift */,
@@ -463,7 +463,7 @@
 				3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */,
 				3EEB89972A4A1F0100CF42AB /* Imported Image Element */,
 			);
-			path = "Layer Element Menu Views";
+			path = "Layer Element Menu (Views)";
 			sourceTree = "<group>";
 		};
 		3EBF30732A6ED4FC004C12B5 /* Map View */ = {

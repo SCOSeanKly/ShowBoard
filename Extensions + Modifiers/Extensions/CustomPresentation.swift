@@ -33,7 +33,6 @@ extension View {
             .fraction(detent.fractionValue),
             .fraction(detent2.fractionValue)
         ])
-        .padding(.horizontal)
         .presentationBackground {
             TransparentBlurView(removeAllFilters: true)
                 .blur(radius: blurRadius, opaque: true)

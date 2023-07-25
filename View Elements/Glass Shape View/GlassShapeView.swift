@@ -12,6 +12,7 @@ struct GlassShapeView: View {
     
     @StateObject var shape = CustomShapeObject()
     @State private var showSettings: Bool = false
+    @State private var isDragging: Bool = false
     
     var body: some View {
         
@@ -41,12 +42,14 @@ struct GlassShapeView: View {
                 
             }
             .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
+            .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
             .shadow(color: .black.opacity(shape.appearance.shadowOpacity), radius: shape.appearance.shadow.radius, y: shape.appearance.shadow.offset.y)
             .animation(.spring())
             .padding(.top, 100)
             .onTapGesture {
                 showSettings.toggle()
             }
+            
             Spacer()
         }
         .sheet(isPresented: $showSettings){
