@@ -63,7 +63,7 @@ struct BatteryCircleGaugeSettings: View {
                         .padding(.bottom, 100)
                 }
             }
-            .customPresentation(detent: .medium)
+            .customPresentation(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.01)
         }
     }
     

@@ -58,7 +58,7 @@ struct BatteryGuageBase: View {
             .frame(width: 300, height: 300)
             .contentShape(Circle())
             .opacity(opacity)
-            .gaugeStyle(.accessoryCircular)
+            .gaugeStyle(.accessoryCircular) 
             .tint(gaugeColor)
             .scaleEffect(scaleEffect)
             .shadow(color: .black.opacity(shadowOpacity), radius: shadowRadius, y: shadowOffset)

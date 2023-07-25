@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-    
+
 struct LayerObjectAppearance {
     
     
@@ -39,30 +39,40 @@ struct LayerObjectAppearance {
     /// The currently applied shadow settings
     var shadow: ShadowSettings
     
+    
     /// Blur radius
     var blur: CGFloat
+    
     
     /// Opacity ammount
     var opacity: CGFloat
     
+    
     /// Corner Radius
     var cornerRadius: CGFloat
+    
     
     /// Skew Effect X
     var skewX: CGFloat
     
+    
     /// Skew Effect Y
     var skewY: CGFloat
     
+    
     /// Shadow Opacity
     var shadowOpacity: CGFloat
+    
     
     /// Appearnce Dark Mode
     var darkMode: Bool
     
     
+    /// Invert Appearance / Color
+    var invert: Bool
     
-    
+   
+   
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
     
@@ -103,8 +113,8 @@ struct LayerObjectAppearance {
             return "Color"
         case .luminosity:
             return "Luminosity"
-        @unknown default:
-            return ""
+        default:
+               return "Unknown Blend Mode"
         }
     }
     
@@ -125,9 +135,10 @@ struct LayerObjectAppearance {
         self.skewY = 0.0
         self.shadowOpacity = 0.0
         self.darkMode = false
+        self.invert = false
     }
-
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false) {
+    
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -141,8 +152,9 @@ struct LayerObjectAppearance {
         self.skewY = skewY
         self.shadowOpacity = shadowOpacity
         self.darkMode = darkMode
+        self.invert = false
     }
-
+    
     
     
     

@@ -142,6 +142,7 @@ struct SliderStepper: View {
                 Text(isSliderMode ? "\(Image(systemName: "chevron.right"))" : "\(Image(systemName: "slider.horizontal.2.gobackward"))")
                     .foregroundColor(isSliderMode ? Color.primary : buttonColor)
                     .padding(.leading)
+                    .padding(.trailing, 5)
             }
         }
         .frame(height: 30)

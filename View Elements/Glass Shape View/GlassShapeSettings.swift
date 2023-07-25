@@ -25,7 +25,7 @@ struct GlassShapeSettings: View {
                 
                 SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 150)
                 
-                SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.shapeBlur, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 8)
+                SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.shapeBlur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 8)
                 
                 SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $shape.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 
@@ -38,14 +38,17 @@ struct GlassShapeSettings: View {
                 
                 SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $shape.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                 
-                CustomToggle(titleText: "Add Grain Effect:", bindingValue: $shape.shapeGrain, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                CustomToggle(titleText: "Add Frosted Effect:", bindingValue: $shape.shapeGrain, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                
+                CustomToggle(titleText: "Show Glass Border:", bindingValue: $shape.showBorder, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                
+                SliderStepper(color: .blue, title: "Glass Border Width:", sliderBindingValue:  $shape.borderWidth, minValue: 0.2, maxValue: 2.5, step: 0.1, specifier: 1, defaultValue: 0.5)
                 
                 Spacer()
                     .frame(height: 100)
             }
         }
-        .customPresentation(detent: .medium)
-        
+        .customPresentation(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.3)
     }
     
     private func resetGlassShapeValues() {
@@ -57,6 +60,8 @@ struct GlassShapeSettings: View {
         shape.shapeBlur = 8
         shape.appearance.shadowOpacity = 0
         shape.shapeGrain = false
+        shape.showBorder = true
+        shape.borderWidth = 0.5
     }
 }
 

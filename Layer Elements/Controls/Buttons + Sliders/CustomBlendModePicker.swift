@@ -26,7 +26,11 @@ struct CustomBlendModePicker: View {
             .scaleEffect(0.8)
             .offset(x: 20)
         }
+        .frame(height: 30)
     }
 }
+
+
+
 
 

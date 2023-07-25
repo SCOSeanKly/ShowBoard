@@ -5,6 +5,7 @@
 //  Created by Sean Kelly on 24/07/2023.
 //
 
+
 import SwiftUI
 
 enum DetentType {
@@ -25,16 +26,19 @@ enum DetentType {
 }
 
 extension View {
-    func customPresentation(detent: DetentType, detent2: DetentType) -> some View {
+    
+    func customPresentation(detent: DetentType, detent2: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
+        
         self.presentationDetents([
             .fraction(detent.fractionValue),
             .fraction(detent2.fractionValue)
         ])
         .padding(.horizontal)
-        .presentationBackground{
+        .presentationBackground {
             TransparentBlurView(removeAllFilters: true)
-                .blur(radius: 9, opaque: true)
-                .background(.white.opacity(0.05))
+                .blur(radius: blurRadius, opaque: true)
+                .background(Color.primary.opacity(backgroundColorOpacity).colorInvert())
+              
         }
         .presentationCornerRadius(15)
         .presentationDragIndicator(.visible)
@@ -42,10 +46,11 @@ extension View {
     }
     
     // Overload the function with a version that accepts only one fraction
-    func customPresentation(detent: DetentType) -> some View {
-        self.customPresentation(detent: detent, detent2: detent)
+    func customPresentation(detent: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
+        self.customPresentation(detent: detent, detent2: detent, blurRadius: blurRadius, backgroundColorOpacity: backgroundColorOpacity)
     }
 }
+
 
 
 

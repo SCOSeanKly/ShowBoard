@@ -17,13 +17,14 @@ struct CustomFontPicker: View {
             Spacer()
             Picker("Font Style", selection: $bindingValue) {
                 ForEach(TextObject.fontList, id: \.self) { style in
-                    Text(style ?? "System Font")
+                    Text(style)
                 }
             }
             .pickerStyle(.menu)
             .scaleEffect(0.8)
             .offset(x: 20)
-        } 
+        }
+        .frame(height: 30)
     }
 }
 

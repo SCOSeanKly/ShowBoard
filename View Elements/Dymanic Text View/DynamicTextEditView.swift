@@ -10,19 +10,19 @@ import SwiftUI
 
 struct DynamicTextView: View {
     
-    @StateObject private var text = TextObject()
+    @StateObject var text: TextObject
     @State private var showSettings: Bool = false
-  
+    
     
     var body: some View {
         
         ScrollView {
             
-            Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("TEST") }
+            Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("ROTATE TEST") }
             
             VStack {
                 HStack {
-                    Text("Enter text...")
+                    Text("Enter text...(Tap to show Settings)")
                         .font(.headline.weight(.heavy))
                         .fontWeight(.semibold)
                         .foregroundColor(.black)
@@ -76,21 +76,14 @@ struct DynamicTextView: View {
                     Spacer()
                 }
                 .padding(.leading)
-                
-                // MARK: Settings for Dynamic Text
-     
             }
             .padding(.horizontal)
         }
         .sheet(isPresented: $showSettings){
-            //MARK: Glass shape settings
+            // MARK: Settings for Dynamic Text
             DynamicTextEditViewSettings(text: text)
         }
-        
-        
     }
-    
- 
 }
 
 extension Text {
@@ -102,7 +95,7 @@ extension Text {
 
 struct DynamicTextView_Previews: PreviewProvider {
     static var previews: some View {
-        DynamicTextView()
+        DynamicTextView(text: TextObject())
     }
 }
 

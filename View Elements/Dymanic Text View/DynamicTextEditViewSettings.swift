@@ -63,7 +63,7 @@ struct DynamicTextEditViewSettings: View {
             }
             
         }
-        .customPresentation(detent: .medium)
+        .customPresentation(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.01)
         
     }
     

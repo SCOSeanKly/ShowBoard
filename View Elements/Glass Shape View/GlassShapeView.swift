@@ -31,11 +31,13 @@ struct GlassShapeView: View {
                         .resizable()
                         .clipShape(RoundedRectangle(cornerRadius: shape.appearance.cornerRadius))
                         .blendMode(.multiply)
-                        .opacity(0.2)
+                        .opacity(0.3)
                 }
                 
-                RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
-                    .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1)
+                if shape.showBorder {
+                    RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
+                        .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.9), Color.white.opacity(0.2), Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3), Color.white.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: shape.borderWidth)
+                }
                 
             }
             .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)

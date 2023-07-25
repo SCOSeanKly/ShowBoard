@@ -20,6 +20,7 @@ struct CustomColorPicker: View {
                 .scaleEffect(0.9)
                 .offset(x: 10)
         }
+        .frame(height: 30)
     }
 }
 

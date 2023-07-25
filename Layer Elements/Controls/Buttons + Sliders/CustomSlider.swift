@@ -32,7 +32,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                         Capsule()
                             .fill(emptyColor)
                         
-                        LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.1), Color.white.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
+                        LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.15), Color.white.opacity(0.1)]), startPoint: .top, endPoint: .bottom)
                             .cornerRadius(100)
                         
                         Capsule()
