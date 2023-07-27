@@ -14,6 +14,7 @@
 		091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */; };
 		0940CCF12A686079009CE54C /* LayerObjectProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF02A686079009CE54C /* LayerObjectProviderView.swift */; };
 		0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF22A6860DC009CE54C /* LayerObjectType.swift */; };
+		095847F02A72C37B0069DAEE /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095847EF2A72C37B0069DAEE /* Playground.swift */; };
 		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
@@ -126,6 +127,7 @@
 		091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateLayerObject.swift; sourceTree = "<group>"; };
 		0940CCF02A686079009CE54C /* LayerObjectProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectProviderView.swift; sourceTree = "<group>"; };
 		0940CCF22A6860DC009CE54C /* LayerObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectType.swift; sourceTree = "<group>"; };
+		095847EF2A72C37B0069DAEE /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				3E88498D2A41D47800B50BBD /* Assets.xcassets */,
 				3E88498F2A41D47800B50BBD /* ShowBoard.entitlements */,
 				3E8849902A41D47800B50BBD /* Preview Content */,
+				095847EF2A72C37B0069DAEE /* Playground.swift */,
 			);
 			path = ShowBoard;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				0940CCF12A686079009CE54C /* LayerObjectProviderView.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
+				095847F02A72C37B0069DAEE /* Playground.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,

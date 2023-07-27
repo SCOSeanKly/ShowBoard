@@ -13,12 +13,6 @@ class TextObject: LayerObject {
     
     // MARK: - Public Properties
     
-    // Conforming LayerObject
-    public var id: UUID
-    @Published var appearance: LayerObjectAppearance
-    public let objectType: LayerObjectType = .text
-    
-    
     /// The user sets this text in a text field. This should contain some Placeholder tags too.
     @Published var inputText: String
     
@@ -78,10 +72,13 @@ class TextObject: LayerObject {
     
     
     init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), inputText: String = "") {
-        self.id = id
-        self.appearance = appearance
         self.inputText = inputText
         self.selectedFontName = TextObject.fontList.first!
+        
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .text
     }
     
     

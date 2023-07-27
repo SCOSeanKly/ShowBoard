@@ -8,16 +8,7 @@
 import SwiftUI
 
 
-class CustomShapeObject: LayerObject {    
-    
-    // Conforming LayerObject
-    var id: UUID
-    @Published var appearance: LayerObjectAppearance
-    public let objectType: LayerObjectType = .customShape
-    
-    
-    
-    
+class CustomShapeObject: LayerObject {
     
     // MARK: - Public Properties
     
@@ -58,8 +49,7 @@ class CustomShapeObject: LayerObject {
     // MARK: - Public Methods
     
     init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeFrameWidth: CGFloat = 300, shapeFrameHeight: CGFloat = 150, shapeBlur: CGFloat = 8.0, shapeGrain: Bool = false, showBorder: Bool = true, borderWidth: CGFloat = 0.5) {
-        self.id = id
-        self.appearance = appearance
+        
         self.shapePointCount = shapePointCount
         self.shapeRatio = shapeRatio
         self.shapeColor = shapeColor
@@ -69,6 +59,11 @@ class CustomShapeObject: LayerObject {
         self.shapeGrain = shapeGrain
         self.showBorder = showBorder
         self.borderWidth = borderWidth
+        
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .customShape
     }
 
    

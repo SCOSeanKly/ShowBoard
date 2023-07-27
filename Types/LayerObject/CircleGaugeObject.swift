@@ -9,13 +9,7 @@ import SwiftUI
 
 
 class CircleGaugeObject: LayerObject {
-    
-    // Conforming LayerObject
-    var id: UUID
-    @Published var appearance: LayerObjectAppearance
-    public let objectType: LayerObjectType = .circleGauge
-    
-    
+        
     // MARK: - Public Properties
     
 
@@ -67,8 +61,6 @@ class CircleGaugeObject: LayerObject {
         currentValueLabelColor: Color = Color.blue,
         minMaxValueLabelColor: Color = Color.blue) {
             
-        self.id = id
-        self.appearance = appearance
         self.minValue = minValue
         self.maxValue = maxValue
         self.currentValueLabelFontSize = currentValueLabelFontSize
@@ -78,5 +70,10 @@ class CircleGaugeObject: LayerObject {
         self.showMinMaxValueLabels = showCurrentValueLabel
         self.currentValueLabelColor = currentValueLabelColor
         self.minMaxValueLabelColor = minMaxValueLabelColor
+            
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .circleGauge
     }
 }

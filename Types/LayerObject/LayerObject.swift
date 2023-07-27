@@ -7,20 +7,20 @@
 
 import Foundation
 
-protocol LayerObject: Identifiable, ObservableObject {
+class LayerObject: Identifiable, ObservableObject {
     
     
     // MARK: - Public properties
     
     
     /// The unique identifier of the object
-    var id: UUID { get }
+    var id = UUID()
     
     
     /// The class which defines the objects appearance on the screen
-    var appearance: LayerObjectAppearance { get set }
+    var appearance: LayerObjectAppearance = .init()
     
     /// The type of the object
-    var objectType: LayerObjectType { get }
+    var objectType: LayerObjectType = .text
     
 }

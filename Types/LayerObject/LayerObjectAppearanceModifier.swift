@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LayerObjectAppearanceModifier: ViewModifier {
     
-    var layerObject: any LayerObject
+    var layerObject: LayerObject
     
     func body(content: Content) -> some View {
         content
@@ -33,7 +33,7 @@ struct LayerObjectAppearanceModifier: ViewModifier {
 
 
 extension View {
-    func appearance(_ layerObject: any LayerObject) -> some View {
+    func appearance(_ layerObject: LayerObject) -> some View {
         modifier(LayerObjectAppearanceModifier(layerObject: layerObject))
     }
 }
