@@ -14,6 +14,7 @@ struct CustomToggle: View {
     let offSymbol: String
     let rotate: Bool
     @State private var rotationAngle: Angle = .degrees(0)
+    @State private var isPressing: Bool = false
     
     var body: some View {
         
@@ -73,13 +74,26 @@ struct CustomToggle: View {
                         .shadow(color: .black.opacity(0.15), radius: 0.2, x: 0.25, y: 1.0)
                         
                     }
+                    .overlay{
+                        Circle()
+                            .foregroundColor(.black.opacity(isPressing ? 0.05 : 0))
+                    }
                     .offset(x: bindingValue.wrappedValue ? 9 : -9)
-                    .scaleEffect(bindingValue.wrappedValue ? 1.0 : 1.0)
+                    .scaleEffect(isPressing ? 0.8 : 1.0)
                     .animation(.interpolatingSpring(stiffness: 300, damping: 20))
+                   
                 }
                 .onTapGesture {
                     feedback()
+                    
+                    isPressing.toggle()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        isPressing.toggle()
+                    }
+                    
                     bindingValue.wrappedValue.toggle()
+                    
                     if rotate {
                         withAnimation(.easeInOut(duration: 0.5)) {
                             rotationAngle = bindingValue.wrappedValue ? .degrees(90) : .degrees(0)
