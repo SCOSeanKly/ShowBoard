@@ -57,7 +57,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
                                 .clipShape(Circle())
                             
-                            /// Optional button Image that rotates as the sliuder is dragged
+                            /// Optional button Image that rotates as the slider is dragged
                             /*
                              Image(systemName: "xmark")
                              .foregroundColor(.black.opacity(1.0))
