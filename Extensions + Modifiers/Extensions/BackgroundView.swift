@@ -11,8 +11,7 @@ struct BackgroundView: View {
     @Binding var showBgPickerSheet: Bool
     @Binding var importedBackground: UIImage?
     @Binding var hideMenuButtons: Bool
-    @Binding var isDragging: Bool
-    
+   
     var body: some View {
         ZStack{
       

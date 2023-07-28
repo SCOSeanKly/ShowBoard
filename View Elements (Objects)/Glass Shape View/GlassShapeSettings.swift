@@ -21,9 +21,9 @@ struct GlassShapeSettings: View {
                 
                 ResetValues(resetValues: resetGlassShapeValues)
                 
-                SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
+                SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 1, specifier: 0, defaultValue: 300)
                 
-                SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 150)
+                SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height * 1.05, step: 1, specifier: 0, defaultValue: 150)
                 
                 SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.shapeBlur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 8)
                 

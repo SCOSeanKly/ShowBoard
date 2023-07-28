@@ -12,7 +12,7 @@ struct GlassShapeView: View {
     
     @StateObject var shape = CustomShapeObject()
     @State private var showSettings: Bool = false
-    @State private var isDragging: Bool = false
+    @Binding var isDragging: Bool
     
     var body: some View {
         
@@ -65,8 +65,3 @@ struct GlassShapeView: View {
 
 
 
-struct GlassShapeView_Previews: PreviewProvider {
-    static var previews: some View {
-        GlassShapeView()
-    }
-}

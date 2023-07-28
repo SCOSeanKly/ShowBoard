@@ -56,6 +56,6 @@ struct ImagePickerViews: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }

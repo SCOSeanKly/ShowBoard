@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct URLImages: View {
+struct URLImagesGallery: View {
     @ObservedObject var viewModelURLImages = DataViewModelURLImages()
     let screenWidth = UIScreen.main.bounds.width
     @State private var currentIndex = 0
@@ -72,9 +72,6 @@ struct URLImages: View {
         }
     }
 }
-
-// Rest of the code remains the same
-
 
 struct URLImageViewURLImages: View {
     let image: ImageModelURLImages

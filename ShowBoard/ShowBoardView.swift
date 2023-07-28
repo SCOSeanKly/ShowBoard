@@ -31,20 +31,7 @@ struct ShowBoardView: View {
     @State private var onAppearOpacity: Bool = false
     
     //MARK: Sheet Presented - Layer Elements
-    @State private var pressedButtonObjectIndex: Int? = nil
     @State private var showLayerElementView = false
-    
-    /*
-    @State private var showTextElementView = false
-    @State private var showGaugesElementView = false
-    @State private var showWeatherElementView = false
-    @State private var showChartsElementView = false
-    @State private var showShapesElementView = false
-    @State private var showCalendarElementView = false
-    @State private var showMapsElementView = false
-     */
-    
-    @State private var showImportImageElementView = false
     @State private var showLayerEditView = false
     @State private var showUrlImageView: Bool = false
     @State private var showAppSettings: Bool = false ///Still to be added
@@ -66,24 +53,23 @@ struct ShowBoardView: View {
     var body: some View {
         ZStack {
             
-            /// Imported Background (Wallpaper) Image
-            BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, isDragging: $isDragging)
-            
-            
-            
+            //MARK: Imported Background (Wallpaper) Image
+            BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons)
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
                 /// These Image views should be able to be placed in and zInde order
                 ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
-                 GlassShapeView()
+               
                 
             }
             .fadeOnAppear()
             
+            
             /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
-            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, pressedButtonObjectIndex: $pressedButtonObjectIndex, showImportImageElementView: $showImportImageElementView, showUrlImageView: $showUrlImageView)
+            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, showUrlImageView: $showUrlImageView)
+            
         }
         .prefersPersistentSystemOverlaysHidden()
     }

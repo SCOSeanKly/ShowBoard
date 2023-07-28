@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ObjectSelectionView: View {
     
-    @State private var showNothing: Bool = false
+    //MARK: Grid Items for LazyVGrid
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
+    //MARK: Object Selection View
     @Binding var showLayerElementView: Bool
-    @Binding var showImportImageElementView: Bool
+    
+    //MARK: Image Pickers
     @Binding var showImagePickerSheet1: Bool
     @Binding var showImagePickerSheet2: Bool
     @Binding var showImagePickerSheet3: Bool
@@ -95,11 +97,12 @@ struct ObjectSelectionView: View {
                 }
                 
                 
-                
                 ObjectTitleText(titleText: "Import Layer Image")
                 
                 LazyVGrid(columns: gridItems, spacing: 16) {
-                    ImportImageButton(systemImage: "photo", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
+                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
+                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
+                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
                 }
                 .padding([.leading, .bottom, .trailing])
                 
@@ -111,13 +114,6 @@ struct ObjectSelectionView: View {
         }
     }
 }
-/*
- struct ObjectSelectionView_Previews: PreviewProvider {
- static var previews: some View {
- ObjectSelectionView()
- }
- }
- */
 
 struct ObjectTitleText: View {
     
@@ -151,6 +147,7 @@ struct SheetHeader: View {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: 5, opaque: true)
                         .background(Color.primary.opacity(0.05).colorInvert())
+                        .blur(radius: 15)
                 }
             
             Spacer()
@@ -202,22 +199,13 @@ struct ObjectSelectionButton: View {
                     .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
             }
         }
-        .frame(width: 50, height: 60)
-        .padding(10)
-        .background(Color.white)
-        .cornerRadius(15)
-        .shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
-                radius: isPressing ? 1 : 5,
-                x: 0,
-                y: isPressing ? 0 : 4)
-        .tint(.black)
-        .scaleEffect(isPressing ? 0.95 : 1)
-        .animation(.easeIn(duration: 0.1), value: isPressing)
+        .buttonModifier(isPressing: isPressing)
         .onTapGesture {
             isPressing.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressing.toggle()
             }
+            //MARK: MAIN ACTION TO BE ADDED
         }
     }
     
@@ -246,19 +234,16 @@ struct ImportImageButton: View {
                 if let image = importedImage {
                     Image(uiImage: image)
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 40, height: 40)
                         .aspectRatio(contentMode: .fit)
-                        .cornerRadius(5)
+                        .frame(width: 30, height: 30)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
-                        .animation(.spring(), value: importedImage)
                     
                 } else {
                     Image(systemName: systemImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
+                        .frame(width: 30, height: 30)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                 }
@@ -273,17 +258,7 @@ struct ImportImageButton: View {
                     .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
             }
         }
-        .frame(width: 50, height: 60)
-        .padding(10)
-        .background(Color.white)
-        .cornerRadius(15)
-        .shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
-                radius: isPressing ? 1 : 5,
-                x: 0,
-                y: isPressing ? 0 : 4)
-        .tint(.black)
-        .scaleEffect(isPressing ? 0.95 : 1)
-        .animation(.easeIn(duration: 0.1), value: isPressing)
+        .buttonModifier(isPressing: isPressing)
         .onTapGesture {
             isPressing.toggle()
             
@@ -302,6 +277,22 @@ struct ImportImageButton: View {
                  
             }
         }
+    }
+}
+
+extension View {
+    func buttonModifier(isPressing: Bool) -> some View {
+        self.frame(width: 50, height: 60)
+            .padding(10)
+            .background(Color.white)
+            .cornerRadius(12)
+            .shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
+                    radius: isPressing ? 0.5 : 3,
+                    x: 0,
+                    y: isPressing ? 0 : 3)
+            .tint(.black)
+            .scaleEffect(isPressing ? 0.95 : 1)
+            .animation(.easeIn(duration: 0.1), value: isPressing)
     }
 }
 
