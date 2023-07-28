@@ -36,7 +36,6 @@
 		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
 		3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */; };
 		3E73E5272A6E7CB100DBE1D2 /* MapSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */; };
-		3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E81F1532A52A68200137304 /* MoveableGrid.swift */; };
 		3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */; };
 		3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABD2A6A86E100E344C9 /* CustomShape.swift */; };
 		3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849892A41D47800B50BBD /* ShowBoardApp.swift */; };
@@ -149,7 +148,6 @@
 		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
 		3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverImagePickerViews.swift; sourceTree = "<group>"; };
 		3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSettings.swift; sourceTree = "<group>"; };
-		3E81F1532A52A68200137304 /* MoveableGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableGrid.swift; sourceTree = "<group>"; };
 		3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepperDegrees.swift; sourceTree = "<group>"; };
 		3E83AABD2A6A86E100E344C9 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		3E8849862A41D47800B50BBD /* ShowBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,7 +303,7 @@
 			path = "Buttons + Sliders";
 			sourceTree = "<group>";
 		};
-		3E41D3192A42F73000A29548 /* View Elements */ = {
+		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
 				3EBF307C2A6ED969004C12B5 /* Battery Bar View */,
@@ -315,7 +313,7 @@
 				3EBF30762A6ED529004C12B5 /* Dymanic Text View */,
 				3E371CE02A66C10E00DE743C /* Battery Circle Gauge */,
 			);
-			path = "View Elements";
+			path = "View Elements (Objects)";
 			sourceTree = "<group>";
 		};
 		3E88497D2A41D47800B50BBD = {
@@ -329,7 +327,7 @@
 				3EA43C962A45AAC200A28C75 /* Layer Elements (Controls) */,
 				0913C4292A487643007AF26E /* Types */,
 				3EADA59D2A4315E500FA1BCB /* Custom Fonts */,
-				3E41D3192A42F73000A29548 /* View Elements */,
+				3E41D3192A42F73000A29548 /* View Elements (Objects) */,
 				3E8849882A41D47800B50BBD /* ShowBoard */,
 				3E88499A2A41D47800B50BBD /* ShowBoardTests */,
 				3E8849A42A41D47800B50BBD /* ShowBoardUITests */,
@@ -452,17 +450,9 @@
 		3EB671962A4EEEEE00DF2678 /* Layer Element Menu (Views) */ = {
 			isa = PBXGroup;
 			children = (
+				3EFC3D612A73C14600625882 /* *Not Used Views */,
 				3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */,
-				3EADA5BC2A4354CA00FA1BCB /* LayerElementView.swift */,
 				3EEB89932A49F02300CF42AB /* LayerEditView.swift */,
-				3E81F1532A52A68200137304 /* MoveableGrid.swift */,
-				3E3770F82A45DA1900E3AC43 /* TextElementView.swift */,
-				3EC8207E2A460F3700EA8A88 /* GaugesElementView.swift */,
-				3EA43C972A45AB2F00A28C75 /* WeatherElementView.swift */,
-				3EC820802A460F7300EA8A88 /* ChartsElementView.swift */,
-				3EC8207C2A460EE800EA8A88 /* ShapesElementView.swift */,
-				3EC820822A460FAD00EA8A88 /* CalendarElementView.swift */,
-				3EC820842A46136800EA8A88 /* MapsElementView.swift */,
 				3EDE6B712A4DB4DD003ACC2B /* URLImages.swift */,
 				3EEB89972A4A1F0100CF42AB /* Imported Image Element */,
 			);
@@ -571,6 +561,21 @@
 				3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */,
 			);
 			path = "Cover Sheet Views";
+			sourceTree = "<group>";
+		};
+		3EFC3D612A73C14600625882 /* *Not Used Views */ = {
+			isa = PBXGroup;
+			children = (
+				3EADA5BC2A4354CA00FA1BCB /* LayerElementView.swift */,
+				3E3770F82A45DA1900E3AC43 /* TextElementView.swift */,
+				3EC8207E2A460F3700EA8A88 /* GaugesElementView.swift */,
+				3EA43C972A45AB2F00A28C75 /* WeatherElementView.swift */,
+				3EC820802A460F7300EA8A88 /* ChartsElementView.swift */,
+				3EC8207C2A460EE800EA8A88 /* ShapesElementView.swift */,
+				3EC820822A460FAD00EA8A88 /* CalendarElementView.swift */,
+				3EC820842A46136800EA8A88 /* MapsElementView.swift */,
+			);
+			path = "*Not Used Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,7 +789,6 @@
 				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
-				3E81F1542A52A68200137304 /* MoveableGrid.swift in Sources */,
 				3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */,
 				3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */,
 				3E371CE42A66C8FF00DE743C /* CustomToggle.swift in Sources */,

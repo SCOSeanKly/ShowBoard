@@ -10,17 +10,25 @@ import SwiftUI
 struct ObjectSelectionView: View {
     
     @State private var showNothing: Bool = false
-    
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
+    @Binding var showLayerElementView: Bool
+    @Binding var showImportImageElementView: Bool
+    @Binding var showImagePickerSheet1: Bool
+    @Binding var showImagePickerSheet2: Bool
+    @Binding var showImagePickerSheet3: Bool
+    @Binding var importedImage1: UIImage?
+    @Binding var importedImage2: UIImage?
+    @Binding var importedImage3: UIImage?
     
     
     var body: some View {
-        VStack {
-            
-            LayerBackButton(selfViewToClose: $showNothing, viewToOpen: $showNothing, showLayerElementView: $showNothing, headerText: "Object Selection", systemImage: "square.grid.2x2", systemImage2: "gearshape")
-                .padding(.top)
+        ZStack {
             
             ScrollView {
+                
+                Spacer()
+                    .frame(height: 70)
                 
                 Group {
                     ObjectTitleText(titleText: "Text")
@@ -86,32 +94,30 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                 }
                 
-               
+                
                 
                 ObjectTitleText(titleText: "Import Layer Image")
                 
                 LazyVGrid(columns: gridItems, spacing: 16) {
-                    ObjectSelectionButton(imageType: .system(name: "square.3.layers.3d.bottom.filled"), textDescription: "Layer 1")
-                    ObjectSelectionButton(imageType: .system(name: "square.3.layers.3d.middle.filled"), textDescription: "Layer 2")
-                    ObjectSelectionButton(imageType: .system(name: "square.3.layers.3d.top.filled"), textDescription: "Layer 3")
+                    ImportImageButton(systemImage: "photo", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
                 }
                 .padding([.leading, .bottom, .trailing])
                 
-                
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 80)
             }
+            
+            SheetHeader()
         }
     }
 }
-
-
-
-struct ObjectSelectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        ObjectSelectionView()
-    }
-}
+/*
+ struct ObjectSelectionView_Previews: PreviewProvider {
+ static var previews: some View {
+ ObjectSelectionView()
+ }
+ }
+ */
 
 struct ObjectTitleText: View {
     
@@ -127,6 +133,28 @@ struct ObjectTitleText: View {
         }
         .padding([.horizontal, .top])
         
+    }
+}
+
+struct SheetHeader: View {
+    
+    @State private var showNothing: Bool = false
+    
+    var body: some View {
+        VStack {
+            LayerBackButton(selfViewToClose: $showNothing, viewToOpen: $showNothing, showLayerElementView: $showNothing, headerText: "Object Selection", systemImage: "square.grid.2x2", systemImage2: "gearshape")
+                .frame(height: 80)
+                .background{
+                    
+                    LinearGradient(colors: [.white, .white,  .clear], startPoint: .top, endPoint: .bottom)
+                    
+                    TransparentBlurView(removeAllFilters: true)
+                        .blur(radius: 5, opaque: true)
+                        .background(Color.primary.opacity(0.05).colorInvert())
+                }
+            
+            Spacer()
+        }
     }
 }
 
@@ -202,5 +230,82 @@ struct ObjectSelectionButton: View {
         }
     }
 }
+
+struct ImportImageButton: View {
+    
+    let systemImage: String
+    let buttontext: String
+    @State private var isPressing: Bool = false
+    @Binding var buttonAction: Bool
+    @Binding var showLayerElementView: Bool
+    @Binding var importedImage: UIImage?
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                if let image = importedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 40, height: 40)
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(5)
+                        .scaleEffect(isPressing ? 0.8 : 1)
+                        .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
+                        .animation(.spring(), value: importedImage)
+                    
+                } else {
+                    Image(systemName: systemImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                        .scaleEffect(isPressing ? 0.8 : 1)
+                        .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
+                }
+                
+                Text(buttontext)
+                    .font(.caption)
+                    .foregroundColor(.primary)
+                    .padding(.top, -2)
+                    .frame(width: 60)
+                    .lineLimit(1)
+                    .scaleEffect(isPressing ? 0.9 : 1)
+                    .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
+            }
+        }
+        .frame(width: 50, height: 60)
+        .padding(10)
+        .background(Color.white)
+        .cornerRadius(15)
+        .shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
+                radius: isPressing ? 1 : 5,
+                x: 0,
+                y: isPressing ? 0 : 4)
+        .tint(.black)
+        .scaleEffect(isPressing ? 0.95 : 1)
+        .animation(.easeIn(duration: 0.1), value: isPressing)
+        .onTapGesture {
+            isPressing.toggle()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isPressing.toggle()
+                
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    showLayerElementView = false
+                 
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        buttonAction.toggle()
+                    }
+                 
+                }
+                 
+            }
+        }
+    }
+}
+
+
+
 
 

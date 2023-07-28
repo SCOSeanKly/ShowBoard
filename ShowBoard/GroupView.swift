@@ -27,6 +27,7 @@ struct GroupView: View {
     @Binding var importedBackground: UIImage?
     @Binding var showBgPickerSheet: Bool
     @Binding var pressedButtonObjectIndex: Int?
+    /*
     @Binding var showWeatherElementView: Bool
     @Binding var showTextElementView: Bool
     @Binding var showGaugesElementView: Bool
@@ -34,6 +35,7 @@ struct GroupView: View {
     @Binding var showShapesElementView: Bool
     @Binding var showCalendarElementView: Bool
     @Binding var showMapsElementView: Bool
+     */
     @Binding var showImportImageElementView: Bool
     @Binding var showUrlImageView: Bool
     
@@ -53,7 +55,7 @@ struct GroupView: View {
             ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
             
             //MARK: View containing the SheetPresentedViews
-            SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showMapsElementView: $showMapsElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView)
+            SheetPresentedViews(pressedButtonObjectIndex: $pressedButtonObjectIndex, showLayerElementView: $showLayerElementView, showImportImageElementView: $showImportImageElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView)
         }
     }
 }

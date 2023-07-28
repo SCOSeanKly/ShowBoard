@@ -4,7 +4,7 @@
 //
 //  Created by Sean Kelly on 23/06/2023.
 //
-
+/*
 import SwiftUI
 
 struct WeatherElementView: View {
@@ -26,6 +26,7 @@ struct WeatherElementView: View {
         .presentationDragIndicator(.visible)
     }
 }
+ */
 
 
 

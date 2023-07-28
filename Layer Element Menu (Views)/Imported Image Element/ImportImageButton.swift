@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct ImportImageButton: View {
     
     let systemImage: String
@@ -68,10 +68,10 @@ struct ImportImageButton: View {
         .background(.ultraThinMaterial)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity(buttonIsPressedAnimation ? 0.3 : 0.2), radius: buttonIsPressedAnimation ? 1 : 5, x: 0, y: buttonIsPressedAnimation ? 0 : 4)
-       // .tint(.black)
         .scaleEffect(buttonIsPressedAnimation ? 0.95 : 1)
         .animation(.easeIn(duration: 0.1), value: buttonIsPressedAnimation)
     }
 }
+ */
 
 
