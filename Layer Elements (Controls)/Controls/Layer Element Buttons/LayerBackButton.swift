@@ -42,8 +42,8 @@ struct LayerBackButton: View {
             
             HStack {
                 Text(headerText)
-                    .font(.headline.weight(.heavy))
-                    .fontWeight(.semibold)
+                    .font(.headline.weight(.semibold))
+                 
             }
             
             Spacer()

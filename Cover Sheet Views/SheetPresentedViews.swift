@@ -46,7 +46,11 @@ struct SheetPresentedViews: View {
         }
         //MARK: Layer Edit View
         .sheet(isPresented: $showLayerEditView) {
+            /*
             LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
+                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
+             */
+             PlacedObjectsListView(placedObjects: $placedObjects)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
     }

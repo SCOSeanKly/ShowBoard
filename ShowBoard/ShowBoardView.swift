@@ -121,50 +121,88 @@ struct ShowBoardView_Previews: PreviewProvider {
     }
 }
 
-/* //MARK: Started on the list view
+ //MARK: Started on the list view
 struct PlacedObjectsListView: View {
     @Binding var placedObjects: [LayerObject]
-    
+    @State private var showAlert = false
+    @State private var objectToDelete: LayerObject?
+
     var body: some View {
-        List {
-            ForEach(placedObjects, id: \.id) { obj in
-                switch obj.objectType {
-                case .text:
-                    HStack {
-                        Image(systemName: "photo")
-                        Text("Text Object")
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            removeLayer(at: obj.id)
-                        }, label: {
-                            Image(systemName: "minus.circle")
-                        })
-                        .foregroundColor(.red)
-                    }
-                    
-                case .map:
-                    Text("Map Object")
-                        .offset(y: 50)
-                case .circleGauge:
-                    Text("Circle Gauge Object")
-                        .offset(y: 50)
-                case .customShape:
-                    Text("Custom Shape Object")
-                        .offset(y: 50)
-                case .glassShape:
-                    Text("Glass Shape Object")
-                        .offset(y: 50)
-                }
+        VStack {
+            HStack {
+                Image(systemName: "square.3.layers.3d")
+                    .font(.title3)
+
+                Text("Edit Layers")
+                    .font(.headline.weight(.semibold))
+
+                Spacer()
             }
+            .padding([.leading, .vertical])
+
+            if placedObjects.isEmpty {
+                // Show "No Layers" text if there are no layers
+                HStack {
+                    Text("No editable layers added yet!")
+                        .lineLimit(1)
+                        .font(.body)
+                }
+            } else {
+                List {
+                    ForEach(placedObjects, id: \.id) { obj in
+                        switch obj.objectType {
+                        case .text:
+                            HStack {
+                                Image(systemName: "photo")
+                                Text("Text Object")
+
+                                Spacer()
+
+                                Button(action: {
+                                    objectToDelete = obj
+                                    showAlert = true
+                                }, label: {
+                                    Image(systemName: "minus.circle")
+                                })
+                                .foregroundColor(.red)
+                            }
+
+                        case .map:
+                            Text("Map Object")
+                                .offset(y: 50)
+                        case .circleGauge:
+                            Text("Circle Gauge Object")
+                                .offset(y: 50)
+                        case .customShape:
+                            Text("Custom Shape Object")
+                                .offset(y: 50)
+                        case .glassShape:
+                            Text("Glass Shape Object")
+                                .offset(y: 50)
+                        }
+                    }
+                }
+                .listStyle(PlainListStyle())
+            }
+
+            Spacer()
         }
-        .listStyle(PlainListStyle())
-        .padding(.top, 200)
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Delete Image"),
+                message: Text("Are you sure you want to delete this image?"),
+                primaryButton: .cancel(Text("Cancel")),
+                secondaryButton: .destructive(Text("Delete"), action: {
+                    if let objToDelete = objectToDelete {
+                        removeLayer(at: objToDelete.id)
+                    }
+                })
+            )
+        }
     }
-    
+
     private func removeLayer(at index: UUID) {
         placedObjects.removeAll { $0.id == index }
     }
 }
-*/
+
