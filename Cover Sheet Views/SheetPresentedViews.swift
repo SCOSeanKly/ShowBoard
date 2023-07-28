@@ -4,18 +4,23 @@
 //
 //  Created by Sean Kelly on 23/06/2023.
 //
-/*
+
 import SwiftUI
 
 struct SheetPresentedViews: View {
     
     //MARK: Sheet Presented - Layer Elements
-    
-    @Binding var showObjectSelectionView: Bool
+    @Binding var pressedButtonObjectIndex: Int?
+    @Binding var showLayerElementView: Bool
+    @Binding var showWeatherElementView: Bool
+    @Binding var showTextElementView: Bool
+    @Binding var showGaugesElementView: Bool
+    @Binding var showChartsElementView: Bool
+    @Binding var showShapesElementView: Bool
+    @Binding var showCalendarElementView: Bool
+    @Binding var showMapsElementView: Bool
     @Binding var showImportImageElementView: Bool
     @Binding var showLayerEditView: Bool
-    
-    //MARK: Import Image
     @Binding var showImagePickerSheet1: Bool
     @Binding var showImagePickerSheet2: Bool
     @Binding var showImagePickerSheet3: Bool
@@ -30,21 +35,13 @@ struct SheetPresentedViews: View {
         ZStack{
             /// Empty content placeholder
         }
-        .sheet(isPresented: $showObjectSelectionView) { //MARK: Object selection view
-            ObjectSelectionView()
+        
+        //MARK: Element Selection Menu
+        .sheet(isPresented: $showLayerElementView) {
+            LayerElementView(showLayerElementView: $showLayerElementView, pressedButtonObjectIndex: $pressedButtonObjectIndex, showWeatherElementView: $showWeatherElementView, showTextElementView: $showTextElementView, showGaugesElementView: $showGaugesElementView, showChartsElementView: $showChartsElementView, showShapesElementView: $showShapesElementView, showCalendarElementView: $showCalendarElementView, showImportImageElementView: $showImportImageElementView, showMapsElementView: $showMapsElementView, showUrlImageView: $showUrlImageView, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
         //MARK: Text Element
         .sheet(isPresented: $showTextElementView) {
             TextElementView(showLayerElementView: $showLayerElementView, showTextElementView: $showTextElementView)
@@ -105,9 +102,7 @@ struct SheetPresentedViews: View {
         }
         
         // App Settings still to be added
-         */
       
     }
 }
- */
 

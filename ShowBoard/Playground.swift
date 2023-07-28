@@ -79,8 +79,6 @@ struct Playground: View {
     }
 }
 
-/*
- #Preview {
- Playground()
- }
- */
+#Preview {
+    Playground()
+}
