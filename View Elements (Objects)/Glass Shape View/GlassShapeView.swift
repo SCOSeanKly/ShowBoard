@@ -12,11 +12,10 @@ struct GlassShapeView: View {
     
     @StateObject var shape = CustomShapeObject()
     @State private var showSettings: Bool = false
-    @Binding var isDragging: Bool
     
     var body: some View {
         
-        VStack {
+      
             ZStack {
                 RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
                     .foregroundColor(.clear)
@@ -42,17 +41,13 @@ struct GlassShapeView: View {
                 
             }
             .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
-            .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
             .shadow(color: .black.opacity(shape.appearance.shadowOpacity), radius: shape.appearance.shadow.radius, y: shape.appearance.shadow.offset.y)
             .animation(.spring())
-            .padding(.top, 100)
             //MARK: Testing purposes only - will be removed into own section.
             .onTapGesture {
                 showSettings.toggle()
             }
-            
-            Spacer()
-        }
+   
         //MARK: Testing purposes only - will be removed into own section.
         .sheet(isPresented: $showSettings){
             //MARK: Glass shape settings

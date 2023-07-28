@@ -47,6 +47,25 @@ struct LayerEditView: View {
                             })
                             .buttonStyle(.plain)
                             
+                            Button(action: {
+                               //MARK: Add delete action
+                            }, label: {
+                                Image(systemName: "gear")
+                                    .font(.footnote)
+                                   
+                            })
+                            .buttonStyle(.plain)
+                            .padding(.horizontal)
+                            
+                            Button(action: {
+                               //MARK: Add delete action
+                            }, label: {
+                                Image(systemName: "trash")
+                                    .font(.footnote)
+                                    .foregroundColor(.red)
+                            })
+                            .buttonStyle(.plain)
+                            
                             Image(systemName: "line.3.horizontal")
                                 .font(.footnote)
                                 .padding(.horizontal)
@@ -61,13 +80,6 @@ struct LayerEditView: View {
         }
         .presentationDragIndicator(.visible)
         
-        
-        /*
-         ///Moveable Grid Idea
-         LayerBackButton(selfViewToClose: $showLayerEditView, showLayerElementView: $showLayerElementView, headerText: "Edit Layers", systemImage: "arrow.left.circle")
-         
-         MoveableGrid(showLayerElementView: $showLayerElementView)
-         */
     }
     
     func delete(at offsets: IndexSet) {

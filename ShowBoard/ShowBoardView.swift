@@ -49,6 +49,10 @@ struct ShowBoardView: View {
     @State private var heightRatio: CGFloat = 1.0
     @State private var showMicroControls: Bool = false
     
+    //MARK: New Variables
+    @State private var placedObjects: [LayerObject] = []
+    @State private var selection: UUID?
+    
     
     var body: some View {
         ZStack {
@@ -58,21 +62,52 @@ struct ShowBoardView: View {
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
-                /// These Image views should be able to be placed in and zInde order
-                ImageViews(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
-               
+                /// These Image views should be able to be placed in and zIndex order
+                ImportedImageView(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
+               // PlacedObjectsListView(placedObjects: $placedObjects)
+                
+                ForEach(self.placedObjects) { obj in
+                    VStack {
+                        
+                        switch obj.objectType {
+                        case .text:         Text("Insert Text View Here").hidden(); GlassShapeView()
+                        case .map:          Text("Insert map here").hidden(); GlassShapeView()
+                        case .circleGauge:  Text("Insert circle gauge here").hidden(); GlassShapeView()
+                        case .customShape:  Text("Custom shape").hidden(); GlassShapeView()
+                        case .glassShape:    Text("Glass Shape").hidden(); GlassShapeView()
+                            
+                            
+                            
+                        }
+                    }
+                    .padding()
+                    .border(selection == obj.id ? .red : .clear)
+                    .simultaneousGesture(TapGesture()
+                        .onEnded { self.selection = obj.id }
+                    )
+                    
+                    .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                    .fadeOnAppear()
+                }
             }
-            .fadeOnAppear()
             
+           
             
             /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
-            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, showUrlImageView: $showUrlImageView)
+            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection)
+            
+            
             
         }
         .prefersPersistentSystemOverlaysHidden()
     }
+    
+    func removeSelectedObject() {
+        self.placedObjects.removeAll { $0.id == selection }
+    }
+    
 }
 
 struct ShowBoardView_Previews: PreviewProvider {
@@ -81,37 +116,50 @@ struct ShowBoardView_Previews: PreviewProvider {
     }
 }
 
-struct ImageViews: View {
-    let importedImage1: UIImage?
-    let importedImage2: UIImage?
-    let importedImage3: UIImage?
+/* //MARK: Started on the list view
+struct PlacedObjectsListView: View {
+    @Binding var placedObjects: [LayerObject]
     
     var body: some View {
-        ZStack {
-            if let importedImage1 = importedImage1 {
-                Image(uiImage: importedImage1)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            
-            if let importedImage2 = importedImage2 {
-                Image(uiImage: importedImage2)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            
-            if let importedImage3 = importedImage3 {
-                Image(uiImage: importedImage3)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-                    .allowsHitTesting(false)
+        List {
+            ForEach(placedObjects, id: \.id) { obj in
+                switch obj.objectType {
+                case .text:
+                    HStack {
+                        Image(systemName: "photo")
+                        Text("Text Object")
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            removeLayer(at: obj.id)
+                        }, label: {
+                            Image(systemName: "minus.circle")
+                        })
+                        .foregroundColor(.red)
+                    }
+                    
+                case .map:
+                    Text("Map Object")
+                        .offset(y: 50)
+                case .circleGauge:
+                    Text("Circle Gauge Object")
+                        .offset(y: 50)
+                case .customShape:
+                    Text("Custom Shape Object")
+                        .offset(y: 50)
+                case .glassShape:
+                    Text("Glass Shape Object")
+                        .offset(y: 50)
+                }
             }
         }
+        .listStyle(PlainListStyle())
+        .padding(.top, 200)
+    }
+    
+    private func removeLayer(at index: UUID) {
+        placedObjects.removeAll { $0.id == index }
     }
 }
-
-
-
+*/

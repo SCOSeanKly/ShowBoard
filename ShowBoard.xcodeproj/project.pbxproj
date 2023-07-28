@@ -20,6 +20,7 @@
 		097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274342A4DDCCB00429786 /* ShadowSettings.swift */; };
 		097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
+		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
 		3E371CD92A6689C800DE743C /* MapObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD82A6689C800DE743C /* MapObject.swift */; };
 		3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CDA2A668DD400DE743C /* ResetValues.swift */; };
@@ -121,6 +122,7 @@
 		097274342A4DDCCB00429786 /* ShadowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettings.swift; sourceTree = "<group>"; };
 		097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectAppearanceModifier.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
+		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		3E371CD82A6689C800DE743C /* MapObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapObject.swift; sourceTree = "<group>"; };
 		3E371CDA2A668DD400DE743C /* ResetValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetValues.swift; sourceTree = "<group>"; };
@@ -327,8 +329,8 @@
 			isa = PBXGroup;
 			children = (
 				3EADA59E2A43161900FA1BCB /* Info.plist */,
-				3E8849892A41D47800B50BBD /* ShowBoardApp.swift */,
 				3E8849C62A41D66400B50BBD /* ShowBoardView.swift */,
+				3E8849892A41D47800B50BBD /* ShowBoardApp.swift */,
 				3EB671972A4EF20A00DF2678 /* GroupView.swift */,
 				3E88498B2A41D47800B50BBD /* ContentView.swift */,
 				3E88498D2A41D47800B50BBD /* Assets.xcassets */,
@@ -431,6 +433,7 @@
 				3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */,
 				3EEB89932A49F02300CF42AB /* LayerEditView.swift */,
 				3EDE6B712A4DB4DD003ACC2B /* URLImagesGallery.swift */,
+				3E3421262A73F37700CFAD27 /* ImportedImageView.swift */,
 			);
 			path = "Layer Element Menu (Views)";
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */,
 				3E371CDF2A66B10500DE743C /* BatteryCircleGauge.swift in Sources */,
 				3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */,
+				3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */,
 				3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */,
 				3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */,
 				3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */,

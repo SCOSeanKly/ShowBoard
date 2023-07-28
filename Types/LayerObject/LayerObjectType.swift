@@ -7,12 +7,12 @@
 
 import Foundation
 
-
-
 enum LayerObjectType {
     
     case text
     case customShape
     case map
     case circleGauge
+    case glassShape
+    
 }

@@ -24,6 +24,10 @@ struct SheetPresentedViews: View {
     
     //MARK: Show URL Image Gallery View
     @Binding var showUrlImageView: Bool
+    
+    //MARK: New Variables
+    @Binding var placedObjects: [LayerObject]
+    @Binding var selection: UUID?
    
   
     var body: some View {
@@ -32,7 +36,7 @@ struct SheetPresentedViews: View {
         }
         //MARK: Element Selection Menu
         .sheet(isPresented: $showLayerElementView) {
-            ObjectSelectionView(showLayerElementView: $showLayerElementView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3)
+            ObjectSelectionView(showLayerElementView: $showLayerElementView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, placedObjects: $placedObjects, selection: $selection)
                 .customPresentationWithPrimaryBackground(detent: .large, backgroundColorOpacity: 1.0)
         }
         //MARK: Import URL Image Gallery Element
