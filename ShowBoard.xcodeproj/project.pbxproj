@@ -12,7 +12,6 @@
 		0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */; };
 		091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */; };
 		091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */; };
-		0940CCF12A686079009CE54C /* LayerObjectProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF02A686079009CE54C /* LayerObjectProviderView.swift */; };
 		0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF22A6860DC009CE54C /* LayerObjectType.swift */; };
 		095847F02A72C37B0069DAEE /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095847EF2A72C37B0069DAEE /* Playground.swift */; };
 		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
@@ -31,6 +30,7 @@
 		3E3770F92A45DA1900E3AC43 /* TextElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3770F82A45DA1900E3AC43 /* TextElementView.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
+		3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */; };
 		3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */; };
 		3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A702A69526500AE1ED7 /* CustomSlider.swift */; };
 		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
@@ -125,7 +125,6 @@
 		0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionAsset.swift; sourceTree = "<group>"; };
 		091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeObject.swift; sourceTree = "<group>"; };
 		091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateLayerObject.swift; sourceTree = "<group>"; };
-		0940CCF02A686079009CE54C /* LayerObjectProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectProviderView.swift; sourceTree = "<group>"; };
 		0940CCF22A6860DC009CE54C /* LayerObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectType.swift; sourceTree = "<group>"; };
 		095847EF2A72C37B0069DAEE /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
 		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
@@ -144,6 +143,7 @@
 		3E3770F82A45DA1900E3AC43 /* TextElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextElementView.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
+		3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionView.swift; sourceTree = "<group>"; };
 		3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditView.swift; sourceTree = "<group>"; };
 		3E546A702A69526500AE1ED7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
@@ -452,7 +452,7 @@
 		3EB671962A4EEEEE00DF2678 /* Layer Element Menu (Views) */ = {
 			isa = PBXGroup;
 			children = (
-				0940CCF02A686079009CE54C /* LayerObjectProviderView.swift */,
+				3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */,
 				3EADA5BC2A4354CA00FA1BCB /* LayerElementView.swift */,
 				3EEB89932A49F02300CF42AB /* LayerEditView.swift */,
 				3E81F1532A52A68200137304 /* MoveableGrid.swift */,
@@ -722,6 +722,7 @@
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
 				3EB671952A4ED6A700DF2678 /* ImportImageButton.swift in Sources */,
 				3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */,
+				3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */,
 				3EC820872A46154A00EA8A88 /* ImportImageElementView.swift in Sources */,
 				3ED771E52A4AFE4300AFC1FC /* MapExtensionView.swift in Sources */,
 				3E8849C52A41D61D00B50BBD /* HexColour.swift in Sources */,
@@ -733,7 +734,6 @@
 				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
 				3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
-				0940CCF12A686079009CE54C /* LayerObjectProviderView.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				095847F02A72C37B0069DAEE /* Playground.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
