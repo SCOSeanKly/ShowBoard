@@ -47,8 +47,17 @@ struct ObjectSelectionView: View {
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
+                        .overlay {
+                          ImageTrashButtonView(importedImage: $importedImage1)
+                        }
                     ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
+                        .overlay {
+                          ImageTrashButtonView(importedImage: $importedImage2)
+                        }
                     ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
+                        .overlay {
+                          ImageTrashButtonView(importedImage: $importedImage3)
+                        }
                 }
                 .padding([.leading, .bottom, .trailing])
                 
@@ -208,6 +217,7 @@ struct ImportImageButton: View {
                         .frame(width: 30, height: 30)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
+                      
                     
                 } else {
                     Image(systemName: systemImage)
@@ -216,6 +226,7 @@ struct ImportImageButton: View {
                         .frame(width: 30, height: 30)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
+                       
                 }
                 
                 Text(buttontext)
@@ -226,6 +237,7 @@ struct ImportImageButton: View {
                     .lineLimit(1)
                     .scaleEffect(isPressing ? 0.9 : 1)
                     .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
+                 
             }
         }
         .buttonModifier(isPressing: isPressing)
