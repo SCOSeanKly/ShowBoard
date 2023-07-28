@@ -77,9 +77,7 @@ struct ShowBoardView: View {
                         case .circleGauge:  Text("Insert circle gauge here").hidden(); GlassShapeView()
                         case .customShape:  Text("Custom shape").hidden(); GlassShapeView()
                         case .glassShape:    Text("Glass Shape").hidden(); GlassShapeView()
-                            
-                            
-                            
+                              
                         }
                     }
                     .padding()
@@ -87,6 +85,9 @@ struct ShowBoardView: View {
                     .simultaneousGesture(TapGesture()
                         .onEnded { self.selection = obj.id }
                     )
+                    .onLongPressGesture { //MARK: ONLY A TEST TO DELETE THE LAYER
+                        removeLayer(at: obj.id)
+                    }
                     
                     .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                     .fadeOnAppear()
@@ -106,6 +107,10 @@ struct ShowBoardView: View {
     
     func removeSelectedObject() {
         self.placedObjects.removeAll { $0.id == selection }
+    }
+    
+    private func removeLayer(at index: UUID) {
+        placedObjects.removeAll { $0.id == index }
     }
     
 }
