@@ -41,7 +41,6 @@ extension View {
         .ignoresSafeArea()
     }
     
-    
     // Overload the function with a version that accepts only one fraction
     func customPresentationWithBlur(detent: DetentType, blurRadius: CGFloat, backgroundColorOpacity: Double) -> some View {
         self.customPresentationWithBlur(detent: detent, detent2: detent, blurRadius: blurRadius, backgroundColorOpacity: backgroundColorOpacity)

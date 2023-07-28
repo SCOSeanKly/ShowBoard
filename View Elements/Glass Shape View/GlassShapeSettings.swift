@@ -30,9 +30,9 @@ struct GlassShapeSettings: View {
                 SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $shape.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
             }
             Group {
-                SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
+                SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue:  $shape.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 1, specifier: 1, defaultValue: 0)
                 
-                SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 0.1, specifier: 1, defaultValue: 0)
+                SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $shape.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 1, specifier: 1, defaultValue: 0)
                 
                 SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $shape.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                 
