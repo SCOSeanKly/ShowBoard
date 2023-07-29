@@ -77,7 +77,8 @@ struct AppearanceControlView: View {
         
     }
 }
-
-#Preview {
-    AppearanceControlView(layer: TextObject())
-}
+/*
+ #Preview {
+ AppearanceControlView(layer: TextObject())
+ }
+ */

@@ -79,13 +79,6 @@ struct ShowBoardView: View {
                     }
                     .padding()
                     .border(selection == obj.id ? Color.red : .clear) // Add the red border
-                    .onLongPressGesture { // Toggle the selection when tapping on the list item
-                        if let currentSelection = selection, currentSelection == obj.id {
-                            selection = nil
-                        } else {
-                            selection = obj.id
-                        }
-                    }
                     .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                     .fadeOnAppear()
                 }
@@ -124,6 +117,8 @@ struct PlacedObjectsListView: View {
     @State private var showAlert = false
     @State private var objectToDelete: LayerObject?
     @Binding var selection: UUID?
+    
+    let highlightColor = Color.red.opacity(0.05)
     
     var body: some View {
         VStack {
@@ -164,6 +159,8 @@ struct PlacedObjectsListView: View {
                                 HStack {
                                     Image(systemName: "character.textbox")
                                     Text("Text Object")
+                                      
+                                        
                                     
                                     Spacer()
                                     
@@ -201,10 +198,49 @@ struct PlacedObjectsListView: View {
                                     
                                     
                                 }
+                               
                                 
                             case .map:
-                                Text("Map Object")
-                                    .offset(y: 50)
+                                HStack {
+                                    Image(systemName: "map")
+                                    Text("Map Object")
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        
+                                        //Action to hide layer
+                                        
+                                    }, label: {
+                                        
+                                        /*
+                                         Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
+                                         .font(.footnote)
+                                         .foregroundColor(itemButtons[index] ? Color.red : Color.primary)
+                                         */
+                                        
+                                    })
+                                    .buttonStyle(.plain)
+                                    
+                                    Button(action: {
+                                        //MARK: Show and Hide settinsg for selected layer
+                                    }, label: {
+                                        Image(systemName: "gear")
+                                    })
+                                    .buttonStyle(.plain)
+                                    .padding(.horizontal)
+                                    
+                                    
+                                    Button(action: {
+                                        objectToDelete = obj
+                                        showAlert = true
+                                    }, label: {
+                                        Image(systemName: "trash")
+                                    })
+                                    .foregroundColor(.red)
+                                    
+                                    
+                                }
                             case .circleGauge:
                                 Text("Circle Gauge Object")
                                     .offset(y: 50)
@@ -212,10 +248,50 @@ struct PlacedObjectsListView: View {
                                 Text("Custom Shape Object")
                                     .offset(y: 50)
                             case .glassShape:
-                                Text("Glass Shape Object")
-                                    .offset(y: 50)
+                                HStack {
+                                    Image(systemName: "square")
+                                    Text("Glass Object")
+                                    
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        
+                                        //Action to hide layer
+                                        
+                                    }, label: {
+                                        
+                                        /*
+                                         Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
+                                         .font(.footnote)
+                                         .foregroundColor(itemButtons[index] ? Color.red : Color.primary)
+                                         */
+                                        
+                                    })
+                                    .buttonStyle(.plain)
+                                    
+                                    Button(action: {
+                                        //MARK: Show and Hide settinsg for selected layer
+                                    }, label: {
+                                        Image(systemName: "gear")
+                                    })
+                                    .buttonStyle(.plain)
+                                    .padding(.horizontal)
+                                    
+                                    
+                                    Button(action: {
+                                        objectToDelete = obj
+                                        showAlert = true
+                                    }, label: {
+                                        Image(systemName: "trash")
+                                    })
+                                    .foregroundColor(.red)
+                                    
+                                    
+                                }
                             }
-                        }
+                        }.padding(8)
+                        .background(selection == obj.id ? highlightColor : Color.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 5))
                     }
                 }
                 .listStyle(PlainListStyle())
