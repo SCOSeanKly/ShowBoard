@@ -67,8 +67,11 @@ struct ShowBoardView: View {
                 ForEach(self.placedObjects) { obj in
                     VStack {
                         switch obj.objectType {
-                        case .text:         GlassShapeView()
-                        case .map:          GlassShapeView()
+                        case .text:         TextObjectView(text: obj as! TextObject)
+                        case .map:          MapView(
+                                                locationDataManager: locationDataManager,
+                                                map: obj as! MapObject
+                                            )
                         case .circleGauge:  GlassShapeView()
                         case .customShape:  GlassShapeView()
                         case .glassShape:   GlassShapeView()

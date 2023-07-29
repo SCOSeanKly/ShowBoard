@@ -21,6 +21,6 @@ class LayerObject: Identifiable, ObservableObject {
     var appearance: LayerObjectAppearance = .init()
     
     /// The type of the object
-    var objectType: LayerObjectType = .text
+    var objectType: LayerObjectType = .glassShape
     
 }

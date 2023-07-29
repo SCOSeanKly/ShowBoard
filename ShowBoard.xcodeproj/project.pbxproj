@@ -14,6 +14,8 @@
 		091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */; };
 		0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF22A6860DC009CE54C /* LayerObjectType.swift */; };
 		095847F02A72C37B0069DAEE /* Playground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095847EF2A72C37B0069DAEE /* Playground.swift */; };
+		096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F80DB2A7521400001D8A3 /* TextObjectView.swift */; };
+		096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */; };
 		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
@@ -117,6 +119,8 @@
 		091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateLayerObject.swift; sourceTree = "<group>"; };
 		0940CCF22A6860DC009CE54C /* LayerObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectType.swift; sourceTree = "<group>"; };
 		095847EF2A72C37B0069DAEE /* Playground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playground.swift; sourceTree = "<group>"; };
+		096F80DB2A7521400001D8A3 /* TextObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObjectView.swift; sourceTree = "<group>"; };
+		096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceControlView.swift; sourceTree = "<group>"; };
 		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
@@ -404,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC03DF72A67E63C001F1965 /* Controls */,
+				096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */,
 			);
 			path = "Layer Elements (Controls)";
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 			children = (
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */,
+				096F80DB2A7521400001D8A3 /* TextObjectView.swift */,
 			);
 			path = "Dymanic Text View";
 			sourceTree = "<group>";
@@ -671,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */,
 				3ECBE3622A6EAFFA004B59F2 /* CustomShapeSettings.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
@@ -746,6 +753,7 @@
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 				3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */,
+				096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */,
 				3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

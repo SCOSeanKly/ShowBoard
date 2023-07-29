@@ -71,7 +71,7 @@ class TextObject: LayerObject {
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), inputText: String = "") {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), inputText: String = "Placeholder") {
         self.inputText = inputText
         self.selectedFontName = TextObject.fontList.first!
         

@@ -37,11 +37,49 @@ struct ObjectSelectionView: View {
                 
                 
                 ObjectTitleText(titleText: "Text")
-                
                 LazyVGrid(columns: gridItems, spacing: 16) {
-                    ObjectSelectionButton(imageType: .system(name: "character.textbox"), textDescription: "Custom", placedObjects: $placedObjects, selection: $selection, showLayerElementView: $showLayerElementView)
+                    ObjectSelectionButton(
+                        action: {
+                            placedObjects.append(TextObject())
+                            showLayerElementView = false
+                        },
+                        imageType: .system(name: "character.textbox"),
+                        textDescription: "Custom"
+                    )
                 }
                 .padding([.leading, .bottom, .trailing])
+                
+                
+                ObjectTitleText(titleText: "Maps")
+                LazyVGrid(columns: gridItems, spacing: 16) {
+                    ObjectSelectionButton(
+                        action: {
+                            placedObjects.append(MapObject())
+                            showLayerElementView = false
+                        },
+                        imageType: .system(name: "map"),
+                        textDescription: "Custom Map"
+                    )
+                }
+                .padding([.leading, .bottom, .trailing])
+                
+                
+                ObjectTitleText(titleText: "Glass stuff")
+                LazyVGrid(columns: gridItems, spacing: 16) {
+                    ObjectSelectionButton(
+                        action: {
+                            placedObjects.append(LayerObject())
+                            showLayerElementView = false
+                        },
+                        imageType: .system(name: "rectangle"),
+                        textDescription: "Glass"
+                    )
+                }
+                .padding([.leading, .bottom, .trailing])
+                
+                
+                
+                
                 
                 
                 ObjectTitleText(titleText: "Import Layer Image")
@@ -117,23 +155,11 @@ enum ImageType: Equatable {
 
 struct ObjectSelectionButton: View {
     
-    @State private var isPressing: Bool = false
+    var action: () -> Void
     let imageType: ImageType
     let textDescription: String
     
-    @Binding var placedObjects: [LayerObject]
-    @Binding var selection: UUID?
-    
-    @Binding var showLayerElementView: Bool
-    /*
-     func removeSelectedObject() {
-     self.placedObjects.removeAll { $0.id == selection }
-     }
-     */
-    
-    func addObject(_ object: LayerObject) {
-        self.placedObjects.append(object)
-    }
+    @State private var isPressing: Bool = false
     
     var body: some View {
         ZStack {
@@ -179,11 +205,7 @@ struct ObjectSelectionButton: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressing.toggle()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    //MARK: Add Object
-                    self.addObject(TextObject())
-                    
-                    //MARK: Hide ObjectSelectionView
-                    showLayerElementView.toggle()
+                    action()
                 }
             }
         }
