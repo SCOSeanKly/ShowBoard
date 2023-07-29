@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func fadeOnAppear(duration: TimeInterval = 1.5) -> some View {
+    func fadeOnAppear(duration: TimeInterval = 0.7) -> some View {
         modifier(FadeOnAppearModifier(duration: duration))
     }
 }

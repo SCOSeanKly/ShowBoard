@@ -50,7 +50,7 @@ struct SheetPresentedViews: View {
             LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
              */
-             PlacedObjectsListView(placedObjects: $placedObjects)
+            PlacedObjectsListView(placedObjects: $placedObjects, selection: $selection)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
     }

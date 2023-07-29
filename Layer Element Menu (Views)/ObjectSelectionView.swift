@@ -43,20 +43,20 @@ struct ObjectSelectionView: View {
                 }
                 .padding([.leading, .bottom, .trailing])
                 
-           
+                
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
                         .overlay {
-                          ImageTrashButtonView(importedImage: $importedImage1)
+                            ImageTrashButtonView(importedImage: $importedImage1)
                         }
                     ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
                         .overlay {
-                          ImageTrashButtonView(importedImage: $importedImage2)
+                            ImageTrashButtonView(importedImage: $importedImage2)
                         }
                     ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
                         .overlay {
-                          ImageTrashButtonView(importedImage: $importedImage3)
+                            ImageTrashButtonView(importedImage: $importedImage3)
                         }
                 }
                 .padding([.leading, .bottom, .trailing])
@@ -126,9 +126,9 @@ struct ObjectSelectionButton: View {
     
     @Binding var showLayerElementView: Bool
     /*
-    func removeSelectedObject() {
-        self.placedObjects.removeAll { $0.id == selection }
-    }
+     func removeSelectedObject() {
+     self.placedObjects.removeAll { $0.id == selection }
+     }
      */
     
     func addObject(_ object: LayerObject) {
@@ -178,13 +178,14 @@ struct ObjectSelectionButton: View {
             isPressing.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressing.toggle()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    //MARK: Add Object
+                    self.addObject(TextObject())
+                    
+                    //MARK: Hide ObjectSelectionView
+                    showLayerElementView.toggle()
+                }
             }
-          //MARK: Add Object
-            self.addObject(TextObject())
-            
-            //MARK: Hide ObjectSelectionView
-            showLayerElementView.toggle()
-            
         }
     }
     
@@ -217,7 +218,7 @@ struct ImportImageButton: View {
                         .frame(width: 30, height: 30)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
-                      
+                    
                     
                 } else {
                     Image(systemName: systemImage)
@@ -226,7 +227,7 @@ struct ImportImageButton: View {
                         .frame(width: 30, height: 30)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
-                       
+                    
                 }
                 
                 Text(buttontext)
@@ -237,7 +238,7 @@ struct ImportImageButton: View {
                     .lineLimit(1)
                     .scaleEffect(isPressing ? 0.9 : 1)
                     .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
-                 
+                
             }
         }
         .buttonModifier(isPressing: isPressing)
@@ -337,7 +338,7 @@ struct ObjectSelectionView_Previews: PreviewProvider {
  ObjectTitleText(titleText: "Gauges")
  
  LazyVGrid(columns: gridItems, spacing: 16) {
-     ObjectSelectionButton(imageType: .system(name: "barometer"), textDescription: "Battery")
+ ObjectSelectionButton(imageType: .system(name: "barometer"), textDescription: "Battery")
  }
  .padding([.leading, .bottom, .trailing])
  
@@ -345,21 +346,21 @@ struct ObjectSelectionView_Previews: PreviewProvider {
  ObjectTitleText(titleText: "Weather")
  
  LazyVGrid(columns: gridItems, spacing: 16) {
-     ObjectSelectionButton(imageType: .asset(name: "weather1"), textDescription: "Style 1")
-     ObjectSelectionButton(imageType: .asset(name: "weather2"), textDescription: "Style 2")
-     ObjectSelectionButton(imageType: .asset(name: "weather3"), textDescription: "Style 3")
-     ObjectSelectionButton(imageType: .asset(name: "weather4"), textDescription: "Style 4")
-     ObjectSelectionButton(imageType: .asset(name: "weather5"), textDescription: "Style 5")
-     ObjectSelectionButton(imageType: .asset(name: "weather6"), textDescription: "Style 6")
+ ObjectSelectionButton(imageType: .asset(name: "weather1"), textDescription: "Style 1")
+ ObjectSelectionButton(imageType: .asset(name: "weather2"), textDescription: "Style 2")
+ ObjectSelectionButton(imageType: .asset(name: "weather3"), textDescription: "Style 3")
+ ObjectSelectionButton(imageType: .asset(name: "weather4"), textDescription: "Style 4")
+ ObjectSelectionButton(imageType: .asset(name: "weather5"), textDescription: "Style 5")
+ ObjectSelectionButton(imageType: .asset(name: "weather6"), textDescription: "Style 6")
  }
  .padding([.leading, .bottom, .trailing])
  
  ObjectTitleText(titleText: "Charts")
  
  LazyVGrid(columns: gridItems, spacing: 16) {
-     ObjectSelectionButton(imageType: .system(name: "chart.bar"), textDescription: "Bar")
-     ObjectSelectionButton(imageType: .system(name: "chart.xyaxis.line"), textDescription: "Line")
-     ObjectSelectionButton(imageType: .system(name: "chart.pie"), textDescription: "Pie")
+ ObjectSelectionButton(imageType: .system(name: "chart.bar"), textDescription: "Bar")
+ ObjectSelectionButton(imageType: .system(name: "chart.xyaxis.line"), textDescription: "Line")
+ ObjectSelectionButton(imageType: .system(name: "chart.pie"), textDescription: "Pie")
  }
  .padding([.leading, .bottom, .trailing])
  
@@ -367,10 +368,10 @@ struct ObjectSelectionView_Previews: PreviewProvider {
  ObjectTitleText(titleText: "Shapes")
  
  LazyVGrid(columns: gridItems, spacing: 16) {
-     ObjectSelectionButton(imageType: .system(name: "rectangle"), textDescription: "Glass")
-     ObjectSelectionButton(imageType: .system(name: "star"), textDescription: "Custom")
-     
-     
+ ObjectSelectionButton(imageType: .system(name: "rectangle"), textDescription: "Glass")
+ ObjectSelectionButton(imageType: .system(name: "star"), textDescription: "Custom")
+ 
+ 
  }
  .padding([.leading, .bottom, .trailing])
  
@@ -378,10 +379,10 @@ struct ObjectSelectionView_Previews: PreviewProvider {
  ObjectTitleText(titleText: "Calendar")
  
  LazyVGrid(columns: gridItems, spacing: 16) {
-     ObjectSelectionButton(imageType: .system(name: "calendar"), textDescription: "Calendar")
-     
-     ObjectSelectionButton(imageType: .system(name: "calendar.day.timeline.left"), textDescription: "Timeline")
-     
+ ObjectSelectionButton(imageType: .system(name: "calendar"), textDescription: "Calendar")
+ 
+ ObjectSelectionButton(imageType: .system(name: "calendar.day.timeline.left"), textDescription: "Timeline")
+ 
  }
  .padding([.leading, .bottom, .trailing])
  */
