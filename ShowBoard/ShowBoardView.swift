@@ -120,13 +120,6 @@ struct ShowBoardView_Previews: PreviewProvider {
 
 
 
-
-
-
-
-
-
-
 //MARK: Started on the list view
 struct PlacedObjectsListView: View {
     @Binding var placedObjects: [LayerObject]
@@ -160,153 +153,154 @@ struct PlacedObjectsListView: View {
                         .font(.body)
                 }
             } else {
-                List {
-                    ForEach(placedObjects, id: \.id) { obj in
-                        Button {
-                            // Handle tap event for the list item (tapping the list would action the trash button)
-                            
-                            if let currentSelection = selection, currentSelection == obj.id {
-                                selection = nil
-                            } else {
-                                selection = obj.id
-                            }
-                            
-                        } label: {
-                            
-                            switch obj.objectType {
-                            case .text:
-                                HStack {
-                                    Image(systemName: "character.textbox")
-                                    Text("Text Object")
-                                    
-                                    
-                                    
-                                    Spacer()
-                                    
-                                    Button(action: {
-                                        // Action to hide or show layer
-                                        if hiddenLayers.contains(obj.id) {
-                                            hiddenLayers.remove(obj.id)
-                                        } else {
-                                            hiddenLayers.insert(obj.id)
-                                        }
-                                    }, label: {
-                                        Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
-                                    })
-                                    .buttonStyle(.plain)
-                                    
-                                    Button(action: {
-                                        //MARK: Show and Hide settinsg for selected layer
-                                    }, label: {
-                                        Image(systemName: "gear")
-                                    })
-                                    .buttonStyle(.plain)
-                                    .padding(.horizontal)
-                                    
-                                    
-                                    Button(action: {
-                                        objectToDelete = obj
-                                        showAlert = true
-                                    }, label: {
-                                        Image(systemName: "trash")
-                                    })
-                                    .foregroundColor(.red)
-                                    
-                                    
+              
+                    List {
+                        ForEach(placedObjects, id: \.id) { obj in
+                            Button {
+                                // Handle tap event for the list item (tapping the list would action the trash button)
+                                
+                                if let currentSelection = selection, currentSelection == obj.id {
+                                    selection = nil
+                                } else {
+                                    selection = obj.id
                                 }
                                 
+                            } label: {
                                 
-                            case .map:
-                                HStack {
-                                    Image(systemName: "map")
-                                    Text("Map Object")
+                                switch obj.objectType {
+                                case .text:
+                                    HStack {
+                                        Image(systemName: "character.textbox")
+                                        Text("Text Object")
+                                        
+                                        
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            // Action to hide or show layer
+                                            if hiddenLayers.contains(obj.id) {
+                                                hiddenLayers.remove(obj.id)
+                                            } else {
+                                                hiddenLayers.insert(obj.id)
+                                            }
+                                        }, label: {
+                                            Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
+                                        })
+                                        .buttonStyle(.plain)
+                                        
+                                        Button(action: {
+                                            //MARK: Show and Hide settinsg for selected layer
+                                        }, label: {
+                                            Image(systemName: "gear")
+                                        })
+                                        .buttonStyle(.plain)
+                                        .padding(.horizontal)
+                                        
+                                        
+                                        Button(action: {
+                                            objectToDelete = obj
+                                            showAlert = true
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                        .foregroundColor(.red)
+                                        
+                                        
+                                    }
                                     
-                                    Spacer()
                                     
-                                    Button(action: {
-                                        // Action to hide or show layer
-                                        if hiddenLayers.contains(obj.id) {
-                                            hiddenLayers.remove(obj.id)
-                                        } else {
-                                            hiddenLayers.insert(obj.id)
-                                        }
-                                    }, label: {
-                                        Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
-                                    })
-                                    .buttonStyle(.plain)
-                                    
-                                    Button(action: {
-                                        //MARK: Show and Hide settinsg for selected layer
-                                    }, label: {
-                                        Image(systemName: "gear")
-                                    })
-                                    .buttonStyle(.plain)
-                                    .padding(.horizontal)
-                                    
-                                    
-                                    Button(action: {
-                                        objectToDelete = obj
-                                        showAlert = true
-                                    }, label: {
-                                        Image(systemName: "trash")
-                                    })
-                                    .foregroundColor(.red)
-                                    
-                                    
+                                case .map:
+                                    HStack {
+                                        Image(systemName: "map")
+                                        Text("Map Object")
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            // Action to hide or show layer
+                                            if hiddenLayers.contains(obj.id) {
+                                                hiddenLayers.remove(obj.id)
+                                            } else {
+                                                hiddenLayers.insert(obj.id)
+                                            }
+                                        }, label: {
+                                            Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
+                                        })
+                                        .buttonStyle(.plain)
+                                        
+                                        Button(action: {
+                                            //MARK: Show and Hide settinsg for selected layer
+                                        }, label: {
+                                            Image(systemName: "gear")
+                                        })
+                                        .buttonStyle(.plain)
+                                        .padding(.horizontal)
+                                        
+                                        
+                                        Button(action: {
+                                            objectToDelete = obj
+                                            showAlert = true
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                        .foregroundColor(.red)
+                                        
+                                        
+                                    }
+                                case .circleGauge:
+                                    //Still to be added
+                                    Text("Circle Gauge Object")
+                                        .offset(y: 50)
+                                case .customShape:
+                                    //Still to be added
+                                    Text("Custom Shape Object")
+                                        .offset(y: 50)
+                                case .glassShape:
+                                    HStack {
+                                        Image(systemName: "square")
+                                        Text("Glass Object")
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            // Action to hide or show layer
+                                            if hiddenLayers.contains(obj.id) {
+                                                hiddenLayers.remove(obj.id)
+                                            } else {
+                                                hiddenLayers.insert(obj.id)
+                                            }
+                                        }, label: {
+                                            Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
+                                        })
+                                        .buttonStyle(.plain)
+                                        
+                                        Button(action: {
+                                            //MARK: Show and Hide settinsg for selected layer
+                                        }, label: {
+                                            Image(systemName: "gear")
+                                        })
+                                        .buttonStyle(.plain)
+                                        .padding(.horizontal)
+                                        
+                                        
+                                        Button(action: {
+                                            objectToDelete = obj
+                                            showAlert = true
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                        .foregroundColor(.red)
+                                        
+                                        
+                                    }
                                 }
-                            case .circleGauge:
-                                //Still to be added
-                                Text("Circle Gauge Object")
-                                    .offset(y: 50)
-                            case .customShape:
-                                //Still to be added
-                                Text("Custom Shape Object")
-                                    .offset(y: 50)
-                            case .glassShape:
-                                HStack {
-                                    Image(systemName: "square")
-                                    Text("Glass Object")
-                                    
-                                    Spacer()
-                                    
-                                    Button(action: {
-                                        // Action to hide or show layer
-                                        if hiddenLayers.contains(obj.id) {
-                                            hiddenLayers.remove(obj.id)
-                                        } else {
-                                            hiddenLayers.insert(obj.id)
-                                        }
-                                    }, label: {
-                                        Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
-                                    })
-                                    .buttonStyle(.plain)
-                                    
-                                    Button(action: {
-                                        //MARK: Show and Hide settinsg for selected layer
-                                    }, label: {
-                                        Image(systemName: "gear")
-                                    })
-                                    .buttonStyle(.plain)
-                                    .padding(.horizontal)
-                                    
-                                    
-                                    Button(action: {
-                                        objectToDelete = obj
-                                        showAlert = true
-                                    }, label: {
-                                        Image(systemName: "trash")
-                                    })
-                                    .foregroundColor(.red)
-                                    
-                                    
-                                }
-                            }
-                        }.padding(8)
-                            .background(selection == obj.id ? highlightColor : Color.clear)
-                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                            }.padding(8)
+                                .background(selection == obj.id ? highlightColor : Color.clear)
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
+                        }
                     }
-                }
-                .listStyle(PlainListStyle())
+                    .listStyle(PlainListStyle())
             }
             
             Spacer()
@@ -328,6 +322,5 @@ struct PlacedObjectsListView: View {
     private func removeLayer(at index: UUID) {
         placedObjects.removeAll { $0.id == index }
     }
-    
 }
 
