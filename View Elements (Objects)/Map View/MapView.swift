@@ -19,25 +19,26 @@ struct MapView: View {
         ZStack {
             MapExtensionView(locationDataManager: locationDataManager, map: map)
                 .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
+                .cornerRadius(map.appearance.cornerRadius)
                 .if(map.mapInvertColor) { view in
                     view.colorInvert()
                 }
                 .overlay(map.mapOverlayColor)
-                .mask(
-                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
-                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
-                        .cornerRadius(map.appearance.cornerRadius)
-                )
+//                .mask(
+//                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
+//                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
+//                        .cornerRadius(map.appearance.cornerRadius)
+//                )
                 .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
                 .blendMode(map.appearance.blendMode)
                 .opacity(map.appearance.opacity)
                 .animation(.spring())
-                .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                 //MARK: Testing purposes only - will be removed into own section.
                 .onTapGesture{
                     showSettings.toggle()
                 }
         }
+      
         //MARK: Testing purposes only - will be removed into own section.
         .sheet(isPresented: $showSettings){
             MapSettings(map: map, showSettings: $showSettings)
@@ -58,6 +59,14 @@ extension View {
     }
 }
  
+struct CustomClipShape: Shape {
+    let rect: CGRect
+
+    func path(in rect: CGRect) -> Path {
+        return Rectangle().path(in: self.rect)
+    }
+}
+
 
 
 struct MapView_Previews: PreviewProvider {

@@ -27,7 +27,7 @@ struct MapExtensionView: UIViewRepresentable {
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
         mapView.isUserInteractionEnabled = false
-        mapView.mapType = .mutedStandard
+        mapView.mapType = .standard 
         
         // Map dark and light mode
         mapView.overrideUserInterfaceStyle = map.appearance.darkMode ? .dark : .light
