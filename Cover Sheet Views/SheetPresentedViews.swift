@@ -28,6 +28,7 @@ struct SheetPresentedViews: View {
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
+    @Binding var hiddenLayers: Set<UUID>
    
   
     var body: some View {
@@ -50,7 +51,7 @@ struct SheetPresentedViews: View {
             LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
              */
-            PlacedObjectsListView(placedObjects: $placedObjects, selection: $selection)
+            PlacedObjectsListView(placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
     }

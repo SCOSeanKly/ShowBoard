@@ -31,6 +31,7 @@ struct GroupView: View {
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
+    @Binding var hiddenLayers: Set<UUID>
     
     var body: some View {
         Group {
@@ -48,7 +49,7 @@ struct GroupView: View {
             ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
             
             //MARK: View containing the SheetPresentedViews
-            SheetPresentedViews(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection)
+            SheetPresentedViews(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers)
         }
     }
 }

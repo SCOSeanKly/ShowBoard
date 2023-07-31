@@ -52,6 +52,7 @@ struct ShowBoardView: View {
     //MARK: New Variables
     @State private var placedObjects: [LayerObject] = []
     @State private var selection: UUID?
+    @State private var hiddenLayers: Set<UUID> = []
     
     
     var body: some View {
@@ -65,29 +66,33 @@ struct ShowBoardView: View {
                 ImportedImageView(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
                 
                 ForEach(self.placedObjects) { obj in
-                    VStack {
-                        switch obj.objectType {
-                        case .text:         TextObjectView(text: obj as! TextObject)
-                        case .map:          MapView(
-                                                locationDataManager: locationDataManager,
-                                                map: obj as! MapObject
-                                            )
-                        case .circleGauge:  GlassShapeView()
-                        case .customShape:  GlassShapeView()
-                        case .glassShape:   GlassShapeView()
+                    if !hiddenLayers.contains(obj.id) {
+                        VStack {
+                            switch obj.objectType {
+                            case .text:         TextObjectView(text: obj as! TextObject)
+                            case .map:          MapView(
+                                locationDataManager: locationDataManager,
+                                map: obj as! MapObject
+                            )
+                            case .circleGauge:  GlassShapeView()
+                            case .customShape:  GlassShapeView()
+                            case .glassShape:   GlassShapeView()
+                            }
                         }
+                        .padding(10)
+                        .overlay{
+                            MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
+                        }
+                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                        .fadeOnAppear()
                     }
-                    .padding()
-                    .border(selection == obj.id ? Color.red : .clear) // Add the red border
-                    .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
-                    .fadeOnAppear()
                 }
             }
             
             
             
             /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
-            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection)
+            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers)
             
             
             
@@ -111,12 +116,26 @@ struct ShowBoardView_Previews: PreviewProvider {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
 //MARK: Started on the list view
 struct PlacedObjectsListView: View {
     @Binding var placedObjects: [LayerObject]
     @State private var showAlert = false
     @State private var objectToDelete: LayerObject?
     @Binding var selection: UUID?
+    @Binding var hiddenLayers: Set<UUID>
+    
+    
     
     let highlightColor = Color.red.opacity(0.05)
     
@@ -159,23 +178,20 @@ struct PlacedObjectsListView: View {
                                 HStack {
                                     Image(systemName: "character.textbox")
                                     Text("Text Object")
-                                      
-                                        
+                                    
+                                    
                                     
                                     Spacer()
                                     
                                     Button(action: {
-                                        
-                                        //Action to hide layer
-                                        
+                                        // Action to hide or show layer
+                                        if hiddenLayers.contains(obj.id) {
+                                            hiddenLayers.remove(obj.id)
+                                        } else {
+                                            hiddenLayers.insert(obj.id)
+                                        }
                                     }, label: {
-                                        
-                                        /*
-                                         Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
-                                         .font(.footnote)
-                                         .foregroundColor(itemButtons[index] ? Color.red : Color.primary)
-                                         */
-                                        
+                                        Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
                                     })
                                     .buttonStyle(.plain)
                                     
@@ -198,7 +214,7 @@ struct PlacedObjectsListView: View {
                                     
                                     
                                 }
-                               
+                                
                                 
                             case .map:
                                 HStack {
@@ -208,17 +224,14 @@ struct PlacedObjectsListView: View {
                                     Spacer()
                                     
                                     Button(action: {
-                                        
-                                        //Action to hide layer
-                                        
+                                        // Action to hide or show layer
+                                        if hiddenLayers.contains(obj.id) {
+                                            hiddenLayers.remove(obj.id)
+                                        } else {
+                                            hiddenLayers.insert(obj.id)
+                                        }
                                     }, label: {
-                                        
-                                        /*
-                                         Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
-                                         .font(.footnote)
-                                         .foregroundColor(itemButtons[index] ? Color.red : Color.primary)
-                                         */
-                                        
+                                        Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
                                     })
                                     .buttonStyle(.plain)
                                     
@@ -242,9 +255,11 @@ struct PlacedObjectsListView: View {
                                     
                                 }
                             case .circleGauge:
+                                //Still to be added
                                 Text("Circle Gauge Object")
                                     .offset(y: 50)
                             case .customShape:
+                                //Still to be added
                                 Text("Custom Shape Object")
                                     .offset(y: 50)
                             case .glassShape:
@@ -255,17 +270,14 @@ struct PlacedObjectsListView: View {
                                     Spacer()
                                     
                                     Button(action: {
-                                        
-                                        //Action to hide layer
-                                        
+                                        // Action to hide or show layer
+                                        if hiddenLayers.contains(obj.id) {
+                                            hiddenLayers.remove(obj.id)
+                                        } else {
+                                            hiddenLayers.insert(obj.id)
+                                        }
                                     }, label: {
-                                        
-                                        /*
-                                         Image(systemName:(itemButtons[index] ? "eye.slash" : "eye"))
-                                         .font(.footnote)
-                                         .foregroundColor(itemButtons[index] ? Color.red : Color.primary)
-                                         */
-                                        
+                                        Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
                                     })
                                     .buttonStyle(.plain)
                                     
@@ -290,8 +302,8 @@ struct PlacedObjectsListView: View {
                                 }
                             }
                         }.padding(8)
-                        .background(selection == obj.id ? highlightColor : Color.clear)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
+                            .background(selection == obj.id ? highlightColor : Color.clear)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
                     }
                 }
                 .listStyle(PlainListStyle())

@@ -78,10 +78,6 @@ struct ObjectSelectionView: View {
                 .padding([.leading, .bottom, .trailing])
                 
                 
-                
-                
-                
-                
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
                     ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)

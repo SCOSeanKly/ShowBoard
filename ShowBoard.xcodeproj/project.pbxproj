@@ -66,6 +66,7 @@
 		3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */; };
 		3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5C02A438A5D00FA1BCB /* ZoomModifier.swift */; };
 		3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */; };
+		3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */; };
 		3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671972A4EF20A00DF2678 /* GroupView.swift */; };
 		3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */; };
 		3EBF306C2A6EBE3D004C12B5 /* CustomPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */; };
@@ -176,6 +177,7 @@
 		3EADA5B92A43433D00FA1BCB /* GridOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridOverlay.swift; sourceTree = "<group>"; };
 		3EADA5C02A438A5D00FA1BCB /* ZoomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomModifier.swift; sourceTree = "<group>"; };
 		3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateModifier.swift; sourceTree = "<group>"; };
+		3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarchingAntsBorder.swift; sourceTree = "<group>"; };
 		3EB671972A4EF20A00DF2678 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOnAppear.swift; sourceTree = "<group>"; };
 		3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentation.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				3E546A722A69672100AE1ED7 /* SettingsFonts.swift */,
 				3E83AABD2A6A86E100E344C9 /* CustomShape.swift */,
 				3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */,
+				3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
 				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
+				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */,
 				3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */,
