@@ -25,6 +25,8 @@ struct MenuButtonsView: View {
     @State private var currentImageIndex = 0
     private let images = ["square.3.layers.3d.top.filled", "square.3.layers.3d.middle.filled", "square.3.layers.3d.bottom.filled"]
     
+    @Binding var placedObjects: [LayerObject]
+    
     var body: some View {
         Group {
             ZStack {
@@ -82,15 +84,34 @@ struct MenuButtonsView: View {
     }
     
     private func layersButton() -> some View {
-        Image(systemName: images[currentImageIndex])
-            .font(.title2)
-            .foregroundColor(.white)
-            .padding()
+        
+      
+            HStack (spacing: -15){
+                if placedObjects.count >= 1 {
+                Text("\(placedObjects.count)")
+                    .font(.footnote)
+                    .foregroundColor(.black)
+                    .padding(.vertical, 1)
+                    .padding(.horizontal, 4)
+                    .background{
+                        RoundedRectangle(cornerRadius: 5)
+                            .foregroundColor(.white)
+                    }
+                    .scaleEffect(0.8)
+            }
+            
+            Image(systemName: images[currentImageIndex])
+                .font(.title2)
+                .foregroundColor(.white)
+                .padding()
+               
+                .contentShape(Circle())
+        }
             .shadow(radius: 5)
-            .contentShape(Circle())
             .offset(y: 2)
             .scaleEffect(isPressingLayers ? 0.8 : 1)
             .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressingLayers)
+           
             .onTapGesture {
                 showLayerEditView.toggle()
                 isPressingLayers.toggle()

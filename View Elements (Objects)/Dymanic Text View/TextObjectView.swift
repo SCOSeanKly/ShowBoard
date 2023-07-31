@@ -11,6 +11,7 @@ import SwiftUI
 struct TextObjectView: View {
     
     @StateObject var text: TextObject
+    @State private var showSettings: Bool = false
     
     var body: some View {
         Text(text.dynamicText)
@@ -28,5 +29,12 @@ struct TextObjectView: View {
             .rotationEffect(text.appearance.rotation)
             .opacity(text.appearance.opacity)
             .blur(radius: text.appearance.blur)
+        //MARK: Testing purposes only - will be removed
+            .onTapGesture {
+                showSettings.toggle()
+            }
+            .sheet(isPresented: $showSettings){
+                DynamicTextEditViewSettings(text: text)
+            }
     }
 }

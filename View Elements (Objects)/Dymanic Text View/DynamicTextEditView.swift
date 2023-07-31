@@ -18,19 +18,13 @@ struct DynamicTextView: View {
         
         ScrollView {
             
-            Button(action: { text.appearance.rotation = Angle(degrees: 45) }) { Text("ROTATE TEST") }
-            
             VStack {
                 HStack {
-                    Text("Enter text...(Tap to show Settings)")
+                    Text("Enter text...")
                         .font(.headline.weight(.heavy))
                         .fontWeight(.semibold)
                         .foregroundColor(.black)
-                    //MARK: Testing purposes only - will be removed
-                        .onTapGesture {
-                            showSettings.toggle()
-                        }
-                    
+                   
                     Spacer()
                 }
                 .padding(.horizontal)
@@ -48,7 +42,7 @@ struct DynamicTextView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.black) +
                     
-                    Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeofday]")
+                    Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeOfDay]")
                         .font(.system(size: 10))
                         .foregroundColor(.black)
                     
@@ -56,18 +50,8 @@ struct DynamicTextView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 5)
-                
-                HStack {
-                    TextObjectView(text: text)
-                    Spacer()
-                }
-                .padding(.leading)
             }
-            .padding(.horizontal)
-        }
-        //MARK: Testing purposes only - will be removed into own section.
-        .sheet(isPresented: $showSettings){
-            DynamicTextEditViewSettings(text: text)
+        
         }
     }
 }

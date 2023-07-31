@@ -17,17 +17,19 @@ struct DynamicTextEditViewSettings: View {
         
         ScrollView (showsIndicators: false){
             
-            LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "questionmark.circle", systemImage2: "")
+            LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Dynamic Text", systemImage: "questionmark.circle", systemImage2: "")
             
             Group {
                 ResetValues(resetValues: resetDynamicTextValues)
+                
+                DynamicTextView(text: text)
                 
                 CustomFontPicker(bindingValue: $text.selectedFontName)
                 
                 SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                 
                 SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.fontTracking, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
-                
+                /*
                 //MARK: Still to do
                 HStack {
                     Text("Font Alignment:")
@@ -40,6 +42,7 @@ struct DynamicTextEditViewSettings: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 } //Font alignment: leading, center, trailing
+                 */
                 
                 SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $text.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
             }
@@ -63,7 +66,7 @@ struct DynamicTextEditViewSettings: View {
             }
             
         }
-        .customPresentationWithBlur(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.01)
+        .customPresentationWithBlur(detent: .medium,detent2: .large, blurRadius: 9, backgroundColorOpacity: 0.3)
         
     }
     

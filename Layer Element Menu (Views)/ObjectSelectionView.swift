@@ -35,47 +35,63 @@ struct ObjectSelectionView: View {
                 Spacer()
                     .frame(height: 70)
                 
-                
-                ObjectTitleText(titleText: "Text")
-                LazyVGrid(columns: gridItems, spacing: 16) {
-                    ObjectSelectionButton(
-                        action: {
-                            placedObjects.append(TextObject())
-                            showLayerElementView = false
-                        },
-                        imageType: .system(name: "character.textbox"),
-                        textDescription: "Custom"
-                    )
+                Group {
+                    ObjectTitleText(titleText: "Custom Text")
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(TextObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "character.textbox"),
+                            textDescription: "Custom"
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing])
+                    
+                    
+                    ObjectTitleText(titleText: "Map Image")
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(MapObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "map"),
+                            textDescription: "Custom Map"
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing])
+                    
+                    
+                    ObjectTitleText(titleText: "Glass Effect")
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(LayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "rectangle"),
+                            textDescription: "Glass"
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing])
+                    
+                    
+                    ObjectTitleText(titleText: "Battery Gauge")
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(CircleGaugeObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "circle"),
+                            textDescription: "Gauge"
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing])
+                    
                 }
-                .padding([.leading, .bottom, .trailing])
-                
-                
-                ObjectTitleText(titleText: "Maps")
-                LazyVGrid(columns: gridItems, spacing: 16) {
-                    ObjectSelectionButton(
-                        action: {
-                            placedObjects.append(MapObject())
-                            showLayerElementView = false
-                        },
-                        imageType: .system(name: "map"),
-                        textDescription: "Custom Map"
-                    )
-                }
-                .padding([.leading, .bottom, .trailing])
-                
-                
-                ObjectTitleText(titleText: "Glass stuff")
-                LazyVGrid(columns: gridItems, spacing: 16) {
-                    ObjectSelectionButton(
-                        action: {
-                            placedObjects.append(LayerObject())
-                            showLayerElementView = false
-                        },
-                        imageType: .system(name: "rectangle"),
-                        textDescription: "Glass"
-                    )
-                }
-                .padding([.leading, .bottom, .trailing])
                 
                 
                 ObjectTitleText(titleText: "Import Layer Image")

@@ -32,6 +32,7 @@ struct GroupView: View {
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
     @Binding var hiddenLayers: Set<UUID>
+   
     
     var body: some View {
         Group {
@@ -43,7 +44,7 @@ struct GroupView: View {
                 .modifier(VerticalDragModifier())
             
             //MARK:  Menu Buttons
-            MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls)
+            MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls, placedObjects: $placedObjects)
             
             //MARK: Show Image Picker Sheets
             ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
