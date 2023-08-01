@@ -30,7 +30,7 @@ struct DynamicTextView: View {
                 .padding(.horizontal)
                 
                 TextEditor(text: $text.inputText)
-                    .frame(height: 100)
+                    .frame(height: 60)
                     .padding(5)
                     .background(.ultraThinMaterial)
                     .padding(.horizontal)

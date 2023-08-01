@@ -70,6 +70,7 @@ struct CustomShapeSettings: View {
                 SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
             }
         }
+        .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
     }
     
     private func resetCustomShapeValues() {

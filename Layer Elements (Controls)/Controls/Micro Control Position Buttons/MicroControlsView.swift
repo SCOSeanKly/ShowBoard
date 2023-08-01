@@ -22,10 +22,15 @@ struct MicroControlsView: View {
             ScaleButton(widthRatio: $widthRatio, heightRatio: $heightRatio)
         }
         .padding()
-        .background(.ultraThinMaterial.opacity(0.5))
+        .background{
+            TransparentBlurView(removeAllFilters: true)
+                .blur(radius: 10, opaque: true)
+        }
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .contentShape(Rectangle())
         .offset(y: showMicroControls ? 0 : UIScreen.main.bounds.height)
         .animation(.easeInOut, value: showMicroControls)
+        .shadow(radius: 5, y: 3)
+        .modifier(VerticalDragModifier())
     }
 }

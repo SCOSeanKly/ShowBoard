@@ -50,7 +50,8 @@ struct MapSettings: View {
                     .frame(height: 100)
             }
         }
-        .customPresentationWithBlur(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.01)
+       
+        .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
     }
     
     private func resetMapValues() {

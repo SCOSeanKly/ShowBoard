@@ -54,22 +54,40 @@ struct ShowBoardView: View {
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
     
-    
-    
-    
+  
     var body: some View {
         ZStack {
             
             //MARK: Imported Background (Wallpaper) Image
             BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons)
+                .onTapGesture {
+                    if placedObjects.count >= 1 {
+                        if selection != nil {
+                            feedback()
+                            showMicroControls.toggle()
+                        }
+                    }
+                    
+                    selection = nil
+                }
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
                 ImportedImageView(importedImage1: importedImage1, importedImage2: importedImage2, importedImage3: importedImage3)
+                    .onTapGesture {
+                        if placedObjects.count >= 1 {
+                            if selection != nil{
+                                feedback()
+                                showMicroControls.toggle()
+                            }
+                        }
+                      
+                        selection = nil
+                    }
                 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
-                        VStack {
+                        ZStack {
                             switch obj.objectType {
                             case .text:         TextObjectView(text: obj as! TextObject)
                             case .map:          MapView(
@@ -82,14 +100,20 @@ struct ShowBoardView: View {
                             }
                         }
                         .padding(10)
-                        .overlay{
-                            MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
+                        .background{
+                                MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
-                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                        .offset(x: obj.id == selection ? offsetX : 0, y: obj.id == selection ? offsetY : 0)
+                        .scaleEffect(obj.id == selection ? CGSize(width: widthRatio, height: heightRatio) : CGSize(width: 1.0, height: 1.0))
+                        .onLongPressGesture {
+                            showMicroControls.toggle()
+                        }
+                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: true))
                         //MARK: is this the best way?
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id ? true : false)
                         .fadeOnAppear()
+                       
                     }
                 }
             }
@@ -118,6 +142,9 @@ struct ShowBoardView: View {
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
         ShowBoardView()
+            .preferredColorScheme(.light)
+            .environment(\.sizeCategory, .small)
+            .environment(\.colorScheme, .light)
     }
 }
 
@@ -136,6 +163,7 @@ struct PlacedObjectsListView: View {
     @State private var isPressingHideLayer: Bool = false
     @State private var isPressingSettings: Bool = false
     @State private var isPressingDelete: Bool = false
+    @Binding var showLayerEditView: Bool
     
     let highlightColor = Color.red.opacity(0.05)
     
@@ -179,9 +207,15 @@ struct PlacedObjectsListView: View {
                             feedback()
                             
                             if let currentSelection = selection, currentSelection == obj.id {
+                                
                                 selection = nil
+                                
                             } else {
+                                
                                 selection = obj.id
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    showLayerEditView.toggle()}
                             }
                         } label: {
                             objectButtonView(for: obj)
@@ -196,7 +230,7 @@ struct PlacedObjectsListView: View {
                     .onMove(perform: moveLayer)
                 }
                 .listStyle(.plain)
-
+                
             }
             
             Spacer()
@@ -228,7 +262,7 @@ struct PlacedObjectsListView: View {
         // Reorder the placedObjects array based on the new index
         placedObjects.move(fromOffsets: source, toOffset: destination)
     }
-
+    
     
     private func showAlertForDeleteAllLayers() {
         showAlert = true
@@ -323,7 +357,7 @@ struct PlacedObjectsListView: View {
         case circleGauge
         case customShape
         case glassShape
-      
+        
         
         var icon: String {
             switch self {
@@ -332,7 +366,7 @@ struct PlacedObjectsListView: View {
             case .circleGauge: return "circle"
             case .customShape: return "custom.shape"
             case .glassShape: return "square"
-          
+                
             }
         }
         
@@ -343,7 +377,7 @@ struct PlacedObjectsListView: View {
             case .circleGauge: return "Circle Gauge Object"
             case .customShape: return "Custom Shape Object"
             case .glassShape: return "Glass Object"
-           
+                
             }
         }
     }

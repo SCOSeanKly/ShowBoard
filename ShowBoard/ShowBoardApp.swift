@@ -13,6 +13,9 @@ struct ShowBoardApp: App {
         WindowGroup {
             
             ContentView()
+                .preferredColorScheme(.light)
+                .environment(\.sizeCategory, .small)
+                .environment(\.colorScheme, .light)
          // DynamicTextView()
             
         }

@@ -41,7 +41,7 @@ struct GroupView: View {
             
             //MARK: Micro controller buttons
             MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)
-                .modifier(VerticalDragModifier())
+              
             
             //MARK:  Menu Buttons
             MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls, placedObjects: $placedObjects)

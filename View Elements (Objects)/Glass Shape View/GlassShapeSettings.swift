@@ -46,7 +46,7 @@ struct GlassShapeSettings: View {
             Spacer()
                 .frame(height: 100)
         }
-        .customPresentationWithBlur(detent: .medium, blurRadius: 9, backgroundColorOpacity: 0.3)
+        .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
     }
     
     private func resetGlassShapeValues() {
