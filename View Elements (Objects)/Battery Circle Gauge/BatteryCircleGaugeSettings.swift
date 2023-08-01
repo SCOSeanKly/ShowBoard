@@ -17,7 +17,22 @@ struct BatteryCircleGaugeSettings: View {
 
             ScrollView (showsIndicators: false){
                 
-                LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "questionmark.circle", systemImage2: "")
+              //  LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Circle Battery Gauge", systemImage: "circle", systemImage2: "")
+                
+                HStack {
+                    
+                    Image(systemName: "circle")
+                        .font(.title3)
+                       
+                    HStack {
+                        Text("Circle Battery Gauge Object")
+                            .font(.headline.weight(.semibold))
+                    }
+                    
+                    Spacer()
+                    
+                }
+                .padding()
                 
                 Group {
                     
@@ -76,9 +91,9 @@ struct BatteryCircleGaugeSettings: View {
         bat.appearance.opacity = 1
         bat.showCurrentValueLabel = true
         bat.showMinMaxValueLabels = true
-        bat.gaugeColor = .blue
-        bat.currentValueLabelColor = .blue
-        bat.minMaxValueLabelColor = .blue
+        bat.gaugeColor = .white
+        bat.currentValueLabelColor = .white
+        bat.minMaxValueLabelColor = .white
         bat.appearance.shadow.radius = 0
         bat.appearance.shadow.offset.y = 0
         bat.appearance.shadowOpacity = 0

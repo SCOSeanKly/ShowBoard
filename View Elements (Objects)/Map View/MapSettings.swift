@@ -12,13 +12,29 @@ struct MapSettings: View {
     @StateObject var map = MapObject()
     
     @Binding var showSettings: Bool
+   
     
     
     var body: some View {
         
         ScrollView (showsIndicators: false){
             
-            LayerBackButton(selfViewToClose: $showSettings, viewToOpen: $showSettings, showLayerElementView: $showSettings, headerText: "Maps", systemImage: "questionmark.circle", systemImage2: "")
+          //  LayerBackButton(selfViewToClose: $showSettings, viewToOpen: $showSettings, showLayerElementView: $showSettings, headerText: "Maps", systemImage: "map", systemImage2: "")
+            
+            HStack {
+                
+                Image(systemName: "map")
+                    .font(.title3)
+                   
+                HStack {
+                    Text("Maps Object")
+                        .font(.headline.weight(.semibold))
+                }
+                
+                Spacer()
+                
+            }
+            .padding()
             
             Group {
                 ResetValues(resetValues: resetMapValues)

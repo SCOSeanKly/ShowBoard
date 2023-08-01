@@ -64,7 +64,7 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                     
                     
-                    ObjectTitleText(titleText: "Glass Effect")
+                    ObjectTitleText(titleText: "Shapes")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
                             action: {
@@ -74,6 +74,16 @@ struct ObjectSelectionView: View {
                             imageType: .system(name: "rectangle"),
                             textDescription: "Glass"
                         )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(CustomShapeObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "star"),
+                            textDescription: "Custom"
+                        )
+                        
                     }
                     .padding([.leading, .bottom, .trailing])
                     

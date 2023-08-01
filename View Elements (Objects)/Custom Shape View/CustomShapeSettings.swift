@@ -10,11 +10,28 @@ import SwiftUI
 struct CustomShapeSettings: View {
     
     @StateObject var shape = CustomShapeObject()
- 
+   
+    
     
     var body: some View {
         ScrollView{
             Group {
+                
+                HStack {
+                    
+                    Image(systemName: "star")
+                        .font(.title3)
+                       
+                    HStack {
+                        Text("Custom Shape Object")
+                            .font(.headline.weight(.semibold))
+                    }
+                    
+                    Spacer()
+                    
+                }
+                .padding()
+                
                 ResetValues(resetValues: resetCustomShapeValues)
                 
                 SliderStepper(color: .blue, title: "Count:", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
@@ -24,13 +41,14 @@ struct CustomShapeSettings: View {
                 SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 250)
                 
                 SliderStepper(color: .blue, title: "Height:", sliderBindingValue: $shape.shapeFrameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1, specifier: 0, defaultValue: 250)
-                
+                /*
                 // TODO: resetting only resets X and not Y
                 SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $shape.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
                     .onChange(of: shape.appearance.scales) { _ in
                         shape.appearance.scales.y =
                         shape.appearance.scales.x
                     }
+                 */
             }
             
             Group {
@@ -47,7 +65,7 @@ struct CustomShapeSettings: View {
                 SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $shape.appearance.blur, minValue: 0, maxValue: 50, step: 1.0, specifier: 0, defaultValue: 0)
                 
                 CustomColorPicker(titleText: "Set the background color", pickerBindingValue:  $shape.shapeColor)
-                 
+                
                 
                 HStack {
                     Text("Blend Mode:")
@@ -65,23 +83,26 @@ struct CustomShapeSettings: View {
                 }
                 .frame(height: 20)
                 .padding(.horizontal)
-           
+                
                 
                 SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $shape.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
             }
+            
+            Spacer()
+                .frame(height: 100)
         }
         .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
     }
     
     private func resetCustomShapeValues() {
         /*
-        width = 300
-        height = 150
-        cornerRadius = 0
-        shadowRadius = 0
-        shadowOffset = 0
-        blendMode = .normal
-        colorOverlay = .clear
+         width = 300
+         height = 150
+         cornerRadius = 0
+         shadowRadius = 0
+         shadowOffset = 0
+         blendMode = .normal
+         colorOverlay = .clear
          */
     }
     

@@ -17,7 +17,22 @@ struct GlassShapeSettings: View {
         ScrollView (showsIndicators: false){
             
             Group {
-                LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "questionmark.circle", systemImage2: "")
+              //  LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "square", systemImage2: "")
+                
+                HStack {
+                    
+                    Image(systemName: "square")
+                        .font(.title3)
+                       
+                    HStack {
+                        Text("Glass Object")
+                            .font(.headline.weight(.semibold))
+                    }
+                    
+                    Spacer()
+                    
+                }
+                .padding()
                 
                 ResetValues(resetValues: resetGlassShapeValues)
                 

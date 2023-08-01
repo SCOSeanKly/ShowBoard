@@ -30,7 +30,7 @@ struct MicroControlsView: View {
         .contentShape(Rectangle())
         .offset(y: showMicroControls ? 0 : UIScreen.main.bounds.height)
         .animation(.easeInOut, value: showMicroControls)
-        .shadow(radius: 5, y: 3)
+        .shadow(radius: 2)
         .modifier(VerticalDragModifier())
     }
 }

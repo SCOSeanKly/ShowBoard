@@ -27,6 +27,7 @@ struct MenuButtonsView: View {
     
     @Binding var placedObjects: [LayerObject]
     
+    
     var body: some View {
         Group {
             ZStack {
@@ -92,26 +93,25 @@ struct MenuButtonsView: View {
                     .font(.footnote)
                     .foregroundColor(.black)
                     .padding(.vertical, 1)
-                    .padding(.horizontal, 4)
+                    .padding(.horizontal, 5)
                     .background{
                         RoundedRectangle(cornerRadius: 5)
                             .foregroundColor(.white)
                     }
-                    .scaleEffect(0.8)
+                    .offset(x: -4)
+                   
             }
             
             Image(systemName: images[currentImageIndex])
                 .font(.title2)
                 .foregroundColor(.white)
                 .padding()
-               
                 .contentShape(Circle())
         }
             .shadow(radius: 5)
             .offset(y: 2)
             .scaleEffect(isPressingLayers ? 0.8 : 1)
             .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressingLayers)
-           
             .onTapGesture {
                 showLayerEditView.toggle()
                 isPressingLayers.toggle()

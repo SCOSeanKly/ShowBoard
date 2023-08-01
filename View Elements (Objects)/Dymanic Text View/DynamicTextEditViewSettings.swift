@@ -17,7 +17,22 @@ struct DynamicTextEditViewSettings: View {
         
         ScrollView (showsIndicators: false){
             
-            LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Dynamic Text", systemImage: "questionmark.circle", systemImage2: "")
+         //   LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Dynamic Text", systemImage: "character.textbox", systemImage2: "")
+            
+            HStack {
+                
+                Image(systemName: "character.textbox")
+                    .font(.title3)
+                   
+                HStack {
+                    Text("Dynamic Text Object")
+                        .font(.headline.weight(.semibold))
+                }
+                
+                Spacer()
+                
+            }
+            .padding()
             
             Group {
                 ResetValues(resetValues: resetDynamicTextValues)

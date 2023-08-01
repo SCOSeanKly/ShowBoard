@@ -13,6 +13,7 @@ public struct CustomShapeView: View {
     @StateObject var shape = CustomShapeObject()
     
     @State private var isSliderMode = true
+    @State private var showSettings: Bool = false
     
     public init() {}
     
@@ -25,15 +26,14 @@ public struct CustomShapeView: View {
                 .background {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: shape.shapeBlur, opaque: true)
-                        .background(.white.opacity(0.05))
                         .opacity(shape.appearance.opacity)
                 }
                 .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
                 .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
-                .scaleEffect(
-                    x: shape.appearance.scales.x,
-                    y: shape.appearance.scales.y
-                )
+//                .scaleEffect(
+//                    x: shape.appearance.scales.x,
+//                    y: shape.appearance.scales.y
+//                )
                 .rotationEffect(shape.appearance.rotation)
                 .shadow(
                     radius: shape.appearance.shadow.radius,
@@ -45,10 +45,12 @@ public struct CustomShapeView: View {
                 .rotation3DEffect(.degrees(shape.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
                 .rotation3DEffect(.degrees(shape.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
                 .animation(.spring())
-            
-            // MARK: Settings
+                .onTapGesture{
+                    showSettings.toggle()
+                } 
+        }
+        .sheet(isPresented: $showSettings){
             CustomShapeSettings(shape: shape)
-            
         }
         .padding()
         .ignoresSafeArea()

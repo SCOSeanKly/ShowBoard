@@ -39,6 +39,9 @@
 		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
 		3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */; };
 		3E73E5272A6E7CB100DBE1D2 /* MapSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */; };
+		3E82803C2A7939B800F174F9 /* RainFallLanding.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3E82803A2A7939B800F174F9 /* RainFallLanding.sks */; };
+		3E82803D2A7939B800F174F9 /* RainFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3E82803B2A7939B800F174F9 /* RainFall.sks */; };
+		3E82803F2A793A8200F174F9 /* Rainfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82803E2A793A8200F174F9 /* Rainfall.swift */; };
 		3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */; };
 		3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83AABD2A6A86E100E344C9 /* CustomShape.swift */; };
 		3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849892A41D47800B50BBD /* ShowBoardApp.swift */; };
@@ -145,6 +148,9 @@
 		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
 		3E61FC042A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverImagePickerViews.swift; sourceTree = "<group>"; };
 		3E73E5262A6E7CB100DBE1D2 /* MapSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSettings.swift; sourceTree = "<group>"; };
+		3E82803A2A7939B800F174F9 /* RainFallLanding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFallLanding.sks; sourceTree = "<group>"; };
+		3E82803B2A7939B800F174F9 /* RainFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall.sks; sourceTree = "<group>"; };
+		3E82803E2A793A8200F174F9 /* Rainfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rainfall.swift; sourceTree = "<group>"; };
 		3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepperDegrees.swift; sourceTree = "<group>"; };
 		3E83AABD2A6A86E100E344C9 /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		3E8849862A41D47800B50BBD /* ShowBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,9 +310,20 @@
 			path = "View Elements (Objects)";
 			sourceTree = "<group>";
 		};
+		3E8280392A7939A900F174F9 /* Rainfall Sprite Objects */ = {
+			isa = PBXGroup;
+			children = (
+				3E82803B2A7939B800F174F9 /* RainFall.sks */,
+				3E82803A2A7939B800F174F9 /* RainFallLanding.sks */,
+				3E82803E2A793A8200F174F9 /* Rainfall.swift */,
+			);
+			path = "Rainfall Sprite Objects";
+			sourceTree = "<group>";
+		};
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
+				3E8280392A7939A900F174F9 /* Rainfall Sprite Objects */,
 				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
 				3E8849BA2A41D57B00B50BBD /* WeatherKit & Location Manager */,
@@ -653,6 +670,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */,
+				3E82803C2A7939B800F174F9 /* RainFallLanding.sks in Resources */,
+				3E82803D2A7939B800F174F9 /* RainFall.sks in Resources */,
 				3E8849922A41D47800B50BBD /* Preview Assets.xcassets in Resources */,
 				3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */,
 				3E88498E2A41D47800B50BBD /* Assets.xcassets in Resources */,
@@ -714,6 +733,7 @@
 				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */,
+				3E82803F2A793A8200F174F9 /* Rainfall.swift in Sources */,
 				3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */,
 				3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */,
 				3E371CDF2A66B10500DE743C /* BatteryCircleGauge.swift in Sources */,

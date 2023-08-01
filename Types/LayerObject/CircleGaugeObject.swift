@@ -55,11 +55,11 @@ class CircleGaugeObject: LayerObject {
         maxValue: CGFloat = 100.0,
         currentValueLabelFontSize: CGFloat = 12,
         minMaxValueLabelFontSize: CGFloat = 6,
-        gaugeColor: Color = Color.blue,
+        gaugeColor: Color = Color.white,
         showCurrentValueLabel: Bool = true,
         showMinMaxValueLabels: Bool = true,
-        currentValueLabelColor: Color = Color.blue,
-        minMaxValueLabelColor: Color = Color.blue) {
+        currentValueLabelColor: Color = Color.white,
+        minMaxValueLabelColor: Color = Color.white) {
             
         self.minValue = minValue
         self.maxValue = maxValue

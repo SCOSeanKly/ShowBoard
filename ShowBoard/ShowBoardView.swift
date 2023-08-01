@@ -12,6 +12,7 @@ import Photos
 struct ShowBoardView: View {
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
+    @StateObject var shape = CustomShapeObject()
     
     //MARK: View Variables
     @State private var showBgPickerSheet = false
@@ -54,7 +55,7 @@ struct ShowBoardView: View {
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
     
-  
+    
     var body: some View {
         ZStack {
             
@@ -64,7 +65,7 @@ struct ShowBoardView: View {
                     if placedObjects.count >= 1 {
                         if selection != nil {
                             feedback()
-                            showMicroControls.toggle()
+                            showMicroControls = false
                         }
                     }
                     
@@ -78,10 +79,10 @@ struct ShowBoardView: View {
                         if placedObjects.count >= 1 {
                             if selection != nil{
                                 feedback()
-                                showMicroControls.toggle()
+                                showMicroControls = false
                             }
                         }
-                      
+                        
                         selection = nil
                     }
                 
@@ -95,13 +96,13 @@ struct ShowBoardView: View {
                                 map: obj as! MapObject
                             )
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
-                            case .customShape:  GlassShapeView()
+                            case .customShape:  CustomShapeView()
                             case .glassShape:   GlassShapeView()
                             }
                         }
                         .padding(10)
                         .background{
-                                MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
+                            MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
                         .offset(x: obj.id == selection ? offsetX : 0, y: obj.id == selection ? offsetY : 0)
                         .scaleEffect(obj.id == selection ? CGSize(width: widthRatio, height: heightRatio) : CGSize(width: 1.0, height: 1.0))
@@ -109,21 +110,38 @@ struct ShowBoardView: View {
                             showMicroControls.toggle()
                         }
                         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: true))
-                        //MARK: is this the best way?
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id ? true : false)
                         .fadeOnAppear()
-                       
+                        
                     }
                 }
             }
             
             
-            
             /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
-            GroupView(isDragging: $isDragging, showMicroControls: $showMicroControls, offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers)
-            
-            
+            GroupView(isDragging: $isDragging,
+                      showMicroControls: $showMicroControls,
+                      offsetX: $offsetX,
+                      offsetY: $offsetY,
+                      widthRatio: $widthRatio,
+                      heightRatio: $heightRatio,
+                      hideMenuButtons: $hideMenuButtons,
+                      showClipboardAlert: $showClipboardAlert,
+                      showLayerElementView: $showLayerElementView,
+                      showLayerEditView: $showLayerEditView,
+                      showImagePickerSheet1: $showImagePickerSheet1,
+                      showImagePickerSheet2: $showImagePickerSheet2,
+                      showImagePickerSheet3: $showImagePickerSheet3,
+                      importedImage1: $importedImage1,
+                      importedImage2: $importedImage2,
+                      importedImage3: $importedImage3,
+                      importedBackground: $importedBackground,
+                      showBgPickerSheet: $showBgPickerSheet,
+                      showUrlImageView: $showUrlImageView,
+                      placedObjects: $placedObjects,
+                      selection: $selection,
+                      hiddenLayers: $hiddenLayers)
             
         }
         .prefersPersistentSystemOverlaysHidden()
@@ -364,7 +382,7 @@ struct PlacedObjectsListView: View {
             case .text: return "character.textbox"
             case .map: return "map"
             case .circleGauge: return "circle"
-            case .customShape: return "custom.shape"
+            case .customShape: return "star"
             case .glassShape: return "square"
                 
             }
