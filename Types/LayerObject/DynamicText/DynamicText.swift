@@ -10,7 +10,7 @@ import Foundation
 
 struct DynamicText {
     
-    static func convert(input: String) -> String {
+    @MainActor static func convert(input: String, wk: WeatherKitManager) -> String {
         var text = input
         let pattern = "\\[.*?\\]"
         let regex = try! NSRegularExpression(pattern: pattern)
@@ -32,7 +32,7 @@ struct DynamicText {
             .replacingOccurrences(
                 of: tag,
                 with: placeholder.withCurrentWeather(
-                    weatherKitManager.weather?.currentWeather,
+                    wk.weather?.currentWeather,
                     unit: .celsius
                 )
             )

@@ -92,7 +92,7 @@ struct ShowBoardView: View {
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            case .text:         TextObjectView(text: obj as! TextObject)
+                            case .text:         TextObjectView(wk: weatherKitManager, text: obj as! TextObject)
                             case .map:          MapView(
                                 locationDataManager: locationDataManager,
                                 map: obj as! MapObject
