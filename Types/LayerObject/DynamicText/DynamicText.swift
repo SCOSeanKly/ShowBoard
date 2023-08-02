@@ -24,9 +24,17 @@ struct DynamicText {
                 continue
             }
             
-            text = text.replacingOccurrences(
+            text = text
+            .replacingOccurrences(
                 of: tag,
                 with: placeholder.withCurrentDate()
+            )
+            .replacingOccurrences(
+                of: tag,
+                with: placeholder.withCurrentWeather(
+                    weatherKitManager.weather?.currentWeather,
+                    unit: .celsius
+                )
             )
         }
         
