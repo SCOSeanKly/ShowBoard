@@ -56,7 +56,25 @@ class TextObject: LayerObject {
     /// The list of the avaliable fonts
     public static let fontList: [String] = [
         "ModernAge",
-        "Autone"
+        "Autone",
+        "RobotoCondensed-Regular",
+        "AlfaSlabOne-Regular",
+        "AmaticSC-Regular",
+        "BebasNeue-Regular",
+        "Codystar-Regular",
+        "FugazOne-Regular",
+        "LibreBarcode39Text-Regular",
+        "Megrim-Regular",
+        "Monoton-Regular",
+        "NixieOne-Regular",
+        "Quicksand-VariableFont_wght",
+        "Rajdhani-Medium",
+        "RobotoMono-VariableFont_wght",
+        "ShadowsIntoLight-Regular",
+        "Shalimar-Regular",
+        "SourceCodePro-VariableFont_wght",
+        "YsabeauSC-VariableFont_wght"
+        
     ]
     
     
@@ -64,22 +82,23 @@ class TextObject: LayerObject {
     let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
     
     
-
-    
-    
-    
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), inputText: String = "Placeholder") {
-        self.inputText = inputText
-        self.selectedFontName = TextObject.fontList.first!
-        
-        super.init()
-        self.id = id
-        self.appearance = appearance
-        self.objectType = .text
-    }
-    
-    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), inputText: String? = nil) {
+            self.selectedFontName = TextObject.fontList.first!
+            
+            if let inputText = inputText {
+                self.inputText = inputText
+            } else {
+                // Randomly select initial text from a list of 5 options
+                let randomIndex = Int.random(in: 0..<4)
+                self.inputText = ["Enter text...", "Change this text...", "ShowBoard", "Show Creative"][randomIndex]
+            }
+            
+            super.init()
+            self.id = id
+            self.appearance = appearance
+            self.objectType = .text
+        }
 }

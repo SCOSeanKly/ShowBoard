@@ -86,6 +86,8 @@ struct ShowBoardView: View {
                         selection = nil
                     }
                 
+            
+                
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
@@ -98,6 +100,7 @@ struct ShowBoardView: View {
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
                             case .customShape:  CustomShapeView()
                             case .glassShape:   GlassShapeView()
+                           
                             }
                         }
                         .padding(10)
@@ -304,6 +307,7 @@ struct PlacedObjectsListView: View {
         case .circleGauge: objectTypeInfo = .circleGauge
         case .customShape: objectTypeInfo = .customShape
         case .glassShape: objectTypeInfo = .glassShape
+      
         }
         
         return HStack {
@@ -375,6 +379,7 @@ struct PlacedObjectsListView: View {
         case circleGauge
         case customShape
         case glassShape
+       
         
         
         var icon: String {
@@ -384,6 +389,7 @@ struct PlacedObjectsListView: View {
             case .circleGauge: return "circle"
             case .customShape: return "star"
             case .glassShape: return "square"
+          
                 
             }
         }
@@ -395,6 +401,7 @@ struct PlacedObjectsListView: View {
             case .circleGauge: return "Circle Gauge Object"
             case .customShape: return "Custom Shape Object"
             case .glassShape: return "Glass Object"
+          
                 
             }
         }

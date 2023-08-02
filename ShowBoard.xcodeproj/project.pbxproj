@@ -92,6 +92,25 @@
 		3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */; };
 		3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */; };
 		3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */; };
+		3ED801FB2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */; };
+		3ED8020C2A7A6F86005E2835 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */; };
+		3ED8020D2A7A6F86005E2835 /* Monoton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FD2A7A6F86005E2835 /* Monoton-Regular.ttf */; };
+		3ED8020E2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FE2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf */; };
+		3ED8020F2A7A6F86005E2835 /* Megrim-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FF2A7A6F86005E2835 /* Megrim-Regular.ttf */; };
+		3ED802102A7A6F86005E2835 /* Shalimar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802002A7A6F86005E2835 /* Shalimar-Regular.ttf */; };
+		3ED802112A7A6F86005E2835 /* Rajdhani-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802012A7A6F86005E2835 /* Rajdhani-Medium.ttf */; };
+		3ED802122A7A6F86005E2835 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802022A7A6F86005E2835 /* BebasNeue-Regular.ttf */; };
+		3ED802132A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802032A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf */; };
+		3ED802142A7A6F86005E2835 /* Codystar-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802042A7A6F86005E2835 /* Codystar-Regular.ttf */; };
+		3ED802152A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802052A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf */; };
+		3ED802162A7A6F86005E2835 /* NixieOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802062A7A6F86005E2835 /* NixieOne-Regular.ttf */; };
+		3ED802172A7A6F86005E2835 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802072A7A6F86005E2835 /* AmaticSC-Regular.ttf */; };
+		3ED802182A7A6F86005E2835 /* FugazOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802082A7A6F86005E2835 /* FugazOne-Regular.ttf */; };
+		3ED802192A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED802092A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf */; };
+		3ED8021A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED8020A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf */; };
+		3ED8021B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */; };
+		3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */; };
+		3ED802222A7A8DE0005E2835 /* WeatherIconObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED802212A7A8DE0005E2835 /* WeatherIconObject.swift */; };
 		3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDBEBFD2A710806003856DA /* HeartButton.swift */; };
 		3EDE6B722A4DB4DD003ACC2B /* URLImagesGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* URLImagesGallery.swift */; };
 		3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB89932A49F02300CF42AB /* LayerEditView.swift */; };
@@ -206,6 +225,25 @@
 		3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassShapeView.swift; sourceTree = "<group>"; };
 		3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerButton.swift; sourceTree = "<group>"; };
 		3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerBackButton.swift; sourceTree = "<group>"; };
+		3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
+		3ED801FD2A7A6F86005E2835 /* Monoton-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monoton-Regular.ttf"; sourceTree = "<group>"; };
+		3ED801FE2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		3ED801FF2A7A6F86005E2835 /* Megrim-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Megrim-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802002A7A6F86005E2835 /* Shalimar-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shalimar-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802012A7A6F86005E2835 /* Rajdhani-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rajdhani-Medium.ttf"; sourceTree = "<group>"; };
+		3ED802022A7A6F86005E2835 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BebasNeue-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802032A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YsabeauSC-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		3ED802042A7A6F86005E2835 /* Codystar-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Codystar-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802052A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		3ED802062A7A6F86005E2835 /* NixieOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NixieOne-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802072A7A6F86005E2835 /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802082A7A6F86005E2835 /* FugazOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FugazOne-Regular.ttf"; sourceTree = "<group>"; };
+		3ED802092A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		3ED8020A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBarcode39Text-Regular.ttf"; sourceTree = "<group>"; };
+		3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShadowsIntoLight-Regular.ttf"; sourceTree = "<group>"; };
+		3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidgetView.swift; sourceTree = "<group>"; };
+		3ED802212A7A8DE0005E2835 /* WeatherIconObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconObject.swift; sourceTree = "<group>"; };
 		3EDBEBFD2A710806003856DA /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
 		3EDE6B712A4DB4DD003ACC2B /* URLImagesGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImagesGallery.swift; sourceTree = "<group>"; };
 		3EEB89932A49F02300CF42AB /* LayerEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerEditView.swift; sourceTree = "<group>"; };
@@ -292,7 +330,6 @@
 				3E546A702A69526500AE1ED7 /* CustomSlider.swift */,
 				3E83AABB2A6A848A00E344C9 /* SliderStepperDegrees.swift */,
 				3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */,
-				3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */,
 			);
 			path = "Buttons + Sliders";
 			sourceTree = "<group>";
@@ -300,6 +337,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3ED802202A7A8DCC005E2835 /* Weather Icon */,
 				3EBF307C2A6ED969004C12B5 /* Battery Bar View */,
 				3EBF30732A6ED4FC004C12B5 /* Map View */,
 				3EBF30742A6ED504004C12B5 /* Custom Shape View */,
@@ -323,6 +361,7 @@
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
+				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
 				3E8280392A7939A900F174F9 /* Rainfall Sprite Objects */,
 				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
@@ -436,7 +475,24 @@
 		3EADA59D2A4315E500FA1BCB /* Custom Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */,
+				3ED802072A7A6F86005E2835 /* AmaticSC-Regular.ttf */,
+				3ED802022A7A6F86005E2835 /* BebasNeue-Regular.ttf */,
+				3ED802042A7A6F86005E2835 /* Codystar-Regular.ttf */,
+				3ED802082A7A6F86005E2835 /* FugazOne-Regular.ttf */,
+				3ED8020A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf */,
+				3ED801FF2A7A6F86005E2835 /* Megrim-Regular.ttf */,
+				3ED801FD2A7A6F86005E2835 /* Monoton-Regular.ttf */,
+				3ED802062A7A6F86005E2835 /* NixieOne-Regular.ttf */,
+				3ED802092A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf */,
+				3ED802012A7A6F86005E2835 /* Rajdhani-Medium.ttf */,
+				3ED801FE2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf */,
+				3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */,
+				3ED802002A7A6F86005E2835 /* Shalimar-Regular.ttf */,
+				3ED802052A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf */,
+				3ED802032A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf */,
 				3ECC34A52A4C3866008794BC /* ModernAge.ttf */,
+				3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */,
 				3EADA59B2A4315CC00FA1BCB /* Autone.ttf */,
 			);
 			path = "Custom Fonts";
@@ -496,6 +552,7 @@
 		3EBF30762A6ED529004C12B5 /* Dymanic Text View */ = {
 			isa = PBXGroup;
 			children = (
+				3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */,
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */,
 				096F80DB2A7521400001D8A3 /* TextObjectView.swift */,
@@ -550,6 +607,14 @@
 				3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */,
 			);
 			path = "Layer Element Buttons";
+			sourceTree = "<group>";
+		};
+		3ED802202A7A8DCC005E2835 /* Weather Icon */ = {
+			isa = PBXGroup;
+			children = (
+				3ED802212A7A8DE0005E2835 /* WeatherIconObject.swift */,
+			);
+			path = "Weather Icon";
 			sourceTree = "<group>";
 		};
 		3EFAB1882A45CD6D001A9BC7 /* Cover Sheet Views */ = {
@@ -669,11 +734,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ED8020F2A7A6F86005E2835 /* Megrim-Regular.ttf in Resources */,
 				3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */,
+				3ED802122A7A6F86005E2835 /* BebasNeue-Regular.ttf in Resources */,
 				3E82803C2A7939B800F174F9 /* RainFallLanding.sks in Resources */,
+				3ED802132A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf in Resources */,
+				3ED8020C2A7A6F86005E2835 /* AlfaSlabOne-Regular.ttf in Resources */,
+				3ED802152A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf in Resources */,
+				3ED8020D2A7A6F86005E2835 /* Monoton-Regular.ttf in Resources */,
+				3ED802162A7A6F86005E2835 /* NixieOne-Regular.ttf in Resources */,
+				3ED801FB2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf in Resources */,
+				3ED802142A7A6F86005E2835 /* Codystar-Regular.ttf in Resources */,
 				3E82803D2A7939B800F174F9 /* RainFall.sks in Resources */,
+				3ED802112A7A6F86005E2835 /* Rajdhani-Medium.ttf in Resources */,
+				3ED802192A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf in Resources */,
+				3ED8020E2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf in Resources */,
+				3ED802102A7A6F86005E2835 /* Shalimar-Regular.ttf in Resources */,
+				3ED8021B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf in Resources */,
 				3E8849922A41D47800B50BBD /* Preview Assets.xcassets in Resources */,
 				3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */,
+				3ED802172A7A6F86005E2835 /* AmaticSC-Regular.ttf in Resources */,
+				3ED802182A7A6F86005E2835 /* FugazOne-Regular.ttf in Resources */,
+				3ED8021A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf in Resources */,
 				3E88498E2A41D47800B50BBD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -708,6 +790,7 @@
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
+				3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */,
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
 				3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */,
 				3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */,
@@ -778,6 +861,7 @@
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 				3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */,
 				096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */,
+				3ED802222A7A8DE0005E2835 /* WeatherIconObject.swift in Sources */,
 				3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

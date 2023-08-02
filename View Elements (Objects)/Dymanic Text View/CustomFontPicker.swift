@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomFontPicker: View {
     @Binding var bindingValue: String
+    @StateObject var text: TextObject
     
     var body: some View {
         HStack {
@@ -18,16 +19,19 @@ struct CustomFontPicker: View {
             Picker("Font Style", selection: $bindingValue) {
                 ForEach(TextObject.fontList, id: \.self) { style in
                     Text(style)
+                        .font(text.font)
+                        .lineLimit(1)
                 }
             }
             .pickerStyle(.menu)
-            .scaleEffect(0.8)
-            .offset(x: 20)
         }
         .frame(height: 30)
         .padding(.horizontal)
+      
     }
 }
+ 
+
 
 
 

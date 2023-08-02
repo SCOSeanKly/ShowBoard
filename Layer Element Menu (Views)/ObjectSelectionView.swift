@@ -50,6 +50,21 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                     
                     
+                    /*
+                    ObjectTitleText(titleText: "Weather Icon")
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(WeatherIconObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "8d"),
+                            textDescription: "Current"
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing])
+                     */
+                    
                     ObjectTitleText(titleText: "Map Image")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(

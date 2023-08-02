@@ -17,8 +17,7 @@ struct DynamicTextEditViewSettings: View {
         
         ScrollView (showsIndicators: false){
             
-         //   LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Dynamic Text", systemImage: "character.textbox", systemImage2: "")
-            
+      
             HStack {
                 
                 Image(systemName: "character.textbox")
@@ -39,7 +38,7 @@ struct DynamicTextEditViewSettings: View {
                 
                 DynamicTextView(text: text)
                 
-                CustomFontPicker(bindingValue: $text.selectedFontName)
+                CustomFontPicker(bindingValue: $text.selectedFontName, text: text)
                 
                 SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                 
