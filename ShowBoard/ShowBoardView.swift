@@ -39,8 +39,6 @@ struct ShowBoardView: View {
     
     //MARK: Observed Objects
     @ObservedObject private var batteryViewModel = BatteryViewModel()
-    @StateObject var locationDataManager = LocationDataManager()
-    @ObservedObject var weatherKitManager = WeatherKitManager()
     @State private var isRefreshing = false // Refresh trigger
     
     //MARK: Micro controls - Should work on all elements once implemented correctly
@@ -93,17 +91,14 @@ struct ShowBoardView: View {
                         selection = nil
                     }
                 
-            
+        SWAWidget2(batteryViewModel: batteryViewModel, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
                 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            case .text:         TextObjectView(wk: weatherKitManager, text: obj as! TextObject)
-                            case .map:          MapView(
-                                locationDataManager: locationDataManager,
-                                map: obj as! MapObject
-                            )
+                            case .text:         TextObjectView(text: obj as! TextObject)
+                            case .map:          MapView( map: obj as! MapObject)
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
                             case .customShape:  CustomShapeView()
                             case .glassShape:   GlassShapeView()

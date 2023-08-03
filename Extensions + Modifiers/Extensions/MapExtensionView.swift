@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapExtensionView: UIViewRepresentable {
-    @ObservedObject var locationDataManager = LocationDataManager()
+    @ObservedObject var lObserver = AppModel.shared.lObserver
     @StateObject var map: MapObject
     
     
@@ -37,7 +37,13 @@ struct MapExtensionView: UIViewRepresentable {
     
     
     func updateUIView(_ view: MKMapView, context: Context) {
-        let coordinate = CLLocationCoordinate2D(latitude: locationDataManager.latitude, longitude: locationDataManager.longitude)
+        
+        var coordinate: CLLocationCoordinate2D = .init()
+        
+        if let location = lObserver.location {
+            coordinate = location.coordinate
+        }
+
         let span = MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)

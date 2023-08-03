@@ -48,7 +48,7 @@ class TextObject: LayerObject {
     }
     
     
-    @MainActor public func dynamicText(wk: WeatherKitManager) -> String {
+    @MainActor public func dynamicText(wk: WeatherObserver) -> String {
         DynamicText.convert(input: inputText, wk: wk)
     }
     

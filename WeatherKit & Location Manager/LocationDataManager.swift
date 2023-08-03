@@ -5,28 +5,27 @@
 //  Created by Sean Kelly on 20/06/2023.
 //
 
-import Foundation
 import CoreLocation
 
-class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegate {
-    var locationManager = CLLocationManager()
-    @Published var authorizationStatus: CLAuthorizationStatus?
+class LocationDataManager : NSObject, Identifiable, CLLocationManagerDelegate {
     
-    var latitude: Double {
-        locationManager.location?.coordinate.latitude ?? 0.0
-    }
-    var longitude: Double {
-        locationManager.location?.coordinate.longitude ?? 0.0
-    }
-    
-    var location: CLLocation? {
-        self.locationManager.location
-    }
+    public let id = UUID()
+    private(set) var location: CLLocation?
+    private var locationManager = CLLocationManager()
+    private var authorizationStatus: CLAuthorizationStatus?
+    private var locationDidUpdate: (CLLocation?) -> Void = { _ in print("Error: No callback has been passed") }
+
     
     override init() {
         super.init()
         locationManager.delegate = self
     }
+    
+    
+    public func registerLocationUpdateCallback(_ onLocationUpdate: @escaping (CLLocation?) -> Void) {
+        self.locationDidUpdate = onLocationUpdate
+    }
+    
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
@@ -56,9 +55,12 @@ class LocationDataManager : NSObject, ObservableObject, CLLocationManagerDelegat
         }
     }
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Insert code to handle location updates
+        self.location = locations.last
+        self.locationDidUpdate(self.location)
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error.localizedDescription)")

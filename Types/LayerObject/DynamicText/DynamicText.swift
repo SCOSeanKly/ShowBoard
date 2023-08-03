@@ -10,7 +10,7 @@ import Foundation
 
 struct DynamicText {
     
-    @MainActor static func convert(input: String, wk: WeatherKitManager) -> String {
+    @MainActor static func convert(input: String, wk: WeatherObserver) -> String {
         var text = input
         let pattern = "\\[.*?\\]"
         let regex = try! NSRegularExpression(pattern: pattern)

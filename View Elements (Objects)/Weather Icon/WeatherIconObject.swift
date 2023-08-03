@@ -9,15 +9,14 @@ import SwiftUI
 import WeatherKit
 
 struct WeatherIconObjectView: View {
-    @ObservedObject var locationDataManager: LocationDataManager
-    @ObservedObject var weatherKitManager: WeatherKitManager
+    @ObservedObject var wObserver = AppModel.shared.wObserver
     
     var currentWeather: CurrentWeather? {
-        weatherKitManager.weather?.currentWeather
+        wObserver.weather?.currentWeather
     }
     
     var todaysForecast: DayWeather? {
-        weatherKitManager.getGorecast(offset: 0)
+        wObserver.getGorecast(offset: 0)
     }
     
     var body: some View {
@@ -26,14 +25,6 @@ struct WeatherIconObjectView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 100, height: 100)
-           
-            .task {
-                
-                do {
-                    try await weatherKitManager.getWeather(locationDataManager.location)
-                }
-                catch { }
-            }
     }
 }
 
@@ -42,7 +33,7 @@ struct WeatherIconObjectView_Previews: PreviewProvider {
         let locationDataManager = LocationDataManager()
         let weatherKitManager = WeatherKitManager()
         
-        return WeatherIconObjectView(locationDataManager: locationDataManager, weatherKitManager: weatherKitManager)
+        return WeatherIconObjectView()
     }
 }
 

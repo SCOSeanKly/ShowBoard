@@ -10,12 +10,12 @@ import SwiftUI
 
 struct TextObjectView: View {
     
-    var wk: WeatherKitManager
+    @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var text: TextObject
     @State private var showSettings: Bool = false
     
     var body: some View {
-        Text(text.dynamicText(wk: wk))
+        Text(text.dynamicText(wk: wObserver))
             .shadow(
                 radius: text.appearance.shadow.radius,
                 x: text.appearance.shadow.offset.x,

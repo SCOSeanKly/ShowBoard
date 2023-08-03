@@ -21,14 +21,18 @@ enum TemperatureUnit {
     case fahrenheit
 }
 
-@MainActor class WeatherKitManager: ObservableObject {
-    
-    @Published var weather: Weather?
+class WeatherKitManager: LocationSubscriberDelegate {
+
+    public let id = UUID()
+    private(set) var weather: Weather?
     
     init() {
-        self.weather = nil
+        AppModel.shared.subscribeToLocationUpdates(self)
     }
     
+    deinit {
+        AppModel.shared.unsubscribeFromLocationUpdates(self)
+    }
     
     func getWeather(_ location: CLLocation?) async throws {
         
@@ -36,32 +40,21 @@ enum TemperatureUnit {
             throw NSError(domain: "String", code: 0) as Error
         }
         
-        weather = try await Task.detached(priority: .userInitiated) {
-            return try await WeatherService.shared.weather(for: .init(
-                latitude: location.coordinate.latitude,
-                longitude: location.coordinate.longitude
-            ))
-            
-        }.value
+        self.weather = try await WeatherService.shared.weather(for: .init(
+            latitude: location.coordinate.latitude,
+            longitude: location.coordinate.longitude
+        ))
+        DispatchQueue.main.async {
+            AppModel.shared.wObserver.weather = self.weather
+        }
     }
     
-    /*var symbol: String {
-        weather?.currentWeather.symbolName ?? "xmark"
-    }*/
-    
-    
-    /// Gets the current weather forecast
-    /// - Parameter day: The offset value determines which day we want to get.
-    /// A `zero` value means, we get the forecast for today
-    public func getGorecast(offset day: Int) -> DayWeather? {
-        
-        guard let forecast = self.weather?.dailyForecast.forecast
-        else { return nil }
-        
-        // Make sure we dont want to acces a bigger index
-        if forecast.count <= day { return nil }
-        
-        return forecast[day]
+
+    func locationDidUpdate(to location: CLLocation?) {
+        Task {
+            do { try await self.getWeather(location) }
+            catch { print(error) }
+        }
     }
 }
 

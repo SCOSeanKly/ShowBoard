@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MapView: View {
     
-    @ObservedObject var locationDataManager: LocationDataManager
+    @ObservedObject var lObserver = AppModel.shared.lObserver
     @StateObject var map = MapObject()
     @State private var isDragging: Bool = false
     @State private var showSettings: Bool = false
@@ -17,7 +17,7 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            MapExtensionView(locationDataManager: locationDataManager, map: map)
+            MapExtensionView(map: map)
                 .frame(width: map.mapFrameWidth, height: map.mapFrameHeight * 1.35)
                 .cornerRadius(map.appearance.cornerRadius)
                 .if(map.mapInvertColor) { view in
@@ -71,7 +71,7 @@ struct CustomClipShape: Shape {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(locationDataManager: LocationDataManager())
+        MapView()
     }
 }
 

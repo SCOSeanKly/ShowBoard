@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct ShowBoardApp: App {
+    
+    var appModel = AppModel()
+    
     var body: some Scene {
         WindowGroup {
             
@@ -16,8 +19,6 @@ struct ShowBoardApp: App {
                 .preferredColorScheme(.light)
                 .environment(\.sizeCategory, .small)
                 .environment(\.colorScheme, .light)
-         // DynamicTextView()
-            
         }
     }
 }

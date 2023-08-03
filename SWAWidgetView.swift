@@ -10,13 +10,7 @@ import WeatherKit
 
 struct SWAWidget2: View {
     @ObservedObject var batteryViewModel: BatteryViewModel
-    @ObservedObject var locationDataManager: LocationDataManager
-    @ObservedObject var weatherKitManager: WeatherKitManager
-    
-    @Binding var offsetX: CGFloat
-    @Binding var offsetY: CGFloat
-    @Binding var widthRatio: CGFloat
-    @Binding var heightRatio: CGFloat
+    @ObservedObject var wObserver = AppModel.shared.wObserver
     @Binding var isDragging: Bool
     @Binding var showClipboardAlert: Bool
     
@@ -31,11 +25,11 @@ struct SWAWidget2: View {
     @State private var isRefreshing = false // Refresh trigger
     
     var currentWeather: CurrentWeather? {
-        weatherKitManager.weather?.currentWeather
+        wObserver.weather?.currentWeather
     }
     
     var todaysForecast: DayWeather? {
-        weatherKitManager.getGorecast(offset: 0)
+        wObserver.getGorecast(offset: 0)
     }
     
     @State private var userInput: String = "Its [day], all day!"
@@ -119,20 +113,13 @@ struct SWAWidget2: View {
                 .foregroundColor(.white)
                 .offset(x: -70, y: -10)
                 .shadow(radius: 5, y: 3)
-                .task {
-                    
-                    do {
-                        try await weatherKitManager.getWeather(locationDataManager.location)
-                    }
-                    catch { } // handle error here
-                }
             }
             .frame(width: UIScreen.main.bounds.width)
             .contentShape(Rectangle())
             
         }
-        .scaleEffect(x: widthRatio, y: heightRatio, anchor: .center)
-        .offset(x: offsetX, y: offsetY)
+     
+      
         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
         .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
             runShortcut() }))

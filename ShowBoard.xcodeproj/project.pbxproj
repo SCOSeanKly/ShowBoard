@@ -32,6 +32,9 @@
 		3E371CE42A66C8FF00DE743C /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CE32A66C8FF00DE743C /* CustomToggle.swift */; };
 		3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */; };
 		3E3977902A7BF194002711FC /* ObjectSelectionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E39778F2A7BF194002711FC /* ObjectSelectionButtons.swift */; };
+		3E3977922A7BF998002711FC /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977912A7BF998002711FC /* AppModel.swift */; };
+		3E3977962A7C064D002711FC /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977952A7C064D002711FC /* LocationObserver.swift */; };
+		3E3977982A7C0B63002711FC /* WeatherObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977972A7C0B63002711FC /* WeatherObserver.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
 		3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */; };
@@ -161,6 +164,9 @@
 		3E371CE32A66C8FF00DE743C /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
 		3E371CE62A66E2E000DE743C /* CustomColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPicker.swift; sourceTree = "<group>"; };
 		3E39778F2A7BF194002711FC /* ObjectSelectionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionButtons.swift; sourceTree = "<group>"; };
+		3E3977912A7BF998002711FC /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		3E3977952A7C064D002711FC /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
+		3E3977972A7C0B63002711FC /* WeatherObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherObserver.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
 		3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionView.swift; sourceTree = "<group>"; };
@@ -364,6 +370,9 @@
 			isa = PBXGroup;
 			children = (
 				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
+				3E3977912A7BF998002711FC /* AppModel.swift */,
+				3E3977972A7C0B63002711FC /* WeatherObserver.swift */,
+				3E3977952A7C064D002711FC /* LocationObserver.swift */,
 				3E8280392A7939A900F174F9 /* Rainfall Sprite Objects */,
 				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
@@ -791,6 +800,7 @@
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
+				3E3977922A7BF998002711FC /* AppModel.swift in Sources */,
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */,
@@ -845,11 +855,13 @@
 				3E8849B52A41D49400B50BBD /* LocationDataManager.swift in Sources */,
 				3E3977902A7BF194002711FC /* ObjectSelectionButtons.swift in Sources */,
 				3ECBE3602A6E9D8C004B59F2 /* GlassShapeSettings.swift in Sources */,
+				3E3977962A7C064D002711FC /* LocationObserver.swift in Sources */,
 				3EEB89942A49F02300CF42AB /* LayerEditView.swift in Sources */,
 				097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */,
 				3EADA5AD2A432DD000FA1BCB /* CopyToClipboard.swift in Sources */,
 				0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */,
 				3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */,
+				3E3977982A7C0B63002711FC /* WeatherObserver.swift in Sources */,
 				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
