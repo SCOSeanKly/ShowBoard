@@ -88,7 +88,7 @@ struct DynamicTextEditViewSettings: View {
         /*fontName = "Autone"
          fontSize = 26
          fontWeight = .regular
-         fontColor = .black
+         fontColor = .white
          text.appearance.rotation = .zero*/
     }
     

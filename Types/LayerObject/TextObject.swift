@@ -34,7 +34,7 @@ class TextObject: LayerObject {
     
     
     // TODO: d
-    @Published var fontColor: Color = .black
+    @Published var fontColor: Color = .white
     
     
     // TODO: d

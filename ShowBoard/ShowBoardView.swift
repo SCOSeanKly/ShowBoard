@@ -60,17 +60,24 @@ struct ShowBoardView: View {
         ZStack {
             
             //MARK: Imported Background (Wallpaper) Image
-            BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons)
+            BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, placedObjects: $placedObjects)
                 .onTapGesture {
                     if placedObjects.count >= 1 {
                         if selection != nil {
                             feedback()
-                            showMicroControls = false
+                            
+                            // Check if micro controls are in view
+                            if showMicroControls {
+                                // Close the micro controls
+                                showMicroControls = false
+                            } else {
+                                // De-select the layer
+                               selection = nil
+                            }
                         }
                     }
-                    
-                    selection = nil
                 }
+
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
@@ -264,6 +271,9 @@ struct PlacedObjectsListView: View {
                     primaryButton: .cancel(Text("Cancel")),
                     secondaryButton: .destructive(Text("Delete"), action: {
                         removeLayer(at: objectToDelete.id)
+                        if placedObjects.isEmpty {
+                            showLayerEditView.toggle()
+                        }
                     })
                 )
             } else {
@@ -273,6 +283,9 @@ struct PlacedObjectsListView: View {
                     primaryButton: .cancel(Text("Cancel")),
                     secondaryButton: .destructive(Text("Delete All"), action: {
                         removeAllLayers()
+                        if placedObjects.isEmpty {
+                            showLayerEditView.toggle()
+                        }
                     })
                 )
             }
@@ -333,10 +346,12 @@ struct PlacedObjectsListView: View {
             }, label: {
                 Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
                     .scaleEffect(isPressingHideLayer ? 0.9 : 1)
+                    .scaleEffect(0.9)
                     .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
             })
             .buttonStyle(.plain)
             
+            /*
             Button(action: {
                 isPressingSettings.toggle()
                 
@@ -351,6 +366,7 @@ struct PlacedObjectsListView: View {
             })
             .buttonStyle(.plain)
             .padding(.horizontal)
+             */
             
             Button(action: {
                 isPressingDelete.toggle()
@@ -361,6 +377,7 @@ struct PlacedObjectsListView: View {
                 }
                 objectToDelete = obj
                 showAlert = true
+                
             }, label: {
                 Image(systemName: "trash")
                     .scaleEffect(isPressingDelete ? 0.9 : 1)

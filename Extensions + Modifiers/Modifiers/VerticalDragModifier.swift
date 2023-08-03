@@ -14,7 +14,7 @@ struct VerticalDragModifier: ViewModifier {
     private var drag: some Gesture {
         DragGesture()
             .onChanged { value in
-                let newY = max(min(value.location.y, UIScreen.main.bounds.height * 0.85), 0) // Restrict movement vertically
+                let newY = max(min(value.location.y, UIScreen.main.bounds.height * 0.675), 0) // Restrict movement vertically
                 self.location.y = newY
             }
             .onEnded { _ in
@@ -31,11 +31,12 @@ struct VerticalDragModifier: ViewModifier {
                 .frame(width: UIScreen.main.bounds.width)
                 .position(x: proxy.size.width * 0.5, y: location.y.clamped(to: minY...maxY)) // Clamp Y position within the valid range
                 .gesture(drag)
+                .padding(.top, UIScreen.main.bounds.height * 0.2)
                 .onTapGesture(count: 2) {
-                    location = CGPoint(x: location.x, y: proxy.size.height * 0.85)
+                    location = CGPoint(x: location.x, y: proxy.size.height * 0.675)
                 }
                 .onAppear {
-                    location = CGPoint(x: proxy.size.width * 0.5, y: proxy.size.height * 0.85)
+                    location = CGPoint(x: proxy.size.width * 0.5, y: proxy.size.height * 0.675)
                 }
         }
     }
