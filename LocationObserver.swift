@@ -13,13 +13,12 @@ class LocationObserver: LocationSubscriberDelegate, ObservableObject {
     public let id = UUID()
     @Published var location: CLLocation?
     
-    
-    init() {
-        AppModel.shared.subscribeToLocationUpdates(self)
-    }
-        
     deinit {
         AppModel.shared.unsubscribeFromLocationUpdates(self)
+    }
+    
+    func subscribeForLocationUpdates() {
+        AppModel.shared.subscribeToLocationUpdates(self)
     }
     
     

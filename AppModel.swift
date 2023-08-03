@@ -16,23 +16,30 @@ protocol LocationSubscriberDelegate: AnyObject, Identifiable {
 
 class AppModel {
     
-    public static var shared: AppModel = AppModel()
+    public static var shared: AppModel!
 
     private(set) var lObserver: LocationObserver
     private(set) var wObserver: WeatherObserver
     
     private var wk: WeatherKitManager
     private var lm: LocationDataManager
-    private var locationSubscribers: [(any LocationSubscriberDelegate)?]
+    private var locationSubscribers: [(any LocationSubscriberDelegate)?] = .init()
     
     
     init() {
-        self.locationSubscribers = .init()
-        self.lm = LocationDataManager()
+        
         self.wk = WeatherKitManager()
         self.lObserver = LocationObserver()
         self.wObserver = WeatherObserver()
+        self.lm = LocationDataManager()
+        
+        self.locationSubscribers = [
+            self.lObserver,
+            self.wk
+        ]
+        
         lm.registerLocationUpdateCallback(self.locationDidUpdate)
+        //self.locationDidUpdate(to: lm.location)
     }
     
     

@@ -59,6 +59,7 @@ class LocationDataManager : NSObject, Identifiable, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.location = locations.last
         self.locationDidUpdate(self.location)
+        print("Location Update")
     }
     
     

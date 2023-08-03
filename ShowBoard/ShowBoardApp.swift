@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct ShowBoardApp: App {
     
-    var appModel = AppModel()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {

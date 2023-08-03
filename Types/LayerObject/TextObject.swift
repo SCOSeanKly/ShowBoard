@@ -93,7 +93,7 @@ class TextObject: LayerObject {
             } else {
                 // Randomly select initial text from a list of 5 options
                 let randomIndex = Int.random(in: 0..<4)
-                self.inputText = ["Enter text...", "Change this text...", "ShowBoard", "Show Creative"][randomIndex]
+                self.inputText = "[condition]"//["Enter text...", "Change this text...", "ShowBoard", "Show Creative"][randomIndex]
             }
             
             super.init()

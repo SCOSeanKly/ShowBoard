@@ -27,7 +27,6 @@ class WeatherKitManager: LocationSubscriberDelegate {
     private(set) var weather: Weather?
     
     init() {
-        AppModel.shared.subscribeToLocationUpdates(self)
     }
     
     deinit {
