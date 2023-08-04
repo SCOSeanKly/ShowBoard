@@ -75,6 +75,7 @@
 		3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5C02A438A5D00FA1BCB /* ZoomModifier.swift */; };
 		3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */; };
 		3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */; };
+		3EB430522A7D2FEA000DCD6C /* KeyboardPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */; };
 		3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671972A4EF20A00DF2678 /* GroupView.swift */; };
 		3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */; };
 		3EBF306C2A6EBE3D004C12B5 /* CustomPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */; };
@@ -213,6 +214,7 @@
 		3EADA5C02A438A5D00FA1BCB /* ZoomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomModifier.swift; sourceTree = "<group>"; };
 		3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateModifier.swift; sourceTree = "<group>"; };
 		3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarchingAntsBorder.swift; sourceTree = "<group>"; };
+		3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPublisher.swift; sourceTree = "<group>"; };
 		3EB671972A4EF20A00DF2678 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOnAppear.swift; sourceTree = "<group>"; };
 		3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentation.swift; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */,
 				096F80DB2A7521400001D8A3 /* TextObjectView.swift */,
+				3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */,
 			);
 			path = "Dymanic Text View";
 			sourceTree = "<group>";
@@ -869,6 +872,7 @@
 				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
+				3EB430522A7D2FEA000DCD6C /* KeyboardPublisher.swift in Sources */,
 				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
@@ -1036,11 +1040,11 @@
 		3E8849AC2A41D47800B50BBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.14;
+				CURRENT_PROJECT_VERSION = 0.0.15;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1079,11 +1083,11 @@
 		3E8849AD2A41D47800B50BBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.14;
+				CURRENT_PROJECT_VERSION = 0.0.15;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

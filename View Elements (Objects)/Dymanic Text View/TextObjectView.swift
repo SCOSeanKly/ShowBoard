@@ -13,7 +13,7 @@ struct TextObjectView: View {
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var text: TextObject
     @State private var showSettings: Bool = false
-    
+    @Binding var isKeyboardPresented: Bool
     var body: some View {
         Text(text.dynamicText(wk: wObserver))
             .shadow(
@@ -35,7 +35,7 @@ struct TextObjectView: View {
                 showSettings.toggle()
             }
             .sheet(isPresented: $showSettings){
-                DynamicTextEditViewSettings(text: text)
+                DynamicTextEditViewSettings(text: text, isKeyboardPresented: $isKeyboardPresented)
             }
     }
 }

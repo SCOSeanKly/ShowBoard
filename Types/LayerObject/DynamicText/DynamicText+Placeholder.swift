@@ -7,6 +7,7 @@
 
 import Foundation
 import WeatherKit
+import UIKit
 
 
 extension DynamicText {
@@ -41,6 +42,10 @@ extension DynamicText {
         case wind = "[wind]"
         case apparentTemperature = "[apparentTemperature]"
         
+        // Battery info
+        case batteryLevel = "[batteryLevel]" //MARK: How can i add battery level?
+        
+        
         
         
         
@@ -70,20 +75,38 @@ extension DynamicText {
             }
         }
         
+        /*
+         /// The daytime high temperature.
+         public var highTemperature: Measurement<UnitTemperature>
+
+         /// The overnight low temperature.
+         public var lowTemperature: Measurement<UnitTemperature>
+
+         /// The description of precipitation for this day.
+         public var precipitation: Precipitation
+
+         /// The probability of precipitation during the day.
+         ///
+         /// The value is from `0` (no chance of precipitation) to `1` (100% chance of precipitation).
+         public var precipitationChance: Double
+         */
         
         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature) -> String {
+            guard let val = data else { return "-" }
             
-            guard let v = data else { return "-" }
+            print("Low temperature: \(val.lowTemperature)")
+            print("High temperature: \(val.highTemperature)")
             
             switch self {
             case .lowTemp:
-                return self.tempteratureToSting(value: v.lowTemperature, unit)
+                return self.tempteratureToString(value: val.lowTemperature, unit)
             case .highTemp:
-                return self.tempteratureToSting(value: v.highTemperature, unit)
+                return self.tempteratureToString(value: val.highTemperature, unit)
             default:
                 return ""
             }
         }
+
         
         
         public func withCurrentWeather(_ data: CurrentWeather?, unit: UnitTemperature, useMiles: Bool = false) -> String {
@@ -92,7 +115,7 @@ extension DynamicText {
             
             switch self {
             case .temp:
-                return self.tempteratureToSting(value: v.temperature , unit)
+                return self.tempteratureToString(value: v.temperature , unit)
             case .condition:
                 return v.condition.description
             case .conditionAsset:
@@ -102,9 +125,9 @@ extension DynamicText {
             case .cloudCover:
                 return String(round(v.cloudCover))
             case .visibility:
-                return self.lengthToSting(value: v.visibility, useMiles: useMiles)
+                return self.lengthToString(value: v.visibility, useMiles: useMiles)
             case .dewPoint:
-                return self.tempteratureToSting(value: v.dewPoint, unit)
+                return self.tempteratureToString(value: v.dewPoint, unit)
             case .humidity:
                 return String(round(v.humidity * 100)) + " %"
             case .pressure:
@@ -112,9 +135,9 @@ extension DynamicText {
             case .uvIndex:
                 return "\(v.uvIndex)"
             case .apparentTemperature:
-                return self.tempteratureToSting(value: v.apparentTemperature, unit)
+                return self.tempteratureToString(value: v.apparentTemperature, unit)
             case .wind:
-                return self.speedToSting(value: v.wind.speed, useMiles: useMiles)
+                return self.speedToString(value: v.wind.speed, useMiles: useMiles)
 
             default:
                 return ""
@@ -123,7 +146,7 @@ extension DynamicText {
         
         
         
-        private func tempteratureToSting(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
+        private func tempteratureToString(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""
             let convertedTemp = value.converted(to: unit)
             let formattedTemp = String(format: "%.0f", convertedTemp.value) // change format for temp
@@ -141,13 +164,13 @@ extension DynamicText {
         }
         
         
-        private func lengthToSting(value: Measurement<UnitLength>, useMiles: Bool = false) -> String {
+        private func lengthToString(value: Measurement<UnitLength>, useMiles: Bool = false) -> String {
             let val = value.converted(to: useMiles ? .miles : .kilometers).value
             return String(format: "%.1f", val) + (useMiles ? "mile" : "km")
         }
         
         
-        private func speedToSting(value: Measurement<UnitSpeed>, useMiles: Bool = false) -> String {
+        private func speedToString(value: Measurement<UnitSpeed>, useMiles: Bool = false) -> String {
             let val = value.converted(to: useMiles ? .milesPerHour : .kilometersPerHour).value
             return String(round(val)) + (useMiles ? "mph" : "km/h")
         }
@@ -220,7 +243,4 @@ extension DynamicText {
         }
         
     }
-    
-    
-    
 }

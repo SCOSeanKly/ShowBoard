@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 
 struct DynamicTextView: View {
@@ -13,34 +14,57 @@ struct DynamicTextView: View {
     @StateObject var text: TextObject
     @State private var showSettings: Bool = false
     
+    @Binding var isKeyboardPresented: Bool
+    @State private var isPressing: Bool = false
+   
+    
     
     var body: some View {
         
         ScrollView {
             
             VStack {
-                HStack {
-                    Text("Enter text...")
-                        .font(.headline.weight(.heavy))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                
+                    if !isKeyboardPresented {
+                        HStack {
+                          
+                            Text("Enter text...")
+                                .font(.headline.weight(.heavy))
+                                .fontWeight(.semibold)
+                                .foregroundColor(.black)
+                            
+                            Spacer()
+                        }
+                    } else {
+                        Button {
+                           hideKeyboard()
+                        } label: {
+                            HStack {
+                                
+                                Spacer()
+                                
+                                Text("Hide Keyboard")
+                                    .font(.headline.weight(.heavy))
+                                    .fontWeight(.semibold)
+                            }
+                        }
+                    }
                    
                     Spacer()
                 }
                 .padding(.horizontal)
                 
                 TextEditor(text: $text.inputText)
-                    .frame(height: 60)
-                    .padding(5)
-                    .background(.ultraThinMaterial)
-                    .padding(.horizontal)
-             
-                  
-              
-                
-              
-                  
-             
+                                  .frame(height: 60)
+                                  .padding(5)
+                                  .background(.ultraThinMaterial)
+                                  .padding(.horizontal)
+                                  .scrollDismissesKeyboard(.immediately)
+                                  .onReceive(keyboardPublisher) { value in
+                                       isKeyboardPresented = value
+                                     }
+                                 
+                if isKeyboardPresented {
                     VStack {
                         // Dynamic Abbreviations Section
                         Group {
@@ -86,8 +110,10 @@ struct DynamicTextView: View {
                         }
                         
                     }
+                    .padding(.horizontal)
+                }
                    
-                .padding(.horizontal)
+              
 
                 
                     Spacer()
@@ -96,7 +122,7 @@ struct DynamicTextView: View {
         
         }
     }
-}
+
 
 extension Text {
     func fontStyle(_ style: Font.TextStyle) -> Text {
@@ -105,10 +131,13 @@ extension Text {
 }
 
 
-struct DynamicTextView_Previews: PreviewProvider {
-    static var previews: some View {
-        DynamicTextView(text: TextObject())
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+#endif
+
 
 

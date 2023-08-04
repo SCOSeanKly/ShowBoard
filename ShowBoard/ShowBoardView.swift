@@ -53,6 +53,8 @@ struct ShowBoardView: View {
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
     
+    @State private var isKeyboardPresented = false
+    
     
     var body: some View {
         ZStack {
@@ -91,13 +93,12 @@ struct ShowBoardView: View {
                         selection = nil
                     }
                 
-        //SWAWidget2(batteryViewModel: batteryViewModel, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
                 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            case .text:         TextObjectView(text: obj as! TextObject)
+                            case .text:         TextObjectView(text: obj as! TextObject, isKeyboardPresented: $isKeyboardPresented)
                             case .map:          MapView( map: obj as! MapObject)
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
                             case .customShape:  CustomShapeView()
