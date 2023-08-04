@@ -39,13 +39,22 @@ struct DynamicTextView: View {
                         Button {
                            hideKeyboard()
                         } label: {
-                            HStack {
+                            VStack {
+                                HStack {
+                                    Spacer()
+                                    
+                                        Text("\(Image(systemName: "keyboard.chevron.compact.down")) Hide Keyboard")
+                                            .font(.system(size: 14).weight(.semibold))
+                                }
                                 
-                                Spacer()
-                                
-                                Text("Hide Keyboard")
-                                    .font(.headline.weight(.heavy))
-                                    .fontWeight(.semibold)
+                                HStack {
+                                    Text("Enter text...")
+                                        .font(.headline.weight(.heavy))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.black)
+                                    
+                                    Spacer()
+                                }
                             }
                         }
                     }
@@ -55,7 +64,7 @@ struct DynamicTextView: View {
                 .padding(.horizontal)
                 
                 TextEditor(text: $text.inputText)
-                                  .frame(height: 60)
+                .frame(height: isKeyboardPresented ? 100 : 40)
                                   .padding(5)
                                   .background(.ultraThinMaterial)
                                   .padding(.horizontal)
