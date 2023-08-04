@@ -44,7 +44,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "character.textbox"),
-                            textDescription: "Custom"
+                            textDescription: "Custom",
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(
@@ -53,7 +54,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "globe"),
-                            textDescription: "RSS"
+                            textDescription: "RSS",
+                            disabled: true
                         )
                         .disabled(true)
                         
@@ -63,7 +65,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "text.quote"),
-                            textDescription: "Quote"
+                            textDescription: "Quote",
+                            disabled: true
                         )
                         .disabled(true)
                     }
@@ -79,7 +82,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather1"),
-                            textDescription: "Style1"
+                            textDescription: "Style1",
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -88,7 +92,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather2"),
-                            textDescription: "Style2"
+                            textDescription: "Style2",
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -97,7 +102,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather3"),
-                            textDescription: "Style3"
+                            textDescription: "Style3",
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -106,7 +112,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather4"),
-                            textDescription: "Style4"
+                            textDescription: "Style4",
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -115,7 +122,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather5"),
-                            textDescription: "Style5"
+                            textDescription: "Style5",
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -124,7 +132,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather6"),
-                            textDescription: "Style6"
+                            textDescription: "Style6",
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -133,11 +142,12 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "8d"),
-                            textDescription: "Imported"
+                            textDescription: "Imported",
+                            disabled: true
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
-                    .disabled(true)
+                   
                 }
                     
                 Group {
@@ -149,7 +159,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "map"),
-                            textDescription: "Custom Map"
+                            textDescription: "Custom Map",
+                            disabled: false
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -163,7 +174,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "rectangle"),
-                            textDescription: "Glass"
+                            textDescription: "Glass",
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(
@@ -172,7 +184,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "star"),
-                            textDescription: "Custom"
+                            textDescription: "Custom",
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(
@@ -181,9 +194,10 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "apple.logo"),
-                            textDescription: "SF Symbols"
+                            textDescription: "SF Symbols",
+                            disabled: true
                         )
-                        .disabled(true)
+                      
                         
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -197,7 +211,8 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "circle"),
-                            textDescription: "Battery"
+                            textDescription: "Battery",
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(
@@ -205,10 +220,11 @@ struct ObjectSelectionView: View {
                                 
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "circle"),
-                            textDescription: "Hi / Lo"
+                            imageType: .system(name: "circle.dashed"),
+                            textDescription: "Hi / Lo",
+                            disabled: true
                         )
-                        .disabled(true)
+                      
                         
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -219,15 +235,15 @@ struct ObjectSelectionView: View {
                 
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
-                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
+                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", disabled: false, buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage1)
                         }
-                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
+                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", disabled: false,buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage2)
                         }
-                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
+                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", disabled: false,buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage3)
                         }

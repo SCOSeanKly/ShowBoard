@@ -12,6 +12,7 @@ struct ObjectSelectionButton: View {
     var action: () -> Void
     let imageType: ImageType
     let textDescription: String
+    let disabled: Bool
    
     
     @State private var isPressing: Bool = false
@@ -53,7 +54,8 @@ struct ObjectSelectionButton: View {
                     .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
             }
         }
-        .buttonModifier(isPressing: isPressing)
+        .opacity(disabled ? 0.3 : 1)
+        .buttonModifier(isPressing: isPressing, disabled: disabled)
         .onTapGesture {
             //MARK: Button Animation
             isPressing.toggle()
@@ -64,6 +66,7 @@ struct ObjectSelectionButton: View {
                 }
             }
         }
+        .disabled(disabled)
     }
     
     private func getImageName() -> String? {
@@ -80,6 +83,7 @@ struct ImportImageButton: View {
     
     let systemImage: String
     let buttontext: String
+    let disabled: Bool
     @State private var isPressing: Bool = false
     @Binding var buttonAction: Bool
     @Binding var showLayerElementView: Bool
@@ -118,7 +122,7 @@ struct ImportImageButton: View {
                 
             }
         }
-        .buttonModifier(isPressing: isPressing)
+        .buttonModifier(isPressing: isPressing, disabled: disabled)
         .onTapGesture {
             isPressing.toggle()
             
@@ -141,20 +145,29 @@ struct ImportImageButton: View {
 }
 
 extension View {
-    func buttonModifier(isPressing: Bool) -> some View {
+    func buttonModifier(isPressing: Bool, disabled: Bool) -> some View {
         self.frame(width: 50, height: 60)
             .padding(10)
             .background(Color.white)
             .cornerRadius(12)
-            .shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
-                    radius: isPressing ? 0.5 : 3,
-                    x: 0,
-                    y: isPressing ? 0 : 3)
+            .if(!disabled) { view in
+                view.shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
+                            radius: isPressing ? 0.5 : 3,
+                            x: 0,
+                            y: isPressing ? 0 : 3)
+            }
+            .if(disabled) { view in
+                view.shadow(color: Color.black.opacity(0.1),
+                            radius: 3.0,
+                            x: 0,
+                            y: 2)
+            }
             .tint(.black)
             .scaleEffect(isPressing ? 0.95 : 1)
             .animation(.easeIn(duration: 0.1), value: isPressing)
     }
 }
+
 
 struct ButtonsView: View {
     @Binding var placedObjects: [LayerObject]

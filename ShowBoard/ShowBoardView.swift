@@ -91,7 +91,7 @@ struct ShowBoardView: View {
                         selection = nil
                     }
                 
-        SWAWidget2(batteryViewModel: batteryViewModel, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
+        //SWAWidget2(batteryViewModel: batteryViewModel, isDragging: $isDragging, showClipboardAlert: $showClipboardAlert)
                 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {

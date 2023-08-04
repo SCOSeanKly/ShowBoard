@@ -34,22 +34,64 @@ struct DynamicTextView: View {
                     .padding(5)
                     .background(.ultraThinMaterial)
                     .padding(.horizontal)
+             
+                  
+              
                 
-                
-                HStack {
-                    Text("Dynamic Abbreviations: ")
-                        .font(.system(size: 10))
-                        .fontWeight(.semibold)
-                        .foregroundColor(.black) +
-                    
-                    Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeOfDay]")
-                        .font(.system(size: 10))
-                        .foregroundColor(.black)
-                    
-                    Spacer()
-                }
+              
+                  
+             
+                    VStack {
+                        // Dynamic Abbreviations Section
+                        Group {
+                            HStack {
+                                Text("Dynamic Abbreviations:")
+                                    .font(.system(size: 14).weight(.semibold))
+                                
+                                Spacer()
+                            }
+                            .padding(.bottom, 1)
+                        }
+                        
+                        // Dynamic Date Section
+                        Group {
+                            HStack {
+                                Text("Date:")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 10))
+                                +
+                                Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeOfDay]")
+                                    .font(.system(size: 10))
+                                
+                                Spacer()
+                            }
+                            .padding(.bottom, 1)
+                        }
+                        
+                        // Dynamic Weather Section
+                        Group {
+                            HStack {
+                                Text("Weather:")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.black)
+                                    .font(.system(size: 10))
+                                +
+                                Text("[condition], [temp], [dayLight], [cloudCover], [visibility], [dewPoint], [humidity], [pressure], [uvIndex], [apparentTemperature], [wind]")
+                                    .font(.system(size: 10))
+                                
+                                Spacer()
+                            }
+                            .padding(.bottom, 1)
+                        }
+                        
+                    }
+                   
                 .padding(.horizontal)
-                .padding(.top, 5)
+
+                
+                    Spacer()
+     
             }
         
         }
