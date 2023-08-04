@@ -75,6 +75,7 @@ extension DynamicText {
             }
         }
         
+        
         /*
          /// The daytime high temperature.
          public var highTemperature: Measurement<UnitTemperature>
@@ -90,6 +91,7 @@ extension DynamicText {
          /// The value is from `0` (no chance of precipitation) to `1` (100% chance of precipitation).
          public var precipitationChance: Double
          */
+        
         
         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature) -> String {
             guard let val = data else { return "-" }
@@ -149,19 +151,27 @@ extension DynamicText {
         private func tempteratureToString(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""
             let convertedTemp = value.converted(to: unit)
-            let formattedTemp = String(format: "%.0f", convertedTemp.value) // change format for temp
-            ret = "\(formattedTemp)°"
             
-            switch unit {
-            case .celsius: ret += "" // add C
-            case .fahrenheit: ret += "" // add F
-            case .kelvin: ret += "K"
-            default:
-                break // show only raw value
-            }
+            let formatter = MeasurementFormatter()
+            formatter.unitStyle = .short
+            
+            let temperatureUnit: UnitTemperature = {
+                if Locale.current.measurementSystem == .metric {
+                    return .celsius
+                } else {
+                    return .fahrenheit
+                }
+            }()
+            
+            formatter.numberFormatter.maximumFractionDigits = (temperatureUnit == .celsius) ? 0 : 0
+           
+            ret = formatter.string(from: convertedTemp)
             
             return ret
         }
+
+
+
         
         
         private func lengthToString(value: Measurement<UnitLength>, useMiles: Bool = false) -> String {

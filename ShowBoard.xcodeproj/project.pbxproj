@@ -475,6 +475,7 @@
 				3E83AABD2A6A86E100E344C9 /* CustomShape.swift */,
 				3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */,
 				3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */,
+				3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -573,7 +574,6 @@
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */,
 				096F80DB2A7521400001D8A3 /* TextObjectView.swift */,
-				3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */,
 			);
 			path = "Dymanic Text View";
 			sourceTree = "<group>";
@@ -1044,7 +1044,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.15;
+				CURRENT_PROJECT_VERSION = 0.0.17;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1087,7 +1087,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.15;
+				CURRENT_PROJECT_VERSION = 0.0.17;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

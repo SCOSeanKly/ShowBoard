@@ -38,7 +38,10 @@ class TextObject: LayerObject {
     
     
     // TODO: d
-    @Published var textAlignment: TextAlignment = .leading
+    @Published var textAlignment: TextAlignment = .center
+    
+    // TODO: d
+    @Published var fontFrameWidth: CGFloat = 200
     
     
     /// The currently selected font

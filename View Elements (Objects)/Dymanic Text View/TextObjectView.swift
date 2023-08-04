@@ -14,16 +14,30 @@ struct TextObjectView: View {
     @StateObject var text: TextObject
     @State private var showSettings: Bool = false
     @Binding var isKeyboardPresented: Bool
+    
+    var alignment: Alignment {
+        switch text.textAlignment {
+        case .leading:
+            return .leading
+        case .center:
+            return .center
+        case .trailing:
+            return .trailing
+        }
+    }
+    
     var body: some View {
+        
         Text(text.dynamicText(wk: wObserver))
             .shadow(
                 radius: text.appearance.shadow.radius,
                 x: text.appearance.shadow.offset.x,
                 y: text.appearance.shadow.offset.y
             )
+            .multilineTextAlignment(text.textAlignment)
+            .frame(width: text.fontFrameWidth, alignment: alignment)
             .font(text.font)
             .tracking(text.fontTracking)
-            .multilineTextAlignment(text.textAlignment)
             .fontWeight(text.fontWeight)
             .foregroundColor(text.fontColor)
             .blendMode(text.appearance.blendMode)
@@ -37,5 +51,7 @@ struct TextObjectView: View {
             .sheet(isPresented: $showSettings){
                 DynamicTextEditViewSettings(text: text, isKeyboardPresented: $isKeyboardPresented)
             }
+        
     }
+    
 }
