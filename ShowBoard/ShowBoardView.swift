@@ -52,7 +52,6 @@ struct ShowBoardView: View {
     @State private var placedObjects: [LayerObject] = []
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
-    
     @State private var isKeyboardPresented = false
     
     

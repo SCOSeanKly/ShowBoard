@@ -39,6 +39,7 @@
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
 		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
 		3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */; };
+		3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BAE6B2A810B2B001DF91B /* KeyboardObserver.swift */; };
 		3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */; };
 		3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A702A69526500AE1ED7 /* CustomSlider.swift */; };
 		3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E546A722A69672100AE1ED7 /* SettingsFonts.swift */; };
@@ -75,7 +76,6 @@
 		3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5C02A438A5D00FA1BCB /* ZoomModifier.swift */; };
 		3EADA5C32A438EDF00FA1BCB /* RotateModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */; };
 		3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */; };
-		3EB430522A7D2FEA000DCD6C /* KeyboardPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */; };
 		3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671972A4EF20A00DF2678 /* GroupView.swift */; };
 		3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */; };
 		3EBF306C2A6EBE3D004C12B5 /* CustomPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */; };
@@ -173,6 +173,7 @@
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
 		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
 		3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionView.swift; sourceTree = "<group>"; };
+		3E4BAE6B2A810B2B001DF91B /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditView.swift; sourceTree = "<group>"; };
 		3E546A702A69526500AE1ED7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		3E546A722A69672100AE1ED7 /* SettingsFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFonts.swift; sourceTree = "<group>"; };
@@ -214,7 +215,6 @@
 		3EADA5C02A438A5D00FA1BCB /* ZoomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomModifier.swift; sourceTree = "<group>"; };
 		3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateModifier.swift; sourceTree = "<group>"; };
 		3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarchingAntsBorder.swift; sourceTree = "<group>"; };
-		3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPublisher.swift; sourceTree = "<group>"; };
 		3EB671972A4EF20A00DF2678 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 		3EB671992A4EF77300DF2678 /* FadeOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeOnAppear.swift; sourceTree = "<group>"; };
 		3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentation.swift; sourceTree = "<group>"; };
@@ -373,13 +373,13 @@
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
+				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
 				3E3977912A7BF998002711FC /* AppModel.swift */,
 				09691AE42A7C115F00970EB9 /* AppDelegate.swift */,
 				3E3977972A7C0B63002711FC /* WeatherObserver.swift */,
 				3E3977952A7C064D002711FC /* LocationObserver.swift */,
 				3E8280392A7939A900F174F9 /* Rainfall Sprite Objects */,
-				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
 				3E8849BA2A41D57B00B50BBD /* WeatherKit & Location Manager */,
 				3EADA59D2A4315E500FA1BCB /* Custom Fonts */,
@@ -475,7 +475,6 @@
 				3E83AABD2A6A86E100E344C9 /* CustomShape.swift */,
 				3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */,
 				3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */,
-				3EB430512A7D2FEA000DCD6C /* KeyboardPublisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -574,6 +573,7 @@
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */,
 				096F80DB2A7521400001D8A3 /* TextObjectView.swift */,
+				3E4BAE6B2A810B2B001DF91B /* KeyboardObserver.swift */,
 			);
 			path = "Dymanic Text View";
 			sourceTree = "<group>";
@@ -801,6 +801,7 @@
 			files = (
 				096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */,
 				3ECBE3622A6EAFFA004B59F2 /* CustomShapeSettings.swift in Sources */,
+				3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
@@ -872,7 +873,6 @@
 				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
-				3EB430522A7D2FEA000DCD6C /* KeyboardPublisher.swift in Sources */,
 				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
@@ -1040,11 +1040,11 @@
 		3E8849AC2A41D47800B50BBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.17;
+				CURRENT_PROJECT_VERSION = 0.0.14;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1083,11 +1083,11 @@
 		3E8849AD2A41D47800B50BBD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon2;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.17;
+				CURRENT_PROJECT_VERSION = 0.0.14;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

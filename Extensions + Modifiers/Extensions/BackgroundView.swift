@@ -99,8 +99,6 @@ struct BackgroundView: View {
                     }
                   
                     
-                  Divider()
-                    
                     HStack {
                         Text("HINT: ")
                             .font(.custom("Rajdhani-Medium", size: 18))
