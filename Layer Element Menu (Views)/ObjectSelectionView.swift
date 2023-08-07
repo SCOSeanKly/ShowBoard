@@ -78,12 +78,12 @@ struct ObjectSelectionView: View {
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
                             action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
+                                placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "weather1"),
                             textDescription: "Style1",
-                            disabled: true
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(

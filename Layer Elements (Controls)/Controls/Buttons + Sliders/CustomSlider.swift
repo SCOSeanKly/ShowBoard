@@ -57,16 +57,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
                                 .clipShape(Circle())
                             
-                            /// Optional button Image that rotates as the slider is dragged
-                            /*
-                             Image(systemName: "xmark")
-                             .foregroundColor(.black.opacity(1.0))
-                             .clipShape(Circle())
-                             .scaleEffect(0.8)
-                             .rotationEffect(.degrees(Double(180 * (localRealProgress - 0.5))))
-                             */
-                             
-                            
                         }
                         .frame(height: isActive ? height * 4 : height * 2, alignment: .center) // Increases the size of the button when dragging
                         .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle

@@ -102,6 +102,7 @@ struct ShowBoardView: View {
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
                             case .customShape:  CustomShapeView()
                             case .glassShape:   GlassShapeView()
+                            case .weatherIcon:  WeatherIconView()
                            
                             }
                         }
@@ -315,6 +316,7 @@ struct PlacedObjectsListView: View {
         case .circleGauge: objectTypeInfo = .circleGauge
         case .customShape: objectTypeInfo = .customShape
         case .glassShape: objectTypeInfo = .glassShape
+        case . weatherIcon: objectTypeInfo = .weatherIcon
       
         }
         
@@ -391,6 +393,7 @@ struct PlacedObjectsListView: View {
         case circleGauge
         case customShape
         case glassShape
+        case weatherIcon
        
         
         
@@ -401,6 +404,7 @@ struct PlacedObjectsListView: View {
             case .circleGauge: return "circle"
             case .customShape: return "star"
             case .glassShape: return "square"
+            case .weatherIcon: return "sun.max"
           
                 
             }
@@ -413,6 +417,7 @@ struct PlacedObjectsListView: View {
             case .circleGauge: return "Circle Gauge Object"
             case .customShape: return "Custom Shape Object"
             case .glassShape: return "Glass Object"
+            case .weatherIcon: return "Weather Icon Object"
           
                 
             }

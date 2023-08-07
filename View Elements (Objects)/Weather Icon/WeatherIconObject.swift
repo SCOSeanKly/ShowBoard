@@ -8,7 +8,7 @@
 import SwiftUI
 import WeatherKit
 
-struct WeatherIconObjectView: View {
+struct WeatherIconView: View {
     @ObservedObject var wObserver = AppModel.shared.wObserver
     
     var currentWeather: CurrentWeather? {
@@ -28,12 +28,12 @@ struct WeatherIconObjectView: View {
     }
 }
 
-struct WeatherIconObjectView_Previews: PreviewProvider {
+struct WeatherIconView_Previews: PreviewProvider {
     static var previews: some View {
-        let locationDataManager = LocationDataManager()
-        let weatherKitManager = WeatherKitManager()
+//        let locationDataManager = LocationDataManager()
+//        let weatherKitManager = WeatherKitManager()
         
-        return WeatherIconObjectView()
+        return WeatherIconView()
     }
 }
 
