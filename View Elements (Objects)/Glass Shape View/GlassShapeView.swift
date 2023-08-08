@@ -40,7 +40,7 @@ struct GlassShapeView: View {
                 }
                 
             }
-            .settingsModifier(layer: glass, systemImageName: "square", systemImage2: "", titleText: "Glass Object")
+            .objectAppearanceModifier(layer: glass, systemImageName: "square", systemImage2: "", titleText: "Glass Object")
       
         
     }

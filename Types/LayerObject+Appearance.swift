@@ -106,6 +106,38 @@ struct LayerObjectAppearance {
     
     var fillColor: Color
     
+    //MARK: Circle Gauge
+    /// Min Value
+    var minValue: CGFloat
+    
+    /// Max Value
+    var maxValue: CGFloat
+    
+    /// Current Value Label Font Size
+    var currentValueLabelFontSize: CGFloat
+    
+    /// Min Max Value Label Font Size
+    var minMaxValueLabelFontSize: CGFloat
+    
+    /// Gauge Colour
+    var gaugeColor: Color
+    
+    /// Show current value label
+    var showCurrentValueLabel: Bool
+    
+    /// Show Min and Max value labels
+    var showMinMaxValueLabels: Bool
+    
+    /// Current value label color
+    var currentValueLabelColor: Color
+    
+    /// Min Max value label colour
+    var minMaxValueLabelColor: Color
+    
+    ///Scale effect for gauge
+    var gaugeScale: CGFloat
+    
+    
     
     
     /// The list of the avaliable blend modes
@@ -182,10 +214,22 @@ struct LayerObjectAppearance {
         self.shapeRatio = 1
         self.fillColor = .white
         self.glassBlur = 5
+        self.minValue = 0.0
+        self.maxValue = 100
+        self.currentValueLabelFontSize = 12
+        self.minMaxValueLabelFontSize = 6
+        self.gaugeColor = .white
+        self.showCurrentValueLabel = true
+        self.showMinMaxValueLabels = true
+        self.currentValueLabelColor = .white
+        self.minMaxValueLabelColor = .white
+        self.gaugeScale = 1.0
         
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
+         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat) {
+        
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -211,6 +255,16 @@ struct LayerObjectAppearance {
         self.shapeRatio = shapeRatio
         self.fillColor = fillColor
         self.glassBlur = glassBlur
+        self.minValue = minValue
+        self.maxValue = maxValue
+        self.currentValueLabelFontSize = currentValueLabelFontSize
+        self.minMaxValueLabelFontSize = minMaxValueLabelFontSize
+        self.gaugeColor = gaugeColor
+        self.showCurrentValueLabel = showCurrentValueLabel
+        self.showMinMaxValueLabels = showCurrentValueLabel
+        self.currentValueLabelColor = currentValueLabelColor
+        self.minMaxValueLabelColor = minMaxValueLabelColor
+        self.gaugeScale = gaugeScale
     }
     
     

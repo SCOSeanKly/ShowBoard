@@ -30,7 +30,7 @@ struct WeatherIconView: View {
             Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .settingsModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object")
+                .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object")
         }
     }
 }

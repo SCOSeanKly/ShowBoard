@@ -27,7 +27,7 @@ public struct CustomShapeView: View {
                 }
                 .clipShape(Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio))
          */
-                .settingsModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object")
+                .objectAppearanceModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object")
     }
 }
 

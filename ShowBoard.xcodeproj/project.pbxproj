@@ -35,7 +35,7 @@
 		3E3977922A7BF998002711FC /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977912A7BF998002711FC /* AppModel.swift */; };
 		3E3977962A7C064D002711FC /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977952A7C064D002711FC /* LocationObserver.swift */; };
 		3E3977982A7C0B63002711FC /* WeatherObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977972A7C0B63002711FC /* WeatherObserver.swift */; };
-		3E3E68852A8259A100F468DD /* SettingsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68842A8259A100F468DD /* SettingsModifier.swift */; };
+		3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */; };
 		3E3E68872A82720A00F468DD /* ifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68862A82720A00F468DD /* ifExtension.swift */; };
 		3E3E68892A82788C00F468DD /* GlassObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68882A82788C00F468DD /* GlassObject.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
@@ -84,7 +84,6 @@
 		3EBF306E2A6EC9A8004C12B5 /* CustomBlendModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */; };
 		3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */; };
 		3EBF30722A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */; };
-		3EBF30782A6ED557004C12B5 /* BatteryCircleGaugeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF30772A6ED557004C12B5 /* BatteryCircleGaugeSettings.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
 		3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC34A52A4C3866008794BC /* ModernAge.ttf */; };
@@ -168,7 +167,7 @@
 		3E3977912A7BF998002711FC /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		3E3977952A7C064D002711FC /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		3E3977972A7C0B63002711FC /* WeatherObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherObserver.swift; sourceTree = "<group>"; };
-		3E3E68842A8259A100F468DD /* SettingsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModifier.swift; sourceTree = "<group>"; };
+		3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object Appearance Modifier.swift"; sourceTree = "<group>"; };
 		3E3E68862A82720A00F468DD /* ifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifExtension.swift; sourceTree = "<group>"; };
 		3E3E68882A82788C00F468DD /* GlassObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassObject.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
@@ -222,7 +221,6 @@
 		3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBlendModePicker.swift; sourceTree = "<group>"; };
 		3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontPicker.swift; sourceTree = "<group>"; };
 		3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditViewSettings.swift; sourceTree = "<group>"; };
-		3EBF30772A6ED557004C12B5 /* BatteryCircleGaugeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryCircleGaugeSettings.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3ECC34A52A4C3866008794BC /* ModernAge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ModernAge.ttf; sourceTree = "<group>"; };
@@ -311,7 +309,6 @@
 			isa = PBXGroup;
 			children = (
 				3E371CDE2A66B10500DE743C /* BatteryCircleGauge.swift */,
-				3EBF30772A6ED557004C12B5 /* BatteryCircleGaugeSettings.swift */,
 			);
 			path = "Battery Circle Gauge";
 			sourceTree = "<group>";
@@ -464,7 +461,7 @@
 			children = (
 				3EC03DF72A67E63C001F1965 /* Controls */,
 				096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */,
-				3E3E68842A8259A100F468DD /* SettingsModifier.swift */,
+				3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */,
 			);
 			path = "Layer Elements (Controls)";
 			sourceTree = "<group>";
@@ -842,9 +839,8 @@
 				3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */,
 				3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */,
 				3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */,
-				3E3E68852A8259A100F468DD /* SettingsModifier.swift in Sources */,
+				3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */,
 				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
-				3EBF30782A6ED557004C12B5 /* BatteryCircleGaugeSettings.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* URLImagesGallery.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
@@ -1040,7 +1036,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.18;
+				CURRENT_PROJECT_VERSION = 0.0.19;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1083,7 +1079,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.18;
+				CURRENT_PROJECT_VERSION = 0.0.19;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func settingsModifier(layer: LayerObject, systemImageName: String, systemImage2: String, titleText: String) -> some View {
+    func objectAppearanceModifier(layer: LayerObject, systemImageName: String, systemImage2: String, titleText: String) -> some View {
         self.modifier(SettingsMod(layer: layer, systemImageName: systemImageName, titletext: titleText))
     }
 }

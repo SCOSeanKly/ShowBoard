@@ -17,7 +17,7 @@ struct MapView: View {
     var body: some View {
         ZStack {
             MapExtensionView(map: map)
-                .settingsModifier(layer: map, systemImageName: "map", systemImage2: "", titleText: "Map Object")
+                .objectAppearanceModifier(layer: map, systemImageName: "map", systemImage2: "", titleText: "Map Object")
             
         }
     }
