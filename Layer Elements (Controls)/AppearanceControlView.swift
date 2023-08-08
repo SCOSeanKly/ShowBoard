@@ -26,17 +26,16 @@ struct AppearanceControlView: View {
             VStack {
                 Group {
                     // Put text object controls here
-                    if let object = layer as? TextObject {
+                    if let _ = layer as? TextObject {
                         
                     }
-                    
                 }
                 
                 Group {
                     ResetValues(resetValues: {}, systemImageName: systemImageName, titleText: titletext)
                     
-                    if let object = layer as?  CustomShapeObject {
-                        
+                    if let _ = layer as? CustomShapeObject {
+                 
                         SliderStepper(color: .blue, title: "Count:", sliderBindingValue: $layer.appearance.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
                         
                         SliderStepper(color: .blue, title: "Inner Ratio:", sliderBindingValue: $layer.appearance.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
@@ -46,7 +45,7 @@ struct AppearanceControlView: View {
                     
                     SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $layer.appearance.height, minValue: 0, maxValue: UIScreen.main.bounds.height * 1.05, step: 1, specifier: 0, defaultValue: 200)
                     
-                    if let object = layer as?  GlassObject {
+                    if let _ = layer as? GlassObject {
                         SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                     }
                 }
@@ -58,7 +57,7 @@ struct AppearanceControlView: View {
                     
                     
                     
-                    if let object = layer as? MapObject {
+                    if let _ = layer as? MapObject {
                         SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                     }
                     
@@ -70,7 +69,7 @@ struct AppearanceControlView: View {
                 }
                 
                 Group {
-                    SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $layer.appearance.blur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 0)
+                    SliderStepper(color: .blue, title: "Object Blur Radius:", sliderBindingValue: $layer.appearance.blur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 0)
                     
                     SliderStepper(color: .blue, title: "Image Opacity:", sliderBindingValue: $layer.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                     
@@ -82,7 +81,9 @@ struct AppearanceControlView: View {
                 }
                 
                 Group {
-                    if let object = layer as?  GlassObject {
+                    if let _ = layer as? GlassObject {
+                        
+                        SliderStepper(color: .blue, title: "Glass Blur Radius:", sliderBindingValue: $layer.appearance.glassBlur, minValue: 0, maxValue: 20, step: 1.0, specifier: 1, defaultValue: 5)
                         
                         CustomToggle(titleText: "Add Frosted Effect:", bindingValue: $layer.appearance.shapeGrain, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                         

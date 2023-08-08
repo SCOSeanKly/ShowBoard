@@ -46,6 +46,8 @@ struct LayerObjectAppearance {
     /// Blur radius
     var blur: CGFloat
     
+    var glassBlur: CGFloat
+    
     
     /// Opacity ammount
     var opacity: CGFloat
@@ -179,10 +181,11 @@ struct LayerObjectAppearance {
         self.shapePointCount = 5
         self.shapeRatio = 1
         self.fillColor = .white
+        self.glassBlur = 5
         
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false, showSettings: Bool = false, width: CGFloat = 200, height: CGFloat = 200, overlayColor: Color = .clear, shapeGrain: Bool = false, showBorder: Bool = true, borderWidth: CGFloat = 0.5, shapePointCount: CGFloat = 5, shapeRatio: CGFloat = 1, fillColor: Color = .white) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -207,6 +210,7 @@ struct LayerObjectAppearance {
         self.shapePointCount = shapePointCount
         self.shapeRatio = shapeRatio
         self.fillColor = fillColor
+        self.glassBlur = glassBlur
     }
     
     

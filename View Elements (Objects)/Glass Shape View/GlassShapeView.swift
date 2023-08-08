@@ -21,7 +21,7 @@ struct GlassShapeView: View {
                     .foregroundColor(.clear)
                     .background {
                         TransparentBlurView(removeAllFilters: true)
-                            .blur(radius: glass.appearance.blur, opaque: true)
+                            .blur(radius: glass.appearance.glassBlur, opaque: true)
                             .background(.white.opacity(0.05))
                     }
                     .clipShape(RoundedRectangle(cornerRadius: glass.appearance.cornerRadius))
