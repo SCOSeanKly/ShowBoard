@@ -10,6 +10,7 @@ import WeatherKit
 
 struct WeatherIconView: View {
     @ObservedObject var wObserver = AppModel.shared.wObserver
+    @StateObject var weatherIconObject = WeatherIconLayerObject()
     
     var currentWeather: CurrentWeather? {
         wObserver.weather?.currentWeather
@@ -19,21 +20,39 @@ struct WeatherIconView: View {
         wObserver.getGorecast(offset: 0)
     }
     
+    
     var body: some View {
         
-        Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 100, height: 100)
+        ZStack {
+            
+            ProgressView()
+            
+            Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: weatherIconObject.frameHeight, height: weatherIconObject.frameHeight)
+                .rotationEffect(weatherIconObject.appearance.rotation)
+                .shadow(color: .black.opacity(weatherIconObject.appearance.shadowOpacity), radius: weatherIconObject.appearance.shadow.radius, y: weatherIconObject.appearance.shadow.offset.y)
+                .animation(.spring())
+                .onTapGesture {
+                   
+                    weatherIconObject.appearance.showSettings.toggle()
+                }
+        }
+            .sheet(isPresented: $weatherIconObject.appearance.showSettings){
+                
+                WeatherIconViewSettings(weatherIconObject: weatherIconObject)
+                
+            }
     }
 }
 
 struct WeatherIconView_Previews: PreviewProvider {
     static var previews: some View {
-//        let locationDataManager = LocationDataManager()
-//        let weatherKitManager = WeatherKitManager()
-        
         return WeatherIconView()
     }
 }
+
+
+
 

@@ -18,7 +18,8 @@ struct HeartButton: View {
     let onColor: Color
     let offColor: Color
     let secondaryColor: Color
-    let bindingValue: Binding<Bool>
+    
+    var action: () -> Void
     
     var body: some View {
         
@@ -34,7 +35,7 @@ struct HeartButton: View {
                 .frame(width: 50, height: 50)
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(isPressing ? onColor : offColor)
-                .scaleEffect(isPressing ? 6.0 : 1.0)
+                .scaleEffect(isPressing ? 6.5 : 1.0)
                 .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
             
             
@@ -59,7 +60,7 @@ struct HeartButton: View {
             }
             
             // Add Button Action
-            bindingValue.wrappedValue.toggle()
+           action()
            
         }
         .shadow(radius: animateSize ? 1 : 5, y: animateSize ? 0 : 5)

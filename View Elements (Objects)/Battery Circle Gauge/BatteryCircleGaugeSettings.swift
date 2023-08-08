@@ -70,12 +70,17 @@ struct BatteryCircleGaugeSettings: View {
                     
                     SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $bat.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0)
                     
+                    SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $bat.frameWidth, minValue: 0, maxValue: 500, step: 1, specifier: 1, defaultValue: 150)
+                    
+                    /*
                     SliderStepper(color: .blue, title: "Scale Effect:", sliderBindingValue: $bat.appearance.scales.x, minValue: 0, maxValue: 5, step: 0.1, specifier: 1, defaultValue: 1)
                         .onChange(of: bat.appearance.scales) { _ in
                             bat.appearance.scales.y =
                             bat.appearance.scales.x
                         }
+                     */
                         .padding(.bottom, 100)
+                     
                 }
             }
             .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)

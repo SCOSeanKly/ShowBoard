@@ -28,8 +28,7 @@ struct WidgetModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         GeometryReader { proxy in
-            let min = min(proxy.size.width, proxy.size.height)
-            // let size = CGSize(width: min * 0.5, height: min * 0.5)
+         
             content
                 .opacity(isDragging ? 0.5 : 1.0)
                 .frame(width: UIScreen.main.bounds.width)

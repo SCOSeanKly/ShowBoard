@@ -63,21 +63,7 @@ struct BackgroundView: View {
                     .background{
                         TransparentBlurView(removeAllFilters: true)
                             .blur(radius: 5, opaque: true)
-
-                        /*
-                         LinearGradient(gradient: Gradient(colors: [.white, .clear]), startPoint: .top, endPoint: .bottom)
-                         .opacity(0.3)
-                         .frame(width: 100, height: 200)
-                         .rotationEffect(Angle(degrees: 35))
-                         .offset(x: xOffset, y: -30)
-                         .animation(Animation.linear(duration: 4).repeatForever(autoreverses: false))
-                         .onAppear {
-                         xOffset = UIScreen.main.bounds.width + 50
-                         }
-                         .blur(radius: 30)
-                         */
-                        
-                        
+                            .clipShape( RoundedRectangle(cornerRadius: 10))
                     }
                     .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
                     
@@ -94,9 +80,10 @@ struct BackgroundView: View {
                             .shadow(radius: 1)
                         
                                 CustomToggle(titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "drop", rotate: false)
-                            .scaleEffect(0.7)
+                            .scaleEffect(0.8)
                             .frame(width: 30)
                     }
+                    .frame(height: 20)
                   
                     
                     HStack {
@@ -106,12 +93,14 @@ struct BackgroundView: View {
                         Text(randomHint)
                             .font(.custom("Rajdhani-Medium", size: 14))
                     }
+                    .frame(height: 50)
                     .padding(.horizontal, 10)
                     .shadow(radius: 1)
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 100)
             }
+            
             
             
             if let importedBackground = importedBackground {

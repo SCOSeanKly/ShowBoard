@@ -33,6 +33,7 @@ struct GroupView: View {
     @Binding var selection: UUID?
     @Binding var hiddenLayers: Set<UUID>
    
+   
     
     var body: some View {
         Group {

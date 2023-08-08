@@ -11,15 +11,9 @@ struct MapSettings: View {
     
     @StateObject var map = MapObject()
     
-    @Binding var showSettings: Bool
-   
-    
-    
     var body: some View {
         
         ScrollView (showsIndicators: false){
-            
-          //  LayerBackButton(selfViewToClose: $showSettings, viewToOpen: $showSettings, showLayerElementView: $showSettings, headerText: "Maps", systemImage: "map", systemImage2: "")
             
             HStack {
                 

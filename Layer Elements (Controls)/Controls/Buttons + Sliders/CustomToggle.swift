@@ -52,19 +52,19 @@ struct CustomToggle: View {
                     
                     ZStack {
                         Image(systemName: bindingValue.wrappedValue ? onSymbol : offSymbol)
-                            .scaleEffect(0.6)
+                            .scaleEffect(0.7)
                             .rotationEffect(rotationAngle)
                             .foregroundColor(.white.opacity(0.6))
                             .offset(x: -0.5, y: -0.5)
                         
                         Image(systemName: bindingValue.wrappedValue ? onSymbol : offSymbol)
-                            .scaleEffect(0.6)
+                            .scaleEffect(0.7)
                             .rotationEffect(rotationAngle)
                             .foregroundColor(.gray.opacity(0.5))
                             .offset(x: 0.5, y: 0.5)
                         
                         Image(systemName: bindingValue.wrappedValue ? onSymbol : offSymbol)
-                            .scaleEffect(0.6)
+                            .scaleEffect(0.7)
                             .rotationEffect(rotationAngle)
                             .foregroundColor(.black)
                     }
@@ -90,7 +90,7 @@ struct CustomToggle: View {
                 bindingValue.wrappedValue.toggle()
                 
                 if rotate {
-                    withAnimation(.easeInOut(duration: 0.5)) {
+                    withAnimation(.easeInOut(duration: 0.2)) {
                         rotationAngle = bindingValue.wrappedValue ? .degrees(90) : .degrees(0)
                     }
                 }

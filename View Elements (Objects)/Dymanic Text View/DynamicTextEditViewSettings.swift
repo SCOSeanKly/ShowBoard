@@ -11,7 +11,6 @@ struct DynamicTextEditViewSettings: View {
     
     @StateObject var text: TextObject
     @State private var doNothing: Bool = false
-    @Binding var isKeyboardPresented: Bool
     
     var body: some View {
         
@@ -34,13 +33,13 @@ struct DynamicTextEditViewSettings: View {
             .padding()
             
           
-                if !isKeyboardPresented {
+            if !text.isKeyboardPresented {
                     ResetValues(resetValues: resetDynamicTextValues)
                 }
                 
-                DynamicTextView(text: text, isKeyboardPresented: $isKeyboardPresented)
+                DynamicTextView(text: text)
                 
-                if !isKeyboardPresented {
+            if !text.isKeyboardPresented {
                     Group {
                         CustomFontPicker(bindingValue: $text.selectedFontName, text: text)
                         

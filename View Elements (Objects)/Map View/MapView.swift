@@ -12,8 +12,7 @@ struct MapView: View {
     @ObservedObject var lObserver = AppModel.shared.lObserver
     @StateObject var map = MapObject()
     @State private var isDragging: Bool = false
-    @State private var showSettings: Bool = false
-    
+   
     
     var body: some View {
         ZStack {
@@ -24,24 +23,24 @@ struct MapView: View {
                     view.colorInvert()
                 }
                 .overlay(map.mapOverlayColor)
-//                .mask(
-//                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
-//                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
-//                        .cornerRadius(map.appearance.cornerRadius)
-//                )
+                .mask( // This mask removes the apple text and legal button from the map
+                    RoundedRectangle(cornerRadius: map.appearance.cornerRadius)
+                        .frame(width: map.mapFrameWidth, height: map.mapFrameHeight)
+                        .cornerRadius(map.appearance.cornerRadius)
+                )
                 .shadow(color: .black.opacity(map.appearance.shadowOpacity), radius: map.appearance.shadow.radius, y: map.appearance.shadow.offset.y)
                 .blendMode(map.appearance.blendMode)
                 .opacity(map.appearance.opacity)
                 .animation(.spring())
                 //MARK: Testing purposes only - will be removed into own section.
                 .onTapGesture{
-                    showSettings.toggle()
+                    map.appearance.showSettings.toggle()
                 }
         }
       
         //MARK: Testing purposes only - will be removed into own section.
-        .sheet(isPresented: $showSettings){
-            MapSettings(map: map, showSettings: $showSettings)
+        .sheet(isPresented: $map.appearance.showSettings){
+            MapSettings(map: map)
         }
     }
 }

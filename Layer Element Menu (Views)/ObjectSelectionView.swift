@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WeatherKit
 
 struct ObjectSelectionView: View {
     
@@ -26,6 +27,18 @@ struct ObjectSelectionView: View {
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
+    
+    @ObservedObject var wObserver = AppModel.shared.wObserver
+    @StateObject var weatherIconObject = WeatherIconLayerObject()
+    
+  
+    var currentWeather: CurrentWeather? {
+        wObserver.weather?.currentWeather
+    }
+    
+    var todaysForecast: DayWeather? {
+        wObserver.getGorecast(offset: 0)
+    }
     
     var body: some View {
         ZStack {
@@ -72,84 +85,47 @@ struct ObjectSelectionView: View {
                     }
                     .padding([.leading, .bottom, .trailing])
                 }
-                    
+                
                 Group {
-                    ObjectTitleText(titleText: "Weather Icon")
+                    ObjectTitleText(titleText: "Weather Icon (Current)")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
                             action: {
+                                weatherIconObject.activeWeatherIconImageSet = .set1
                                 placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
-                            imageType: .asset(name: "weather1"),
+                            imageType: .asset(name: "set1_5d"),
                             textDescription: "Style1",
                             disabled: false
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
+                                weatherIconObject.activeWeatherIconImageSet = .set2
+                                placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
-                            imageType: .asset(name: "weather2"),
+                            imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: true
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
+                                weatherIconObject.activeWeatherIconImageSet = .set3
+                                placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
-                            imageType: .asset(name: "weather3"),
+                            imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
-                            disabled: true
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "weather4"),
-                            textDescription: "Style4",
-                            disabled: true
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "weather5"),
-                            textDescription: "Style5",
-                            disabled: true
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "weather6"),
-                            textDescription: "Style6",
-                            disabled: true
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                                //  placedObjects.append(WeatherIconObject()) //MARK: TODO
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "8d"),
-                            textDescription: "Imported",
-                            disabled: true
+                            disabled: false
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
-                   
-                }
                     
+                }
+                
                 Group {
                     ObjectTitleText(titleText: "Map Image")
                     LazyVGrid(columns: gridItems, spacing: 16) {
@@ -197,7 +173,7 @@ struct ObjectSelectionView: View {
                             textDescription: "SF Symbols",
                             disabled: true
                         )
-                      
+                        
                         
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -224,13 +200,11 @@ struct ObjectSelectionView: View {
                             textDescription: "Hi / Lo",
                             disabled: true
                         )
-                      
+                        
                         
                     }
                     .padding([.leading, .bottom, .trailing])
                 }
-                    
-                
                 
                 
                 ObjectTitleText(titleText: "Import Layer Image")

@@ -14,9 +14,7 @@ import UIKit
 struct DynamicTextView: View {
     
     @StateObject var text: TextObject
-    @State private var showSettings: Bool = false
     
-    @Binding var isKeyboardPresented: Bool
     @State private var isPressing: Bool = false
    
     
@@ -27,7 +25,7 @@ struct DynamicTextView: View {
             
             VStack {
                 
-                    if !isKeyboardPresented {
+                if !text.isKeyboardPresented {
                         HStack {
                           
                             Text("Enter text...")
@@ -66,16 +64,16 @@ struct DynamicTextView: View {
                 .padding(.horizontal)
                 
                 TextEditor(text: $text.inputText)
-                .frame(height: isKeyboardPresented ? 100 : 40)
+                .frame(height: text.isKeyboardPresented ? 100 : 40)
                                   .padding(5)
                                   .background(.ultraThinMaterial)
                                   .padding(.horizontal)
                                   .scrollDismissesKeyboard(.immediately)
                                   .onReceive(keyboardPublisher) { value in
-                                       isKeyboardPresented = value
+                                      text.isKeyboardPresented = value
                                      }
                                  
-                if isKeyboardPresented {
+            if text.isKeyboardPresented {
                     VStack {
                         // Dynamic Abbreviations Section
                         Group {
@@ -124,9 +122,6 @@ struct DynamicTextView: View {
                     .padding(.horizontal)
                 }
                    
-              
-
-                
                     Spacer()
      
             }

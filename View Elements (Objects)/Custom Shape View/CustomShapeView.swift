@@ -11,9 +11,7 @@ import SwiftUI
 public struct CustomShapeView: View {
     
     @StateObject var shape = CustomShapeObject()
-    
     @State private var isSliderMode = true
-    @State private var showSettings: Bool = false
     
     public init() {}
     
@@ -46,10 +44,10 @@ public struct CustomShapeView: View {
                 .rotation3DEffect(.degrees(shape.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
                 .animation(.spring())
                 .onTapGesture{
-                    showSettings.toggle()
-                } 
+                    shape.appearance.showSettings.toggle()
+                }
         }
-        .sheet(isPresented: $showSettings){
+        .sheet(isPresented: $shape.appearance.showSettings){
             CustomShapeSettings(shape: shape)
         }
         .padding()

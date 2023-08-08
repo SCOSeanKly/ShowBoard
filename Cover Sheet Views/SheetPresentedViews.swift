@@ -29,6 +29,7 @@ struct SheetPresentedViews: View {
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
     @Binding var hiddenLayers: Set<UUID>
+  
     
    
   

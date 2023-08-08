@@ -11,7 +11,7 @@ import SwiftUI
 struct GlassShapeView: View {
     
     @StateObject var shape = CustomShapeObject()
-    @State private var showSettings: Bool = false
+
     
     var body: some View {
         
@@ -45,11 +45,11 @@ struct GlassShapeView: View {
             .animation(.spring())
             //MARK: Testing purposes only - will be removed into own section.
             .onTapGesture {
-                showSettings.toggle()
+                shape.appearance.showSettings.toggle()
             }
    
         //MARK: Testing purposes only - will be removed into own section.
-        .sheet(isPresented: $showSettings){
+        .sheet(isPresented: $shape.appearance.showSettings){
             //MARK: Glass shape settings
             GlassShapeSettings(shape: shape)
         }

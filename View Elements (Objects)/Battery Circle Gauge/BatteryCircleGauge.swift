@@ -12,8 +12,6 @@ struct BatteryCircleGauge: View {
     @ObservedObject var batteryViewModel: BatteryViewModel
     @StateObject var bat = CircleGaugeObject()
     
-    @State private var showSettings: Bool = false
-    
     
     var body: some View {
         Gauge(value: Double(batteryViewModel.batteryLevel), in: bat.minValue...bat.maxValue) {
@@ -47,9 +45,9 @@ struct BatteryCircleGauge: View {
         
         //MARK: Testing purposes only - will be removed into own section.
         .onTapGesture {
-            showSettings.toggle()
+            bat.appearance.showSettings.toggle()
         }
-        .sheet(isPresented: $showSettings){
+        .sheet(isPresented: $bat.appearance.showSettings){
             BatteryCircleGaugeSettings(bat: bat)
         }
     }

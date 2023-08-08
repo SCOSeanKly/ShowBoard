@@ -14,6 +14,9 @@ struct LayerObjectAppearance {
     // MARK: - Public Properties
     
     
+    /// Generic Bool for showSettings toggle
+    var showSettings: Bool
+    
     /// The position of the object on the layer
     var position: CGPoint
     
@@ -136,9 +139,10 @@ struct LayerObjectAppearance {
         self.shadowOpacity = 0.0
         self.darkMode = false
         self.invert = false
+        self.showSettings = false
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false, showSettings: Bool = false) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -152,7 +156,8 @@ struct LayerObjectAppearance {
         self.skewY = skewY
         self.shadowOpacity = shadowOpacity
         self.darkMode = darkMode
-        self.invert = false
+        self.invert = invert
+        self.showSettings = showSettings
     }
     
     

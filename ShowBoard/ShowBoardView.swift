@@ -52,8 +52,9 @@ struct ShowBoardView: View {
     @State private var placedObjects: [LayerObject] = []
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
-    @State private var isKeyboardPresented = false
+   
     
+   
     
     var body: some View {
         ZStack {
@@ -92,22 +93,20 @@ struct ShowBoardView: View {
                         selection = nil
                     }
                 
-                
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            case .text:         TextObjectView(text: obj as! TextObject, isKeyboardPresented: $isKeyboardPresented)
+                            case .text:         TextObjectView(text: obj as! TextObject)
                             case .map:          MapView( map: obj as! MapObject)
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
                             case .customShape:  CustomShapeView()
                             case .glassShape:   GlassShapeView()
-                            case .weatherIcon:  WeatherIconView()
-                           
+                            case .weatherIcon:  WeatherIconView(weatherIconObject: WeatherIconLayerObject())
                             }
                         }
                         .padding(10)
-                        .background{
+                        .background {
                             MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
                         .offset(x: obj.id == selection ? offsetX : 0, y: obj.id == selection ? offsetY : 0)
@@ -115,7 +114,7 @@ struct ShowBoardView: View {
                         .onLongPressGesture {
                             showMicroControls.toggle()
                         }
-                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: true))
+                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id ? true : false)
                         .fadeOnAppear()
@@ -316,7 +315,7 @@ struct PlacedObjectsListView: View {
         case .circleGauge: objectTypeInfo = .circleGauge
         case .customShape: objectTypeInfo = .customShape
         case .glassShape: objectTypeInfo = .glassShape
-        case . weatherIcon: objectTypeInfo = .weatherIcon
+        case .weatherIcon: objectTypeInfo = .weatherIcon
       
         }
         

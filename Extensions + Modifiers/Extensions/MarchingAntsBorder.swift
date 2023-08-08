@@ -14,13 +14,6 @@ struct MarchingAntsBorder: View {
     var body: some View {
         
         ZStack {
-            /*
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(style: StrokeStyle(lineWidth: 1, dash: [5], dashPhase: phase))
-                .foregroundColor(.black.opacity(0.5))
-                .offset(x: 0.5, y:0.5)
-             */
-            
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(lineWidth: 0.8)
                 .foregroundColor(.black)
@@ -37,5 +30,6 @@ struct MarchingAntsBorder: View {
                     
                 }
             }
+           
     }
 }

@@ -12,8 +12,7 @@ struct TextObjectView: View {
     
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var text: TextObject
-    @State private var showSettings: Bool = false
-    @Binding var isKeyboardPresented: Bool
+  
     
     var alignment: Alignment {
         switch text.textAlignment {
@@ -46,10 +45,10 @@ struct TextObjectView: View {
             .blur(radius: text.appearance.blur)
         //MARK: Testing purposes only - will be removed
             .onTapGesture {
-                showSettings.toggle()
+                text.appearance.showSettings.toggle()
             }
-            .sheet(isPresented: $showSettings){
-                DynamicTextEditViewSettings(text: text, isKeyboardPresented: $isKeyboardPresented)
+            .sheet(isPresented: $text.appearance.showSettings){
+                DynamicTextEditViewSettings(text: text)
             }
         
     }

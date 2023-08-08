@@ -40,8 +40,13 @@ class TextObject: LayerObject {
     // TODO: d
     @Published var textAlignment: TextAlignment = .center
     
+    
     // TODO: d
     @Published var fontFrameWidth: CGFloat = 200
+    
+    
+    // TODO: d
+    @Published var isKeyboardPresented: Bool = false
     
     
     /// The currently selected font
