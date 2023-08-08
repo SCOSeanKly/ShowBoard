@@ -109,7 +109,7 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: false
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -120,7 +120,7 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
-                            disabled: false
+                            disabled: true
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
