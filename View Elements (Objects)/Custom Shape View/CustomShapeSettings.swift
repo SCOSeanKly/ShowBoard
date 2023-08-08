@@ -4,7 +4,7 @@
 //
 //  Created by Sean Kelly on 24/07/2023.
 //
-
+/*
 import SwiftUI
 
 struct CustomShapeSettings: View {
@@ -92,4 +92,5 @@ struct CustomShapeSettings: View {
     }
     
 }
+ */
 

@@ -13,7 +13,7 @@ struct LayerObjectAppearance {
     
     // MARK: - Public Properties
     
-    
+    //MARK: GLOBAL
     /// Generic Bool for showSettings toggle
     var showSettings: Bool
     
@@ -85,8 +85,27 @@ struct LayerObjectAppearance {
     /// Appearance Overlay color
     var overlayColor: Color
     
-   
-   
+    
+    //MARK: Custom Shape
+    /// Shape Overlay Grain Effect
+    var shapeGrain: Bool
+    
+    /// Shape Border Remove
+    var showBorder: Bool
+    
+    /// Shape Border Thickness
+    var borderWidth: CGFloat
+    
+    
+    var shapePointCount: CGFloat
+    
+    /// The shape inner fill ratio (shape fill to points ratio)
+    var shapeRatio: CGFloat
+    
+    var fillColor: Color
+    
+    
+    
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
     
@@ -128,7 +147,7 @@ struct LayerObjectAppearance {
         case .luminosity:
             return "Luminosity"
         default:
-               return "Unknown Blend Mode"
+            return "Unknown Blend Mode"
         }
     }
     
@@ -154,10 +173,16 @@ struct LayerObjectAppearance {
         self.width = 200
         self.height = 200
         self.overlayColor = .clear
+        self.shapeGrain = false
+        self.showBorder = true
+        self.borderWidth = 0.5
+        self.shapePointCount = 5
+        self.shapeRatio = 1
+        self.fillColor = .white
         
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false, showSettings: Bool = false, width: CGFloat = 200, height: CGFloat = 200, overlayColor: Color = .clear) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false, showSettings: Bool = false, width: CGFloat = 200, height: CGFloat = 200, overlayColor: Color = .clear, shapeGrain: Bool = false, showBorder: Bool = true, borderWidth: CGFloat = 0.5, shapePointCount: CGFloat = 5, shapeRatio: CGFloat = 1, fillColor: Color = .white) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -176,6 +201,12 @@ struct LayerObjectAppearance {
         self.width = width
         self.height = height
         self.overlayColor = overlayColor
+        self.shapeGrain = shapeGrain
+        self.showBorder = showBorder
+        self.borderWidth = borderWidth
+        self.shapePointCount = shapePointCount
+        self.shapeRatio = shapeRatio
+        self.fillColor = fillColor
     }
     
     

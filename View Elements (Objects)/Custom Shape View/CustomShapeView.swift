@@ -17,42 +17,17 @@ public struct CustomShapeView: View {
     
     public var body: some View {
         
-        VStack {
-            Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio)
-                .fill(shape.shapeColor)
-                .blendMode(shape.appearance.blendMode)
+        Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio)
+                .fill(shape.appearance.fillColor)
+        /*
                 .background {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: shape.shapeBlur, opaque: true)
                         .opacity(shape.appearance.opacity)
                 }
-                .clipShape(Star(shapePointCount: shape.shapePointCount, shapeRatio: shape.shapeRatio))
-                .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
-//                .scaleEffect(
-//                    x: shape.appearance.scales.x,
-//                    y: shape.appearance.scales.y
-//                )
-                .rotationEffect(shape.appearance.rotation)
-                .shadow(
-                    radius: shape.appearance.shadow.radius,
-                    x: shape.appearance.shadow.offset.x,
-                    y: shape.appearance.shadow.offset.y
-                )
-                .blur(radius: shape.appearance.blur)
-                .opacity(shape.appearance.opacity)
-                .rotation3DEffect(.degrees(shape.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
-                .rotation3DEffect(.degrees(shape.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
-                .animation(.spring())
-                .onTapGesture{
-                    shape.appearance.showSettings.toggle()
-                }
-        }
-        .sheet(isPresented: $shape.appearance.showSettings){
-            CustomShapeSettings(shape: shape)
-        }
-        .padding()
-        .ignoresSafeArea()
-        
+                .clipShape(Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio))
+         */
+                .settingsModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object")
     }
 }
 

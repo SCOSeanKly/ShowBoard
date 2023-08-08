@@ -10,49 +10,37 @@ import SwiftUI
 
 struct GlassShapeView: View {
     
-    @StateObject var shape = CustomShapeObject()
+    @StateObject var glass = GlassObject()
 
     
     var body: some View {
         
       
             ZStack {
-                RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
+                RoundedRectangle(cornerRadius: glass.appearance.cornerRadius)
                     .foregroundColor(.clear)
                     .background {
                         TransparentBlurView(removeAllFilters: true)
-                            .blur(radius: shape.shapeBlur, opaque: true)
+                            .blur(radius: glass.appearance.blur, opaque: true)
                             .background(.white.opacity(0.05))
                     }
-                    .clipShape(RoundedRectangle(cornerRadius: shape.appearance.cornerRadius))
+                    .clipShape(RoundedRectangle(cornerRadius: glass.appearance.cornerRadius))
                 
-                if shape.shapeGrain {
+                if glass.appearance.shapeGrain {
                     Image("grain")
                         .resizable()
-                        .clipShape(RoundedRectangle(cornerRadius: shape.appearance.cornerRadius))
+                        .clipShape(RoundedRectangle(cornerRadius: glass.appearance.cornerRadius))
                         .blendMode(.multiply)
                         .opacity(0.3)
                 }
                 
-                if shape.showBorder {
-                    RoundedRectangle(cornerRadius: shape.appearance.cornerRadius)
-                        .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.9), Color.white.opacity(0.2), Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3), Color.white.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: shape.borderWidth)
+                if glass.appearance.showBorder {
+                    RoundedRectangle(cornerRadius: glass.appearance.cornerRadius)
+                        .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.9), Color.white.opacity(0.2), Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3), Color.white.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: glass.appearance.borderWidth)
                 }
                 
             }
-            .frame(width: shape.shapeFrameWidth,  height: shape.shapeFrameHeight)
-            .shadow(color: .black.opacity(shape.appearance.shadowOpacity), radius: shape.appearance.shadow.radius, y: shape.appearance.shadow.offset.y)
-            .animation(.spring())
-            //MARK: Testing purposes only - will be removed into own section.
-            .onTapGesture {
-                shape.appearance.showSettings.toggle()
-            }
-   
-        //MARK: Testing purposes only - will be removed into own section.
-        .sheet(isPresented: $shape.appearance.showSettings){
-            //MARK: Glass shape settings
-            GlassShapeSettings(shape: shape)
-        }
+            .settingsModifier(layer: glass, systemImageName: "square", systemImage2: "", titleText: "Glass Object")
       
         
     }

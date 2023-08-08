@@ -31,6 +31,9 @@ struct SettingsMod: ViewModifier {
             }
             .shadow(color: Color.black.opacity(layer.appearance.shadowOpacity), radius: layer.appearance.shadow.radius, x: layer.appearance.shadow.offset.x, y: layer.appearance.shadow.offset.y)
             .opacity(layer.appearance.opacity)
+            .rotation3DEffect(.degrees(layer.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
+            .rotation3DEffect(.degrees(layer.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
+            .scaleEffect(layer.appearance.scales.x)
             .animation(.spring())
             .onTapGesture {
                 layer.appearance.showSettings.toggle()
