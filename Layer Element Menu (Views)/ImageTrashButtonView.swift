@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImageTrashButtonView: View {
-
+    
     @Binding var importedImage: UIImage?
     @State private var showAlert = false
     @State private var isPressing: Bool = false
@@ -18,13 +18,12 @@ struct ImageTrashButtonView: View {
             if importedImage != nil {
                 HStack {
                     
-                  
                     Image(systemName: "trash")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 15, height: 15)
-                      
-                       
+                    
+                    
                         .foregroundColor(.red)
                         .padding(5)
                         .background{
@@ -45,7 +44,7 @@ struct ImageTrashButtonView: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 showAlert = true
                             }
-                           
+                            
                         }
                         .alert(isPresented: $showAlert) {
                             Alert(
@@ -53,14 +52,13 @@ struct ImageTrashButtonView: View {
                                 message: Text("Are you sure you want to delete the image?"),
                                 primaryButton: .cancel(Text("Cancel")),
                                 secondaryButton: .destructive(Text("Delete")) {
-                                  
-                                        importedImage = nil
+                                    
+                                    importedImage = nil
                                     
                                 }
                             )
                         }
                         .offset(x: 28, y: -32)
-                      
                 }
             }
         }

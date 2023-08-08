@@ -48,6 +48,10 @@ struct DynamicTextEditViewSettings: View {
                         
                         SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 0.1, specifier: 1, defaultValue: 200)
                         
+                        SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $text.appearance.skewY, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                        
+                        SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $text.appearance.skewX, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                        
                         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $text.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
                     }
                     

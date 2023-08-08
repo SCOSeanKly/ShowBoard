@@ -43,6 +43,8 @@ struct TextObjectView: View {
             .rotationEffect(text.appearance.rotation)
             .opacity(text.appearance.opacity)
             .blur(radius: text.appearance.blur)
+            .rotation3DEffect(.degrees(text.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
+            .rotation3DEffect(.degrees(text.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
         //MARK: Testing purposes only - will be removed
             .onTapGesture {
                 text.appearance.showSettings.toggle()

@@ -20,14 +20,7 @@ struct BatteryCircleGaugeSettings: View {
                 Group {
                     
                     ResetValues(resetValues: resetBatteryCircleGaugeValues, systemImageName: "circle", titleText: "Circle Battery Gauge Object")
-                    
-                    //MARK: Min and Max values not used for Battery Gauge as values will always be 0 and 100
-                    /*
-                    SliderStepper(color: .blue, title: "Min Value:", sliderBindingValue: $bat.minValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 0)
-                    
-                    SliderStepper(color: .blue, title: "Max Value:", sliderBindingValue: $bat.maxValue, minValue: 0, maxValue: 100, step: 1, specifier: 0, defaultValue: 100)
-                     */
-                    
+                  
                     SliderStepper(color: .blue, title: "Current FontSize:", sliderBindingValue: $bat.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: 1, specifier: 0, defaultValue: 10)
                     
                     SliderStepper(color: .blue, title: "Min/Max FontSize:", sliderBindingValue: $bat.minMaxValueLabelFontSize, minValue: 4, maxValue: 15, step: 1, specifier: 0, defaultValue: 6)

@@ -86,6 +86,7 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                 }
                 
+                //MARK: 3 buttons for weather icons. Dont currently select different "sets"
                 Group {
                     ObjectTitleText(titleText: "Weather Icon (Current)")
                     LazyVGrid(columns: gridItems, spacing: 16) {

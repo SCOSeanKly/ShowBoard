@@ -57,6 +57,7 @@ struct DynamicTextView: View {
                                 }
                             }
                         }
+                        .padding(.top)
                     }
                    
                     Spacer()
