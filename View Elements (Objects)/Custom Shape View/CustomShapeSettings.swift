@@ -16,23 +16,8 @@ struct CustomShapeSettings: View {
     var body: some View {
         ScrollView{
             Group {
-                
-                HStack {
-                    
-                    Image(systemName: "star")
-                        .font(.title3)
-                       
-                    HStack {
-                        Text("Custom Shape Object")
-                            .font(.headline.weight(.semibold))
-                    }
-                    
-                    Spacer()
-                    
-                }
-                .padding()
-                
-                ResetValues(resetValues: resetCustomShapeValues)
+       
+                ResetValues(resetValues: resetCustomShapeValues, systemImageName: "star", titleText: "Custom Shape Object")
                 
                 SliderStepper(color: .blue, title: "Count:", sliderBindingValue: $shape.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
                 

@@ -2,7 +2,7 @@
 //  WeatherIconViewSettings.swift
 //  ShowBoard
 //
-//  Created by Sean Kelly on 07/08/2023.
+//  Created by Sean Kelly on 08/08/2023.
 //
 
 import SwiftUI
@@ -14,22 +14,7 @@ struct WeatherIconViewSettings: View {
     var body: some View {
         ScrollView (showsIndicators: false){
             
-            HStack {
-                
-                Image(systemName: "sun.max")
-                    .font(.title3)
-                
-                HStack {
-                    Text("Weather Icon Object")
-                        .font(.headline.weight(.semibold))
-                }
-                
-                Spacer()
-                
-            }
-            .padding()
-            
-            ResetValues(resetValues: resetWeatherIconValues)
+            ResetValues(resetValues: resetWeatherIconValues, systemImageName: "sun.max", titleText: "Weather Icon Object")
             
             SliderStepper(color: .blue, title: "Scale", sliderBindingValue: $weatherIconObject.frameHeight, minValue: 0, maxValue: UIScreen.main.bounds.height, step: 1.0, specifier: 0, defaultValue: 150)
             
@@ -55,4 +40,3 @@ struct WeatherIconViewSettings: View {
     
     
 }
-

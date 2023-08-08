@@ -17,26 +17,9 @@ struct BatteryCircleGaugeSettings: View {
 
             ScrollView (showsIndicators: false){
                 
-              //  LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Circle Battery Gauge", systemImage: "circle", systemImage2: "")
-                
-                HStack {
-                    
-                    Image(systemName: "circle")
-                        .font(.title3)
-                       
-                    HStack {
-                        Text("Circle Battery Gauge Object")
-                            .font(.headline.weight(.semibold))
-                    }
-                    
-                    Spacer()
-                    
-                }
-                .padding()
-                
                 Group {
                     
-                    ResetValues(resetValues: resetBatteryCircleGaugeValues)
+                    ResetValues(resetValues: resetBatteryCircleGaugeValues, systemImageName: "circle", titleText: "Circle Battery Gauge Object")
                     
                     //MARK: Min and Max values not used for Battery Gauge as values will always be 0 and 100
                     /*

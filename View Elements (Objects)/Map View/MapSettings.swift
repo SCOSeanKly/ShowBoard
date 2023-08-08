@@ -15,23 +15,8 @@ struct MapSettings: View {
         
         ScrollView (showsIndicators: false){
             
-            HStack {
-                
-                Image(systemName: "map")
-                    .font(.title3)
-                   
-                HStack {
-                    Text("Maps Object")
-                        .font(.headline.weight(.semibold))
-                }
-                
-                Spacer()
-                
-            }
-            .padding()
-            
             Group {
-                ResetValues(resetValues: resetMapValues)
+                ResetValues(resetValues: resetMapValues, systemImageName: "map", titleText: "Map Object")
                 
                 SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $map.mapFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 300)
                 

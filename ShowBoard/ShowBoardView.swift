@@ -12,7 +12,8 @@ import Photos
 struct ShowBoardView: View {
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
-    @StateObject var shape = CustomShapeObject()
+   // @StateObject var shape = CustomShapeObject()
+    
     
     //MARK: View Variables
     @State private var showBgPickerSheet = false

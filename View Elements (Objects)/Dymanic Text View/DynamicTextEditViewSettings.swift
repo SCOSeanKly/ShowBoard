@@ -16,25 +16,8 @@ struct DynamicTextEditViewSettings: View {
         
         ScrollView (showsIndicators: false){
             
-            
-            HStack {
-                
-                Image(systemName: "character.textbox")
-                    .font(.title3)
-                
-                HStack {
-                    Text("Dynamic Text Object")
-                        .font(.headline.weight(.semibold))
-                }
-                
-                Spacer()
-                
-            }
-            .padding()
-            
-          
             if !text.isKeyboardPresented {
-                    ResetValues(resetValues: resetDynamicTextValues)
+                    ResetValues(resetValues: resetDynamicTextValues, systemImageName: "character.textbox", titleText: "Dynamic Text Object")
                 }
                 
                 DynamicTextView(text: text)

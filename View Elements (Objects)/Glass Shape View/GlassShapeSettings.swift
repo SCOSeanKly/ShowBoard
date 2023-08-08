@@ -17,24 +17,8 @@ struct GlassShapeSettings: View {
         ScrollView (showsIndicators: false){
             
             Group {
-              //  LayerBackButton(selfViewToClose: $doNothing, viewToOpen: $doNothing, showLayerElementView: $doNothing, headerText: "Glass Shape", systemImage: "square", systemImage2: "")
                 
-                HStack {
-                    
-                    Image(systemName: "square")
-                        .font(.title3)
-                       
-                    HStack {
-                        Text("Glass Object")
-                            .font(.headline.weight(.semibold))
-                    }
-                    
-                    Spacer()
-                    
-                }
-                .padding()
-                
-                ResetValues(resetValues: resetGlassShapeValues)
+                ResetValues(resetValues: resetGlassShapeValues, systemImageName: "square", titleText: "Glass Object")
                 
                 SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $shape.shapeFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 1, specifier: 0, defaultValue: 300)
                 

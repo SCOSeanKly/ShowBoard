@@ -30,20 +30,8 @@ struct WeatherIconView: View {
             Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: weatherIconObject.frameHeight, height: weatherIconObject.frameHeight)
-                .rotationEffect(weatherIconObject.appearance.rotation)
-                .shadow(color: .black.opacity(weatherIconObject.appearance.shadowOpacity), radius: weatherIconObject.appearance.shadow.radius, y: weatherIconObject.appearance.shadow.offset.y)
-                .animation(.spring())
-                .onTapGesture {
-                   
-                    weatherIconObject.appearance.showSettings.toggle()
-                }
+                .settingsModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object")
         }
-            .sheet(isPresented: $weatherIconObject.appearance.showSettings){
-                
-                WeatherIconViewSettings(weatherIconObject: weatherIconObject)
-                
-            }
     }
 }
 

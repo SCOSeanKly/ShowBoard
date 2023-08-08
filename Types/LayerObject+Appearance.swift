@@ -74,6 +74,17 @@ struct LayerObjectAppearance {
     /// Invert Appearance / Color
     var invert: Bool
     
+    
+    /// Appearance Width
+    var width: CGFloat
+    
+    
+    /// Appearance Height
+    var height: CGFloat
+    
+    /// Appearance Overlay color
+    var overlayColor: Color
+    
    
    
     /// The list of the avaliable blend modes
@@ -140,9 +151,13 @@ struct LayerObjectAppearance {
         self.darkMode = false
         self.invert = false
         self.showSettings = false
+        self.width = 200
+        self.height = 200
+        self.overlayColor = .clear
+        
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false, showSettings: Bool = false) {
+    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat = 0.0, darkMode: Bool = false, invert: Bool = false, showSettings: Bool = false, width: CGFloat = 200, height: CGFloat = 200, overlayColor: Color = .clear) {
         self.position = position
         self.originalSize = originalSize
         self.scales = scales
@@ -158,6 +173,9 @@ struct LayerObjectAppearance {
         self.darkMode = darkMode
         self.invert = invert
         self.showSettings = showSettings
+        self.width = width
+        self.height = height
+        self.overlayColor = overlayColor
     }
     
     
