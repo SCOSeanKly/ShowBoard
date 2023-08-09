@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CustomToggle: View {
+    let showTitleText: Bool
     let titleText: String
     let bindingValue: Binding<Bool>
     let onSymbol: String
@@ -20,11 +21,12 @@ struct CustomToggle: View {
         
         
         HStack {
-            
-            Text(titleText)
-                .titleFont()
-            
-            Spacer()
+            if showTitleText {
+                Text(titleText)
+                    .titleFont()
+                
+                Spacer()
+            }
             
             ZStack {
                 
@@ -105,7 +107,7 @@ struct ToggleView: View {
     
     @State private var toggleTest: Bool = false
     var body: some View {
-        CustomToggle(titleText: "Test Toggle View", bindingValue: $toggleTest, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+        CustomToggle(showTitleText: true, titleText: "Test Toggle View", bindingValue: $toggleTest, onSymbol: "circle", offSymbol: "xmark", rotate: true)
             .padding()
     }
 }

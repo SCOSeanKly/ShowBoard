@@ -4,28 +4,50 @@
 //
 //  Created by Sean Kelly on 21/06/2023.
 //
+/*
 import SwiftUI
 
-struct BatteryBar: View {
-    let barWidth: CGFloat // Width of the battery bar
-    let barHeight: CGFloat // Height of the battery bar
-    let batteryLevel: CGFloat
-    let batteryBarBackgroundColour: Color
-    let batteryBarColourleading: Color
-    let batteryBarColourTrailing: Color
+struct BatteryLinearGauge: View {
+    
+    @ObservedObject var batteryViewModel: BatteryViewModel
+    @StateObject var bat = CircleGaugeObject()
+    
     
     var body: some View {
-        ZStack(alignment: .leading) {
-            RoundedRectangle(cornerRadius: 100)
-                .frame(width: barWidth, height: barHeight)
-                .foregroundColor(batteryBarBackgroundColour)
-            
-            LinearGradient(
-                gradient: Gradient(colors: [batteryBarColourTrailing, batteryBarColourleading]),
-                startPoint: .trailing,
-                endPoint: .leading
-            )
-            .frame(width: barWidth * (batteryLevel / 100), height: barHeight)
+        Gauge(value: Double(batteryViewModel.batteryLevel), in: bat.appearance.minValue...bat.appearance.maxValue) {
+            Label("\(batteryViewModel.batteryLevel)", systemImage: "battery.50percent")
+        } currentValueLabel: {
+            if bat.appearance.showCurrentValueLabel {
+                Text("\(batteryViewModel.batteryLevel)")
+                    .font(.system(size: bat.appearance.currentValueLabelFontSize))
+                    .foregroundColor(bat.appearance.currentValueLabelColor)
+            }
+        } minimumValueLabel: {
+            if bat.appearance.showMinMaxValueLabels {
+                Text("0")
+                    .font(.system(size: bat.appearance.minMaxValueLabelFontSize))
+                    .foregroundColor(bat.appearance.minMaxValueLabelColor)
+            }
+        } maximumValueLabel: {
+            if bat.appearance.showMinMaxValueLabels {
+                Text("100")
+                    .font(.system(size: bat.appearance.minMaxValueLabelFontSize))
+                    .foregroundColor(bat.appearance.minMaxValueLabelColor)
+            }
         }
+        .clipShape(Circle())
+        .tint(bat.appearance.gaugeColor)
+        .opacity(bat.appearance.opacity)
+        .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
+        .scaleEffect(bat.appearance.gaugeScale)
+        .objectAppearanceModifier(layer: bat, systemImageName: "circle", systemImage2: "", titleText: "Battery Circle Gauge")
     }
 }
+
+struct BatteryLinearGauge_Previews: PreviewProvider {
+    static var previews: some View {
+        BatteryLinearGauge(batteryViewModel: BatteryViewModel())
+    }
+}
+ */
+

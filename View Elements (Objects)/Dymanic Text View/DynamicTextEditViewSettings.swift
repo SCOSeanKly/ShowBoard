@@ -23,33 +23,44 @@ struct DynamicTextEditViewSettings: View {
                 
             if !text.isKeyboardPresented {
                     Group {
+                        
+                        CustomToggle(showTitleText: true, titleText: "Circle Text", bindingValue: $text.isCircleText, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                        
                         CustomFontPicker(bindingValue: $text.selectedFontName, text: text)
                         
-                        HStack {
-                            Text("Alignment:")
-                                .titleFont()
-                            Spacer()
-                            Picker("Alignment", selection: $text.textAlignment) {
-                                ForEach(text.alignmentOptions, id: \.self) { alignmentOption in
-                                    Text(alignmentOption.description).tag(alignmentOption)
+                        if !text.isCircleText {
+                            HStack {
+                                Text("Alignment:")
+                                    .titleFont()
+                                Spacer()
+                                Picker("Alignment", selection: $text.textAlignment) {
+                                    ForEach(text.alignmentOptions, id: \.self) { alignmentOption in
+                                        Text(alignmentOption.description).tag(alignmentOption)
+                                    }
                                 }
+                                .pickerStyle(.menu)
                             }
-                            .pickerStyle(.menu)
+                            .frame(height: 30)
+                            .padding(.horizontal)
                         }
-                        .frame(height: 30)
-                        .padding(.horizontal)
                         
                         SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                     }
                     
                     Group {
-                        SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.fontTracking, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
                         
-                        SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 0.1, specifier: 1, defaultValue: 200)
+                        SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.fontTracking, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
                         
-                        SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $text.appearance.skewY, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                        SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 200)
                         
-                        SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $text.appearance.skewX, minValue: 0, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                        SliderStepperDegrees(color: .blue, title: "Rotation:", sliderBindingValue: $text.appearance.rotation.degrees, minValue: 0, maxValue: 360, step: 1, specifier: 0, defaultValue: 0)
+                            .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
+                        
+                        SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $text.appearance.skewY, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                        
+                        SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $text.appearance.skewX, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
+                        
+                        SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $text.reflectionOffset, minValue: -50, maxValue: 50, step: 1, specifier: 0, defaultValue: 0, action: $text.showReflection)
                         
                         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $text.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
                     }
@@ -60,9 +71,6 @@ struct DynamicTextEditViewSettings: View {
                         SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $text.appearance.blur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $text.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
-                        
-                        SliderStepperDegrees(color: .blue, title: "Rotation:", sliderBindingValue: $text.appearance.rotation.degrees, minValue: 0, maxValue: 360, step: 1, specifier: 0, defaultValue: 0)
-                            .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
                         
                         CustomBlendModePicker(bindingValue: $text.appearance.blendMode)
                         

@@ -12,7 +12,8 @@ import Photos
 struct ShowBoardView: View {
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
-   // @StateObject var shape = CustomShapeObject()
+    // @StateObject var shape = CustomShapeObject()
+    
     
     
     //MARK: View Variables
@@ -53,9 +54,9 @@ struct ShowBoardView: View {
     @State private var placedObjects: [LayerObject] = []
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
-   
     
-   
+    
+    
     
     var body: some View {
         ZStack {
@@ -73,12 +74,12 @@ struct ShowBoardView: View {
                                 showMicroControls = false
                             } else {
                                 // De-select the layer
-                               selection = nil
+                                selection = nil
                             }
                         }
                     }
                 }
-
+            
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
@@ -116,7 +117,7 @@ struct ShowBoardView: View {
                             showMicroControls.toggle()
                         }
                         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
-                      
+                        
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id ? true : false)
                         .fadeOnAppear()
@@ -149,6 +150,9 @@ struct ShowBoardView: View {
                       hiddenLayers: $hiddenLayers)
             
         }
+        .onAppear {
+            batteryViewModel.startBatteryMonitoring()
+        }
         .prefersPersistentSystemOverlaysHidden()
     }
     
@@ -159,7 +163,6 @@ struct ShowBoardView: View {
     private func removeLayer(at index: UUID) {
         placedObjects.removeAll { $0.id == index }
     }
-    
 }
 
 struct ShowBoardView_Previews: PreviewProvider {
@@ -316,7 +319,7 @@ struct PlacedObjectsListView: View {
         case .customShape: objectTypeInfo = .customShape
         case .glassShape: objectTypeInfo = .glassShape
         case .weatherIcon: objectTypeInfo = .weatherIcon
-      
+            
         }
         
         return HStack {
@@ -348,20 +351,20 @@ struct PlacedObjectsListView: View {
             .buttonStyle(.plain)
             
             /*
-            Button(action: {
-                isPressingSettings.toggle()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    feedback()
-                    isPressingSettings.toggle()
-                }
-            }, label: {
-                Image(systemName: "gear")
-                    .scaleEffect(isPressingSettings ? 0.9 : 1)
-                    .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
-            })
-            .buttonStyle(.plain)
-            .padding(.horizontal)
+             Button(action: {
+             isPressingSettings.toggle()
+             
+             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+             feedback()
+             isPressingSettings.toggle()
+             }
+             }, label: {
+             Image(systemName: "gear")
+             .scaleEffect(isPressingSettings ? 0.9 : 1)
+             .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
+             })
+             .buttonStyle(.plain)
+             .padding(.horizontal)
              */
             
             Button(action: {
@@ -393,7 +396,7 @@ struct PlacedObjectsListView: View {
         case customShape
         case glassShape
         case weatherIcon
-       
+        
         
         
         var icon: String {
@@ -404,7 +407,7 @@ struct PlacedObjectsListView: View {
             case .customShape: return "star"
             case .glassShape: return "square"
             case .weatherIcon: return "sun.max"
-          
+                
                 
             }
         }
@@ -417,7 +420,7 @@ struct PlacedObjectsListView: View {
             case .customShape: return "Custom Shape Object"
             case .glassShape: return "Glass Object"
             case .weatherIcon: return "Weather Icon Object"
-          
+                
                 
             }
         }
@@ -427,36 +430,36 @@ struct PlacedObjectsListView: View {
 //MARK: For the micro controls
 /*
  @State private var microControlSettings: [UUID: MicroControlSettings] = [:]
-
+ 
  struct MicroControlSettings {
-     var offsetX: CGFloat
-     var offsetY: CGFloat
-     var widthRatio: CGFloat
-     var heightRatio: CGFloat
+ var offsetX: CGFloat
+ var offsetY: CGFloat
+ var widthRatio: CGFloat
+ var heightRatio: CGFloat
  }
  
  .onLongPressGesture {
-     feedback()
-     showMicroControls.toggle()
-     
-     if let selectedLayer = placedObjects.first(where: { $0.id == obj.id }) {
-         microControlSettings[obj.id] = MicroControlSettings(
-             offsetX: offsetX,
-             offsetY: offsetY,
-             widthRatio: widthRatio,
-             heightRatio: heightRatio
-         )
-     }
+ feedback()
+ showMicroControls.toggle()
+ 
+ if let selectedLayer = placedObjects.first(where: { $0.id == obj.id }) {
+ microControlSettings[obj.id] = MicroControlSettings(
+ offsetX: offsetX,
+ offsetY: offsetY,
+ widthRatio: widthRatio,
+ heightRatio: heightRatio
+ )
  }
-
+ }
+ 
  
  .offset(x: microControlSettings[obj.id]?.offsetX ?? 0, y: microControlSettings[obj.id]?.offsetY ?? 0)
  .scaleEffect(
-     CGSize(
-         width: microControlSettings[obj.id]?.widthRatio ?? 1.0,
-         height: microControlSettings[obj.id]?.heightRatio ?? 1.0
-     )
+ CGSize(
+ width: microControlSettings[obj.id]?.widthRatio ?? 1.0,
+ height: microControlSettings[obj.id]?.heightRatio ?? 1.0
  )
-
-
+ )
+ 
+ 
  */

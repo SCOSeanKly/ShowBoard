@@ -4,7 +4,7 @@
 //
 //  Created by Sean Kelly on 02/08/2023.
 //
-/*
+
 import SwiftUI
 import WeatherKit
 
@@ -132,7 +132,7 @@ struct SWAWidget2_Previews: PreviewProvider {
         ShowBoardView()
     }
 }
- */
+ 
 
 
 

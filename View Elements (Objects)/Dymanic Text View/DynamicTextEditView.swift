@@ -95,7 +95,7 @@ struct DynamicTextView: View {
                                     .foregroundColor(.black)
                                     .font(.system(size: 10))
                                 +
-                                Text("[day], [date], [month], [year], [time], [daysRemaining], [daysCount], [timeOfDay]")
+                                Text("[day], [date], [month], [monthNumber], [monthShort], [year], [time], [daysRemaining], [daysCount], [timeOfDay]")
                                     .font(.system(size: 10))
                                 
                                 Spacer()

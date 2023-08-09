@@ -49,6 +49,15 @@ class TextObject: LayerObject {
     @Published var isKeyboardPresented: Bool = false
     
     
+    @Published var isCircleText: Bool = false
+    
+    @Published var reflectionOffset: CGFloat = 0
+    
+    @Published var showReflection: Bool = false
+    
+    
+    
+    
     /// The currently selected font
     var font: Font {
         Font.custom(selectedFontName, size: fontSize)
@@ -101,7 +110,9 @@ class TextObject: LayerObject {
             } else {
                 // Randomly select initial text from a list of 5 options
                 let randomIndex = Int.random(in: 0..<4)
+                
                 self.inputText = ["It's currently [condition]", "The time is [time] in the [timeOfDay]", "Its the [timeOfDay]", "[daysRemaining] days remaining in [year]", "[daysCount] days into [year]"] [randomIndex]
+                 
             }
             
             super.init()

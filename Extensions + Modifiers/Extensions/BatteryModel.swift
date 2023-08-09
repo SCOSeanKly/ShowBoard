@@ -65,4 +65,8 @@ class BatteryViewModel: ObservableObject {
             return "?"
         }
     }
+    
+    func startBatteryMonitoring() {
+          UIDevice.current.isBatteryMonitoringEnabled = true
+      }
 }

@@ -79,7 +79,7 @@ struct BackgroundView: View {
                             .font(.custom("Rajdhani-Medium", size: 23))
                             .shadow(radius: 1)
                         
-                                CustomToggle(titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "drop", rotate: false)
+                                CustomToggle(showTitleText: false, titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "drop", rotate: false)
                             .scaleEffect(0.8)
                             .frame(width: 30)
                     }

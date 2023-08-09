@@ -35,13 +35,18 @@ struct BatteryCircleGauge: View {
                     .foregroundColor(bat.appearance.minMaxValueLabelColor)
             }
         }
-        .clipShape(Circle())
+       
         .tint(bat.appearance.gaugeColor)
         .opacity(bat.appearance.opacity)
         .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
         .scaleEffect(bat.appearance.gaugeScale)
         .objectAppearanceModifier(layer: bat, systemImageName: "circle", systemImage2: "", titleText: "Battery Circle Gauge")
+        .background{
+            Circle()
+                .fill(Color.white.opacity(0.00001))
+        }
     }
+       
 }
 
 struct BatteryCircleGauge_Previews: PreviewProvider {

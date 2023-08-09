@@ -18,16 +18,20 @@ extension DynamicText {
         case day = "[day]"
         case date = "[date]"
         case month = "[month]"
+        case monthShort = "[monthShort]"
+        case monthNumber = "[monthNumber]"
         case year = "[year]"
         case time = "[time]"
         case daysRemaining = "[daysRemaining]"
         case daysCount = "[daysCount]"
         case timeOfDay = "[timeOfDay]"
         
+        
         // ForeCast (DayWeather)
         case highTemp = "[hi]"
         case lowTemp = "[lo]"
         case temp = "[temp]"
+        
         
         // Current weather
         case condition = "[condition]"
@@ -42,24 +46,26 @@ extension DynamicText {
         case wind = "[wind]"
         case apparentTemperature = "[apparentTemperature]"
         
+        
         // Battery info
-        case batteryLevel = "[batteryLevel]" //MARK: How can i add battery level?
-        
-        
-        
+        case batteryLevel = "[batteryLevel]"
+        case batteryStatus = "[batteryStatus]"
         
         
         public func withCurrentDate() -> String {
             let currentDate = getCurrentDate()
             
             switch self {
-                
             case .day:
                 return currentDate.day
             case .date:
                 return currentDate.date
             case .month:
                 return currentDate.month
+            case .monthShort:
+                return currentDate.monthShort
+            case .monthNumber:
+                return currentDate.monthNumber
             case .year:
                 return currentDate.year
             case .time:
@@ -75,6 +81,19 @@ extension DynamicText {
             }
         }
         
+       
+        //MARK: Doesnt work?
+        public func withBatteryInfo(_ batteryViewModel: BatteryViewModel) -> String {
+          
+               switch self {
+               case .batteryLevel:
+                   return "\(batteryViewModel.batteryLevel)%"
+               case .batteryStatus:
+                   return "\(batteryViewModel.batteryStateDescription)"
+               default:
+                   return ""
+               }
+           }
         
         /*
          /// The daytime high temperature.
@@ -93,6 +112,7 @@ extension DynamicText {
          */
         
         
+        //MARK: Doesnt work?
         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature) -> String {
             guard let val = data else { return "-" }
             
@@ -171,9 +191,6 @@ extension DynamicText {
         }
 
 
-
-        
-        
         private func lengthToString(value: Measurement<UnitLength>, useMiles: Bool = false) -> String {
             let val = value.converted(to: useMiles ? .miles : .kilometers).value
             return String(format: "%.1f", val) + (useMiles ? "mile" : "km")
@@ -185,7 +202,7 @@ extension DynamicText {
             return String(round(val)) + (useMiles ? "mph" : "km/h")
         }
         
-        private func getCurrentDate() -> (day: String, date: String, month: String, year: String, time: String, timeOfDay: String) {
+        private func getCurrentDate() -> (day: String, date: String, month: String, monthShort: String, monthNumber: String, year: String, time: String, timeOfDay: String) {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEEE"
             let day = formatter.string(from: Date())
@@ -208,6 +225,12 @@ extension DynamicText {
             formatter.dateFormat = "MMMM"
             let month = formatter.string(from: Date())
             
+            formatter.dateFormat = "MMM"
+            let monthShort = formatter.string(from: Date())
+            
+            formatter.dateFormat = "M"
+            let monthNumber = formatter.string(from: Date())
+            
             formatter.dateFormat = "yyyy"
             let year = formatter.string(from: Date())
             
@@ -227,7 +250,7 @@ extension DynamicText {
                 timeOfDay = "Night"
             }
             
-            return (day, date, month, year, time, timeOfDay)
+            return (day, date, month, monthShort, monthNumber, year, time, timeOfDay)
         }
         
         private func daysRemaining() -> Int {
