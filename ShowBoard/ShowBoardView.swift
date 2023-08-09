@@ -116,14 +116,13 @@ struct ShowBoardView: View {
                             showMicroControls.toggle()
                         }
                         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                      
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id ? true : false)
                         .fadeOnAppear()
-                        
                     }
                 }
             }
-            
             
             /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
             GroupView(isDragging: $isDragging,
@@ -425,4 +424,39 @@ struct PlacedObjectsListView: View {
     }
 }
 
+//MARK: For the micro controls
+/*
+ @State private var microControlSettings: [UUID: MicroControlSettings] = [:]
 
+ struct MicroControlSettings {
+     var offsetX: CGFloat
+     var offsetY: CGFloat
+     var widthRatio: CGFloat
+     var heightRatio: CGFloat
+ }
+ 
+ .onLongPressGesture {
+     feedback()
+     showMicroControls.toggle()
+     
+     if let selectedLayer = placedObjects.first(where: { $0.id == obj.id }) {
+         microControlSettings[obj.id] = MicroControlSettings(
+             offsetX: offsetX,
+             offsetY: offsetY,
+             widthRatio: widthRatio,
+             heightRatio: heightRatio
+         )
+     }
+ }
+
+ 
+ .offset(x: microControlSettings[obj.id]?.offsetX ?? 0, y: microControlSettings[obj.id]?.offsetY ?? 0)
+ .scaleEffect(
+     CGSize(
+         width: microControlSettings[obj.id]?.widthRatio ?? 1.0,
+         height: microControlSettings[obj.id]?.heightRatio ?? 1.0
+     )
+ )
+
+
+ */

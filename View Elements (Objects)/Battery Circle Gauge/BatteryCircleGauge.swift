@@ -49,19 +49,3 @@ struct BatteryCircleGauge_Previews: PreviewProvider {
         BatteryCircleGauge(batteryViewModel: BatteryViewModel())
     }
 }
-
-
-/*
-
- .scaleEffect(bat.appearance.scales.x)
- .shadow(color: .black.opacity(bat.appearance.shadowOpacity), radius: bat.appearance.shadow.radius, y: bat.appearance.shadow.offset.y)
- .animation(.spring())
- 
- //MARK: Testing purposes only - will be removed into own section.
- .onTapGesture {
-     bat.appearance.showSettings.toggle()
- }
- .sheet(isPresented: $bat.appearance.showSettings){
-     BatteryCircleGaugeSettings(bat: bat)
- }
- */

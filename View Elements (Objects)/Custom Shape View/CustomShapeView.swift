@@ -19,14 +19,11 @@ public struct CustomShapeView: View {
         
         Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio)
                 .fill(shape.appearance.fillColor)
-        /*
                 .background {
                     TransparentBlurView(removeAllFilters: true)
-                        .blur(radius: shape.shapeBlur, opaque: true)
-                        .opacity(shape.appearance.opacity)
+                        .blur(radius: 10, opaque: true)
                 }
                 .clipShape(Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio))
-         */
                 .objectAppearanceModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object")
     }
 }

@@ -21,6 +21,8 @@ struct FadeOnAppearModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .opacity(isAppeared ? 1.0 : 0.0)
+            .scaleEffect(isAppeared ? 1.0 : 0)
+            .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isAppeared)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
                     withAnimation {

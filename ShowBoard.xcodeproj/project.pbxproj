@@ -20,7 +20,6 @@
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
 		097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274342A4DDCCB00429786 /* ShadowSettings.swift */; };
-		097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
 		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */; };
@@ -84,6 +83,7 @@
 		3EBF306E2A6EC9A8004C12B5 /* CustomBlendModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */; };
 		3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */; };
 		3EBF30722A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */; };
+		3EC6B7862A83865300CD0934 /* CombinedTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
 		3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC34A52A4C3866008794BC /* ModernAge.ttf */; };
@@ -152,7 +152,6 @@
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
 		097274342A4DDCCB00429786 /* ShadowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettings.swift; sourceTree = "<group>"; };
-		097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectAppearanceModifier.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
 		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButtonView.swift; sourceTree = "<group>"; };
@@ -221,6 +220,7 @@
 		3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBlendModePicker.swift; sourceTree = "<group>"; };
 		3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontPicker.swift; sourceTree = "<group>"; };
 		3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditViewSettings.swift; sourceTree = "<group>"; };
+		3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedTapGesture.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3ECC34A52A4C3866008794BC /* ModernAge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ModernAge.ttf; sourceTree = "<group>"; };
@@ -294,7 +294,6 @@
 				091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */,
 				3E3E68882A82788C00F468DD /* GlassObject.swift */,
 				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
-				097274362A4DE01700429786 /* LayerObjectAppearanceModifier.swift */,
 				3E371CD82A6689C800DE743C /* MapObject.swift */,
 				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
 				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
@@ -452,6 +451,7 @@
 				3EBF306B2A6EBE3D004C12B5 /* CustomPresentation.swift */,
 				3EAF65982A77AD020041E918 /* MarchingAntsBorder.swift */,
 				3E3E68862A82720A00F468DD /* ifExtension.swift */,
+				3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -857,7 +857,6 @@
 				3E6B7A3E2A811F1200163E58 /* WeatherIconLayerObject.swift in Sources */,
 				3E3977902A7BF194002711FC /* ObjectSelectionButtons.swift in Sources */,
 				3E3977962A7C064D002711FC /* LocationObserver.swift in Sources */,
-				097274372A4DE01700429786 /* LayerObjectAppearanceModifier.swift in Sources */,
 				3EADA5AD2A432DD000FA1BCB /* CopyToClipboard.swift in Sources */,
 				0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */,
 				3E88498A2A41D47800B50BBD /* ShowBoardApp.swift in Sources */,
@@ -879,6 +878,7 @@
 				096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */,
 				3ED802222A7A8DE0005E2835 /* WeatherIconObject.swift in Sources */,
 				3E83AABC2A6A848A00E344C9 /* SliderStepperDegrees.swift in Sources */,
+				3EC6B7862A83865300CD0934 /* CombinedTapGesture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

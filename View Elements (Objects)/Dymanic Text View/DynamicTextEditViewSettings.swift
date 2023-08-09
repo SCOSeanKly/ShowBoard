@@ -10,8 +10,7 @@ import SwiftUI
 struct DynamicTextEditViewSettings: View {
     
     @StateObject var text: TextObject
-    @State private var doNothing: Bool = false
-    
+   
     var body: some View {
         
         ScrollView (showsIndicators: false){

@@ -34,7 +34,7 @@ struct SettingsMod: ViewModifier {
             .rotation3DEffect(.degrees(layer.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
             .rotation3DEffect(.degrees(layer.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
             .scaleEffect(layer.appearance.scales.x)
-            .animation(.spring())
+         //   .animation(.spring())
             .onTapGesture {
                 layer.appearance.showSettings.toggle()
             }
