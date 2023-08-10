@@ -66,7 +66,7 @@ struct WavyDockView: View {
                     
                     SliderStepper(color: .blue, title: "xAngle", sliderBindingValue: $wavyD.xAngle, minValue: 0, maxValue: 360, step: 0.1, specifier: 1, defaultValue: 360)
                     
-                    SliderStepper(color: .blue, title: "Amplitude", sliderBindingValue: $wavyD.amplitude, minValue: 0, maxValue: 0.5, step: 0.1, specifier: 1, defaultValue: 360)
+                    SliderStepper(color: .blue, title: "Amplitude", sliderBindingValue: $wavyD.amplitude, minValue: -0.5, maxValue: 0.5, step: 0.1, specifier: 1, defaultValue: 0.15)
                     
                     SliderStepper(color: .blue, title: "OffsetY", sliderBindingValue: $wavyD.offsetY, minValue: 85, maxValue: 400, step: 1, specifier: 0, defaultValue: 0)
                     

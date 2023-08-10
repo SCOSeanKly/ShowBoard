@@ -20,20 +20,28 @@ struct WeatherIconView: View {
         wObserver.getGorecast(offset: 0)
     }
     
+    @State private var imageLoaded = false
     
     var body: some View {
         
         ZStack {
             
-         //   ProgressView()
+            if !imageLoaded {
+                ProgressView()
+            }
             
             Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .onAppear {
+                    imageLoaded = true
+                }
                 .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object")
         }
     }
 }
+
+
 
 struct WeatherIconView_Previews: PreviewProvider {
     static var previews: some View {

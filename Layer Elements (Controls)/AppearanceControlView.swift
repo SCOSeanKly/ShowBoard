@@ -22,13 +22,7 @@ struct AppearanceControlView: View {
         
         ScrollView (showsIndicators: false) {
             
-            Group {
-               
-                if let _ = layer as? TextObject {
-                    
-                }
-            }
-            
+          
             Group {
                 ResetValues(resetValues: {}, systemImageName: systemImageName, titleText: titletext)
                 
@@ -41,7 +35,12 @@ struct AppearanceControlView: View {
                     CustomColorPicker(titleText: "Shape Color", pickerBindingValue:  $layer.appearance.fillColor)
                 }
                 
-                if !(layer is CircleGaugeObject) {
+                if let _ = layer as? WeatherIconLayerObject {
+                    SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 2, step: 0.1, specifier: 1, defaultValue: 1)
+                }
+                
+                if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) {
+               
                     SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 1, specifier: 0, defaultValue: 200)
                     
                     SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $layer.appearance.height, minValue: 0, maxValue: UIScreen.main.bounds.height * 1.05, step: 1, specifier: 0, defaultValue: 200)

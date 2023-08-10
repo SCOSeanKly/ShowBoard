@@ -10,6 +10,7 @@ import SwiftUI
 struct DynamicTextEditViewSettings: View {
     
     @StateObject var text: TextObject
+    @State private var showFontPickerSheet: Bool = false
    
     var body: some View {
         
@@ -26,7 +27,23 @@ struct DynamicTextEditViewSettings: View {
                         
                         CustomToggle(showTitleText: true, titleText: "Circle Text", bindingValue: $text.isCircleText, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                         
-                        CustomFontPicker(bindingValue: $text.selectedFontName, text: text)
+                        //CustomFontPicker(bindingValue: $text.selectedFontName, text: text)
+                        
+                        HStack {
+                            
+                            Text("Select a font")
+                                .titleFont()
+                          
+                            Spacer()
+                            Button {
+                                showFontPickerSheet.toggle()
+                            } label: {
+                                Text("Selected: \(text.selectedFontName)")
+                                    .scaleEffect(0.8)
+                            }
+                            
+                        }
+                        .padding(.horizontal)
                         
                         if !text.isCircleText {
                             HStack {
@@ -39,6 +56,7 @@ struct DynamicTextEditViewSettings: View {
                                     }
                                 }
                                 .pickerStyle(.menu)
+                                .scaleEffect(0.8)
                             }
                             .frame(height: 30)
                             .padding(.horizontal)
@@ -87,6 +105,11 @@ struct DynamicTextEditViewSettings: View {
             
         }
         .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
+        .sheet(isPresented: $showFontPickerSheet){
+            
+            CustomFontGridPicker(bindingValue: $text.selectedFontName, text: text)
+            
+        }
         
     }
     

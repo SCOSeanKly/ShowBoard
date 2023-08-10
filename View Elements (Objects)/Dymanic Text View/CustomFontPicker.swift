@@ -15,13 +15,24 @@ struct CustomFontPicker: View {
         HStack {
             Text("Font Style:")
                 .titleFont()
+            
             Spacer()
+            
             Picker("Font Style", selection: $bindingValue) {
-                ForEach(TextObject.fontList, id: \.self) { style in
-                    Text(style)
-                        .font(text.font)
-                        .lineLimit(1)
+                
+                ForEach(UIFont.familyNames.sorted(), id: \.self) { familyName in
+                    VStack(alignment: .leading) {
+                        Text(familyName)
+                            .font(text.font)
+                            .padding(.bottom, 8)
+                        ForEach(UIFont.fontNames(forFamilyName: familyName).sorted(), id: \.self) { fontName in
+                            Text(fontName)
+                                .font(Font.custom(fontName, size: 16))
+                        }
+                    }
+                   
                 }
+                 
             }
             .pickerStyle(.menu)
         }
@@ -31,7 +42,13 @@ struct CustomFontPicker: View {
     }
 }
  
-
+/*
+ForEach(TextObject.fontList, id: \.self) { style in
+    Text(style)
+        .font(text.font)
+        .lineLimit(1)
+}
+ */
 
 
 

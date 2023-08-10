@@ -21,6 +21,9 @@
      /// Icon Frame Height
      @Published var frameHeight: CGFloat
      
+     
+     
+     
      /// Currently selected weather icon set
      @Published var activeWeatherIconImageSet: WeatherIconImageSet
      

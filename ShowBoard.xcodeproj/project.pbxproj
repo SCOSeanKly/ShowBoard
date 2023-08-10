@@ -26,6 +26,8 @@
 		3E1B1B062A83C049003D70FC /* BatBarObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B1B052A83C049003D70FC /* BatBarObject.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
 		3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */; };
+		3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456D2A84FF3C002B35B2 /* FontNames.swift */; };
+		3E2245702A851273002B35B2 /* CustomFontGridPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456F2A851273002B35B2 /* CustomFontGridPicker.swift */; };
 		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */; };
 		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
@@ -164,6 +166,8 @@
 		3E1B1B052A83C049003D70FC /* BatBarObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatBarObject.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
 		3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyDockObject.swift; sourceTree = "<group>"; };
+		3E22456D2A84FF3C002B35B2 /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
+		3E22456F2A851273002B35B2 /* CustomFontGridPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontGridPicker.swift; sourceTree = "<group>"; };
 		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButtonView.swift; sourceTree = "<group>"; };
 		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
@@ -578,6 +582,7 @@
 			children = (
 				3E1ACF452A83CEFA00832F81 /* CircleText View */,
 				3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */,
+				3E22456F2A851273002B35B2 /* CustomFontGridPicker.swift */,
 				3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */,
 				3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */,
 				096F80DB2A7521400001D8A3 /* TextObjectView.swift */,
@@ -630,6 +635,7 @@
 			children = (
 				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
+				3E22456D2A84FF3C002B35B2 /* FontNames.swift */,
 			);
 			path = "Test Views";
 			sourceTree = "<group>";
@@ -832,6 +838,7 @@
 				3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
+				3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
@@ -875,6 +882,7 @@
 				3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */,
 				3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */,
 				3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */,
+				3E2245702A851273002B35B2 /* CustomFontGridPicker.swift in Sources */,
 				3EADA5AF2A43300B00FA1BCB /* RunShortcut.swift in Sources */,
 				3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */,
 				3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */,
@@ -1076,7 +1084,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.20;
+				CURRENT_PROJECT_VERSION = 0.0.21;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1119,7 +1127,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.20;
+				CURRENT_PROJECT_VERSION = 0.0.21;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
