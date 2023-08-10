@@ -167,6 +167,16 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
+                                placedObjects.append(WavyDockObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "water.waves"),
+                            textDescription: "Wavy Dock",
+                            disabled: false
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
                                 
                                 showLayerElementView = false
                             },

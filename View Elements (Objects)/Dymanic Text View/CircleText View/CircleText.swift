@@ -50,8 +50,6 @@ struct CircularTextView: View {
                         .opacity(text.appearance.opacity)
                         .blendMode(text.appearance.blendMode)
                         .blur(radius: text.appearance.blur)
-                        .rotation3DEffect(.degrees(text.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
-                        .rotation3DEffect(.degrees(text.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
                         .onPreferenceChange(WidthLetterPreferenceKey.self, perform: { width in  // Mark 2
                             letterWidths[index] = width
                         })
@@ -62,6 +60,8 @@ struct CircularTextView: View {
         }
         .frame(width: text.fontFrameWidth, height: text.fontFrameWidth)
         .rotationEffect(text.appearance.rotation)
+        .rotation3DEffect(.degrees(text.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
+        .rotation3DEffect(.degrees(text.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
     }
     
     func fetchAngle(at letterPosition: Int) -> Angle {

@@ -45,11 +45,6 @@ struct SliderToggle: View {
                         }
                         .frame(height: 20)
                         .padding(.leading, 5)
-                        /*
-                        Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
-                            .specifierFont()
-                            .offset(x: 10)
-                         */
                         
                         Spacer()
                         

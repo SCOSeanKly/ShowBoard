@@ -51,12 +51,6 @@ class TextObject: LayerObject {
     
     @Published var isCircleText: Bool = false
     
-    @Published var reflectionOffset: CGFloat = 0
-    
-    @Published var showReflection: Bool = false
-    
-    
-    
     
     /// The currently selected font
     var font: Font {

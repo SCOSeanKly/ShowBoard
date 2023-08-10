@@ -25,7 +25,7 @@ struct WeatherIconView: View {
         
         ZStack {
             
-            ProgressView()
+         //   ProgressView()
             
             Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
                 .resizable()

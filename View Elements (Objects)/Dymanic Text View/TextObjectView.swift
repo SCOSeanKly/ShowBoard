@@ -68,8 +68,8 @@ struct TextObjectView: View {
                 }
             }
         }
-        .if(text.showReflection) { view in
-            view.reflection(offsetY: text.reflectionOffset)
+        .if(text.appearance.showReflection) { view in
+            view.reflection(offsetY: text.appearance.reflectionOffset)
         }
         
         

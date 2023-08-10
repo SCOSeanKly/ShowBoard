@@ -25,6 +25,7 @@
 		3E1ACF4B2A83ECAE00832F81 /* SliderToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */; };
 		3E1B1B062A83C049003D70FC /* BatBarObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B1B052A83C049003D70FC /* BatBarObject.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
+		3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */; };
 		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */; };
 		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
@@ -69,6 +70,7 @@
 		3E8849C52A41D61D00B50BBD /* HexColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849C42A41D61D00B50BBD /* HexColour.swift */; };
 		3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849C62A41D66400B50BBD /* ShowBoardView.swift */; };
 		3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */; };
+		3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */; };
 		3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EADA59B2A4315CC00FA1BCB /* Autone.ttf */; };
 		3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */; };
 		3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5AA2A432C6D00FA1BCB /* performDelayedAction.swift */; };
@@ -161,6 +163,7 @@
 		3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderToggle.swift; sourceTree = "<group>"; };
 		3E1B1B052A83C049003D70FC /* BatBarObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatBarObject.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
+		3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyDockObject.swift; sourceTree = "<group>"; };
 		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButtonView.swift; sourceTree = "<group>"; };
 		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		3E8849C42A41D61D00B50BBD /* HexColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColour.swift; sourceTree = "<group>"; };
 		3E8849C62A41D66400B50BBD /* ShowBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardView.swift; sourceTree = "<group>"; };
 		3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableButtonView.swift; sourceTree = "<group>"; };
+		3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wavy Dock.swift"; sourceTree = "<group>"; };
 		3EADA59B2A4315CC00FA1BCB /* Autone.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Autone.ttf; sourceTree = "<group>"; };
 		3EADA59E2A43161900FA1BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsView.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 		0913C4292A487643007AF26E /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */,
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
 				0913C4272A4875E4007AF26E /* DynamicText.swift */,
 				097274322A4C854B00429786 /* TextObject.swift */,
@@ -319,6 +324,14 @@
 				3E1ACF462A83CF0F00832F81 /* CircleText.swift */,
 			);
 			path = "CircleText View";
+			sourceTree = "<group>";
+		};
+		3E22456C2A84F505002B35B2 /* Wavy Dock */ = {
+			isa = PBXGroup;
+			children = (
+				3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */,
+			);
+			path = "Wavy Dock";
 			sourceTree = "<group>";
 		};
 		3E371CE02A66C10E00DE743C /* Battery Circle Gauge */ = {
@@ -347,6 +360,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3E22456C2A84F505002B35B2 /* Wavy Dock */,
 				3EBF30742A6ED504004C12B5 /* Custom Shape View */,
 				3ED802202A7A8DCC005E2835 /* Weather Icon */,
 				3EBF307C2A6ED969004C12B5 /* Battery Bar View */,
@@ -815,6 +829,7 @@
 			files = (
 				096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */,
 				3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */,
+				3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
@@ -822,6 +837,7 @@
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
 				3E3977922A7BF998002711FC /* AppModel.swift in Sources */,
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
+				3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */,
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
@@ -1060,7 +1076,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.19;
+				CURRENT_PROJECT_VERSION = 0.0.20;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1103,7 +1119,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.19;
+				CURRENT_PROJECT_VERSION = 0.0.20;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

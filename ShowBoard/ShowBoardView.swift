@@ -100,9 +100,10 @@ struct ShowBoardView: View {
                         ZStack {
                             switch obj.objectType {
                             case .text:         TextObjectView(text: obj as! TextObject)
-                            case .map:          MapView( map: obj as! MapObject)
+                            case .map:          MapView(map: obj as! MapObject)
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
                             case .customShape:  CustomShapeView()
+                            case .wavyDock:     WavyDockView()
                             case .glassShape:   GlassShapeView()
                             case .weatherIcon:  WeatherIconView(weatherIconObject: WeatherIconLayerObject())
                             }
@@ -111,18 +112,18 @@ struct ShowBoardView: View {
                         .background {
                             MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
-                        .offset(x: obj.id == selection ? offsetX : 0, y: obj.id == selection ? offsetY : 0)
-                        .scaleEffect(obj.id == selection ? CGSize(width: widthRatio, height: heightRatio) : CGSize(width: 1.0, height: 1.0))
                         .onLongPressGesture {
                             showMicroControls.toggle()
                         }
-                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
-                        
+                        .if(obj.objectType != .wavyDock) { content in
+                            content.modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                        }
                         .disabled(selection == obj.id ? false : true)
-                        .allowsHitTesting(selection == obj.id ? true : false)
+                        .allowsHitTesting(selection == obj.id)
                         .fadeOnAppear()
                     }
                 }
+
             }
             
             /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
@@ -317,6 +318,7 @@ struct PlacedObjectsListView: View {
         case .map: objectTypeInfo = .map
         case .circleGauge: objectTypeInfo = .circleGauge
         case .customShape: objectTypeInfo = .customShape
+        case .wavyDock: objectTypeInfo = .wavyDock
         case .glassShape: objectTypeInfo = .glassShape
         case .weatherIcon: objectTypeInfo = .weatherIcon
             
@@ -394,6 +396,7 @@ struct PlacedObjectsListView: View {
         case map
         case circleGauge
         case customShape
+        case wavyDock
         case glassShape
         case weatherIcon
         
@@ -405,6 +408,7 @@ struct PlacedObjectsListView: View {
             case .map: return "map"
             case .circleGauge: return "circle"
             case .customShape: return "star"
+            case .wavyDock: return "water.waves"
             case .glassShape: return "square"
             case .weatherIcon: return "sun.max"
                 
@@ -418,6 +422,7 @@ struct PlacedObjectsListView: View {
             case .map: return "Map Object"
             case .circleGauge: return "Circle Gauge Object"
             case .customShape: return "Custom Shape Object"
+            case .wavyDock: return "Wavy Dock Object"
             case .glassShape: return "Glass Object"
             case .weatherIcon: return "Weather Icon Object"
                 

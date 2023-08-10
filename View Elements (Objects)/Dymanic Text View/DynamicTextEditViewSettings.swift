@@ -60,7 +60,7 @@ struct DynamicTextEditViewSettings: View {
                         
                         SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $text.appearance.skewX, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
                         
-                        SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $text.reflectionOffset, minValue: -50, maxValue: 50, step: 1, specifier: 0, defaultValue: 0, action: $text.showReflection)
+                        SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $text.appearance.reflectionOffset, minValue: -50, maxValue: 50, step: 1, specifier: 0, defaultValue: 0, action: $text.appearance.showReflection)
                         
                         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $text.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
                     }

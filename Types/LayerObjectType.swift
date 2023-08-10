@@ -11,6 +11,7 @@ enum LayerObjectType {
     
     case text
     case customShape
+    case wavyDock
     case map
     case circleGauge
     case glassShape

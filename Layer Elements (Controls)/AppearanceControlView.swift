@@ -20,7 +20,7 @@ struct AppearanceControlView: View {
     
     var body: some View {
         
-        ScrollView (showsIndicators: false){
+        ScrollView (showsIndicators: false) {
             
             Group {
                

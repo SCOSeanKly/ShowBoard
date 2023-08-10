@@ -88,6 +88,13 @@ struct LayerObjectAppearance {
     var overlayColor: Color
     
     
+    /// Show Image reflection
+    var showReflection: Bool
+    
+    /// Show Image reflection
+    var reflectionOffset: CGFloat
+    
+    
     //MARK: Custom Shape
     /// Shape Overlay Grain Effect
     var shapeGrain: Bool
@@ -224,11 +231,13 @@ struct LayerObjectAppearance {
         self.currentValueLabelColor = .white
         self.minMaxValueLabelColor = .white
         self.gaugeScale = 1.0
+        self.showReflection = false
+        self.reflectionOffset = 5
         
     }
     
     init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
-         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat) {
+         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat = 5) {
         
         self.position = position
         self.originalSize = originalSize
@@ -265,6 +274,8 @@ struct LayerObjectAppearance {
         self.currentValueLabelColor = currentValueLabelColor
         self.minMaxValueLabelColor = minMaxValueLabelColor
         self.gaugeScale = gaugeScale
+        self.showReflection = showReflection
+        self.reflectionOffset = reflectionOffset
     }
     
     
