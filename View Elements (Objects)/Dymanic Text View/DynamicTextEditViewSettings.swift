@@ -27,8 +27,6 @@ struct DynamicTextEditViewSettings: View {
                         
                         CustomToggle(showTitleText: true, titleText: "Circle Text", bindingValue: $text.isCircleText, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                         
-                        //CustomFontPicker(bindingValue: $text.selectedFontName, text: text)
-                        
                         HStack {
                             
                             Text("Select a font")
@@ -62,14 +60,16 @@ struct DynamicTextEditViewSettings: View {
                             .padding(.horizontal)
                         }
                         
+                        SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $text.dropLast, minValue: 1, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
+                        
                         SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
-                    }
-                    
-                    Group {
                         
                         SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.fontTracking, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 200)
+                    }
+                    
+                    Group {
                         
                         SliderStepperDegrees(color: .blue, title: "Rotation:", sliderBindingValue: $text.appearance.rotation.degrees, minValue: 0, maxValue: 360, step: 1, specifier: 0, defaultValue: 0)
                             .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
@@ -81,11 +81,12 @@ struct DynamicTextEditViewSettings: View {
                         SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $text.appearance.reflectionOffset, minValue: -50, maxValue: 50, step: 1, specifier: 0, defaultValue: 0, action: $text.appearance.showReflection)
                         
                         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $text.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
+                        
+                        SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $text.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 0.1, specifier: 1, defaultValue: 0)
                     }
                     
                     Group {
-                        SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $text.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 0.1, specifier: 1, defaultValue: 0)
-                        
+                 
                         SliderStepper(color: .blue, title: "Blur Radius:", sliderBindingValue: $text.appearance.blur, minValue: 0, maxValue: 50, step: 0.1, specifier: 1, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Opacity:", sliderBindingValue: $text.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)

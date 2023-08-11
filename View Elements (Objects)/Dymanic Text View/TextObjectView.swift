@@ -28,7 +28,8 @@ struct TextObjectView: View {
     var body: some View {
         ZStack {
             if !text.isCircleText {
-                Text(text.dynamicText(wk: wObserver))
+                Text(text.dynamicText(wk: wObserver).dropLast(Int(text.dropLast)))
+
                     .shadow(
                         radius: text.appearance.shadow.radius,
                         x: text.appearance.shadow.offset.x,

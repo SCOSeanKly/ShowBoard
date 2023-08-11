@@ -51,6 +51,8 @@ class TextObject: LayerObject {
     
     @Published var isCircleText: Bool = false
     
+    @Published var dropLast: CGFloat = 0
+    
    
     
     
