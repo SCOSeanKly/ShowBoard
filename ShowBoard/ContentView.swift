@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    let microControls = MicroControls()
     var body: some View {
         
-        ShowBoardView()
+        ShowBoardView(micro: microControls)
          
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView()
     }

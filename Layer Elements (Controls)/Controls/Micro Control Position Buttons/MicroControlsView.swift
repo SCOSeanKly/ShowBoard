@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct MicroControlsView: View {
-    
-    @Binding var offsetX: CGFloat
-    @Binding var offsetY: CGFloat
-    @Binding var widthRatio: CGFloat
-    @Binding var heightRatio: CGFloat
+    @StateObject var micro: MicroControls
     @Binding var showMicroControls: Bool
     
     var body: some View {
         
         HStack(spacing: 5){
-            PositionButton(offsetX: $offsetX, offsetY: $offsetY)
-            ScaleButton(widthRatio: $widthRatio, heightRatio: $heightRatio)
+            PositionButton(micro: micro)
+            ScaleButton(micro: micro)
         }
         .padding()
         .background{

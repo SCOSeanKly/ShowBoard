@@ -155,9 +155,10 @@ struct MenuButtonsView: View {
 //        }
 //    }
 }
-
-struct MenuButtonsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShowBoardView()
-    }
-}
+/*
+ struct MenuButtonsView_Previews: PreviewProvider {
+ static var previews: some View {
+ ShowBoardView()
+ }
+ }
+ */

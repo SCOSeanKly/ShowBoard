@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-struct ImportedImageView: View {
+struct ImportedImageView1: View {
     let importedImage1: UIImage?
-    let importedImage2: UIImage?
-    let importedImage3: UIImage?
     
     var body: some View {
         ZStack {
@@ -20,14 +18,33 @@ struct ImportedImageView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width)
             }
-            
+        }
+    }
+}
+
+struct ImportedImageView2: View {
+    
+    let importedImage2: UIImage?
+    
+    var body: some View {
+        ZStack {
+        
             if let importedImage2 = importedImage2 {
                 Image(uiImage: importedImage2)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width)
             }
-            
+        }
+    }
+}
+
+struct ImportedImageView3: View {
+    let importedImage3: UIImage?
+    
+    var body: some View {
+        ZStack {
+          
             if let importedImage3 = importedImage3 {
                 Image(uiImage: importedImage3)
                     .resizable()

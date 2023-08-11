@@ -147,6 +147,7 @@ struct LayerObjectAppearance {
     
     
     
+    
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
     

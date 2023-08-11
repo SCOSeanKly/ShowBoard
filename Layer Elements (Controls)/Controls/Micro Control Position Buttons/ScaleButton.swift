@@ -9,19 +9,20 @@
 import SwiftUI
 
 struct ScaleButton: View {
+    @StateObject var micro: MicroControls
+    
     let stackSpacing: Double = 10
     @State private var isDragging = false
     @State private var microAdjustment: Bool = false
-    @Binding var widthRatio: CGFloat
-    @Binding var heightRatio: CGFloat
+  
     
     var scaleValue: CGFloat {
         return microAdjustment ? 0.001 : 0.01
     }
     
     func resetValues() {
-        widthRatio = 1
-        heightRatio = 1
+        micro.widthRatio = 1
+        micro.heightRatio = 1
     }
     
     var body: some View {
@@ -51,22 +52,22 @@ struct ScaleButton: View {
             .frame(width: 150, height: 10)
             
             PressableButtonView(systemImage: "plus") {
-                heightRatio += scaleValue
+                micro.heightRatio += scaleValue
             }
             HStack(spacing: stackSpacing) {
                 
                 PressableButtonView(systemImage: "minus") {
-                    widthRatio -= scaleValue
+                    micro.widthRatio -= scaleValue
                 }
                 PressableButtonView(systemImage: "arrow.counterclockwise") {
                     resetValues()
                 }
                 PressableButtonView(systemImage: "plus") {
-                    widthRatio += scaleValue
+                    micro.widthRatio += scaleValue
                 }
             }
             PressableButtonView(systemImage: "minus") {
-                heightRatio -= scaleValue
+                micro.heightRatio -= scaleValue
             }
         }
         .scaleEffect(0.9)

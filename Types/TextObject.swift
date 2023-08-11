@@ -51,6 +51,8 @@ class TextObject: LayerObject {
     
     @Published var isCircleText: Bool = false
     
+   
+    
     
     /// The currently selected font
     var font: Font {

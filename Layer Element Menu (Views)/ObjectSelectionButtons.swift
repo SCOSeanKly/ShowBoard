@@ -216,12 +216,13 @@ struct ButtonsView: View {
         .padding()
     }
 }
-
+/*
 struct ObjectSelectionView_Previews: PreviewProvider {
     static var previews: some View {
         ShowBoardView()
     }
 }
+ */
 
 /*
  

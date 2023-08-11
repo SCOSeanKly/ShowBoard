@@ -10,10 +10,6 @@ import SwiftUI
 struct GroupView: View {
     @Binding var isDragging: Bool
     @Binding var showMicroControls: Bool
-    @Binding var offsetX: CGFloat
-    @Binding var offsetY: CGFloat
-    @Binding var widthRatio: CGFloat
-    @Binding var heightRatio: CGFloat
     @Binding var hideMenuButtons: Bool
     @Binding var showClipboardAlert: Bool
     @Binding var showLayerElementView: Bool
@@ -32,6 +28,8 @@ struct GroupView: View {
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
     @Binding var hiddenLayers: Set<UUID>
+    
+  
    
    
     
@@ -41,7 +39,7 @@ struct GroupView: View {
             GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
             
             //MARK: Micro controller buttons
-            MicroControlsView(offsetX: $offsetX, offsetY: $offsetY, widthRatio: $widthRatio, heightRatio: $heightRatio, showMicroControls: $showMicroControls)
+         
               
             
             //MARK:  Menu Buttons

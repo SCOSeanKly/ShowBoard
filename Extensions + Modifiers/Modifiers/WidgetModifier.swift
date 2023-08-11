@@ -14,6 +14,7 @@ struct WidgetModifier: ViewModifier {
     @State private var angle: CGFloat = 0
     @State private var prevAngle: CGFloat = 0
     let enableZoom: Bool // Variable to enable/disable the zoom modifier
+ 
     
     private var drag: some Gesture {
         DragGesture()

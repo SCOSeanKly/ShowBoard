@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 import UIKit
 
 
@@ -16,8 +14,19 @@ struct DynamicTextView: View {
     @StateObject var text: TextObject
     
     @State private var isPressing: Bool = false
+    @State private var insertedKeyword: [String] = []
+
    
+    private let placeholdersDate = [
+          "[day]", "[date]", "[month]", "[monthNumber]",
+          "[monthShort]", "[year]", "[time]", "[daysRemaining]",
+          "[daysCount]", "[timeOfDay]"
+      ]
     
+    private let placeholdersWeather = ["[condition]", "[temp]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[feelsLike]", "[wind]"
+      ]
+    
+    let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         
@@ -63,16 +72,19 @@ struct DynamicTextView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
-                
-                TextEditor(text: $text.inputText)
-                .frame(height: text.isKeyboardPresented ? 100 : 40)
-                                  .padding(5)
-                                  .background(.ultraThinMaterial)
-                                  .padding(.horizontal)
-                                  .scrollDismissesKeyboard(.immediately)
-                                  .onReceive(keyboardPublisher) { value in
-                                      text.isKeyboardPresented = value
-                                     }
+               
+            TextEditor(text: $text.inputText)  // Use the published property here
+                              .frame(height: text.isKeyboardPresented ? 100 : 40)
+                              .padding(5)
+                              .background(.ultraThinMaterial)
+                              .padding(.horizontal)
+                              .scrollDismissesKeyboard(.immediately)
+                              .onReceive(keyboardPublisher) { value in
+                                  text.isKeyboardPresented = value
+                              }
+
+            
+            
                                  
             if text.isKeyboardPresented {
                     VStack {
@@ -90,35 +102,63 @@ struct DynamicTextView: View {
                         // Dynamic Date Section
                         Group {
                             HStack {
-                                Text("Date:")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 10))
-                                +
-                                Text("[day], [date], [month], [monthNumber], [monthShort], [year], [time], [daysRemaining], [daysCount], [timeOfDay]")
-                                    .font(.system(size: 10))
+                                LazyHGrid(rows: gridItems, spacing: 5) {
+                                    Text("Date:")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 10))
+                                    
+                                    ForEach(placeholdersDate, id: \.self) { placeholder in
+                                        Button {
+                                            text.inputText += placeholder
+                                        } label: {
+                                            Text("\(placeholder)")
+                                                .font(.system(size: 10))
+                                                .padding(.horizontal, 5)
+                                                .padding(.vertical, 5)
+                                        }
+                                        .fixedSize()
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                .padding(.bottom, 1)
                                 
                                 Spacer()
                             }
-                            .padding(.bottom, 1)
                         }
+                        
+                        Divider()
+                            .padding(.horizontal)
                         
                         // Dynamic Weather Section
                         Group {
                             HStack {
-                                Text("Weather:")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.black)
-                                    .font(.system(size: 10))
-                                +
-                                Text("[condition], [temp], [dayLight], [cloudCover], [visibility], [dewPoint], [humidity], [pressure], [uvIndex], [feelsLike], [wind]")
-                                    .font(.system(size: 10))
+                                LazyHGrid(rows: gridItems, spacing: 5) {
+                                    Text("Weather:")
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 10))
+                                    
+                                    ForEach(placeholdersWeather, id: \.self) { placeholder in
+                                        Button {
+                                            text.inputText += placeholder
+                                        } label: {
+                                            Text("\(placeholder)")
+                                                .font(.system(size: 10))
+                                                .padding(.horizontal, 5)
+                                                .padding(.vertical, 5)
+                                        }
+                                        .fixedSize()
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                .padding(.bottom, 1)
                                 
                                 Spacer()
                             }
-                            .padding(.bottom, 1)
                         }
-                        
                     }
                     .padding(.horizontal)
                 }

@@ -20,6 +20,9 @@
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
 		097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274342A4DDCCB00429786 /* ShadowSettings.swift */; };
+		3E1748602A866535001FD092 /* MicroControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17485F2A866535001FD092 /* MicroControls.swift */; };
+		3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1748612A8676E8001FD092 /* PlacedObjects List View.swift */; };
+		3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1748632A867744001FD092 /* ImportedImageType.swift */; };
 		3E1ACF472A83CF0F00832F81 /* CircleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF462A83CF0F00832F81 /* CircleText.swift */; };
 		3E1ACF492A83EAEB00832F81 /* RefelectionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */; };
 		3E1ACF4B2A83ECAE00832F81 /* SliderToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */; };
@@ -172,6 +175,9 @@
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
 		097274342A4DDCCB00429786 /* ShadowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettings.swift; sourceTree = "<group>"; };
+		3E17485F2A866535001FD092 /* MicroControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroControls.swift; sourceTree = "<group>"; };
+		3E1748612A8676E8001FD092 /* PlacedObjects List View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlacedObjects List View.swift"; sourceTree = "<group>"; };
+		3E1748632A867744001FD092 /* ImportedImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageType.swift; sourceTree = "<group>"; };
 		3E1ACF462A83CF0F00832F81 /* CircleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleText.swift; sourceTree = "<group>"; };
 		3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefelectionModifier.swift; sourceTree = "<group>"; };
 		3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderToggle.swift; sourceTree = "<group>"; };
@@ -326,6 +332,8 @@
 		0913C4292A487643007AF26E /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				3E17485F2A866535001FD092 /* MicroControls.swift */,
+				3E1748632A867744001FD092 /* ImportedImageType.swift */,
 				3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */,
 				3E2245732A86256B002B35B2 /* SquareShapeObject.swift */,
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
@@ -455,6 +463,7 @@
 			children = (
 				3EADA59E2A43161900FA1BCB /* Info.plist */,
 				3E8849C62A41D66400B50BBD /* ShowBoardView.swift */,
+				3E1748612A8676E8001FD092 /* PlacedObjects List View.swift */,
 				3E8849892A41D47800B50BBD /* ShowBoardApp.swift */,
 				3EB671972A4EF20A00DF2678 /* GroupView.swift */,
 				3E88498B2A41D47800B50BBD /* ContentView.swift */,
@@ -889,6 +898,7 @@
 				096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */,
 				3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */,
 				3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */,
+				3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */,
 				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */,
@@ -916,6 +926,7 @@
 				3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */,
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
 				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
+				3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */,
 				3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
@@ -968,6 +979,7 @@
 				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
+				3E1748602A866535001FD092 /* MicroControls.swift in Sources */,
 				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
 				3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */,
@@ -1140,7 +1152,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.21;
+				CURRENT_PROJECT_VERSION = 0.0.22;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1183,7 +1195,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.21;
+				CURRENT_PROJECT_VERSION = 0.0.22;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -132,12 +132,13 @@ struct BackgroundView: View {
         timer = nil
     }
 }
-
-struct BackgroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShowBoardView()
-            .preferredColorScheme(.light)
-            .environment(\.sizeCategory, .small)
-            .environment(\.colorScheme, .light)
-    }
-}
+/*
+ struct BackgroundView_Previews: PreviewProvider {
+ static var previews: some View {
+ ShowBoardView()
+ .preferredColorScheme(.light)
+ .environment(\.sizeCategory, .small)
+ .environment(\.colorScheme, .light)
+ }
+ }
+ */

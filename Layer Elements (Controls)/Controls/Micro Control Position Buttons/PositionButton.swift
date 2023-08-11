@@ -7,19 +7,21 @@
 import SwiftUI
 
 struct PositionButton: View {
+    
+    @StateObject var micro: MicroControls
+    
     let stackSpacing: Double = 10
     @State private var isDragging = false
     @State private var microAdjustment: Bool = false
-    @Binding var offsetX: CGFloat
-    @Binding var offsetY: CGFloat
+   
     
     var offsetValue: CGFloat {
         return microAdjustment ? 0.5 : 2
     }
     
     func resetValues() {
-        offsetX = 0
-        offsetY = 0
+        micro.offsetX = 0
+        micro.offsetY = 0
     }
     
     var body: some View {
@@ -50,22 +52,22 @@ struct PositionButton: View {
             
             
             PressableButtonView(systemImage: "arrow.up") {
-                offsetY -= offsetValue
+                micro.offsetY -= offsetValue
             }
             HStack(spacing: stackSpacing) {
                 
                 PressableButtonView(systemImage: "arrow.left") {
-                    offsetX -= offsetValue
+                    micro.offsetX -= offsetValue
                 }
                 PressableButtonView(systemImage: "arrow.counterclockwise") {
                     resetValues() 
                 }
                 PressableButtonView(systemImage: "arrow.right") {
-                    offsetX += offsetValue
+                    micro.offsetX += offsetValue
                 }
             }
             PressableButtonView(systemImage: "arrow.down") {
-                offsetY += offsetValue
+                micro.offsetY += offsetValue
             }
         }
         .scaleEffect(0.9)
