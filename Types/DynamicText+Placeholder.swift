@@ -44,7 +44,7 @@ extension DynamicText {
         case pressure = "[pressure]"
         case uvIndex = "[uvIndex]"
         case wind = "[wind]"
-        case apparentTemperature = "[apparentTemperature]"
+        case apparentTemperature = "[feelsLike]"
         
         
         // Battery info

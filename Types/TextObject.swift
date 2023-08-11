@@ -85,8 +85,10 @@ class TextObject: LayerObject {
         "Shalimar-Regular",
         "SourceCodePro-VariableFont_wght",
         "YsabeauSC-VariableFont_wght"
+    //    "Freedom45"
         
     ]
+     
     
     
     // TODO: !

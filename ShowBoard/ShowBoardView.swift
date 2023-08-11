@@ -95,6 +95,7 @@ struct ShowBoardView: View {
                         selection = nil
                     }
                 
+            
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
@@ -106,10 +107,11 @@ struct ShowBoardView: View {
                             case .wavyDock:     WavyDockView()
                             case .glassShape:   GlassShapeView()
                             case .weatherIcon:  WeatherIconView(weatherIconObject: WeatherIconLayerObject())
+                            case .squareShape:  SquareShapeView()
                             }
                         }
                         .padding(10)
-                        .background {
+                        .overlay {
                             MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
                         .onLongPressGesture {
@@ -321,6 +323,7 @@ struct PlacedObjectsListView: View {
         case .wavyDock: objectTypeInfo = .wavyDock
         case .glassShape: objectTypeInfo = .glassShape
         case .weatherIcon: objectTypeInfo = .weatherIcon
+        case .squareShape: objectTypeInfo = .squareShape
             
         }
         
@@ -399,6 +402,7 @@ struct PlacedObjectsListView: View {
         case wavyDock
         case glassShape
         case weatherIcon
+        case squareShape
         
         
         
@@ -408,9 +412,10 @@ struct PlacedObjectsListView: View {
             case .map: return "map"
             case .circleGauge: return "circle"
             case .customShape: return "star"
-            case .wavyDock: return "water.waves"
-            case .glassShape: return "square"
+            case .wavyDock: return "alternatingcurrent"
+            case .glassShape: return "bubbles.and.sparkles"
             case .weatherIcon: return "sun.max"
+            case .squareShape: return "square"
                 
                 
             }
@@ -418,13 +423,14 @@ struct PlacedObjectsListView: View {
         
         var title: String {
             switch self {
-            case .text: return "Text Object"
-            case .map: return "Map Object"
-            case .circleGauge: return "Circle Gauge Object"
-            case .customShape: return "Custom Shape Object"
-            case .wavyDock: return "Wavy Dock Object"
-            case .glassShape: return "Glass Object"
-            case .weatherIcon: return "Weather Icon Object"
+            case .text: return "Text"
+            case .map: return "Map"
+            case .circleGauge: return "Circle Gauge"
+            case .customShape: return "Custom Shape"
+            case .wavyDock: return "Wavy Dock"
+            case .glassShape: return "Glass"
+            case .weatherIcon: return "Weather Icon"
+            case .squareShape: return "Squared Shape"
                 
                 
             }

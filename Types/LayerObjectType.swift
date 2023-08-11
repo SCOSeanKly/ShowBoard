@@ -15,6 +15,7 @@ enum LayerObjectType {
     case map
     case circleGauge
     case glassShape
+    case squareShape
     case weatherIcon
    
 }

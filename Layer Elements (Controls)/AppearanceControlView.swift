@@ -22,7 +22,7 @@ struct AppearanceControlView: View {
         
         ScrollView (showsIndicators: false) {
             
-          
+            
             Group {
                 ResetValues(resetValues: {}, systemImageName: systemImageName, titleText: titletext)
                 
@@ -40,7 +40,7 @@ struct AppearanceControlView: View {
                 }
                 
                 if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) {
-               
+                    
                     SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 1, specifier: 0, defaultValue: 200)
                     
                     SliderStepper(color: .blue, title: "Height:", sliderBindingValue:  $layer.appearance.height, minValue: 0, maxValue: UIScreen.main.bounds.height * 1.05, step: 1, specifier: 0, defaultValue: 200)
@@ -70,9 +70,10 @@ struct AppearanceControlView: View {
             }
             
             Group {
-                if let _ = layer as? GlassObject {
+                if layer is GlassObject || layer is SquareShapeObject {
                     SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 }
+
                 
                 SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $layer.appearance.skewY, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
                 
@@ -122,4 +123,5 @@ struct AppearanceControlView: View {
         .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
     }
 }
+
 

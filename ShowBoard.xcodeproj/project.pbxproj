@@ -28,6 +28,18 @@
 		3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */; };
 		3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456D2A84FF3C002B35B2 /* FontNames.swift */; };
 		3E2245702A851273002B35B2 /* CustomFontGridPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456F2A851273002B35B2 /* CustomFontGridPicker.swift */; };
+		3E2245722A856307002B35B2 /* sfSymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2245712A856307002B35B2 /* sfSymbols.swift */; };
+		3E2245742A86256B002B35B2 /* SquareShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2245732A86256B002B35B2 /* SquareShapeObject.swift */; };
+		3E2245772A862625002B35B2 /* SquareShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2245762A862625002B35B2 /* SquareShapeView.swift */; };
+		3E22458A2A8635F9002B35B2 /* Freedom45.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245892A8635F9002B35B2 /* Freedom45.ttf */; };
+		3E2245902A8637E8002B35B2 /* Inlander.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E22458B2A8637E7002B35B2 /* Inlander.ttf */; };
+		3E2245912A8637E8002B35B2 /* Bygonest Typewriter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E22458C2A8637E8002B35B2 /* Bygonest Typewriter.ttf */; };
+		3E2245922A8637E8002B35B2 /* Patrick Rastelo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E22458D2A8637E8002B35B2 /* Patrick Rastelo.otf */; };
+		3E2245932A8637E8002B35B2 /* Applentosh.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E22458E2A8637E8002B35B2 /* Applentosh.ttf */; };
+		3E2245942A8637E8002B35B2 /* Torsae.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E22458F2A8637E8002B35B2 /* Torsae.otf */; };
+		3E2245962A8637FC002B35B2 /* Spacetron.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245952A8637FC002B35B2 /* Spacetron.otf */; };
+		3E2245982A863810002B35B2 /* Rashavine.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245972A863810002B35B2 /* Rashavine.ttf */; };
+		3E22459A2A863820002B35B2 /* JapanRich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */; };
 		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */; };
 		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
@@ -168,6 +180,18 @@
 		3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyDockObject.swift; sourceTree = "<group>"; };
 		3E22456D2A84FF3C002B35B2 /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
 		3E22456F2A851273002B35B2 /* CustomFontGridPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontGridPicker.swift; sourceTree = "<group>"; };
+		3E2245712A856307002B35B2 /* sfSymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sfSymbols.swift; sourceTree = "<group>"; };
+		3E2245732A86256B002B35B2 /* SquareShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareShapeObject.swift; sourceTree = "<group>"; };
+		3E2245762A862625002B35B2 /* SquareShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareShapeView.swift; sourceTree = "<group>"; };
+		3E2245892A8635F9002B35B2 /* Freedom45.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Freedom45.ttf; sourceTree = "<group>"; };
+		3E22458B2A8637E7002B35B2 /* Inlander.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inlander.ttf; sourceTree = "<group>"; };
+		3E22458C2A8637E8002B35B2 /* Bygonest Typewriter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bygonest Typewriter.ttf"; sourceTree = "<group>"; };
+		3E22458D2A8637E8002B35B2 /* Patrick Rastelo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Patrick Rastelo.otf"; sourceTree = "<group>"; };
+		3E22458E2A8637E8002B35B2 /* Applentosh.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Applentosh.ttf; sourceTree = "<group>"; };
+		3E22458F2A8637E8002B35B2 /* Torsae.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Torsae.otf; sourceTree = "<group>"; };
+		3E2245952A8637FC002B35B2 /* Spacetron.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Spacetron.otf; sourceTree = "<group>"; };
+		3E2245972A863810002B35B2 /* Rashavine.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rashavine.ttf; sourceTree = "<group>"; };
+		3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JapanRich-Regular.ttf"; sourceTree = "<group>"; };
 		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButtonView.swift; sourceTree = "<group>"; };
 		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
@@ -303,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */,
+				3E2245732A86256B002B35B2 /* SquareShapeObject.swift */,
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
 				0913C4272A4875E4007AF26E /* DynamicText.swift */,
 				097274322A4C854B00429786 /* TextObject.swift */,
@@ -338,6 +363,14 @@
 			path = "Wavy Dock";
 			sourceTree = "<group>";
 		};
+		3E2245752A862609002B35B2 /* Square Shape View */ = {
+			isa = PBXGroup;
+			children = (
+				3E2245762A862625002B35B2 /* SquareShapeView.swift */,
+			);
+			path = "Square Shape View";
+			sourceTree = "<group>";
+		};
 		3E371CE02A66C10E00DE743C /* Battery Circle Gauge */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +397,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3E2245752A862609002B35B2 /* Square Shape View */,
 				3E22456C2A84F505002B35B2 /* Wavy Dock */,
 				3EBF30742A6ED504004C12B5 /* Custom Shape View */,
 				3ED802202A7A8DCC005E2835 /* Weather Icon */,
@@ -506,6 +540,15 @@
 		3EADA59D2A4315E500FA1BCB /* Custom Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */,
+				3E2245972A863810002B35B2 /* Rashavine.ttf */,
+				3E2245952A8637FC002B35B2 /* Spacetron.otf */,
+				3E22458E2A8637E8002B35B2 /* Applentosh.ttf */,
+				3E22458C2A8637E8002B35B2 /* Bygonest Typewriter.ttf */,
+				3E22458B2A8637E7002B35B2 /* Inlander.ttf */,
+				3E22458D2A8637E8002B35B2 /* Patrick Rastelo.otf */,
+				3E22458F2A8637E8002B35B2 /* Torsae.otf */,
+				3E2245892A8635F9002B35B2 /* Freedom45.ttf */,
 				3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */,
 				3ED802072A7A6F86005E2835 /* AmaticSC-Regular.ttf */,
 				3ED802022A7A6F86005E2835 /* BebasNeue-Regular.ttf */,
@@ -636,6 +679,7 @@
 				3EDBEBFD2A710806003856DA /* HeartButton.swift */,
 				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
 				3E22456D2A84FF3C002B35B2 /* FontNames.swift */,
+				3E2245712A856307002B35B2 /* sfSymbols.swift */,
 			);
 			path = "Test Views";
 			sourceTree = "<group>";
@@ -786,24 +830,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E22459A2A863820002B35B2 /* JapanRich-Regular.ttf in Resources */,
 				3ED8020F2A7A6F86005E2835 /* Megrim-Regular.ttf in Resources */,
 				3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */,
 				3ED802122A7A6F86005E2835 /* BebasNeue-Regular.ttf in Resources */,
+				3E2245912A8637E8002B35B2 /* Bygonest Typewriter.ttf in Resources */,
 				3E82803C2A7939B800F174F9 /* RainFallLanding.sks in Resources */,
+				3E22458A2A8635F9002B35B2 /* Freedom45.ttf in Resources */,
 				3ED802132A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf in Resources */,
 				3ED8020C2A7A6F86005E2835 /* AlfaSlabOne-Regular.ttf in Resources */,
+				3E2245932A8637E8002B35B2 /* Applentosh.ttf in Resources */,
+				3E2245942A8637E8002B35B2 /* Torsae.otf in Resources */,
 				3ED802152A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf in Resources */,
 				3ED8020D2A7A6F86005E2835 /* Monoton-Regular.ttf in Resources */,
+				3E2245922A8637E8002B35B2 /* Patrick Rastelo.otf in Resources */,
 				3ED802162A7A6F86005E2835 /* NixieOne-Regular.ttf in Resources */,
 				3ED801FB2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf in Resources */,
 				3ED802142A7A6F86005E2835 /* Codystar-Regular.ttf in Resources */,
 				3E82803D2A7939B800F174F9 /* RainFall.sks in Resources */,
 				3ED802112A7A6F86005E2835 /* Rajdhani-Medium.ttf in Resources */,
+				3E2245902A8637E8002B35B2 /* Inlander.ttf in Resources */,
 				3ED802192A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf in Resources */,
 				3ED8020E2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf in Resources */,
 				3ED802102A7A6F86005E2835 /* Shalimar-Regular.ttf in Resources */,
 				3ED8021B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf in Resources */,
 				3E8849922A41D47800B50BBD /* Preview Assets.xcassets in Resources */,
+				3E2245962A8637FC002B35B2 /* Spacetron.otf in Resources */,
+				3E2245982A863810002B35B2 /* Rashavine.ttf in Resources */,
 				3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */,
 				3ED802172A7A6F86005E2835 /* AmaticSC-Regular.ttf in Resources */,
 				3ED802182A7A6F86005E2835 /* FugazOne-Regular.ttf in Resources */,
@@ -844,10 +897,12 @@
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
 				3E3977922A7BF998002711FC /* AppModel.swift in Sources */,
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
+				3E2245742A86256B002B35B2 /* SquareShapeObject.swift in Sources */,
 				3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */,
 				3E8849C12A41D5C600B50BBD /* PhotosPicker.swift in Sources */,
+				3E2245722A856307002B35B2 /* sfSymbols.swift in Sources */,
 				3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */,
 				3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */,
 				3ED771E52A4AFE4300AFC1FC /* MapExtensionView.swift in Sources */,
@@ -896,6 +951,7 @@
 				3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */,
 				3E546A732A69672100AE1ED7 /* SettingsFonts.swift in Sources */,
 				3EBF306C2A6EBE3D004C12B5 /* CustomPresentation.swift in Sources */,
+				3E2245772A862625002B35B2 /* SquareShapeView.swift in Sources */,
 				3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */,
 				3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */,
 				0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */,

@@ -150,8 +150,18 @@ struct ObjectSelectionView: View {
                                 placedObjects.append(LayerObject())
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "rectangle"),
+                            imageType: .system(name: "bubbles.and.sparkles"),
                             textDescription: "Glass",
+                            disabled: false
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(SquareShapeObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "square"),
+                            textDescription: "Squared",
                             disabled: false
                         )
                         
@@ -170,7 +180,7 @@ struct ObjectSelectionView: View {
                                 placedObjects.append(WavyDockObject())
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "water.waves"),
+                            imageType: .system(name: "alternatingcurrent"),
                             textDescription: "Wavy Dock",
                             disabled: false
                         )

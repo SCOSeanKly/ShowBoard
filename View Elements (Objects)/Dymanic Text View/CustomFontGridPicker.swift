@@ -11,7 +11,7 @@ struct CustomFontGridPicker: View {
     @Binding var bindingValue: String
     @StateObject var text: TextObject
     @State private var isPressing: Bool = false
-    //var action: () -> Void
+    @State private var searchText = ""
     
     
     let columns: [GridItem] = [
@@ -45,51 +45,91 @@ struct CustomFontGridPicker: View {
             .padding(.horizontal)
             .padding(.top)
             
-            LazyVGrid(columns: columns, spacing: 10) {
-                /*
-                 ForEach(UIFont.familyNames.sorted(), id: \.self) { familyName in
-                 ForEach(UIFont.fontNames(forFamilyName: familyName).sorted(), id: \.self) { fontName in
-                 */
-                ForEach(UIFont.familyNames.sorted(), id: \.self) { familyName in
-                    if let fontName = UIFont.fontNames(forFamilyName: familyName).first {
-                        
-                        Button {
-                            
-                            bindingValue = fontName
-                            
-                            isPressing.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                isPressing.toggle()}
-                        }label: {
-                            ZStack {
-                                VStack {
-                                    Text("Aa")
-                                        .font(Font.custom(fontName, size: 26))
-                                    
-                                    
-                                    Text(fontName)
-                                        .font(.system(size: 8).weight(.medium))
-                                        .lineLimit(1)
-                                       
-                                    
-                                }
-                                .frame(width: 50, height: 60)
-                                .padding(10)
-                                .background(Color.white)
-                                .cornerRadius(12)
-                                .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
-                                .tint(.black)
-                            } 
+            
+           
+            ZStack {
+                TextField("Search fonts...", text: $searchText)
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(12)
+                    .shadow(color: .black.opacity(1.2), radius: 0.5, x: 0, y: 0)
+                    .tint(.black)
+                    .padding(.horizontal)
+                
+                HStack {
+                    Spacer()
+                    ZStack {
+                        if !searchText.isEmpty {
+                            Button(action: {
+                                searchText = ""
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.red)
+                            }
                         }
-                        
                     }
+                    .padding(.trailing, 30)
                 }
             }
-            .padding()
+                    
+                   
+              
+      
+          
+            
+        
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(filteredFontFamilyNames, id: \.self) { familyName in
+                        if let fontName = UIFont.fontNames(forFamilyName: familyName).first {
+                            
+                            Button {
+                                
+                                bindingValue = fontName
+                                
+                                isPressing.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                    isPressing.toggle()}
+                            }label: {
+                                ZStack {
+                                    VStack {
+                                        Text("Aa")
+                                            .font(Font.custom(fontName, size: 26))
+                                        
+                                        Text(fontName)
+                                            .font(.system(size: 8).weight(.medium))
+                                            .lineLimit(1)
+                                        
+                                        
+                                    }
+                                    .frame(width: 50, height: 60)
+                                    .padding(10)
+                                    .background(Color.white)
+                                    .cornerRadius(12)
+                                    .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
+                                    .tint(.black)
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+                .padding()
+            
+            .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
         }
-        .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
+        
+         var filteredFontFamilyNames: [String] {
+            if searchText.isEmpty {
+                return UIFont.familyNames.sorted()
+            } else {
+                return UIFont.familyNames.filter { familyName in
+                    familyName.localizedCaseInsensitiveContains(searchText)
+                }.sorted()
+            }
+        }
     }
 }
+
 
 struct CustomFontGridPicker_Previews: PreviewProvider {
     static var previews: some View {

@@ -46,7 +46,7 @@ struct WavyDockView: View {
         ZStack {
 
             WavyDock(wavyD: wavyD)
-                .foregroundColor(wavyD.wavyDockColor)
+               .foregroundColor(wavyD.wavyDockColor)
                 .ignoresSafeArea()
                 .offset(y: wavyD.offsetY)
                 .shadow(radius: wavyD.shadowRadius, y: -wavyD.shadowOffsetY)

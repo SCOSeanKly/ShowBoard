@@ -111,7 +111,7 @@ struct DynamicTextView: View {
                                     .foregroundColor(.black)
                                     .font(.system(size: 10))
                                 +
-                                Text("[condition], [temp], [dayLight], [cloudCover], [visibility], [dewPoint], [humidity], [pressure], [uvIndex], [apparentTemperature], [wind]")
+                                Text("[condition], [temp], [dayLight], [cloudCover], [visibility], [dewPoint], [humidity], [pressure], [uvIndex], [feelsLike], [wind]")
                                     .font(.system(size: 10))
                                 
                                 Spacer()
