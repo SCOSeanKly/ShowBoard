@@ -181,22 +181,23 @@ struct PlacedObjectsListView: View {
             })
             .buttonStyle(.plain)
             
-            /*
-             Button(action: {
-             isPressingSettings.toggle()
-             
-             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-             feedback()
-             isPressingSettings.toggle()
-             }
-             }, label: {
-             Image(systemName: "gear")
-             .scaleEffect(isPressingSettings ? 0.9 : 1)
-             .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
-             })
-             .buttonStyle(.plain)
-             .padding(.horizontal)
-             */
+            
+            Button(action: {
+                isPressingSettings.toggle()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    feedback()
+                    isPressingSettings.toggle()
+                }
+                
+            }, label: {
+                Image(systemName: "gear")
+                    .scaleEffect(isPressingSettings ? 0.9 : 1)
+                    .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
+            })
+            .buttonStyle(.plain)
+            .padding(.horizontal)
+            
             
             Button(action: {
                 isPressingDelete.toggle()

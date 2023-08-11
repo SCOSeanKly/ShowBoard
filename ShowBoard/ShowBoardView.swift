@@ -58,13 +58,9 @@ struct ShowBoardView: View {
                     if placedObjects.count >= 1 {
                         if selection != nil {
                             feedback()
-                            
-                            // Check if micro controls are in view
                             if showMicroControls {
-                                // Close the micro controls
                                 showMicroControls = false
                             } else {
-                                // De-select the layer
                                 selection = nil
                             }
                         }
@@ -188,9 +184,6 @@ struct ShowBoardView_Previews: PreviewProvider {
             .environment(\.colorScheme, .light)
     }
 }
-
-
-
 
 
 
