@@ -46,47 +46,11 @@ struct WavyDockView: View {
     var body: some View {
         ZStack {
          
-                
-             
-                
                 WavyDock(wavyD: wavyD)
                     .foregroundColor(wavyD.appearance.fillColor)
-                    .scaleEffect(1.1)
                     .objectAppearanceModifier(layer: wavyD, systemImageName: "alternatingcurrent", systemImage2: "", titleText: "Wavy Dock Object", showMicroControls: $showMicroControls)
-         
-               
-               
         }
-     
-        /*
-        .sheet(isPresented: $showSettings){
-            ZStack {
-                ScrollView (showsIndicators: false) {
-                    
-                    ResetValues(resetValues: {}, showMicroControls: $showMicroContols, systemImageName: "water.waves", titleText: "Wavy Dock")
-                    
-                    SliderStepper(color: .blue, title: "Width", sliderBindingValue: $wavyD.graphWidth, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
-                    
-                    SliderStepper(color: .blue, title: "xAngle", sliderBindingValue: $wavyD.xAngle, minValue: 0, maxValue: 360, step: 0.1, specifier: 1, defaultValue: 360)
-                    
-                    SliderStepper(color: .blue, title: "Amplitude", sliderBindingValue: $wavyD.amplitude, minValue: -0.5, maxValue: 0.5, step: 0.1, specifier: 1, defaultValue: 0.15)
-                    
-                    SliderStepper(color: .blue, title: "OffsetY", sliderBindingValue: $wavyD.offsetY, minValue: 85, maxValue: 400, step: 1, specifier: 0, defaultValue: 0)
-                    
-                    SliderStepper(color: .blue, title: "Shadow Radius", sliderBindingValue: $wavyD.shadowRadius, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
-                    
-                    SliderStepper(color: .blue, title: "Shadow Offset", sliderBindingValue: $wavyD.shadowOffsetY, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
-                    
-                    CustomColorPicker(titleText: "Color", pickerBindingValue: $wavyD.wavyDockColor)
-                    
-                    Spacer()
-                        .frame(height: 100)
-                }
-            }
-            .customPresentationWithBlur(detent: .medium, blurRadius: 0, backgroundColorOpacity: 0.75)
-        }
-         */
-       
+    
     }
 }
 

@@ -95,7 +95,7 @@ struct ShowBoardView: View {
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            case .text:         TextObjectView(text: obj as! TextObject, showMicroContols: $showMicroControls)
+                            case .text:         TextObjectView(text: obj as! TextObject, showMicroControls: $showMicroControls)
                             case .map:          MapView(map: obj as! MapObject, showMicroControls: $showMicroControls)
                             case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
                             case .customShape:  CustomShapeView(showMicroControls: $showMicroControls)

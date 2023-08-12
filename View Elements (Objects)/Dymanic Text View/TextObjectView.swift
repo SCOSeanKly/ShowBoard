@@ -12,7 +12,7 @@ struct TextObjectView: View {
     
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var text: TextObject
-    @Binding var showMicroContols: Bool
+    @Binding var showMicroControls: Bool
     
     
     var alignment: Alignment {
@@ -52,6 +52,12 @@ struct TextObjectView: View {
                         Rectangle()
                             .fill(Color.white.opacity(0.00001))
                     }
+                    .overlay {
+                        MarchingAntsBorder(opacity: text.appearance.showSettings ? 1 : 0)
+                    }
+                    .offset(x: text.appearance.offsetX, y: text.appearance.offsetY)
+                    .scaleEffect(x: text.appearance.scaleWidth, y: text.appearance.scaleHeight, anchor: .center)
+                   
                 
                 
             } else {
@@ -79,7 +85,7 @@ struct TextObjectView: View {
             text.appearance.showSettings.toggle()
         }
         .sheet(isPresented: $text.appearance.showSettings){
-            DynamicTextEditViewSettings(text: text, showMicroContols: $showMicroContols)
+            DynamicTextEditViewSettings(text: text, showMicroControls: $showMicroControls)
         }
     }
     

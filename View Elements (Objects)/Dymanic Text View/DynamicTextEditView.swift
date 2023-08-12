@@ -146,17 +146,17 @@ struct DynamicTextView: View {
                                     
                                     Spacer()
                                 }
-                                .padding(.bottom, 1)
+                                .padding(.bottom, 100)
                                 
                                 Spacer()
+                               
                             }
                         }
                     }
                     .padding(.horizontal)
                 }
                    
-            Spacer()
-                .frame(height: 100)
+          
             }
         }
     }

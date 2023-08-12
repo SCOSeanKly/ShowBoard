@@ -148,9 +148,18 @@ struct LayerObjectAppearance {
     var gaugeScale: CGFloat
     
     //MARK: WavyDock
-    
     var xAngle: CGFloat
     var amplitude : CGFloat
+    
+    
+    
+    //MARK: Text
+    /*
+    var dropLast: CGFloat
+    var fontSize: CGFloat
+    var tracking: CGFloat
+    var isCircleText: Bool
+     */
     
     
     

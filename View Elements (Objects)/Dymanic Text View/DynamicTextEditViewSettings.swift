@@ -11,14 +11,19 @@ struct DynamicTextEditViewSettings: View {
     
     @StateObject var text: TextObject
     @State private var showFontPickerSheet: Bool = false
-    @Binding var showMicroContols: Bool
+    @Binding var showMicroControls: Bool
    
     var body: some View {
         
         ScrollView (showsIndicators: false){
             
             if !text.isKeyboardPresented {
-                ResetValues(resetValues: resetDynamicTextValues, showMicroControls: $showMicroContols, systemImageName: "character.textbox", titleText: "Dynamic Text Object")
+                
+                if showMicroControls {
+                    MicroControlsView(showMicroControls: $showMicroControls, layer: text)
+                }
+                
+                ResetValues(resetValues: resetDynamicTextValues, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text Object")
                 }
                 
                 DynamicTextView(text: text)
@@ -106,7 +111,13 @@ struct DynamicTextEditViewSettings: View {
             
             
         }
-        .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
+        .onAppear{
+            showMicroControls = true
+        }
+        .onDisappear{
+            showMicroControls = false
+        }
+        .customPresentationWithPrimaryBackground(detent: .medium, detent2: .small, backgroundColorOpacity: 1.0)
         .sheet(isPresented: $showFontPickerSheet){
             
             CustomFontGridPicker(bindingValue: $text.selectedFontName, text: text)
