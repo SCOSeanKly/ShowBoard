@@ -11,6 +11,8 @@ import SwiftUI
 struct SquareShapeView: View {
     
     @StateObject var square = SquareShapeObject()
+    @Binding var showMicroControls: Bool
+    
 
     
     var body: some View {
@@ -21,7 +23,7 @@ struct SquareShapeView: View {
                 RoundedRectangle(cornerRadius: square.appearance.cornerRadius)
                     .foregroundColor(square.appearance.fillColor)
             }
-            .objectAppearanceModifier(layer: square, systemImageName: "square", systemImage2: "", titleText: "Square Shape Object")
+            .objectAppearanceModifier(layer: square, systemImageName: "square", systemImage2: "", titleText: "Square Shape Object", showMicroControls: $showMicroControls)
       
         
     }

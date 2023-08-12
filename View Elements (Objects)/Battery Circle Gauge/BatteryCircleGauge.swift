@@ -11,6 +11,8 @@ struct BatteryCircleGauge: View {
     
     @ObservedObject var batteryViewModel: BatteryViewModel
     @StateObject var bat = CircleGaugeObject()
+    @Binding var showMicroControls: Bool
+    
     
     
     var body: some View {
@@ -40,7 +42,7 @@ struct BatteryCircleGauge: View {
         .opacity(bat.appearance.opacity)
         .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
         .scaleEffect(bat.appearance.gaugeScale)
-        .objectAppearanceModifier(layer: bat, systemImageName: "circle", systemImage2: "", titleText: "Battery Circle Gauge")
+        .objectAppearanceModifier(layer: bat, systemImageName: "circle", systemImage2: "", titleText: "Battery Circle Gauge", showMicroControls: $showMicroControls)
         .background{
             Circle()
                 .fill(Color.white.opacity(0.00001))
@@ -49,8 +51,3 @@ struct BatteryCircleGauge: View {
        
 }
 
-struct BatteryCircleGauge_Previews: PreviewProvider {
-    static var previews: some View {
-        BatteryCircleGauge(batteryViewModel: BatteryViewModel())
-    }
-}

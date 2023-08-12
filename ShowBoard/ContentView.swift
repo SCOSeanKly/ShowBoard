@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    let microControls = MicroControls()
+
+  
+  
     var body: some View {
         
-        ShowBoardView(micro: microControls)
+        ShowBoardView()
          
     }
 }

@@ -13,18 +13,32 @@ struct AppearanceControlView: View {
     @StateObject var layer: LayerObject
     let systemImageName: String
     let titletext: String
-    
-    
     let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
     @State private var doNothing: Bool = false
+    @Binding var showMicroControls: Bool
+    
+    
     
     var body: some View {
         
+        
         ScrollView (showsIndicators: false) {
             
+            if showMicroControls {
+                MicroControlsView(showMicroControls: $showMicroControls, layer: layer)
+            }
             
             Group {
-                ResetValues(resetValues: {}, systemImageName: systemImageName, titleText: titletext)
+                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
+                
+                
+                if let _ = layer as? WavyDockObject {
+                    SliderStepper(color: .blue, title: "xAngle", sliderBindingValue: $layer.appearance.xAngle, minValue: 0, maxValue: 360, step: 0.1, specifier: 1, defaultValue: 360)
+                    
+                    SliderStepper(color: .blue, title: "Amplitude", sliderBindingValue: $layer.appearance.amplitude, minValue: -0.5, maxValue: 0.5, step: 0.1, specifier: 1, defaultValue: 0.15)
+                    
+                    CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor)
+                }
                 
                 if let _ = layer as? CustomShapeObject {
                     
@@ -73,7 +87,7 @@ struct AppearanceControlView: View {
                 if layer is GlassObject || layer is SquareShapeObject {
                     SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 }
-
+                
                 if !(layer is GlassObject || layer is CustomShapeObject) {
                     SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $layer.appearance.skewY, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
                     
@@ -121,7 +135,13 @@ struct AppearanceControlView: View {
                 .onChange(of: layer.appearance.rotation) {
                     layer.appearance.rotation = $0}
         }
-        .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
+        .onAppear{
+            showMicroControls = true
+        }
+        .onDisappear{
+            showMicroControls = false
+        }
+        .customPresentationWithPrimaryBackground(detent: .medium, detent2: .small, backgroundColorOpacity: 1.0)
     }
 }
 

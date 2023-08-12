@@ -11,13 +11,14 @@ struct DynamicTextEditViewSettings: View {
     
     @StateObject var text: TextObject
     @State private var showFontPickerSheet: Bool = false
+    @Binding var showMicroContols: Bool
    
     var body: some View {
         
         ScrollView (showsIndicators: false){
             
             if !text.isKeyboardPresented {
-                    ResetValues(resetValues: resetDynamicTextValues, systemImageName: "character.textbox", titleText: "Dynamic Text Object")
+                ResetValues(resetValues: resetDynamicTextValues, showMicroControls: $showMicroContols, systemImageName: "character.textbox", titleText: "Dynamic Text Object")
                 }
                 
                 DynamicTextView(text: text)

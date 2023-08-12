@@ -11,6 +11,7 @@ import WeatherKit
 struct WeatherIconView: View {
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var weatherIconObject = WeatherIconLayerObject()
+    @Binding var showMicroControls: Bool
     
     var currentWeather: CurrentWeather? {
         wObserver.weather?.currentWeather
@@ -36,19 +37,10 @@ struct WeatherIconView: View {
                 .onAppear {
                     imageLoaded = true
                 }
-                .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object")
+                .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object", showMicroControls: $showMicroControls)
         }
     }
 }
-
-
-
-struct WeatherIconView_Previews: PreviewProvider {
-    static var previews: some View {
-        return WeatherIconView()
-    }
-}
-
 
 
 

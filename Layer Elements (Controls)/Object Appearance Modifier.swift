@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension View {
-    func objectAppearanceModifier(layer: LayerObject, systemImageName: String, systemImage2: String, titleText: String) -> some View {
-        self.modifier(SettingsMod(layer: layer, systemImageName: systemImageName, titletext: titleText))
+    func objectAppearanceModifier(layer: LayerObject, systemImageName: String, systemImage2: String, titleText: String, showMicroControls: Binding<Bool>) -> some View {
+        self.modifier(SettingsMod(layer: layer, systemImageName: systemImageName, titletext: titleText, showMicroControls: showMicroControls))
     }
 }
 
@@ -18,10 +18,11 @@ struct SettingsMod: ViewModifier {
     @StateObject var layer: LayerObject
     let systemImageName: String
     let titletext: String
+    @Binding var showMicroControls: Bool
     
     func body(content: Content) -> some View {
         content
-            .frame(width: layer.appearance.width, height: layer.appearance.height)
+            .frame(width: layer.appearance.width + layer.appearance.scaleWidth, height: layer.appearance.height + layer.appearance.scaleHeight)
             .cornerRadius(layer.appearance.cornerRadius)
             .rotationEffect(layer.appearance.rotation)
             .blendMode(layer.appearance.blendMode)
@@ -34,18 +35,27 @@ struct SettingsMod: ViewModifier {
             .rotation3DEffect(.degrees(layer.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
             .rotation3DEffect(.degrees(layer.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
             .scaleEffect(layer.appearance.scales.x)
+            .scaleEffect(x: layer.appearance.scaleWidth, y: layer.appearance.scaleHeight, anchor: .center)
             .background{
                Rectangle()
                     .fill(Color.white.opacity(0.00001))
             }
+        
+            .overlay {
+                MarchingAntsBorder(opacity: layer.appearance.showSettings ? 1 : 0)
+            }
+         
+            .offset(x: layer.appearance.offsetX, y: layer.appearance.offsetY)
             .onTapGesture {
                 layer.appearance.showSettings.toggle()
             }
             .sheet(isPresented: $layer.appearance.showSettings){
                 
-                AppearanceControlView(layer: layer, systemImageName: systemImageName, titletext: titletext)
+                AppearanceControlView(layer: layer, systemImageName: systemImageName, titletext: titletext, showMicroControls: $showMicroControls)
                 
             }
+        
+      
     }
 }
 

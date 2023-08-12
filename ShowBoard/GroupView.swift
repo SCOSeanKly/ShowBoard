@@ -28,7 +28,7 @@ struct GroupView: View {
     @Binding var placedObjects: [LayerObject]
     @Binding var selection: UUID?
     @Binding var hiddenLayers: Set<UUID>
-    
+  
     
   
    
@@ -41,8 +41,7 @@ struct GroupView: View {
             
             //MARK: Micro controller buttons
          
-              
-            
+           
             //MARK:  Menu Buttons
             MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls, placedObjects: $placedObjects)
             

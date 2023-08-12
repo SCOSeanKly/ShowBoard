@@ -110,9 +110,7 @@
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
 		3ECC34A62A4C3866008794BC /* ModernAge.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC34A52A4C3866008794BC /* ModernAge.ttf */; };
-		3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34A72A4C40A3008794BC /* PositionButton.swift */; };
-		3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34A92A4C40C1008794BC /* SettingsButton.swift */; };
-		3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34AC2A4C6153008794BC /* ScaleButton.swift */; };
+		3ECC34A82A4C40A3008794BC /* Scale + Position buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34A72A4C40A3008794BC /* Scale + Position buttons.swift */; };
 		3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */; };
 		3ECC34B12A4C6905008794BC /* VerticalDragModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34B02A4C6905008794BC /* VerticalDragModifier.swift */; };
 		3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */; };
@@ -270,9 +268,7 @@
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3ECC34A52A4C3866008794BC /* ModernAge.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ModernAge.ttf; sourceTree = "<group>"; };
-		3ECC34A72A4C40A3008794BC /* PositionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionButton.swift; sourceTree = "<group>"; };
-		3ECC34A92A4C40C1008794BC /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
-		3ECC34AC2A4C6153008794BC /* ScaleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButton.swift; sourceTree = "<group>"; };
+		3ECC34A72A4C40A3008794BC /* Scale + Position buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scale + Position buttons.swift"; sourceTree = "<group>"; };
 		3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroControlsView.swift; sourceTree = "<group>"; };
 		3ECC34B02A4C6905008794BC /* VerticalDragModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalDragModifier.swift; sourceTree = "<group>"; };
 		3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeView.swift; sourceTree = "<group>"; };
@@ -673,10 +669,8 @@
 		3ECC34AB2A4C4163008794BC /* Micro Control Position Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				3ECC34A72A4C40A3008794BC /* PositionButton.swift */,
-				3ECC34AC2A4C6153008794BC /* ScaleButton.swift */,
-				3ECC34A92A4C40C1008794BC /* SettingsButton.swift */,
 				3ECC34AE2A4C619F008794BC /* MicroControlsView.swift */,
+				3ECC34A72A4C40A3008794BC /* Scale + Position buttons.swift */,
 				3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */,
 			);
 			path = "Micro Control Position Buttons";
@@ -899,7 +893,6 @@
 				3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */,
 				3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */,
 				3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */,
-				3ECC34AA2A4C40C1008794BC /* SettingsButton.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
@@ -945,7 +938,6 @@
 				3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */,
 				3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */,
 				3E371CDF2A66B10500DE743C /* BatteryCircleGauge.swift in Sources */,
-				3ECC34AD2A4C6153008794BC /* ScaleButton.swift in Sources */,
 				3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */,
 				3EADA5C12A438A5D00FA1BCB /* ZoomModifier.swift in Sources */,
 				3E2245702A851273002B35B2 /* CustomFontGridPicker.swift in Sources */,
@@ -978,7 +970,7 @@
 				3E3977982A7C0B63002711FC /* WeatherObserver.swift in Sources */,
 				3ECC34AF2A4C619F008794BC /* MicroControlsView.swift in Sources */,
 				3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */,
-				3ECC34A82A4C40A3008794BC /* PositionButton.swift in Sources */,
+				3ECC34A82A4C40A3008794BC /* Scale + Position buttons.swift in Sources */,
 				3E1748602A866535001FD092 /* MicroControls.swift in Sources */,
 				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,

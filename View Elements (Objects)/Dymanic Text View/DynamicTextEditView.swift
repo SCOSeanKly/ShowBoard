@@ -17,14 +17,9 @@ struct DynamicTextView: View {
     @State private var insertedKeyword: [String] = []
 
    
-    private let placeholdersDate = [
-          "[day]", "[date]", "[month]", "[monthNumber]",
-          "[monthShort]", "[year]", "[time]", "[daysRemaining]",
-          "[daysCount]", "[timeOfDay]"
-      ]
+    private let placeholdersDate = ["[day]", "[date]", "[month]", "[monthNumber]", "[monthShort]", "[year]", "[time]", "[daysRemaining]", "[daysCount]", "[timeOfDay]"]
     
-    private let placeholdersWeather = ["[condition]", "[temp]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[feelsLike]", "[wind]"
-      ]
+    private let placeholdersWeather = ["[condition]", "[temp]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[feelsLike]", "[wind]"]
     
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -83,9 +78,6 @@ struct DynamicTextView: View {
                                   text.isKeyboardPresented = value
                               }
 
-            
-            
-                                 
             if text.isKeyboardPresented {
                     VStack {
                         // Dynamic Abbreviations Section
@@ -163,10 +155,9 @@ struct DynamicTextView: View {
                     .padding(.horizontal)
                 }
                    
-                    Spacer()
-     
+            Spacer()
+                .frame(height: 100)
             }
-        
         }
     }
 

@@ -11,6 +11,8 @@ import SwiftUI
 struct GlassShapeView: View {
     
     @StateObject var glass = GlassObject()
+    @Binding var showMicroControls: Bool
+    
 
     
     var body: some View {
@@ -40,7 +42,7 @@ struct GlassShapeView: View {
                 }
                 
             }
-            .objectAppearanceModifier(layer: glass, systemImageName: "bubbles.and.sparkles", systemImage2: "", titleText: "Glass Object")
+            .objectAppearanceModifier(layer: glass, systemImageName: "bubbles.and.sparkles", systemImage2: "", titleText: "Glass Object", showMicroControls: $showMicroControls)
       
         
     }

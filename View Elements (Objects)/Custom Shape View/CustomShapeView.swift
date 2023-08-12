@@ -12,8 +12,10 @@ public struct CustomShapeView: View {
     
     @StateObject var shape = CustomShapeObject()
     @State private var isSliderMode = true
+    @Binding var showMicroControls: Bool
     
-    public init() {}
+    
+   //public init() {}
     
     public var body: some View {
         
@@ -24,16 +26,7 @@ public struct CustomShapeView: View {
                         .blur(radius: 10, opaque: true)
                 }
                 .clipShape(Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio))
-                .objectAppearanceModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object")
+                .objectAppearanceModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object", showMicroControls: $showMicroControls)
     }
 }
-
-
-struct CustomShapeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomShapeView()
-    }
-}
-
-
 

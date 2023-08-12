@@ -12,6 +12,7 @@ struct TextObjectView: View {
     
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var text: TextObject
+    @Binding var showMicroContols: Bool
     
     
     var alignment: Alignment {
@@ -78,7 +79,7 @@ struct TextObjectView: View {
             text.appearance.showSettings.toggle()
         }
         .sheet(isPresented: $text.appearance.showSettings){
-            DynamicTextEditViewSettings(text: text)
+            DynamicTextEditViewSettings(text: text, showMicroContols: $showMicroContols)
         }
     }
     

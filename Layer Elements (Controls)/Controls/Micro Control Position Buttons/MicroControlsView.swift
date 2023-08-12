@@ -8,25 +8,15 @@
 import SwiftUI
 
 struct MicroControlsView: View {
-    @StateObject var micro: MicroControls
     @Binding var showMicroControls: Bool
+    @StateObject var layer: LayerObject
     
     var body: some View {
         
-        HStack(spacing: 5){
-            PositionButton(micro: micro)
-            ScaleButton(micro: micro)
+        HStack(spacing: 50){
+            PositionButton(layer: layer)
+            ScaleButton(layer: layer)
         }
         .padding()
-        .background{
-            TransparentBlurView(removeAllFilters: true)
-                .blur(radius: 10, opaque: true)
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .contentShape(Rectangle())
-        .offset(y: showMicroControls ? 0 : UIScreen.main.bounds.height)
-        .animation(.easeInOut, value: showMicroControls)
-        .shadow(radius: 2)
-        .modifier(VerticalDragModifier())
     }
 }

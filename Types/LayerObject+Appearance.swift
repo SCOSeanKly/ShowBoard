@@ -45,7 +45,6 @@ struct LayerObjectAppearance {
     
     /// Blur radius
     var blur: CGFloat
-    
     var glassBlur: CGFloat
     
     
@@ -56,6 +55,10 @@ struct LayerObjectAppearance {
     /// Corner Radius
     var cornerRadius: CGFloat
     
+    var offsetX: CGFloat
+    var offsetY: CGFloat
+    var scaleHeight: CGFloat
+    var scaleWidth: CGFloat
     
     /// Skew Effect X
     var skewX: CGFloat
@@ -143,6 +146,11 @@ struct LayerObjectAppearance {
     
     ///Scale effect for gauge
     var gaugeScale: CGFloat
+    
+    //MARK: WavyDock
+    
+    var xAngle: CGFloat
+    var amplitude : CGFloat
     
     
     
@@ -234,11 +242,17 @@ struct LayerObjectAppearance {
         self.gaugeScale = 1.0
         self.showReflection = false
         self.reflectionOffset = 5
+        self.offsetX = 0
+        self.offsetY = 0
+        self.scaleWidth = 1
+        self.scaleHeight = 1
+        self.xAngle = 360
+        self.amplitude = 0.15
         
     }
     
     init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
-         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat = 5) {
+         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat = 5, offsetX: CGFloat = 0, offsetY: CGFloat = 0, scaleWidth: CGFloat = 1, scaleHeight: CGFloat = 1, xAngle: CGFloat = 360, amplitide: CGFloat = 0.15) {
         
         self.position = position
         self.originalSize = originalSize
@@ -277,6 +291,12 @@ struct LayerObjectAppearance {
         self.gaugeScale = gaugeScale
         self.showReflection = showReflection
         self.reflectionOffset = reflectionOffset
+        self.offsetX = offsetX
+        self.offsetY = offsetY
+        self.scaleWidth = scaleWidth
+        self.scaleHeight = scaleHeight
+        self.xAngle = xAngle
+        self.amplitude = amplitide
     }
     
     

@@ -41,7 +41,6 @@ struct ShowBoardView: View {
     
     //MARK: Micro controls - Should work on all elements once implemented correctly
     @State private var showMicroControls: Bool = false
-    @StateObject var micro: MicroControls
 
     //MARK: New Variables
     @State private var placedObjects: [LayerObject] = []
@@ -96,30 +95,27 @@ struct ShowBoardView: View {
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            case .text:         TextObjectView(text: obj as! TextObject)
-                            case .map:          MapView(map: obj as! MapObject)
-                            case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel)
-                            case .customShape:  CustomShapeView()
-                            case .wavyDock:     WavyDockView()
-                            case .glassShape:   GlassShapeView()
-                            case .weatherIcon:  WeatherIconView(weatherIconObject: WeatherIconLayerObject())
-                            case .squareShape:  SquareShapeView()
+                            case .text:         TextObjectView(text: obj as! TextObject, showMicroContols: $showMicroControls)
+                            case .map:          MapView(map: obj as! MapObject, showMicroControls: $showMicroControls)
+                            case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
+                            case .customShape:  CustomShapeView(showMicroControls: $showMicroControls)
+                            case .wavyDock:     WavyDockView(showMicroControls: $showMicroControls)
+                            case .glassShape:   GlassShapeView(showMicroControls: $showMicroControls)
+                            case .weatherIcon:  WeatherIconView(weatherIconObject: WeatherIconLayerObject(), showMicroControls: $showMicroControls)
+                            case .squareShape:  SquareShapeView(showMicroControls: $showMicroControls)
                             }
                         }
                         .padding(10)
+                        
+                        /*
                         .overlay {
                             MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
-                        .if(obj.objectType != .wavyDock) { content in
-                            content.modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
-                        }
+                         */
+                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id)
                         .fadeOnAppear()
-                        .offset(x: obj.id == selection ? micro.offsetX : 0, y: obj.id == selection ? micro.offsetY : 0)
-                        .onLongPressGesture {
-                            showMicroControls.toggle()
-                        }
                     }
                 }
                 
@@ -134,12 +130,8 @@ struct ShowBoardView: View {
                           selection = nil
                       }
                 
-                //MARK: Micro controls for fine adjustment. Currently when deslected the image jumps back
-                MicroControlsView(micro: micro, showMicroControls: $showMicroControls)
-
             }
             
-            /// Group View has: Grid Overlay, Micro Controller Buttons, Manu Buttons, Image Picker Sheets and Sheet Presented Views
             GroupView(isDragging: $isDragging,
                       showMicroControls: $showMicroControls,
                       hideMenuButtons: $hideMenuButtons,
@@ -176,9 +168,9 @@ struct ShowBoardView: View {
 
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        let microControls = MicroControls()
+    
 
-        return ShowBoardView(micro: microControls)
+        return ShowBoardView()
             .preferredColorScheme(.light)
             .environment(\.sizeCategory, .small)
             .environment(\.colorScheme, .light)

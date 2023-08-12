@@ -14,6 +14,7 @@ struct ResetValues: View {
     @State private var isResetConfirmed: Bool = false
     
     @State private var isShowingConfirmationAlert = false
+    @Binding var showMicroControls: Bool
     
     let systemImageName: String
     let titleText: String
@@ -43,6 +44,13 @@ struct ResetValues: View {
             HStack {
                 Spacer()
                 
+                Button {
+                    showMicroControls.toggle()
+                } label: {
+                   Text("\(Image(systemName: "arrow.up.and.down.and.arrow.left.and.right"))")
+                }
+                .padding(.trailing)
+                
                 Button(action: {
                     feedback()
                     isShowingConfirmationAlert = true
@@ -53,10 +61,6 @@ struct ResetValues: View {
                             .font(.system(size: 14).weight(.semibold))
                             .rotationEffect(rotationAngle)
                             .animation(isResetConfirmed ? .easeInOut(duration: 0.0) : .easeInOut(duration: 0.5), value: rotationAngle)
-                            .scaleEffect(0.75)
-                        
-                        Text("Reset")
-                            .font(.system(size: 14).weight(.semibold))
                     }
                 }
                 .alert(isPresented: $isShowingConfirmationAlert) {
@@ -80,6 +84,7 @@ struct ResetValues: View {
             }
             .padding(.horizontal)
             .padding(.bottom)
+            .padding(.trailing)
             
         }
     }

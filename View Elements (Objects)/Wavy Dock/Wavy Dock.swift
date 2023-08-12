@@ -23,8 +23,8 @@ struct WavyDock: Shape {
         var endY: CGFloat = 0.0
         let step = 5.0
         for angle in stride(from: step, through: Double(width) * (step * step), by: step) {
-            let x = origin.x + CGFloat(angle/wavyD.xAngle) * width * wavyD.graphWidth
-            let y = origin.y - CGFloat(sin(angle/180 * Double.pi)) * height * wavyD.amplitude
+            let x = origin.x + CGFloat(angle/wavyD.appearance.xAngle) * width * wavyD.graphWidth
+            let y = origin.y - CGFloat(sin(angle/180 * Double.pi)) * height * wavyD.appearance.amplitude
             path.addLine(to: CGPoint(x: x, y: y))
             endY = y
         }
@@ -40,27 +40,30 @@ struct WavyDock: Shape {
 struct WavyDockView: View {
     @StateObject private var wavyD = WavyDockObject()
     @State private var showSettings: Bool = false
+    @Binding var showMicroControls: Bool
     
     
     var body: some View {
         ZStack {
-
-            WavyDock(wavyD: wavyD)
-               .foregroundColor(wavyD.wavyDockColor)
-                .ignoresSafeArea()
-                .offset(y: wavyD.offsetY)
-                .shadow(radius: wavyD.shadowRadius, y: -wavyD.shadowOffsetY)
-                .onTapGesture {
-                    showSettings.toggle()
-                }
-                .scaleEffect(1.1)
+         
+                
+             
+                
+                WavyDock(wavyD: wavyD)
+                    .foregroundColor(wavyD.appearance.fillColor)
+                    .scaleEffect(1.1)
+                    .objectAppearanceModifier(layer: wavyD, systemImageName: "alternatingcurrent", systemImage2: "", titleText: "Wavy Dock Object", showMicroControls: $showMicroControls)
+         
+               
                
         }
+     
+        /*
         .sheet(isPresented: $showSettings){
             ZStack {
                 ScrollView (showsIndicators: false) {
                     
-                    ResetValues(resetValues: {}, systemImageName: "water.waves", titleText: "Wavy Dock")
+                    ResetValues(resetValues: {}, showMicroControls: $showMicroContols, systemImageName: "water.waves", titleText: "Wavy Dock")
                     
                     SliderStepper(color: .blue, title: "Width", sliderBindingValue: $wavyD.graphWidth, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                     
@@ -82,13 +85,8 @@ struct WavyDockView: View {
             }
             .customPresentationWithBlur(detent: .medium, blurRadius: 0, backgroundColorOpacity: 0.75)
         }
+         */
        
-    }
-}
-
-struct WavyDockView_Previews: PreviewProvider {
-    static var previews: some View {
-        WavyDockView()
     }
 }
 
