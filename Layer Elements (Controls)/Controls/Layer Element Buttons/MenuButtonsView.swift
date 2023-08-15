@@ -22,9 +22,6 @@ struct MenuButtonsView: View {
     @State private var isPressingLayers: Bool = false
     @State private var isPressingExport: Bool = false
     
-    @State private var currentImageIndex = 0
-    private let images = ["square.3.layers.3d.top.filled", "square.3.layers.3d.middle.filled", "square.3.layers.3d.bottom.filled"]
-    
     @Binding var placedObjects: [LayerObject]
     
     
@@ -35,10 +32,9 @@ struct MenuButtonsView: View {
                     HStack {
                         microControlsButton()
                         Spacer()
-                   
-                            layersButton()
-                       
-                      
+                        
+                        layersButton()
+                        
                         clipboardButton()
                     }
                     Spacer()
@@ -47,9 +43,6 @@ struct MenuButtonsView: View {
                 .padding(.top)
                 .opacity(hideMenuButtons ? 0.0 : 1.0)
             }
-        }
-        .onAppear {
-        //    startImageTimer()
         }
     }
     
@@ -86,9 +79,8 @@ struct MenuButtonsView: View {
     
     private func layersButton() -> some View {
         
-      
-            HStack (spacing: -15){
-                if placedObjects.count >= 1 {
+        HStack (spacing: -15){
+            if placedObjects.count >= 1 {
                 Text("\(placedObjects.count)")
                     .font(.footnote)
                     .foregroundColor(.black)
@@ -99,30 +91,28 @@ struct MenuButtonsView: View {
                             .foregroundColor(.white)
                     }
                     .offset(x: -4)
-                   
             }
             
-            Image(systemName: images[currentImageIndex])
+            Image(systemName: "square.3.layers.3d.top.filled")
                 .font(.title2)
                 .foregroundColor(.white)
                 .padding()
                 .contentShape(Circle())
         }
-            .shadow(radius: 5)
-            .offset(y: 2)
-            .scaleEffect(isPressingLayers ? 0.8 : 1)
-            .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressingLayers)
-            .onTapGesture {
-                showLayerEditView.toggle()
+        .shadow(radius: 5)
+        .offset(y: 2)
+        .scaleEffect(isPressingLayers ? 0.8 : 1)
+        .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressingLayers)
+        .onTapGesture {
+            showLayerEditView.toggle()
+            isPressingLayers.toggle()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressingLayers.toggle()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    isPressingLayers.toggle()
-                }
             }
-            .offset(x: 15)
-            .id(currentImageIndex)
-            .transition(.opacity)
+        }
+        .offset(x: 15)
+        .transition(.opacity)
     }
     
     private func clipboardButton() -> some View {
@@ -146,19 +136,4 @@ struct MenuButtonsView: View {
                 }
             }
     }
-    
-//    private func startImageTimer() {
-//        Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true) { timer in
-//            withAnimation {
-//                currentImageIndex = (currentImageIndex + 1) % images.count
-//            }
-//        }
-//    }
 }
-/*
- struct MenuButtonsView_Previews: PreviewProvider {
- static var previews: some View {
- ShowBoardView()
- }
- }
- */

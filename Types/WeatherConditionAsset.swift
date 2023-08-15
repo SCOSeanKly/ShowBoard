@@ -8,15 +8,15 @@
 import WeatherKit
 import SwiftUI
 
+// Assuming you have access to the WeatherIconLayerObject instance
 
-let wI = WeatherIconLayerObject()
+let weatherIconObject = WeatherIconLayerObject()
 
 extension WeatherCondition {
     public var asset: String {
-        
         let iconSetPrefix: String
         
-        switch wI.activeWeatherIconImageSet {
+        switch weatherIconObject.activeWeatherIconImageSet {
         case .set1:
             iconSetPrefix = "set1_"
         case .set2:

@@ -79,7 +79,12 @@ struct PlacedObjectsListView: View {
                                 .opacity(hiddenLayers.contains(obj.id) ? 0.4 : 1.0)
                         }
                         .padding(8)
+                        
                         .background(selection == obj.id ? highlightColor : Color.clear)
+                        .overlay {
+                            MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
+                                .opacity(0.5)
+                        }
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                     }
                     .onMove(perform: moveLayer)

@@ -70,6 +70,8 @@ struct DynamicTextEditViewSettings: View {
                         
                         SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                         
+                        CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.fontColor)
+                        
                         SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.fontTracking, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 200)
@@ -99,11 +101,7 @@ struct DynamicTextEditViewSettings: View {
                         
                         CustomBlendModePicker(bindingValue: $text.appearance.blendMode)
                         
-                        CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.fontColor)
                     }
-                    
-                    
-                    
                     
                     Spacer()
                         .frame(height: 100)

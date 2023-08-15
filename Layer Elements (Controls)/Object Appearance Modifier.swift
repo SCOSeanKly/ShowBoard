@@ -19,6 +19,7 @@ struct SettingsMod: ViewModifier {
     let systemImageName: String
     let titletext: String
     @Binding var showMicroControls: Bool
+    let selectionID: Bool = false
     
     func body(content: Content) -> some View {
         content
@@ -40,11 +41,9 @@ struct SettingsMod: ViewModifier {
                Rectangle()
                     .fill(Color.white.opacity(0.00001))
             }
-        
             .overlay {
                 MarchingAntsBorder(opacity: layer.appearance.showSettings ? 1 : 0)
             }
-         
             .offset(x: layer.appearance.offsetX, y: layer.appearance.offsetY)
             .onTapGesture {
                 layer.appearance.showSettings.toggle()

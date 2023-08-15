@@ -48,6 +48,7 @@ struct ShowBoardView: View {
     @State private var hiddenLayers: Set<UUID> = []
     
     
+    
     var body: some View {
         ZStack {
             
@@ -101,14 +102,13 @@ struct ShowBoardView: View {
                             case .customShape:  CustomShapeView(showMicroControls: $showMicroControls)
                             case .wavyDock:     WavyDockView(showMicroControls: $showMicroControls)
                             case .glassShape:   GlassShapeView(showMicroControls: $showMicroControls)
-                            case .weatherIcon:  WeatherIconView(weatherIconObject: WeatherIconLayerObject(), showMicroControls: $showMicroControls)
+                            case .weatherIcon:  WeatherIconView(showMicroControls: $showMicroControls)
                             case .squareShape:  SquareShapeView(showMicroControls: $showMicroControls)
                             }
                         }
                         .padding(10)
-                        
                         /*
-                        .overlay {
+                        .background {
                             MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
                         }
                          */
@@ -168,7 +168,6 @@ struct ShowBoardView: View {
 
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
-    
 
         return ShowBoardView()
             .preferredColorScheme(.light)

@@ -18,11 +18,10 @@ struct AppearanceControlView: View {
     @Binding var showMicroControls: Bool
     
     
-    
     var body: some View {
         
-        
         ScrollView (showsIndicators: false) {
+            
             
             if showMicroControls {
                 MicroControlsView(showMicroControls: $showMicroControls, layer: layer)
@@ -31,11 +30,13 @@ struct AppearanceControlView: View {
             Group {
                 ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
                 
-                
                 if let _ = layer as? WavyDockObject {
                     SliderStepper(color: .blue, title: "xAngle", sliderBindingValue: $layer.appearance.xAngle, minValue: 0, maxValue: 360, step: 0.1, specifier: 1, defaultValue: 360)
                     
                     SliderStepper(color: .blue, title: "Amplitude", sliderBindingValue: $layer.appearance.amplitude, minValue: -0.5, maxValue: 0.5, step: 0.1, specifier: 1, defaultValue: 0.15)
+                }
+                
+                if layer is WavyDockObject || layer is SquareShapeObject || layer is CustomShapeObject || layer is CircleGaugeObject{
                     
                     CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor)
                 }
@@ -45,11 +46,9 @@ struct AppearanceControlView: View {
                     SliderStepper(color: .blue, title: "Count:", sliderBindingValue: $layer.appearance.shapePointCount, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 5)
                     
                     SliderStepper(color: .blue, title: "Inner Ratio:", sliderBindingValue: $layer.appearance.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
-                    
-                    CustomColorPicker(titleText: "Shape Color", pickerBindingValue:  $layer.appearance.fillColor)
                 }
                 
-                if let _ = layer as? WeatherIconLayerObject {
+                if layer is WeatherIconLayerObject || layer is CircleGaugeObject {
                     SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 2, step: 0.1, specifier: 1, defaultValue: 1)
                 }
                 
@@ -64,8 +63,6 @@ struct AppearanceControlView: View {
             Group {
                 if let _ = layer as? CircleGaugeObject {
                     
-                    SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.gaugeScale, minValue: 0, maxValue: 3, step: 0.1, specifier: 1, defaultValue: 1)
-                    
                     SliderStepper(color: .blue, title: "Current FontSize:", sliderBindingValue: $layer.appearance.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: 1, specifier: 0, defaultValue: 10)
                     
                     SliderStepper(color: .blue, title: "Min/Max FontSize:", sliderBindingValue: $layer.appearance.minMaxValueLabelFontSize, minValue: 4, maxValue: 15, step: 1, specifier: 0, defaultValue: 6)
@@ -73,8 +70,6 @@ struct AppearanceControlView: View {
                     CustomToggle(showTitleText: true, titleText: "Show Current Label:", bindingValue: $layer.appearance.showCurrentValueLabel, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                     
                     CustomToggle(showTitleText: true, titleText: "Show Min/Max Label:", bindingValue: $layer.appearance.showMinMaxValueLabels, onSymbol: "circle", offSymbol: "xmark", rotate: false)
-                    
-                    CustomColorPicker(titleText: "Gauge Colour", pickerBindingValue:  $layer.appearance.gaugeColor)
                     
                     CustomColorPicker(titleText: "Current Label Colour", pickerBindingValue:  $layer.appearance.currentValueLabelColor)
                     
@@ -84,7 +79,7 @@ struct AppearanceControlView: View {
             }
             
             Group {
-                if layer is GlassObject || layer is SquareShapeObject {
+                if layer is GlassObject || layer is SquareShapeObject || layer is MapObject {
                     SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 }
                 
@@ -92,10 +87,6 @@ struct AppearanceControlView: View {
                     SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $layer.appearance.skewY, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
                     
                     SliderStepper(color: .blue, title: "Skew Y", sliderBindingValue: $layer.appearance.skewX, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
-                }
-                
-                if let _ = layer as? MapObject {
-                    SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: 1, specifier: 0, defaultValue: 0)
                 }
             }
             

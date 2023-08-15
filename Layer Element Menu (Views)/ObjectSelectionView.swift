@@ -40,6 +40,7 @@ struct ObjectSelectionView: View {
         wObserver.getGorecast(offset: 0)
     }
     
+    
     var body: some View {
         ZStack {
             
@@ -86,13 +87,17 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                 }
                 
-                //MARK: 3 buttons for weather icons. Dont currently select different "sets"
+                //MARK: 3 buttons for weather icons. Doesnt currently select different "sets"
+                //If i change the value in the WeatherIconLayerObject from .set1 to .set3 the asset is changed correctly
+                //For some reason the binding isnt woprking when i tap the button to change the set
+                
                 Group {
                     ObjectTitleText(titleText: "Weather Icon (Current)")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set1
+                                //weatherIconObject.activeWeatherIconImageSet = .set1
+                                weatherIconObject.changeActiveWeatherIconSet(to: .set3)
                                 placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
@@ -103,24 +108,26 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set2
+                                //weatherIconObject.activeWeatherIconImageSet = .set2
+                                weatherIconObject.changeActiveWeatherIconSet(to: .set3)
                                 placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: true
+                            disabled: false
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set3
+                               //weatherIconObject.activeWeatherIconImageSet = .set3
+                                weatherIconObject.changeActiveWeatherIconSet(to: .set3)
                                 placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
-                            disabled: true
+                            disabled: false
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
