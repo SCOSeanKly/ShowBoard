@@ -25,7 +25,7 @@ struct CalendarView: View {
                     }
                 }
                 .foregroundColor(vm.appearance.daysColor)
-                
+             
                 VStack(spacing: 6) {
                     
                     ForEach(vm.weeks, id: \.self) { week in
@@ -37,7 +37,6 @@ struct CalendarView: View {
                                             fillRange(day: day, week: week, index: index)
                                             
                                             ZStack {
-                                                
                                                 
                                                 Text("\(vm.calendar.component(.day, from: day))")
                                                     .font(.system(size: vm.appearance.dateTextSize, weight: .regular))
@@ -53,9 +52,7 @@ struct CalendarView: View {
                                             .background{
                                                 RoundedRectangle(cornerRadius: vm.appearance.dateBackgroundCornerRadius)
                                                     .fill(vm.appearance.dateBackgroundColor)
-                                                
                                             }
-                                            
                                         }
                                         .frame(height: 34)
                                         .frame(maxWidth: .infinity)
@@ -77,12 +74,9 @@ struct CalendarView: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
             .scaleEffect(0.8)
-           
+            .objectAppearanceModifier(layer: vm, systemImageName: "calendar", systemImage2: "", titleText: "Calendar Object", showMicroControls: $showMicroControls)
         }
-        .objectAppearanceModifier(layer: vm, systemImageName: "calendar", systemImage2: "", titleText: "Calendar Object", showMicroControls: $showMicroControls)
        
-        
-        
     }
     
     // MARK: - VARS

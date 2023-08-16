@@ -26,8 +26,8 @@ struct SettingsMod: ViewModifier {
             .frame(width: layer.appearance.width + layer.appearance.scaleWidth, height: layer.appearance.height + layer.appearance.scaleHeight)
             .cornerRadius(layer.appearance.cornerRadius)
             .rotationEffect(layer.appearance.rotation)
-            .blendMode(layer.appearance.blendMode)
             .blur(radius: layer.appearance.blur)
+            .blendMode(layer.appearance.blendMode)
             .if(layer.appearance.invert) { view in
                 view.colorInvert()
             }

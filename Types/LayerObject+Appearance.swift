@@ -264,7 +264,7 @@ struct LayerObjectAppearance {
         self.daysColor = .white
         self.dateTextColor = .white
         self.dateTextSize = 15
-        self.dateBackgroundColor = .gray
+        self.dateBackgroundColor = .clear
         self.dateBackgroundCornerRadius = 10
         self.calendarBackgroundColor = .clear
         self.calendarBackgroundCornerRadius = 10

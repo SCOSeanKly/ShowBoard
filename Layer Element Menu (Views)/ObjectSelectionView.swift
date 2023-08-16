@@ -143,7 +143,7 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "map"),
-                            textDescription: "Custom Map",
+                            textDescription: "Map",
                             disabled: false
                         )
                     }
