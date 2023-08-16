@@ -73,7 +73,6 @@ struct SWAWidget2: View {
                     /*
                     BatteryCircularGuageView(batteryViewModel: batteryViewModel, minValue: 0, maxValue: 100, currentValueLabelFontSize: 10, minMaxValueLabelFontSize: 6, gaugeColor: "#ff1f28", opacity: 1.0, showCurrentValueLabel: true, showMinMaxValueLabels: true, scaleEffect: 2.0, currentValueLabelColor: "#000000", minMaxValueLabelColor: "#ffffff", shadowRadius: 5, shadowOffset: 5)
                      */
-                       
                 }
                 .offset(y: 155)
                 .scaleEffect(0.7)
@@ -116,14 +115,10 @@ struct SWAWidget2: View {
             }
             .frame(width: UIScreen.main.bounds.width)
             .contentShape(Rectangle())
-            
         }
-     
-      
         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
         .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
             runShortcut() }))
-        
     }
 }
  

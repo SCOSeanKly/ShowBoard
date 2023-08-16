@@ -16,7 +16,26 @@ struct AlertModifier: ViewModifier {
             Alert(
                 title: Text("Content Captured"),
                 message: Text("The content has been captured successfully to the device."),
-                primaryButton: .default(Text("Run Shortcut"), action: runShortcut), // Call the closure here
+                primaryButton: .default(Text("Run Shortcut"), action: runShortcut),
+                secondaryButton: .cancel(Text("Cancel"))
+            )
+        }
+    }
+}
+
+
+struct DownloadShortcutModifier: ViewModifier {
+    @Binding var showClipboardAlert: Bool
+    let url: URL
+    
+    func body(content: Content) -> some View {
+        content.alert(isPresented: $showClipboardAlert) {
+            Alert(
+                title: Text("Download Shortcut"),
+                message: Text("An iOS shortcut is required to set the wallpaper."),
+                primaryButton: .default(Text("Download Shortcut"), action: {
+                    UIApplication.shared.open(url)
+                }),
                 secondaryButton: .cancel(Text("Cancel"))
             )
         }

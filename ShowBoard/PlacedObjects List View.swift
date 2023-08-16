@@ -155,6 +155,8 @@ struct PlacedObjectsListView: View {
         case .glassShape: objectTypeInfo = .glassShape
         case .weatherIcon: objectTypeInfo = .weatherIcon
         case .squareShape: objectTypeInfo = .squareShape
+        case .linearGauge: objectTypeInfo = .linearGauge
+        case .calendar: objectTypeInfo = .calendar
             
         }
         
@@ -235,6 +237,8 @@ struct PlacedObjectsListView: View {
         case glassShape
         case weatherIcon
         case squareShape
+        case linearGauge
+        case calendar
         
         
         
@@ -248,6 +252,8 @@ struct PlacedObjectsListView: View {
             case .glassShape: return "bubbles.and.sparkles"
             case .weatherIcon: return "sun.max"
             case .squareShape: return "square"
+            case .linearGauge: return "line"
+            case .calendar: return "calendar"
                 
                 
             }
@@ -263,47 +269,11 @@ struct PlacedObjectsListView: View {
             case .glassShape: return "Glass"
             case .weatherIcon: return "Weather Icon"
             case .squareShape: return "Squared Shape"
+            case .linearGauge: return "Linear Gauge"
+            case .calendar: return "Calendar"
                 
                 
             }
         }
     }
 }
-
-//MARK: For the micro controls
-/*
- @State private var microControlSettings: [UUID: MicroControlSettings] = [:]
- 
- struct MicroControlSettings {
- var offsetX: CGFloat
- var offsetY: CGFloat
- var widthRatio: CGFloat
- var heightRatio: CGFloat
- }
- 
- .onLongPressGesture {
- feedback()
- showMicroControls.toggle()
- 
- if let selectedLayer = placedObjects.first(where: { $0.id == obj.id }) {
- microControlSettings[obj.id] = MicroControlSettings(
- offsetX: offsetX,
- offsetY: offsetY,
- widthRatio: widthRatio,
- heightRatio: heightRatio
- )
- }
- }
- 
- 
- .offset(x: microControlSettings[obj.id]?.offsetX ?? 0, y: microControlSettings[obj.id]?.offsetY ?? 0)
- .scaleEffect(
- CGSize(
- width: microControlSettings[obj.id]?.widthRatio ?? 1.0,
- height: microControlSettings[obj.id]?.heightRatio ?? 1.0
- )
- )
- 
- 
- */
-

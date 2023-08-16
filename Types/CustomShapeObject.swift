@@ -21,12 +21,6 @@ class CustomShapeObject: LayerObject {
      /// Shape colour
      @Published var shapeColor: Color
     
-    /// Shape Frame Width
-    @Published var shapeFrameWidth: CGFloat
-    
-    /// Shape Frame Height
-    @Published var shapeFrameHeight: CGFloat
-    
     /// Shape Transparent Blur effect
     @Published var shapeBlur: CGFloat
     
@@ -34,13 +28,11 @@ class CustomShapeObject: LayerObject {
     
     // MARK: - Public Methods
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeFrameWidth: CGFloat = 150, shapeFrameHeight: CGFloat = 150, shapeBlur: CGFloat = 8.0) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeBlur: CGFloat = 8.0) {
         
         self.shapePointCount = shapePointCount
         self.shapeRatio = shapeRatio
         self.shapeColor = shapeColor
-        self.shapeFrameWidth = shapeFrameWidth
-        self.shapeFrameHeight = shapeFrameHeight
         self.shapeBlur = shapeBlur
        
         

@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-class BatBarObject: LayerObject {
+class LinearGaugeObject: LayerObject {
     
     // MARK: - Public Properties
     
@@ -28,7 +28,7 @@ class BatBarObject: LayerObject {
         super.init()
         self.id = id
         self.appearance = appearance
-        self.objectType = .weatherIcon
+        self.objectType = .linearGauge
     }
 }
  

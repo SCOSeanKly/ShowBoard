@@ -123,17 +123,22 @@ struct MenuButtonsView: View {
             .shadow(radius: 5)
             .contentShape(Circle())
             .onTapGesture {
+                
                 hideMenuButtons = true
                 
                 performDelayedAction(after: 0.2) {
                     copyImageToClipboard()
+                    
+                    performDelayedAction(after: 0.2) {
+                        showClipboardAlert = true
+                    }
+                    
+                    performDelayedAction(after: 0.2) {
+                        hideMenuButtons = false
+                    }
                 }
-                performDelayedAction(after: 0.2) {
-                    showClipboardAlert = true
-                }
-                performDelayedAction(after: 0.2) {
-                    hideMenuButtons = false
-                }
+               
+                
             }
     }
 }

@@ -36,10 +36,30 @@ struct AppearanceControlView: View {
                     SliderStepper(color: .blue, title: "Amplitude", sliderBindingValue: $layer.appearance.amplitude, minValue: -0.5, maxValue: 0.5, step: 0.1, specifier: 1, defaultValue: 0.15)
                 }
                 
-                if layer is WavyDockObject || layer is SquareShapeObject || layer is CustomShapeObject || layer is CircleGaugeObject{
+                if layer is WavyDockObject || layer is SquareShapeObject || layer is CustomShapeObject || layer is CircleGaugeObject || layer is LinearGaugeObject {
                     
                     CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor)
                 }
+                
+                
+                
+                
+                if let _ = layer as? CalendarViewModel {
+                    SliderStepper(color: .blue, title: "Days Text Size", sliderBindingValue: $layer.appearance.daysTextSize, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 15)
+                    CustomColorPicker(titleText: "Days Colour", pickerBindingValue:  $layer.appearance.daysColor)
+                 
+                    SliderStepper(color: .blue, title: "Date Text Size", sliderBindingValue: $layer.appearance.dateTextSize, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 15)
+                    CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor)
+                    CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor)
+                    SliderStepper(color: .blue, title: "Date BG Corner Radius", sliderBindingValue: $layer.appearance.dateBackgroundCornerRadius, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 10)
+                    
+                    CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor)
+                    SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 10)
+                    
+                    CustomColorPicker(titleText: "Today Indicator Colour", pickerBindingValue:  $layer.appearance.todayIndicator)
+                }
+                
+                
                 
                 if let _ = layer as? CustomShapeObject {
                     
@@ -48,11 +68,11 @@ struct AppearanceControlView: View {
                     SliderStepper(color: .blue, title: "Inner Ratio:", sliderBindingValue: $layer.appearance.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
                 }
                 
-                if layer is WeatherIconLayerObject || layer is CircleGaugeObject {
+                if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel {
                     SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 2, step: 0.1, specifier: 1, defaultValue: 1)
                 }
                 
-                if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) {
+                if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) {
                     
                     SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 1, specifier: 0, defaultValue: 200)
                     
@@ -61,7 +81,7 @@ struct AppearanceControlView: View {
             }
             
             Group {
-                if let _ = layer as? CircleGaugeObject {
+                if layer is LinearGaugeObject || layer is CircleGaugeObject {
                     
                     SliderStepper(color: .blue, title: "Current FontSize:", sliderBindingValue: $layer.appearance.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: 1, specifier: 0, defaultValue: 10)
                     

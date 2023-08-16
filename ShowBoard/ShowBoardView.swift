@@ -104,14 +104,11 @@ struct ShowBoardView: View {
                             case .glassShape:   GlassShapeView(showMicroControls: $showMicroControls)
                             case .weatherIcon:  WeatherIconView(showMicroControls: $showMicroControls)
                             case .squareShape:  SquareShapeView(showMicroControls: $showMicroControls)
+                            case .linearGauge:  BatteryLinearGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
+                            case .calendar:     CalendarView(showMicroControls: $showMicroControls)
                             }
                         }
                         .padding(10)
-                        /*
-                        .background {
-                            MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
-                        }
-                         */
                         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id)
@@ -129,7 +126,6 @@ struct ShowBoardView: View {
                           }
                           selection = nil
                       }
-                
             }
             
             GroupView(isDragging: $isDragging,
@@ -155,6 +151,8 @@ struct ShowBoardView: View {
             batteryViewModel.startBatteryMonitoring()
         }
         .prefersPersistentSystemOverlaysHidden()
+        .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
+            runShortcut() }))
     }
     
     func removeSelectedObject() {

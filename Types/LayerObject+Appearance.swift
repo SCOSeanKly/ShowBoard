@@ -153,14 +153,16 @@ struct LayerObjectAppearance {
     
     
     
-    //MARK: Text
-    /*
-    var dropLast: CGFloat
-    var fontSize: CGFloat
-    var tracking: CGFloat
-    var isCircleText: Bool
-     */
-    
+    //MARK: Calendar
+    var daysTextSize: CGFloat
+    var daysColor: Color
+    var dateTextColor: Color
+    var dateTextSize: CGFloat
+    var dateBackgroundColor: Color
+    var dateBackgroundCornerRadius: CGFloat
+    var calendarBackgroundColor: Color
+    var calendarBackgroundCornerRadius: CGFloat
+    var todayIndicator: Color
     
     
     
@@ -229,8 +231,8 @@ struct LayerObjectAppearance {
         self.darkMode = false
         self.invert = false
         self.showSettings = false
-        self.width = 200
-        self.height = 200
+        self.width = UIScreen.main.bounds.width * 0.85
+        self.height = UIScreen.main.bounds.width * 0.7
         self.overlayColor = .clear
         self.shapeGrain = false
         self.showBorder = true
@@ -243,7 +245,7 @@ struct LayerObjectAppearance {
         self.maxValue = 100
         self.currentValueLabelFontSize = 12
         self.minMaxValueLabelFontSize = 6
-        self.gaugeColor = .white
+        self.gaugeColor = .blue
         self.showCurrentValueLabel = true
         self.showMinMaxValueLabels = true
         self.currentValueLabelColor = .white
@@ -258,10 +260,28 @@ struct LayerObjectAppearance {
         self.xAngle = 360
         self.amplitude = 0.15
         
+        self.daysTextSize = 15
+        self.daysColor = .white
+        self.dateTextColor = .white
+        self.dateTextSize = 15
+        self.dateBackgroundColor = .gray
+        self.dateBackgroundCornerRadius = 10
+        self.calendarBackgroundColor = .clear
+        self.calendarBackgroundCornerRadius = 10
+        self.todayIndicator = .red
     }
     
     init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
-         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat = 5, offsetX: CGFloat = 0, offsetY: CGFloat = 0, scaleWidth: CGFloat = 1, scaleHeight: CGFloat = 1, xAngle: CGFloat = 360, amplitide: CGFloat = 0.15) {
+         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat = 5, offsetX: CGFloat = 0, offsetY: CGFloat = 0, scaleWidth: CGFloat = 1, scaleHeight: CGFloat = 1, xAngle: CGFloat = 360, amplitide: CGFloat = 0.15,
+         daysTextSize: CGFloat,
+         daysColor: Color,
+         dateTextColor: Color,
+         dateTextSize: CGFloat,
+         dateBackgroundColor: Color,
+         dateBackgroundCornerRadius: CGFloat,
+         calendarBackgroundColor: Color,
+         calendarBackgroundCornerRadius: CGFloat,
+         todayIndicator: Color) {
         
         self.position = position
         self.originalSize = originalSize
@@ -306,6 +326,16 @@ struct LayerObjectAppearance {
         self.scaleHeight = scaleHeight
         self.xAngle = xAngle
         self.amplitude = amplitide
+        
+        self.daysTextSize = daysTextSize
+        self.daysColor = daysColor
+        self.dateTextColor = dateTextColor
+        self.dateTextSize = dateTextSize
+        self.dateBackgroundColor = dateBackgroundColor
+        self.dateBackgroundCornerRadius = dateBackgroundCornerRadius
+        self.calendarBackgroundColor = calendarBackgroundColor
+        self.calendarBackgroundCornerRadius = calendarBackgroundCornerRadius
+        self.todayIndicator = todayIndicator
     }
     
     

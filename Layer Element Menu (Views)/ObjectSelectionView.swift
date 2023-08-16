@@ -149,6 +149,20 @@ struct ObjectSelectionView: View {
                     }
                     .padding([.leading, .bottom, .trailing])
                     
+                    ObjectTitleText(titleText: "Calendar")
+                    LazyVGrid(columns: gridItems, spacing: 16) {
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(CalendarViewModel())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "calendar"),
+                            textDescription: "Calendar",
+                            disabled: false
+                        )
+                    }
+                    .padding([.leading, .bottom, .trailing])
+                    
                     
                     ObjectTitleText(titleText: "Shapes")
                     LazyVGrid(columns: gridItems, spacing: 16) {
@@ -215,7 +229,7 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "circle"),
-                            textDescription: "Battery",
+                            textDescription: "Battery Circle",
                             disabled: false
                         )
                         
@@ -227,6 +241,16 @@ struct ObjectSelectionView: View {
                             imageType: .system(name: "circle.dashed"),
                             textDescription: "Hi / Lo",
                             disabled: true
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(LinearGaugeObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "line.diagonal"),
+                            textDescription: "Battery Linear",
+                            disabled: false
                         )
                         
                         
@@ -281,10 +305,12 @@ struct ObjectTitleText: View {
 struct SheetHeader: View {
     
     @State private var showNothing: Bool = false
+    let shortcutURL = URL(string: "https://www.icloud.com/shortcuts/5894fed6945746a493569b35fa4a5732")!
+    @State private var showClipboardAlert = false
     
     var body: some View {
         VStack {
-            LayerBackButton(selfViewToClose: $showNothing, viewToOpen: $showNothing, showLayerElementView: $showNothing, headerText: "Object Selection", systemImage: "square.grid.2x2", systemImage2: "gearshape")
+            LayerBackButton(selfViewToClose: $showNothing, viewToOpen: $showClipboardAlert, showLayerElementView: $showNothing, headerText: "Object Selection", systemImage: "square.grid.2x2", systemImage2: "square.2.layers.3d.top.filled")
                 .frame(height: 80)
                 .background{
                     
@@ -298,6 +324,7 @@ struct SheetHeader: View {
             
             Spacer()
         }
+        .modifier(DownloadShortcutModifier(showClipboardAlert: $showClipboardAlert, url: shortcutURL))
     }
 }
 

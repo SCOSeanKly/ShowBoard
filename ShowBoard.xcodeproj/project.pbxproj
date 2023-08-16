@@ -60,7 +60,7 @@
 		3E3E68872A82720A00F468DD /* ifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68862A82720A00F468DD /* ifExtension.swift */; };
 		3E3E68892A82788C00F468DD /* GlassObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68882A82788C00F468DD /* GlassObject.swift */; };
 		3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */; };
-		3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryBar.swift */; };
+		3E41D3182A42F71900A29548 /* BatteryLinearGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41D3172A42F71900A29548 /* BatteryLinearGauge.swift */; };
 		3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */; };
 		3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4BAE6B2A810B2B001DF91B /* KeyboardObserver.swift */; };
 		3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */; };
@@ -88,6 +88,8 @@
 		3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8849C62A41D66400B50BBD /* ShowBoardView.swift */; };
 		3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */; };
 		3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */; };
+		3EAA6E5C2A8BD1AD0093BB3A /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA6E5B2A8BD1AD0093BB3A /* CalendarViewModel.swift */; };
+		3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA6E5D2A8BD1BA0093BB3A /* CalendarView.swift */; };
 		3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EADA59B2A4315CC00FA1BCB /* Autone.ttf */; };
 		3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */; };
 		3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5AA2A432C6D00FA1BCB /* performDelayedAction.swift */; };
@@ -213,7 +215,7 @@
 		3E3E68862A82720A00F468DD /* ifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifExtension.swift; sourceTree = "<group>"; };
 		3E3E68882A82788C00F468DD /* GlassObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassObject.swift; sourceTree = "<group>"; };
 		3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherKitModel.swift; sourceTree = "<group>"; };
-		3E41D3172A42F71900A29548 /* BatteryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryBar.swift; sourceTree = "<group>"; };
+		3E41D3172A42F71900A29548 /* BatteryLinearGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryLinearGauge.swift; sourceTree = "<group>"; };
 		3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSelectionView.swift; sourceTree = "<group>"; };
 		3E4BAE6B2A810B2B001DF91B /* KeyboardObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserver.swift; sourceTree = "<group>"; };
 		3E4E6B482A4B733C00942494 /* DynamicTextEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,8 @@
 		3E8849C62A41D66400B50BBD /* ShowBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardView.swift; sourceTree = "<group>"; };
 		3E8B70002A4CCBBC00242998 /* PressableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressableButtonView.swift; sourceTree = "<group>"; };
 		3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wavy Dock.swift"; sourceTree = "<group>"; };
+		3EAA6E5B2A8BD1AD0093BB3A /* CalendarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		3EAA6E5D2A8BD1BA0093BB3A /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		3EADA59B2A4315CC00FA1BCB /* Autone.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Autone.ttf; sourceTree = "<group>"; };
 		3EADA59E2A43161900FA1BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsView.swift; sourceTree = "<group>"; };
@@ -401,6 +405,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3EAA6E5A2A8BD1980093BB3A /* Calendar View */,
 				3E2245752A862609002B35B2 /* Square Shape View */,
 				3E22456C2A84F505002B35B2 /* Wavy Dock */,
 				3EBF30742A6ED504004C12B5 /* Custom Shape View */,
@@ -542,6 +547,15 @@
 			path = "Layer Elements (Controls)";
 			sourceTree = "<group>";
 		};
+		3EAA6E5A2A8BD1980093BB3A /* Calendar View */ = {
+			isa = PBXGroup;
+			children = (
+				3EAA6E5B2A8BD1AD0093BB3A /* CalendarViewModel.swift */,
+				3EAA6E5D2A8BD1BA0093BB3A /* CalendarView.swift */,
+			);
+			path = "Calendar View";
+			sourceTree = "<group>";
+		};
 		3EADA59D2A4315E500FA1BCB /* Custom Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,7 +665,7 @@
 		3EBF307C2A6ED969004C12B5 /* Battery Bar View */ = {
 			isa = PBXGroup;
 			children = (
-				3E41D3172A42F71900A29548 /* BatteryBar.swift */,
+				3E41D3172A42F71900A29548 /* BatteryLinearGauge.swift */,
 			);
 			path = "Battery Bar View";
 			sourceTree = "<group>";
@@ -893,6 +907,7 @@
 				3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */,
 				3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */,
 				3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */,
+				3EAA6E5C2A8BD1AD0093BB3A /* CalendarViewModel.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
 				3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
@@ -920,7 +935,7 @@
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
 				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
 				3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */,
-				3E41D3182A42F71900A29548 /* BatteryBar.swift in Sources */,
+				3E41D3182A42F71900A29548 /* BatteryLinearGauge.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
@@ -930,6 +945,7 @@
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
 				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
+				3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */,
 				09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */,
 				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
