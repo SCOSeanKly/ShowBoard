@@ -143,7 +143,7 @@ struct ScaleButton: View {
 
 struct SettingsButton: View {
     
-    var layerFrameSize: Double = 40
+    var layerFrameSize: Double = 50
     var cornerRadius: Double = 12
     var systemImage:String = "arrow.up.left.and.arrow.down.right"
     var colour:Color = Color.black

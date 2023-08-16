@@ -93,6 +93,8 @@ struct SWAWidget2: View {
                         .font(.system(size: 9).weight(.medium))
                         .foregroundColor(Color("#b0b0b0"))
                         .tracking(0)
+                    
+                 
                 }
                 .offset(x: 70, y: -28)
                 

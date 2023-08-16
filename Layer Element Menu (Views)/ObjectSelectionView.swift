@@ -115,7 +115,7 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: false
+                            disabled: true
                         )
                         
                         ObjectSelectionButton(
@@ -127,7 +127,43 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
-                            disabled: false
+                            disabled: true
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                               //weatherIconObject.activeWeatherIconImageSet = .set4
+                                weatherIconObject.changeActiveWeatherIconSet(to: .set4)
+                                placedObjects.append(WeatherIconLayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set4_7d"),
+                            textDescription: "Style4",
+                            disabled: true
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                               //weatherIconObject.activeWeatherIconImageSet = .set5
+                                weatherIconObject.changeActiveWeatherIconSet(to: .set5)
+                                placedObjects.append(WeatherIconLayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set5_7d"),
+                            textDescription: "Style5",
+                            disabled: true
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                               //weatherIconObject.activeWeatherIconImageSet = .set6
+                                weatherIconObject.changeActiveWeatherIconSet(to: .set6)
+                                placedObjects.append(WeatherIconLayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set6_7d"),
+                            textDescription: "Style6",
+                            disabled: true
                         )
                     }
                     .padding([.leading, .bottom, .trailing])

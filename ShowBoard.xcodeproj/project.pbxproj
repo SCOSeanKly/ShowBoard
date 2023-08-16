@@ -90,6 +90,8 @@
 		3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */; };
 		3EAA6E5C2A8BD1AD0093BB3A /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA6E5B2A8BD1AD0093BB3A /* CalendarViewModel.swift */; };
 		3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA6E5D2A8BD1BA0093BB3A /* CalendarView.swift */; };
+		3EAA6E622A8CD9500093BB3A /* WeatherIconTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA6E612A8CD9500093BB3A /* WeatherIconTest.swift */; };
+		3EAA6E642A8D0FEC0093BB3A /* Parallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA6E632A8D0FEC0093BB3A /* Parallax.swift */; };
 		3EADA59C2A4315CC00FA1BCB /* Autone.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EADA59B2A4315CC00FA1BCB /* Autone.ttf */; };
 		3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */; };
 		3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EADA5AA2A432C6D00FA1BCB /* performDelayedAction.swift */; };
@@ -249,6 +251,8 @@
 		3E9553202A84DBAD0067CE99 /* Wavy Dock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Wavy Dock.swift"; sourceTree = "<group>"; };
 		3EAA6E5B2A8BD1AD0093BB3A /* CalendarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		3EAA6E5D2A8BD1BA0093BB3A /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		3EAA6E612A8CD9500093BB3A /* WeatherIconTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconTest.swift; sourceTree = "<group>"; };
+		3EAA6E632A8D0FEC0093BB3A /* Parallax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parallax.swift; sourceTree = "<group>"; };
 		3EADA59B2A4315CC00FA1BCB /* Autone.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Autone.ttf; sourceTree = "<group>"; };
 		3EADA59E2A43161900FA1BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonsView.swift; sourceTree = "<group>"; };
@@ -599,6 +603,7 @@
 				3EADA5B72A433EE300FA1BCB /* AlertModifier.swift */,
 				3EADA5C22A438EDF00FA1BCB /* RotateModifier.swift */,
 				3ECC34B02A4C6905008794BC /* VerticalDragModifier.swift */,
+				3EAA6E632A8D0FEC0093BB3A /* Parallax.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -697,6 +702,7 @@
 				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
 				3E22456D2A84FF3C002B35B2 /* FontNames.swift */,
 				3E2245712A856307002B35B2 /* sfSymbols.swift */,
+				3EAA6E612A8CD9500093BB3A /* WeatherIconTest.swift */,
 			);
 			path = "Test Views";
 			sourceTree = "<group>";
@@ -923,6 +929,7 @@
 				3E2245722A856307002B35B2 /* sfSymbols.swift in Sources */,
 				3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */,
 				3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */,
+				3EAA6E642A8D0FEC0093BB3A /* Parallax.swift in Sources */,
 				3ED771E52A4AFE4300AFC1FC /* MapExtensionView.swift in Sources */,
 				3E8849C52A41D61D00B50BBD /* HexColour.swift in Sources */,
 				3EBF30722A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift in Sources */,
@@ -974,6 +981,7 @@
 				3E8849C72A41D66400B50BBD /* ShowBoardView.swift in Sources */,
 				3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */,
 				0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */,
+				3EAA6E622A8CD9500093BB3A /* WeatherIconTest.swift in Sources */,
 				3E8849B52A41D49400B50BBD /* LocationDataManager.swift in Sources */,
 				3E1ACF492A83EAEB00832F81 /* RefelectionModifier.swift in Sources */,
 				3E1ACF4B2A83ECAE00832F81 /* SliderToggle.swift in Sources */,
@@ -1160,7 +1168,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.24;
+				CURRENT_PROJECT_VERSION = 0.0.25;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1203,7 +1211,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.24;
+				CURRENT_PROJECT_VERSION = 0.0.25;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

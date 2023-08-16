@@ -109,10 +109,9 @@ class TextObject: LayerObject {
                 self.inputText = inputText
             } else {
                 // Randomly select initial text from a list of 5 options
-                let randomIndex = Int.random(in: 0..<4)
+                let randomIndex = Int.random(in: 0..<7)
                 
-                self.inputText = ["It's currently [condition]", "The time is [time] in the [timeOfDay]", "Its the [timeOfDay]", "[daysRemaining] days remaining in [year]", "[daysCount] days into [year]"] [randomIndex]
-                 
+                self.inputText = ["The high temp for today is [hi]", "It's currently [condition]", "The time is [time] in the [timeOfDay]", "Its the [timeOfDay]", "[daysRemaining] days remaining in [year]", "[daysCount] days into [year]", "There's a [precipChance] chance of rain"] [randomIndex]
             }
             
             super.init()

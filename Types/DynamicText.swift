@@ -111,21 +111,34 @@ struct DynamicText {
                     wk.weather?.currentWeather,
                     unit: .celsius
                 )
-               
-                //MARK: Can you fix this issue?
-                /*
+            
             case .highTemp:
                 replacement = placeholder.withDayWeather(
-                    wk.weather?.dailyWeather.first,
+                    wk.weather?.dailyForecast.first,
                     unit: .celsius
                 )
             case .lowTemp:
                 replacement = placeholder.withDayWeather(
-                    wk.weather?.dailyWeather.first,
+                    wk.weather?.dailyForecast.first,
                     unit: .celsius
                 )
-                 */
-            
+                
+            case .precipation:
+                replacement = placeholder.withDayWeather(
+                    wk.weather?.dailyForecast.first,
+                    unit: .celsius)
+                
+            case .precipationChance:
+                replacement = placeholder.withDayWeather(
+                    wk.weather?.dailyForecast.first,
+                    unit: .celsius)
+                
+            case .batteryLevel:
+                replacement = placeholder.withBatteryInfo(BatteryViewModel())
+                
+            case .batteryStatus:
+                replacement = placeholder.withBatteryInfo(BatteryViewModel())
+                
             default:
                 replacement = placeholder.withCurrentDate()
             }

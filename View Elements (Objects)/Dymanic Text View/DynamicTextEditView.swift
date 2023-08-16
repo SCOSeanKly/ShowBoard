@@ -19,9 +19,11 @@ struct DynamicTextView: View {
    
     private let placeholdersDate = ["[day]", "[date]", "[month]", "[monthNumber]", "[monthShort]", "[year]", "[time]", "[daysRemaining]", "[daysCount]", "[timeOfDay]"]
     
-    private let placeholdersWeather = ["[condition]", "[temp]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[feelsLike]", "[wind]"]
+    private let placeholdersWeather = ["[condition]", "[temp]", "[feelsLike]", "[hi]", "[lo]", "[precip]", "[precipChance]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[wind]"]
     
-    let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    private let placeholdersBattery = ["[batteryLevel]", "[batteryStatus]"]
+    
+    let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         
@@ -68,7 +70,7 @@ struct DynamicTextView: View {
                 }
                 .padding(.horizontal)
                
-            TextEditor(text: $text.inputText)  // Use the published property here
+            TextEditor(text: $text.inputText)
                               .frame(height: text.isKeyboardPresented ? 100 : 40)
                               .padding(5)
                               .background(.ultraThinMaterial)
@@ -81,7 +83,7 @@ struct DynamicTextView: View {
             if text.isKeyboardPresented {
                     VStack {
                         // Dynamic Abbreviations Section
-                        Group {
+                      
                             HStack {
                                 Text("Dynamic Abbreviations:")
                                     .font(.system(size: 14).weight(.semibold))
@@ -89,76 +91,63 @@ struct DynamicTextView: View {
                                 Spacer()
                             }
                             .padding(.bottom, 1)
-                        }
                         
-                        // Dynamic Date Section
-                        Group {
-                            HStack {
-                                LazyHGrid(rows: gridItems, spacing: 5) {
-                                    Text("Date:")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 10))
-                                    
-                                    ForEach(placeholdersDate, id: \.self) { placeholder in
-                                        Button {
-                                            text.inputText += placeholder
-                                        } label: {
-                                            Text("\(placeholder)")
-                                                .font(.system(size: 10))
-                                                .padding(.horizontal, 5)
-                                                .padding(.vertical, 5)
-                                        }
-                                        .fixedSize()
-                                    }
-                                    
-                                    Spacer()
-                                }
-                                .padding(.bottom, 1)
+                               createDynamicSection(title: "Date:", placeholders: placeholdersDate, textBinding: $text.inputText)
                                 
-                                Spacer()
-                            }
-                        }
-                        
-                        Divider()
-                            .padding(.horizontal)
-                        
-                        // Dynamic Weather Section
-                        Group {
-                            HStack {
-                                LazyHGrid(rows: gridItems, spacing: 5) {
-                                    Text("Weather:")
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.black)
-                                        .font(.system(size: 10))
-                                    
-                                    ForEach(placeholdersWeather, id: \.self) { placeholder in
-                                        Button {
-                                            text.inputText += placeholder
-                                        } label: {
-                                            Text("\(placeholder)")
-                                                .font(.system(size: 10))
-                                                .padding(.horizontal, 5)
-                                                .padding(.vertical, 5)
-                                        }
-                                        .fixedSize()
-                                    }
-                                    
-                                    Spacer()
-                                }
-                                .padding(.bottom, 100)
-                                
-                                Spacer()
+                         
+                            
+                               createDynamicSection(title: "Weather:", placeholders: placeholdersWeather, textBinding: $text.inputText)
                                
-                            }
-                        }
+                          
+                            
+                               createDynamicSection(title: "Battery:", placeholders: placeholdersBattery, textBinding: $text.inputText)
+                        
+                        Spacer()
+                            .frame(height: 300)
+                           
+                        
                     }
+                   
                     .padding(.horizontal)
                 }
-                   
-          
             }
         }
+    
+    func createDynamicSection(title: String, placeholders: [String], textBinding: Binding<String>) -> some View {
+        VStack {
+            HStack {
+                LazyHGrid(rows: gridItems) {
+                    HStack {
+                        Text(title)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                            .font(.system(size: 10))
+                        Spacer()
+                    }
+                    
+                    ForEach(placeholders, id: \.self) { placeholder in
+                        Button {
+                            textBinding.wrappedValue += placeholder
+                        } label: {
+                            Text("\(placeholder)")
+                                .font(.system(size: 10))
+                                .padding(.horizontal, 5)
+                                .padding(.vertical, 5)
+                        }
+                        .fixedSize()
+                        
+                    }
+                    
+                    Spacer()
+                }
+                
+                Spacer()
+            }
+            
+            Divider()
+                .padding(.horizontal)
+        }
+    }
     }
 
 

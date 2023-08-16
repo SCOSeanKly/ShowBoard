@@ -30,10 +30,12 @@ extension DynamicText {
         // ForeCast (DayWeather)
         case highTemp = "[hi]"
         case lowTemp = "[lo]"
-        case temp = "[temp]"
-        
+        case precipation = "[precip]"
+        case precipationChance = "[precipChance]"
+      
         
         // Current weather
+        case temp = "[temp]"
         case condition = "[condition]"
         case conditionAsset = "[conditionAsset]"
         case dayLight = "[dayLight]"
@@ -50,6 +52,7 @@ extension DynamicText {
         // Battery info
         case batteryLevel = "[batteryLevel]"
         case batteryStatus = "[batteryStatus]"
+        
         
         
         public func withCurrentDate() -> String {
@@ -95,35 +98,21 @@ extension DynamicText {
                }
            }
         
-        /*
-         /// The daytime high temperature.
-         public var highTemperature: Measurement<UnitTemperature>
-
-         /// The overnight low temperature.
-         public var lowTemperature: Measurement<UnitTemperature>
-
-         /// The description of precipitation for this day.
-         public var precipitation: Precipitation
-
-         /// The probability of precipitation during the day.
-         ///
-         /// The value is from `0` (no chance of precipitation) to `1` (100% chance of precipitation).
-         public var precipitationChance: Double
-         */
-        
         
         //MARK: Doesnt work?
-        public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature) -> String {
-            guard let val = data else { return "-" }
+        public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature, useMiles: Bool = false) -> String {
             
-            print("Low temperature: \(val.lowTemperature)")
-            print("High temperature: \(val.highTemperature)")
+            guard let val = data else { return "-" }
             
             switch self {
             case .lowTemp:
                 return self.tempteratureToString(value: val.lowTemperature, unit)
             case .highTemp:
                 return self.tempteratureToString(value: val.highTemperature, unit)
+            case .precipation:
+                  return "\(val.precipitationAmount)"
+              case .precipationChance:
+                  return String(format: "%.0f%%", val.precipitationChance * 100)
             default:
                 return ""
             }
@@ -160,12 +149,13 @@ extension DynamicText {
                 return self.tempteratureToString(value: v.apparentTemperature, unit)
             case .wind:
                 return self.speedToString(value: v.wind.speed, useMiles: useMiles)
-
             default:
                 return ""
             }
         }
         
+        
+       
         
         
         private func tempteratureToString(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {

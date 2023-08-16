@@ -21,6 +21,8 @@ struct BackgroundView: View {
         "Double Tap the canvas to import a wallpaper",
         "Tap the menu icon in the top left to get started adding objects to the canvas",
         "Tap the layers icon to edit and delete layers from the canvas",
+        "Use Dynamic Text to string Data and User text together",
+        "When using Dynamic Text make sure to pay close attention to text case"
         // Add more hints here...
     ]
     
@@ -33,8 +35,9 @@ struct BackgroundView: View {
     
     @Binding var placedObjects: [LayerObject]
     
-    @AppStorage("rainOrSnow") private var rainOrSnow: Bool = false
-
+    @AppStorage("rainOrSnow") private var rainOrSnow: Bool = true
+    @ObservedObject var manager = MotionManager()
+    
     
     var body: some View {
         ZStack{
@@ -46,32 +49,23 @@ struct BackgroundView: View {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: 50, opaque: true)
                 }
-           
+            
             if (placedObjects.count == 0) {
                 
-                SpriteView(scene: RainFall(),options: [.allowsTransparency])
-                    .mask{
-                        LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom)
-                    }
-                    .blur(radius: rainOrSnow ? 3 : 0)
-                    .blendMode(.luminosity)
-                
-              
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 300, height: 100)
-                    .foregroundColor(.clear)
-                    .background{
-                        TransparentBlurView(removeAllFilters: true)
-                            .blur(radius: 5, opaque: true)
-                            .clipShape( RoundedRectangle(cornerRadius: 10))
-                    }
-                    .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                if rainOrSnow {
+                    SpriteView(scene: RainFall(),options: [.allowsTransparency])
+                        .mask{
+                            LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom)
+                        }
+                        .blur(radius: rainOrSnow ? 2 : 0)
+                        .blendMode(.luminosity)
                     
+                    SpriteView(scene: RainFallLanding(),options: [.allowsTransparency])
+                        .offset(y: UIScreen.main.bounds.height * 0.99)
+                        .blendMode(.luminosity)
+                        .blur(radius: rainOrSnow ? 2 : 0)
+                }
                 
-                SpriteView(scene: RainFallLanding(),options: [.allowsTransparency])
-                    .offset(y: UIScreen.main.bounds.height * 0.99)
-                    .blendMode(.luminosity)
-                    .opacity(rainOrSnow ? 0 : 1)
                 
                 VStack {
                     HStack {
@@ -79,12 +73,12 @@ struct BackgroundView: View {
                             .font(.custom("Rajdhani-Medium", size: 23))
                             .shadow(radius: 1)
                         
-                                CustomToggle(showTitleText: false, titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "drop", rotate: false)
+                        CustomToggle(showTitleText: false, titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "xmark", rotate: false)
                             .scaleEffect(0.8)
                             .frame(width: 30)
                     }
                     .frame(height: 20)
-                  
+                    
                     
                     HStack {
                         Text("HINT: ")
@@ -96,9 +90,29 @@ struct BackgroundView: View {
                     .frame(height: 50)
                     .padding(.horizontal, 10)
                     .shadow(radius: 1)
+                    .gesture(
+                        TapGesture(count: 1)
+                            .onEnded { _ in
+                                // Show the next hint
+                                currentHintIndex = (currentHintIndex + 1) % hints.count
+                                
+                                // Restart the timer
+                                stopTimer()
+                                startTimer()
+                            }
+                    )
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 100)
+                .padding()
+                .background {
+                    TransparentBlurView(removeAllFilters: true)
+                        .blur(radius: 5, opaque: true)
+                        .background(.white.opacity(0.05))
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .shadow(radius: 10)
+                .modifier(ParallaxMotionModifier(manager: manager, magnitude: 20))
             }
             
             
@@ -132,13 +146,4 @@ struct BackgroundView: View {
         timer = nil
     }
 }
-/*
- struct BackgroundView_Previews: PreviewProvider {
- static var previews: some View {
- ShowBoardView()
- .preferredColorScheme(.light)
- .environment(\.sizeCategory, .small)
- .environment(\.colorScheme, .light)
- }
- }
- */
+

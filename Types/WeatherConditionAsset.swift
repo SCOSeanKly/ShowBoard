@@ -8,7 +8,7 @@
 import WeatherKit
 import SwiftUI
 
-// Assuming you have access to the WeatherIconLayerObject instance
+
 
 let weatherIconObject = WeatherIconLayerObject()
 
@@ -26,7 +26,6 @@ extension WeatherCondition {
         }
         
         switch self {
-            
             
         case .blizzard:
             return iconSetPrefix + "50d"

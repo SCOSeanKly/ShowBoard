@@ -76,7 +76,6 @@ struct CalendarView: View {
             .scaleEffect(0.8)
             .objectAppearanceModifier(layer: vm, systemImageName: "calendar", systemImage2: "", titleText: "Calendar Object", showMicroControls: $showMicroControls)
         }
-       
     }
     
     // MARK: - VARS

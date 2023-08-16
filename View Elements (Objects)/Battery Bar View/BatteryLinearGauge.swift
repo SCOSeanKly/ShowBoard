@@ -20,7 +20,7 @@ struct BatteryLinearGauge: View {
             if bat.appearance.showCurrentValueLabel {
                 Text("\(batteryViewModel.batteryLevel)")
                     .font(.system(size: bat.appearance.currentValueLabelFontSize))
-                    .foregroundColor(bat.appearance.fillColor)
+                    .foregroundColor(bat.appearance.currentValueLabelColor)
             }
         } minimumValueLabel: {
             if bat.appearance.showMinMaxValueLabels {

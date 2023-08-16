@@ -9,6 +9,7 @@
 
 import SwiftUI
 
+
 class WeatherIconLayerObject: LayerObject {
      
     // MARK: - Public Properties
@@ -20,6 +21,10 @@ class WeatherIconLayerObject: LayerObject {
         case set1
         case set2
         case set3
+        case set4
+        case set5
+        case set6
+        
     }
      
     func changeActiveWeatherIconSet(to newSet: WeatherIconImageSet) {
@@ -28,7 +33,7 @@ class WeatherIconLayerObject: LayerObject {
         }
     }
   
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), activeWeatherIconImageSet: WeatherIconImageSet = .set1) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), activeWeatherIconImageSet: WeatherIconImageSet = .set4) {
         self.activeWeatherIconImageSet = activeWeatherIconImageSet
         
         super.init()
