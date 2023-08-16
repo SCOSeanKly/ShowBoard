@@ -33,11 +33,20 @@ struct DynamicTextView: View {
                 
                 if !text.isKeyboardPresented {
                         HStack {
-                          
-                            Text("Enter text...")
-                                .font(.headline.weight(.heavy))
-                                .fontWeight(.semibold)
-                                .foregroundColor(.black)
+                            if text.inputText.isEmpty {
+                                Text("Enter text...")
+                                    .font(.headline.weight(.heavy))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(.black)
+                            } else {
+                                Button {
+                                    text.inputText = ""
+                                } label: {
+                                    Text("\(Image(systemName: "xmark")) Clear Text")
+                                        .font(.system(size: 14).weight(.semibold))
+                                      
+                                }
+                            }
                             
                             Spacer()
                         }
@@ -54,10 +63,20 @@ struct DynamicTextView: View {
                                 }
                                 
                                 HStack {
-                                    Text("Enter text...")
-                                        .font(.headline.weight(.heavy))
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.black)
+                                    if text.inputText.isEmpty {
+                                        Text("Enter text...")
+                                            .font(.headline.weight(.heavy))
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.black)
+                                    } else {
+                                        Button {
+                                            text.inputText = ""
+                                        } label: {
+                                            Text("\(Image(systemName: "xmark")) Clear Text")
+                                                .font(.system(size: 14).weight(.semibold))
+                                              
+                                        }
+                                    }
                                     
                                     Spacer()
                                 }
@@ -79,6 +98,7 @@ struct DynamicTextView: View {
                               .onReceive(keyboardPublisher) { value in
                                   text.isKeyboardPresented = value
                               }
+                             
 
             if text.isKeyboardPresented {
                     VStack {

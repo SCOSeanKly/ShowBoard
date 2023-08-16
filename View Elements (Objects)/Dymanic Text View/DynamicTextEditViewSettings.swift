@@ -66,7 +66,7 @@ struct DynamicTextEditViewSettings: View {
                             .padding(.horizontal)
                         }
                         
-                        SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $text.dropLast, minValue: 1, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
+                        SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $text.dropLast, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                         
