@@ -35,11 +35,17 @@ struct WeatherIconTest: View {
                 let newSet: WeatherIconLayerObject.WeatherIconImageSet
                 switch weatherIconObject.activeWeatherIconImageSet {
                 case .set1:
-                    newSet = .set2
-                case .set2:
-                    newSet = .set3
-                case .set3:
                     newSet = .set1
+                case .set2:
+                    newSet = .set2
+                case .set3:
+                    newSet = .set3
+                case .set4:
+                    newSet = .set4
+                case .set5:
+                    newSet = .set5
+                case .set6:
+                    newSet = .set6
                 }
                 print("Changing weather icon set to: \(newSet)")
                 weatherIconObject.changeActiveWeatherIconSet(to: newSet)

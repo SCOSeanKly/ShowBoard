@@ -33,7 +33,7 @@ class WeatherIconLayerObject: LayerObject {
         }
     }
   
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), activeWeatherIconImageSet: WeatherIconImageSet = .set4) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), activeWeatherIconImageSet: WeatherIconImageSet = .set5) {
         self.activeWeatherIconImageSet = activeWeatherIconImageSet
         
         super.init()
