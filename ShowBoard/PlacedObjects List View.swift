@@ -166,45 +166,8 @@ struct PlacedObjectsListView: View {
             
             Spacer()
             
-            Button(action: {
-                // Action to hide or show layer
-                
-                isPressingHideLayer.toggle()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    feedback()
-                    isPressingHideLayer.toggle()
-                }
-                if hiddenLayers.contains(obj.id) {
-                    hiddenLayers.remove(obj.id)
-                } else {
-                    hiddenLayers.insert(obj.id)
-                }
-            }, label: {
-                Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
-                    .scaleEffect(isPressingHideLayer ? 0.9 : 1)
-                    .scaleEffect(0.9)
-                    .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
-            })
-            .buttonStyle(.plain)
-            
-            
-            Button(action: {
-                isPressingSettings.toggle()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    feedback()
-                    isPressingSettings.toggle()
-                }
-                
-            }, label: {
-                Image(systemName: "gear")
-                    .scaleEffect(isPressingSettings ? 0.9 : 1)
-                    .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
-            })
-            .buttonStyle(.plain)
-            .padding(.horizontal)
-            
+            //MARK: Other buttons go here
+           
             
             Button(action: {
                 isPressingDelete.toggle()
@@ -277,3 +240,46 @@ struct PlacedObjectsListView: View {
         }
     }
 }
+
+
+/*
+Button(action: {
+    // Action to hide or show layer
+    
+    isPressingHideLayer.toggle()
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        feedback()
+        isPressingHideLayer.toggle()
+    }
+    if hiddenLayers.contains(obj.id) {
+        hiddenLayers.remove(obj.id)
+    } else {
+        hiddenLayers.insert(obj.id)
+    }
+}, label: {
+    Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
+        .scaleEffect(isPressingHideLayer ? 0.9 : 1)
+        .scaleEffect(0.9)
+        .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
+})
+.buttonStyle(.plain)
+
+
+Button(action: {
+    isPressingSettings.toggle()
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        feedback()
+        isPressingSettings.toggle()
+    }
+    
+}, label: {
+    Image(systemName: "gear")
+        .scaleEffect(isPressingSettings ? 0.9 : 1)
+        .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
+})
+.buttonStyle(.plain)
+.padding(.horizontal)
+
+*/

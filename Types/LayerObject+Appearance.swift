@@ -165,6 +165,9 @@ struct LayerObjectAppearance {
     var todayIndicator: Color
     
     
+    //MARK: Dynamic Text
+   
+    
     
     
     /// The list of the avaliable blend modes

@@ -15,6 +15,7 @@ struct TextObjectView: View {
     @Binding var showMicroControls: Bool
     
     
+    
     var alignment: Alignment {
         switch text.textAlignment {
         case .leading:
@@ -54,6 +55,8 @@ struct TextObjectView: View {
                     }
                     .overlay {
                         MarchingAntsBorder(opacity: text.appearance.showSettings ? 1 : 0)
+                            .frame(width: text.fontFrameWidth, alignment: alignment)
+                            .rotationEffect(text.appearance.rotation)
                     }
                     .offset(x: text.appearance.offsetX, y: text.appearance.offsetY)
                     .scaleEffect(x: text.appearance.scaleWidth, y: text.appearance.scaleHeight, anchor: .center)

@@ -38,7 +38,7 @@ struct SheetPresentedViews: View {
         }
         //MARK: Element Selection Menu
         .sheet(isPresented: $showLayerElementView) {
-            ObjectSelectionView(showLayerElementView: $showLayerElementView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, placedObjects: $placedObjects, selection: $selection)
+            ObjectSelectionView(showLayerElementView: $showLayerElementView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, placedObjects: $placedObjects)
                 .customPresentationWithPrimaryBackground(detent: .large, backgroundColorOpacity: 1.0)
         }
         //MARK: Import URL Image Gallery Element

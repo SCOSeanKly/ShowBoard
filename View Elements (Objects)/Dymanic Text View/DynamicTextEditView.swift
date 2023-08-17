@@ -123,10 +123,11 @@ struct DynamicTextView: View {
                                createDynamicSection(title: "Battery:", placeholders: placeholdersBattery, textBinding: $text.inputText)
                         
                         Spacer()
-                            .frame(height: 300)
+                            .frame(height: UIScreen.main.bounds.height)
                            
                         
                     }
+                   
                    
                     .padding(.horizontal)
                 }

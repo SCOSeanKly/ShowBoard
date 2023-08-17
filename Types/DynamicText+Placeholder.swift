@@ -85,7 +85,6 @@ extension DynamicText {
         }
         
        
-        //MARK: Doesnt work?
         public func withBatteryInfo(_ batteryViewModel: BatteryViewModel) -> String {
           
                switch self {
@@ -98,8 +97,7 @@ extension DynamicText {
                }
            }
         
-        
-        //MARK: Doesnt work?
+    
         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature, useMiles: Bool = false) -> String {
             
             guard let val = data else { return "-" }
@@ -156,8 +154,6 @@ extension DynamicText {
         
         
        
-        
-        
         private func tempteratureToString(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""
             let convertedTemp = value.converted(to: unit)

@@ -13,6 +13,7 @@ struct BackgroundView: View {
     @Binding var importedBackground: UIImage?
     @Binding var hideMenuButtons: Bool
     @State private var isDragging: Bool = false
+    @State private var isPressing: Bool = false
     
     @State private var isRectangleAnimating = false
     @State private var xOffset: CGFloat = -UIScreen.main.bounds.width
@@ -76,6 +77,7 @@ struct BackgroundView: View {
                         CustomToggle(showTitleText: false, titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "xmark", rotate: false)
                             .scaleEffect(0.8)
                             .frame(width: 30)
+                            .padding(.horizontal)
                     }
                     .frame(height: 20)
                     
@@ -90,29 +92,44 @@ struct BackgroundView: View {
                     .frame(height: 50)
                     .padding(.horizontal, 10)
                     .shadow(radius: 1)
-                    .gesture(
-                        TapGesture(count: 1)
-                            .onEnded { _ in
-                                // Show the next hint
-                                currentHintIndex = (currentHintIndex + 1) % hints.count
-                                
-                                // Restart the timer
-                                stopTimer()
-                                startTimer()
-                            }
-                    )
+                  
+                  
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 100)
                 .padding()
                 .background {
-                    TransparentBlurView(removeAllFilters: true)
-                        .blur(radius: 5, opaque: true)
-                        .background(.white.opacity(0.05))
+                    ZStack {
+                        TransparentBlurView(removeAllFilters: true)
+                            .blur(radius: 5, opaque: true)
+                            .background(.white.opacity(0.05))
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .strokeBorder(LinearGradient(colors: [Color.white.opacity(0.9), Color.white.opacity(0.2), Color.white.opacity(0.4), Color.white.opacity(0), Color.white.opacity(0.3), Color.white.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 0.2)
+                    }
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                .shadow(radius: 10)
-                .modifier(ParallaxMotionModifier(manager: manager, magnitude: 20))
+                .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2.0)
+               // .modifier(ParallaxMotionModifier(manager: manager, magnitude: 20))
+                .scaleEffect(isPressing ? 0.9 : 1.0)
+                .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
+                .gesture(
+                    TapGesture(count: 1)
+                        .onEnded { _ in
+                          
+                            isPressing.toggle()
+                            
+                            feedback()
+                            
+                            currentHintIndex = (currentHintIndex + 1) % hints.count
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                isPressing.toggle()
+                                stopTimer()
+                                startTimer()
+                            }
+                        }
+                )
             }
             
             

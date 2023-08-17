@@ -10,6 +10,7 @@ import SwiftUI
 struct MarchingAntsBorder: View {
     @State private var phase = 0.0
     let opacity: CGFloat
+  
     
     var body: some View {
         
@@ -18,10 +19,10 @@ struct MarchingAntsBorder: View {
                 .strokeBorder(lineWidth: 0.8)
                 .foregroundColor(.black)
              
-            
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(style: StrokeStyle(lineWidth: 0.8, dash: [5], dashPhase: phase))
                 .foregroundColor(.white)
+            
         }
         .opacity(opacity)
             .onAppear {

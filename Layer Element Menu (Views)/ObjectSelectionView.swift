@@ -26,7 +26,6 @@ struct ObjectSelectionView: View {
     
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
-    @Binding var selection: UUID?
     
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var weatherIconObject = WeatherIconLayerObject()
