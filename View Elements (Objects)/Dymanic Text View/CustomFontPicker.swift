@@ -41,14 +41,6 @@ struct CustomFontPicker: View {
       
     }
 }
- 
-/*
-ForEach(TextObject.fontList, id: \.self) { style in
-    Text(style)
-        .font(text.font)
-        .lineLimit(1)
-}
- */
 
 
 

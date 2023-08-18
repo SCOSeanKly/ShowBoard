@@ -91,23 +91,28 @@ struct CustomFontGridPicker: View {
                                     isPressing.toggle()}
                             }label: {
                                 ZStack {
+                                    
                                     VStack {
-                                        Text("Aa")
-                                            .font(Font.custom(fontName, size: 26))
+                                     
+                                        Spacer()
                                         
                                         Text(fontName)
                                             .font(.system(size: 8).weight(.medium))
                                             .lineLimit(1)
-                                        
-                                        
+                                           
                                     }
-                                    .frame(width: 50, height: 60)
-                                    .padding(10)
-                                    .background(Color.white)
-                                    .cornerRadius(12)
-                                    .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
-                                    .tint(.black)
+                                    
+                                    Text("Aa")
+                                        .font(Font.custom(fontName, size: 24))
+                                        .frame(height: 30)
+                                   
                                 }
+                                .frame(width: 50, height: 60)
+                                .padding(10)
+                                .background(Color.white)
+                                .cornerRadius(12)
+                                .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
+                                .tint(.black)
                             }
                             
                         }
