@@ -11,6 +11,7 @@ import SwiftUI
 struct AppearanceControlView: View {
     
     @StateObject var layer: LayerObject
+
     let systemImageName: String
     let titletext: String
     let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
@@ -29,6 +30,7 @@ struct AppearanceControlView: View {
             
             Group {
                 ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
+          
                 
                 if let _ = layer as? WavyDockObject {
                     SliderStepper(color: .blue, title: "xAngle", sliderBindingValue: $layer.appearance.xAngle, minValue: 0, maxValue: 360, step: 0.1, specifier: 1, defaultValue: 360)
@@ -40,9 +42,10 @@ struct AppearanceControlView: View {
                     
                     CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor)
                 }
-                
-                
-                
+            }
+            
+            
+            Group {
                 
                 if let _ = layer as? CalendarViewModel {
                     SliderStepper(color: .blue, title: "Days Text Size", sliderBindingValue: $layer.appearance.daysTextSize, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 15)
@@ -68,11 +71,11 @@ struct AppearanceControlView: View {
                     SliderStepper(color: .blue, title: "Inner Ratio:", sliderBindingValue: $layer.appearance.shapeRatio, minValue: 0.1, maxValue: 2.01, step: 0.01, specifier: 2, defaultValue: 1)
                 }
                 
-                if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel {
+                if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject {
                     SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 2, step: 0.1, specifier: 1, defaultValue: 1)
                 }
                 
-                if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) {
+                if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) {
                     
                     SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 1, specifier: 0, defaultValue: 200)
                     
@@ -81,7 +84,7 @@ struct AppearanceControlView: View {
             }
             
             Group {
-                if layer is LinearGaugeObject || layer is CircleGaugeObject {
+                if layer is LinearGaugeObject || layer is CircleGaugeObject  || layer is HiLoGaugeObject {
                     
                     SliderStepper(color: .blue, title: "Current FontSize:", sliderBindingValue: $layer.appearance.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: 1, specifier: 0, defaultValue: 10)
                     

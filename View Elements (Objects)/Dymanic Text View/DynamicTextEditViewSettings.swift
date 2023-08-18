@@ -17,21 +17,21 @@ struct DynamicTextEditViewSettings: View {
         
         ScrollView (showsIndicators: false){
             
-            if !text.isKeyboardPresented {
+            if !text.appearance.isKeyboardPresented {
                 
                 if showMicroControls {
                     MicroControlsView(showMicroControls: $showMicroControls, layer: text)
                 }
                 
-                ResetValues(resetValues: resetDynamicTextValues, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text")
+                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text")
                 }
                 
                 DynamicTextView(text: text)
                 
-            if !text.isKeyboardPresented {
+            if !text.appearance.isKeyboardPresented {
                     Group {
                         
-                        CustomToggle(showTitleText: true, titleText: "Circle Text", bindingValue: $text.isCircleText, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                       CustomToggle(showTitleText: true, titleText: "Circle Text", bindingValue: $text.appearance.isCircleText, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                         
                         HStack {
                             
@@ -42,41 +42,49 @@ struct DynamicTextEditViewSettings: View {
                             Button {
                                 showFontPickerSheet.toggle()
                             } label: {
-                                Text("Selected: \(text.selectedFontName)")
+                                
+                                Text("Selected: \(text.appearance.selectedFontName)")
+                                    .lineLimit(1)
                                     .scaleEffect(0.8)
                             }
                             
                         }
                         .padding(.horizontal)
                         
-                        if !text.isCircleText {
+                        if !text.appearance.isCircleText {
                             HStack {
                                 Text("Alignment:")
                                     .titleFont()
                                 Spacer()
-                                Picker("Alignment", selection: $text.textAlignment) {
-                                    ForEach(text.alignmentOptions, id: \.self) { alignmentOption in
+                                
+                                Picker("Alignment", selection: $text.appearance.textAlignment) {
+                                    ForEach(text.appearance.alignmentOptions, id: \.self) { alignmentOption in
                                         Text(alignmentOption.description).tag(alignmentOption)
                                     }
                                 }
+                                
                                 .pickerStyle(.menu)
                                 .scaleEffect(0.8)
                             }
                             .frame(height: 30)
                             .padding(.horizontal)
                         }
+                         
                         
-                        SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $text.dropLast, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
+                        SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $text.appearance.dropLast, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
                         
-                        SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
+                        SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.appearance.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                         
-                        CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.fontColor)
+                        CustomColorPicker(titleText: "Font Colour", pickerBindingValue: $text.appearance.fontColor)
                         
-                        SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.fontTracking, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
+                        SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.appearance.fontTracking, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
                         
-                        SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 200)
+                        SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.appearance.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 200)
+                         
                     }
                     
+                
+                
                     Group {
                         
                         SliderStepperDegrees(color: .blue, title: "Rotation:", sliderBindingValue: $text.appearance.rotation.degrees, minValue: 0, maxValue: 360, step: 1, specifier: 0, defaultValue: 0)
@@ -105,6 +113,7 @@ struct DynamicTextEditViewSettings: View {
                     
                     Spacer()
                         .frame(height: 100)
+                 
                 }
             
             
@@ -118,19 +127,12 @@ struct DynamicTextEditViewSettings: View {
         .customPresentationWithPrimaryBackground(detent: .medium, detent2: .small, backgroundColorOpacity: 1.0)
         .sheet(isPresented: $showFontPickerSheet){
             
-            CustomFontGridPicker(bindingValue: $text.selectedFontName, text: text)
+            CustomFontGridPicker(bindingValue: $text.appearance.selectedFontName, text: text)
             
         }
         
     }
     
-    private func resetDynamicTextValues() {
-        /*fontName = "Autone"
-         fontSize = 26
-         fontWeight = .regular
-         fontColor = .white
-         text.appearance.rotation = .zero*/
-    }
 }
 
 extension TextAlignment: CustomStringConvertible {

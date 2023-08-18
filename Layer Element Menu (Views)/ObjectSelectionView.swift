@@ -270,21 +270,31 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
-                                
-                                showLayerElementView = false
-                            },
-                            imageType: .system(name: "circle.dashed"),
-                            textDescription: "Hi / Lo",
-                            disabled: true
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
                                 placedObjects.append(LinearGaugeObject())
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "line.diagonal"),
                             textDescription: "Battery Linear",
+                            disabled: false
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(HiLoGaugeObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "circle.dotted"),
+                            textDescription: "Hi / Lo",
+                            disabled: false
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(LinearHiLoObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "line.diagonal"),
+                            textDescription: "Hi / Lo Linear",
                             disabled: false
                         )
                         

@@ -12,62 +12,9 @@ class TextObject: LayerObject {
     
     
     // MARK: - Public Properties
+
     
-    /// The user sets this text in a text field. This should contain some Placeholder tags too.
-    @Published var inputText: String
-    
-    
-    /// The name of the selected font
-    @Published var selectedFontName: String
-    
-    
-    /// The current size of the font
-    @Published var fontSize: CGFloat = 16
-    
-    
-    // TODO: Comment me
-    @Published var fontTracking: CGFloat = 0
-    
-    
-    // TODO: Comment me
-    @Published var fontWeight: Font.Weight = .black
-    
-    
-    // TODO: d
-    @Published var fontColor: Color = .white
-    
-    
-    // TODO: d
-    @Published var textAlignment: TextAlignment = .center
-    
-    
-    // TODO: d
-    @Published var fontFrameWidth: CGFloat = 200
-    
-    
-    // TODO: d
-    @Published var isKeyboardPresented: Bool = false
-    
-    
-    @Published var isCircleText: Bool = false
-    
-    @Published var dropLast: CGFloat = 0
-    
-   
-    
-    
-    /// The currently selected font
-    var font: Font {
-        Font.custom(selectedFontName, size: fontSize)
-            .weight(fontWeight)
-    }
-    
-    
-    @MainActor public func dynamicText(wk: WeatherObserver) -> String {
-        DynamicText.convert(input: inputText, wk: wk)
-    }
-    
-    
+  
     /// The list of the avaliable fonts
     public static let fontList: [String] = [
         "ModernAge",
@@ -92,28 +39,13 @@ class TextObject: LayerObject {
     //    "Freedom45"
         
     ]
-     
-    
-    
-    // TODO: !
-    let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
     
     
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), inputText: String? = nil) {
-            self.selectedFontName = TextObject.fontList.first!
-            
-            if let inputText = inputText {
-                self.inputText = inputText
-            } else {
-                // Randomly select initial text from a list of 5 options
-                let randomIndex = Int.random(in: 0..<7)
-                
-                self.inputText = ["The high temp for today is [hi]", "It's currently [condition]", "The time is [time] in the [timeOfDay]", "Its the [timeOfDay]", "[daysRemaining] days remaining in [year]", "[daysCount] days into [year]", "There's a [precipChance] chance of rain"] [randomIndex]
-            }
-            
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+         
             super.init()
             self.id = id
             self.appearance = appearance

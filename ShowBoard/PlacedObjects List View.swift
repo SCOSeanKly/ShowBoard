@@ -20,7 +20,7 @@ struct PlacedObjectsListView: View {
     @State private var isPressingDelete: Bool = false
     @Binding var showLayerEditView: Bool
     
-    let highlightColor = Color.red.opacity(0.05)
+    let highlightColor = Color.blue.opacity(0.05)
     
     
     var body: some View {
@@ -149,14 +149,16 @@ struct PlacedObjectsListView: View {
         switch obj.objectType {
         case .text: objectTypeInfo = .text
         case .map: objectTypeInfo = .map
-        case .circleGauge: objectTypeInfo = .circleGauge
+        case .batteryCircleGauge: objectTypeInfo = .batteryCircleGauge
         case .customShape: objectTypeInfo = .customShape
         case .wavyDock: objectTypeInfo = .wavyDock
         case .glassShape: objectTypeInfo = .glassShape
         case .weatherIcon: objectTypeInfo = .weatherIcon
         case .squareShape: objectTypeInfo = .squareShape
-        case .linearGauge: objectTypeInfo = .linearGauge
+        case .batteryLinearGauge: objectTypeInfo = .batteryLinearGauge
         case .calendar: objectTypeInfo = .calendar
+        case .hiLoCircleGauge: objectTypeInfo = .hiLoCircleGauge
+        case .hiLoLinearGauge: objectTypeInfo = .hiLoLinearGauge
             
         }
         
@@ -194,14 +196,16 @@ struct PlacedObjectsListView: View {
     enum ObjectTypeInfo {
         case text
         case map
-        case circleGauge
+        case batteryCircleGauge
         case customShape
         case wavyDock
         case glassShape
         case weatherIcon
         case squareShape
-        case linearGauge
+        case batteryLinearGauge
         case calendar
+        case hiLoCircleGauge
+        case hiLoLinearGauge
         
         
         
@@ -209,14 +213,16 @@ struct PlacedObjectsListView: View {
             switch self {
             case .text: return "character.textbox"
             case .map: return "map"
-            case .circleGauge: return "circle"
+            case .batteryCircleGauge: return "circle"
             case .customShape: return "star"
             case .wavyDock: return "alternatingcurrent"
             case .glassShape: return "bubbles.and.sparkles"
             case .weatherIcon: return "sun.max"
             case .squareShape: return "square"
-            case .linearGauge: return "line"
+            case .batteryLinearGauge: return "chart.line.flattrend.xyaxis"
             case .calendar: return "calendar"
+            case .hiLoCircleGauge: return "circle.dotted"
+            case .hiLoLinearGauge: return "chart.line.flattrend.xyaxis"
                 
                 
             }
@@ -226,14 +232,16 @@ struct PlacedObjectsListView: View {
             switch self {
             case .text: return "Text"
             case .map: return "Map"
-            case .circleGauge: return "Circle Gauge"
+            case .batteryCircleGauge: return "Battery Circle Gauge"
             case .customShape: return "Custom Shape"
             case .wavyDock: return "Wavy Dock"
             case .glassShape: return "Glass"
             case .weatherIcon: return "Weather Icon"
             case .squareShape: return "Squared Shape"
-            case .linearGauge: return "Linear Gauge"
+            case .batteryLinearGauge: return "Linear Gauge"
             case .calendar: return "Calendar"
+            case .hiLoCircleGauge: return "Hi/Lo Circle Gauge"
+            case .hiLoLinearGauge: return "Hi/Lo Linear Gauge"
                 
                 
             }

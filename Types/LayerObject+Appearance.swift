@@ -13,6 +13,8 @@ struct LayerObjectAppearance {
     
     // MARK: - Public Properties
     
+    
+    
     //MARK: GLOBAL
     /// Generic Bool for showSettings toggle
     var showSettings: Bool
@@ -153,6 +155,7 @@ struct LayerObjectAppearance {
     
     
     
+    
     //MARK: Calendar
     var daysTextSize: CGFloat
     var daysColor: Color
@@ -166,7 +169,28 @@ struct LayerObjectAppearance {
     
     
     //MARK: Dynamic Text
-   
+    var fontTracking: CGFloat
+    var fontFrameWidth: CGFloat
+    var dropLast: CGFloat
+    var fontColor: Color
+    var fontSize: CGFloat
+    var selectedFontName: String
+    var fontWeight: Font.Weight
+    var font: Font {
+        Font.custom(selectedFontName, size: fontSize)
+            .weight(fontWeight)
+    }
+    let alignmentOptions: [TextAlignment] = [.leading, .center, .trailing]
+    var textAlignment: TextAlignment
+    var inputText: String
+    
+    @MainActor public func dynamicText(wk: WeatherObserver) -> String {
+        DynamicText.convert(input: inputText, wk: wk)
+    }
+    var isCircleText: Bool
+    var isKeyboardPresented: Bool
+    
+    
     
     
     
@@ -272,10 +296,25 @@ struct LayerObjectAppearance {
         self.calendarBackgroundColor = .clear
         self.calendarBackgroundCornerRadius = 10
         self.todayIndicator = .red
+        
+        self.fontTracking = 0
+        self.fontFrameWidth = 200
+        self.dropLast = 0
+        self.fontColor = .white
+        self.fontSize = 16
+        self.selectedFontName = "Apple SF"
+        self.fontWeight = .medium
+        self.textAlignment = .center
+        self.inputText = "ShowBoard - Good [timeOfDay]"
+        self.isCircleText = false
+        self.isKeyboardPresented = false
+        
+    
+        
     }
     
     init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
-         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat = 5, offsetX: CGFloat = 0, offsetY: CGFloat = 0, scaleWidth: CGFloat = 1, scaleHeight: CGFloat = 1, xAngle: CGFloat = 360, amplitide: CGFloat = 0.15,
+         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat, offsetX: CGFloat, offsetY: CGFloat, scaleWidth: CGFloat, scaleHeight: CGFloat, xAngle: CGFloat, amplitide: CGFloat,
          daysTextSize: CGFloat,
          daysColor: Color,
          dateTextColor: Color,
@@ -284,7 +323,19 @@ struct LayerObjectAppearance {
          dateBackgroundCornerRadius: CGFloat,
          calendarBackgroundColor: Color,
          calendarBackgroundCornerRadius: CGFloat,
-         todayIndicator: Color) {
+         todayIndicator: Color,
+    
+         fontTracking: CGFloat,
+         fontFrameWidth: CGFloat,
+         dropLast: CGFloat,
+         fontColor: Color,
+         fontSize: CGFloat,
+         selectedFontName: String,
+         fontWeight: Font.Weight,
+         textAlignment: TextAlignment,
+         inputText: String,
+         isCircleText: Bool,
+         isKeyboardPresented: Bool) {
         
         self.position = position
         self.originalSize = originalSize
@@ -339,6 +390,18 @@ struct LayerObjectAppearance {
         self.calendarBackgroundColor = calendarBackgroundColor
         self.calendarBackgroundCornerRadius = calendarBackgroundCornerRadius
         self.todayIndicator = todayIndicator
+        
+        self.fontTracking = fontTracking
+        self.fontFrameWidth = fontFrameWidth
+        self.dropLast = dropLast
+        self.fontColor = fontColor
+        self.fontSize = fontSize
+        self.selectedFontName = selectedFontName
+        self.fontWeight = fontWeight
+        self.textAlignment = textAlignment
+        self.inputText = inputText
+        self.isCircleText = isCircleText
+        self.isKeyboardPresented = isKeyboardPresented
     }
     
     

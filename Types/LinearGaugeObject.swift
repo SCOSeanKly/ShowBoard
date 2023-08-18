@@ -28,7 +28,32 @@ class LinearGaugeObject: LayerObject {
         super.init()
         self.id = id
         self.appearance = appearance
-        self.objectType = .linearGauge
+        self.objectType = .batteryLinearGauge
+    }
+}
+
+
+class LinearHiLoObject: LayerObject {
+    
+    // MARK: - Public Properties
+    
+    
+ 
+ 
+    
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+      
+       
+        
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .hiLoLinearGauge
     }
 }
  

@@ -23,7 +23,7 @@ struct CustomFontPicker: View {
                 ForEach(UIFont.familyNames.sorted(), id: \.self) { familyName in
                     VStack(alignment: .leading) {
                         Text(familyName)
-                            .font(text.font)
+                            .font(text.appearance.font)
                             .padding(.bottom, 8)
                         ForEach(UIFont.fontNames(forFamilyName: familyName).sorted(), id: \.self) { fontName in
                             Text(fontName)

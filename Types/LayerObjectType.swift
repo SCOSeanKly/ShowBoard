@@ -13,11 +13,13 @@ enum LayerObjectType {
     case customShape
     case wavyDock
     case map
-    case circleGauge
-    case linearGauge
+    case batteryCircleGauge
+    case batteryLinearGauge
     case glassShape
     case squareShape
     case weatherIcon
     case calendar
-   
+    case hiLoCircleGauge
+    case hiLoLinearGauge
+
 }

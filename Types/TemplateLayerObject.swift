@@ -8,30 +8,24 @@
 import SwiftUI
 
 /*
- class TemplateLayerObject: LayerObject {
- 
- // Conforming LayerObject
- var id: UUID
- 
- @Published var appearance: LayerObjectAppearance
- 
- 
- // MARK: - Public Properties
- 
- 
- 
- /** add published vars */
- 
- 
- 
- 
- 
- // MARK: - Public Methods
- 
- 
- init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
- self.id = id
- self.appearance = appearance
- }
- }
+ import SwiftUI
+
+
+ class HiLoGaugeObject: LayerObject {
+  
+         
+         // MARK: - Public Properties
+         
+         
+         // MARK: - Public Methods
+         
+         init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+             
+         
+             super.init()
+             self.id = id
+             self.appearance = appearance
+             self.objectType = .customShape
+         }
+     }
  */

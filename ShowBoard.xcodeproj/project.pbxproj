@@ -26,7 +26,7 @@
 		3E1ACF472A83CF0F00832F81 /* CircleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF462A83CF0F00832F81 /* CircleText.swift */; };
 		3E1ACF492A83EAEB00832F81 /* RefelectionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */; };
 		3E1ACF4B2A83ECAE00832F81 /* SliderToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */; };
-		3E1B1B062A83C049003D70FC /* BatBarObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B1B052A83C049003D70FC /* BatBarObject.swift */; };
+		3E1B1B062A83C049003D70FC /* LinearGaugeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
 		3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */; };
 		3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456D2A84FF3C002B35B2 /* FontNames.swift */; };
@@ -164,6 +164,8 @@
 		3EBF306E2A6EC9A8004C12B5 /* CustomBlendModePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */; };
 		3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */; };
 		3EBF30722A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */; };
+		3EC0DDA12A8F9FA500E1A893 /* HiLo Circle Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0DDA02A8F9FA500E1A893 /* HiLo Circle Gauge.swift */; };
+		3EC0DDA62A8FAF0700E1A893 /* HiLoLinearGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0DDA52A8FAF0700E1A893 /* HiLoLinearGauge.swift */; };
 		3EC6B7862A83865300CD0934 /* CombinedTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
@@ -237,7 +239,7 @@
 		3E1ACF462A83CF0F00832F81 /* CircleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleText.swift; sourceTree = "<group>"; };
 		3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefelectionModifier.swift; sourceTree = "<group>"; };
 		3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderToggle.swift; sourceTree = "<group>"; };
-		3E1B1B052A83C049003D70FC /* BatBarObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatBarObject.swift; sourceTree = "<group>"; };
+		3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGaugeObject.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
 		3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyDockObject.swift; sourceTree = "<group>"; };
 		3E22456D2A84FF3C002B35B2 /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
@@ -380,6 +382,8 @@
 		3EBF306D2A6EC9A8004C12B5 /* CustomBlendModePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBlendModePicker.swift; sourceTree = "<group>"; };
 		3EBF306F2A6ECB41004C12B5 /* CustomFontPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontPicker.swift; sourceTree = "<group>"; };
 		3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditViewSettings.swift; sourceTree = "<group>"; };
+		3EC0DDA02A8F9FA500E1A893 /* HiLo Circle Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HiLo Circle Gauge.swift"; sourceTree = "<group>"; };
+		3EC0DDA52A8FAF0700E1A893 /* HiLoLinearGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiLoLinearGauge.swift; sourceTree = "<group>"; };
 		3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedTapGesture.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -458,7 +462,7 @@
 				097274342A4DDCCB00429786 /* ShadowSettings.swift */,
 				3E371CD82A6689C800DE743C /* MapObject.swift */,
 				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
-				3E1B1B052A83C049003D70FC /* BatBarObject.swift */,
+				3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */,
 				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 				0940CCF22A6860DC009CE54C /* LayerObjectType.swift */,
 				3E6B7A3D2A811F1200163E58 /* WeatherIconLayerObject.swift */,
@@ -491,12 +495,13 @@
 			path = "Square Shape View";
 			sourceTree = "<group>";
 		};
-		3E371CE02A66C10E00DE743C /* Battery Circle Gauge */ = {
+		3E371CE02A66C10E00DE743C /* Battery Gauges */ = {
 			isa = PBXGroup;
 			children = (
+				3E41D3172A42F71900A29548 /* BatteryLinearGauge.swift */,
 				3E371CDE2A66B10500DE743C /* BatteryCircleGauge.swift */,
 			);
-			path = "Battery Circle Gauge";
+			path = "Battery Gauges";
 			sourceTree = "<group>";
 		};
 		3E371CE52A66D00000DE743C /* Buttons + Sliders */ = {
@@ -517,16 +522,16 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3EC0DDA42A8FACD000E1A893 /* Hi Lo Circle Gauge */,
 				3EAA6E5A2A8BD1980093BB3A /* Calendar View */,
 				3E2245752A862609002B35B2 /* Square Shape View */,
 				3E22456C2A84F505002B35B2 /* Wavy Dock */,
 				3EBF30742A6ED504004C12B5 /* Custom Shape View */,
 				3ED802202A7A8DCC005E2835 /* Weather Icon */,
-				3EBF307C2A6ED969004C12B5 /* Battery Bar View */,
 				3EBF30732A6ED4FC004C12B5 /* Map View */,
 				3EBF30752A6ED51C004C12B5 /* Glass Shape View */,
 				3EBF30762A6ED529004C12B5 /* Dymanic Text View */,
-				3E371CE02A66C10E00DE743C /* Battery Circle Gauge */,
+				3E371CE02A66C10E00DE743C /* Battery Gauges */,
 			);
 			path = "View Elements (Objects)";
 			sourceTree = "<group>";
@@ -838,14 +843,6 @@
 			path = "Extensions + Modifiers";
 			sourceTree = "<group>";
 		};
-		3EBF307C2A6ED969004C12B5 /* Battery Bar View */ = {
-			isa = PBXGroup;
-			children = (
-				3E41D3172A42F71900A29548 /* BatteryLinearGauge.swift */,
-			);
-			path = "Battery Bar View";
-			sourceTree = "<group>";
-		};
 		3EC03DF72A67E63C001F1965 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -854,6 +851,15 @@
 				3ED771EC2A4B395500AFC1FC /* Layer Element Buttons */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		3EC0DDA42A8FACD000E1A893 /* Hi Lo Circle Gauge */ = {
+			isa = PBXGroup;
+			children = (
+				3EC0DDA02A8F9FA500E1A893 /* HiLo Circle Gauge.swift */,
+				3EC0DDA52A8FAF0700E1A893 /* HiLoLinearGauge.swift */,
+			);
+			path = "Hi Lo Circle Gauge";
 			sourceTree = "<group>";
 		};
 		3ECC34AB2A4C4163008794BC /* Micro Control Position Buttons */ = {
@@ -1160,12 +1166,13 @@
 				3EBF30722A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift in Sources */,
 				0913C42B2A48766C007AF26E /* DynamicText+Placeholder.swift in Sources */,
 				3E1ACF472A83CF0F00832F81 /* CircleText.swift in Sources */,
-				3E1B1B062A83C049003D70FC /* BatBarObject.swift in Sources */,
+				3E1B1B062A83C049003D70FC /* LinearGaugeObject.swift in Sources */,
 				3E3E68892A82788C00F468DD /* GlassObject.swift in Sources */,
 				3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */,
 				3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */,
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
 				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
+				3EC0DDA62A8FAF0700E1A893 /* HiLoLinearGauge.swift in Sources */,
 				3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */,
 				3E41D3182A42F71900A29548 /* BatteryLinearGauge.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
@@ -1174,6 +1181,7 @@
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
+				3EC0DDA12A8F9FA500E1A893 /* HiLo Circle Gauge.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
 				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,

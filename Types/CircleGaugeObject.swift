@@ -76,6 +76,24 @@ class CircleGaugeObject: LayerObject {
         super.init()
         self.id = id
         self.appearance = appearance
-        self.objectType = .circleGauge
+        self.objectType = .batteryCircleGauge
     }
 }
+
+class HiLoGaugeObject: LayerObject {
+ 
+        
+        // MARK: - Public Properties
+        
+        
+        // MARK: - Public Methods
+        
+        init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+            
+        
+            super.init()
+            self.id = id
+            self.appearance = appearance
+            self.objectType = .hiLoCircleGauge
+        }
+    }

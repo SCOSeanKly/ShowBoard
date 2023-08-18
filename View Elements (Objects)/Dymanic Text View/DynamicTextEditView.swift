@@ -31,16 +31,16 @@ struct DynamicTextView: View {
             
             VStack {
                 
-                if !text.isKeyboardPresented {
+                if !text.appearance.isKeyboardPresented {
                         HStack {
-                            if text.inputText.isEmpty {
+                            if text.appearance.inputText.isEmpty {
                                 Text("Enter text...")
                                     .font(.headline.weight(.heavy))
                                     .fontWeight(.semibold)
                                     .foregroundColor(.black)
                             } else {
                                 Button {
-                                    text.inputText = ""
+                                    text.appearance.inputText = ""
                                 } label: {
                                     Text("\(Image(systemName: "xmark")) Clear Text")
                                         .font(.system(size: 14).weight(.semibold))
@@ -63,14 +63,14 @@ struct DynamicTextView: View {
                                 }
                                 
                                 HStack {
-                                    if text.inputText.isEmpty {
+                                    if text.appearance.inputText.isEmpty {
                                         Text("Enter text...")
                                             .font(.headline.weight(.heavy))
                                             .fontWeight(.semibold)
                                             .foregroundColor(.black)
                                     } else {
                                         Button {
-                                            text.inputText = ""
+                                            text.appearance.inputText = ""
                                         } label: {
                                             Text("\(Image(systemName: "xmark")) Clear Text")
                                                 .font(.system(size: 14).weight(.semibold))
@@ -89,18 +89,18 @@ struct DynamicTextView: View {
                 }
                 .padding(.horizontal)
                
-            TextEditor(text: $text.inputText)
-                              .frame(height: text.isKeyboardPresented ? 100 : 40)
+            TextEditor(text: $text.appearance.inputText)
+                .frame(height: text.appearance.isKeyboardPresented ? 100 : 40)
                               .padding(5)
                               .background(.ultraThinMaterial)
                               .padding(.horizontal)
                               .scrollDismissesKeyboard(.immediately)
                               .onReceive(keyboardPublisher) { value in
-                                  text.isKeyboardPresented = value
+                                  text.appearance.isKeyboardPresented = value
                               }
                              
 
-            if text.isKeyboardPresented {
+            if text.appearance.isKeyboardPresented {
                     VStack {
                         // Dynamic Abbreviations Section
                       
@@ -112,15 +112,15 @@ struct DynamicTextView: View {
                             }
                             .padding(.bottom, 1)
                         
-                               createDynamicSection(title: "Date:", placeholders: placeholdersDate, textBinding: $text.inputText)
+                        createDynamicSection(title: "Date:", placeholders: placeholdersDate, textBinding: $text.appearance.inputText)
                                 
                          
                             
-                               createDynamicSection(title: "Weather:", placeholders: placeholdersWeather, textBinding: $text.inputText)
+                        createDynamicSection(title: "Weather:", placeholders: placeholdersWeather, textBinding: $text.appearance.inputText)
                                
                           
                             
-                               createDynamicSection(title: "Battery:", placeholders: placeholdersBattery, textBinding: $text.inputText)
+                        createDynamicSection(title: "Battery:", placeholders: placeholdersBattery, textBinding: $text.appearance.inputText)
                         
                         Spacer()
                             .frame(height: UIScreen.main.bounds.height)

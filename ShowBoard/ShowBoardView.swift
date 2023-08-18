@@ -48,7 +48,6 @@ struct ShowBoardView: View {
     @State private var hiddenLayers: Set<UUID> = []
     
     
-    
     var body: some View {
         ZStack {
             
@@ -98,14 +97,16 @@ struct ShowBoardView: View {
                             switch obj.objectType {
                             case .text:         TextObjectView(text: obj as! TextObject, showMicroControls: $showMicroControls)
                             case .map:          MapView(map: obj as! MapObject, showMicroControls: $showMicroControls)
-                            case .circleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
                             case .customShape:  CustomShapeView(showMicroControls: $showMicroControls)
                             case .wavyDock:     WavyDockView(showMicroControls: $showMicroControls)
                             case .glassShape:   GlassShapeView(showMicroControls: $showMicroControls)
                             case .weatherIcon:  WeatherIconView(showMicroControls: $showMicroControls)
                             case .squareShape:  SquareShapeView(showMicroControls: $showMicroControls)
-                            case .linearGauge:  BatteryLinearGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
                             case .calendar:     CalendarView(showMicroControls: $showMicroControls)
+                            case .batteryCircleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
+                            case .batteryLinearGauge:  BatteryLinearGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
+                            case .hiLoCircleGauge: HiLoCircleGauge(showMicroControls: $showMicroControls)
+                            case .hiLoLinearGauge: HiLoLinearGauge(showMicroControls: $showMicroControls)
                             }
                         }
                         .padding(10)

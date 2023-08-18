@@ -16,6 +16,7 @@ extension View {
 
 struct SettingsMod: ViewModifier {
     @StateObject var layer: LayerObject
+    
     let systemImageName: String
     let titletext: String
     @Binding var showMicroControls: Bool

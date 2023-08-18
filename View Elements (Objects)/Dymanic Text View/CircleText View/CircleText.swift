@@ -23,7 +23,7 @@ struct CircularTextView: View {
     @StateObject var text: TextObject
     
     var alignment: Alignment {
-        switch text.textAlignment {
+        switch text.appearance.textAlignment {
         case .leading:
             return .leading
         case .center:
@@ -37,15 +37,15 @@ struct CircularTextView: View {
         ZStack {
             ForEach(lettersOffset, id: \.offset) { index, letter in // Mark 1
                 VStack {
-                    Text(String(letter))
+                    Text(String(letter).dropLast(Int(text.appearance.dropLast)))
                         .shadow(
                             radius: text.appearance.shadow.radius,
                             x: text.appearance.shadow.offset.x,
                             y: text.appearance.shadow.offset.y
                         )
-                        .font(text.font)
-                        .foregroundColor(text.fontColor)
-                        .tracking(text.fontTracking)
+                        .font(text.appearance.font)
+                        .foregroundColor(text.appearance.fontColor)
+                        .tracking(text.appearance.fontTracking)
                         .background(LetterWidthSize())
                         .opacity(text.appearance.opacity)
                         .blendMode(text.appearance.blendMode)
@@ -58,7 +58,7 @@ struct CircularTextView: View {
                 .rotationEffect(fetchAngle(at: index)) // Mark 3
             }
         }
-        .frame(width: text.fontFrameWidth, height: text.fontFrameWidth)
+        .frame(width: text.appearance.fontFrameWidth, height: text.appearance.fontFrameWidth)
         .rotationEffect(text.appearance.rotation)
         .rotation3DEffect(.degrees(text.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
         .rotation3DEffect(.degrees(text.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
