@@ -48,7 +48,7 @@ struct WavyDockView: View {
          
                 WavyDock(wavyD: wavyD)
                     .foregroundColor(wavyD.appearance.fillColor)
-                    .objectAppearanceModifier(layer: wavyD, systemImageName: "alternatingcurrent", systemImage2: "", titleText: "Wavy Dock Object", showMicroControls: $showMicroControls)
+                    .objectAppearanceModifier(layer: wavyD, systemImageName: "alternatingcurrent", systemImage2: "", titleText: "Wavy Dock", showMicroControls: $showMicroControls)
         }
     
     }

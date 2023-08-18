@@ -36,7 +36,7 @@ struct WeatherIconView: View {
                 .onAppear {
                     imageLoaded = true
                 }
-                .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon Object", showMicroControls: $showMicroControls)
+                .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon", showMicroControls: $showMicroControls)
         }
     }
 }

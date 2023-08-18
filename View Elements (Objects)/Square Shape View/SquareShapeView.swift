@@ -23,7 +23,7 @@ struct SquareShapeView: View {
                 RoundedRectangle(cornerRadius: square.appearance.cornerRadius)
                     .foregroundColor(square.appearance.fillColor)
             }
-            .objectAppearanceModifier(layer: square, systemImageName: "square", systemImage2: "", titleText: "Square Shape Object", showMicroControls: $showMicroControls)
+            .objectAppearanceModifier(layer: square, systemImageName: "square", systemImage2: "", titleText: "Squared Shape", showMicroControls: $showMicroControls)
       
         
     }

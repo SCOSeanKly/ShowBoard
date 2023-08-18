@@ -24,30 +24,23 @@ struct ResetValues: View {
         
         VStack {
             
+            Divider()
+                .padding(.horizontal)
+            
             HStack {
                 
                 Image(systemName: systemImageName)
                     .font(.title3)
                 
-                HStack {
-                    Text(titleText)
-                        .font(.headline.weight(.semibold))
-                }
+                Text(titleText)
+                    .font(.headline.weight(.semibold))
                 
-                Spacer()
-                
-            }
-            .padding(.horizontal)
-            .padding(.top)
-            
-            
-            HStack {
                 Spacer()
                 
                 Button {
                     showMicroControls.toggle()
                 } label: {
-                   Text("\(Image(systemName: "arrow.up.and.down.and.arrow.left.and.right"))")
+                    Text("\(Image(systemName: "arrow.up.and.down.and.arrow.left.and.right"))")
                 }
                 .padding(.trailing)
                 
@@ -56,35 +49,37 @@ struct ResetValues: View {
                     isShowingConfirmationAlert = true
                 })
                 {
-                    HStack {
-                        Text("\(Image(systemName: "arrow.counterclockwise"))")
-                            .font(.system(size: 14).weight(.semibold))
-                            .rotationEffect(rotationAngle)
-                            .animation(isResetConfirmed ? .easeInOut(duration: 0.0) : .easeInOut(duration: 0.5), value: rotationAngle)
-                    }
+                    
+                    Text("\(Image(systemName: "arrow.counterclockwise"))")
+                        .font(.system(size: 14).weight(.semibold))
+                        .rotationEffect(rotationAngle)
+                        .animation(isResetConfirmed ? .easeInOut(duration: 0.0) : .easeInOut(duration: 0.5), value: rotationAngle)
+                    
                 }
-                .alert(isPresented: $isShowingConfirmationAlert) {
-                    Alert(
-                        title: Text("Confirmation"),
-                        message: Text("Are you sure you want to reset values?"),
-                        primaryButton: .destructive(Text("Reset"), action: {
-                            
-                            resetValues()
-                            rotationAngle = .degrees(360)
-                            isResetConfirmed.toggle()
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                                isResetConfirmed.toggle()
-                                rotationAngle = .degrees(0)
-                            }
-                        }),
-                        secondaryButton: .cancel(Text("Cancel"))
-                    )
-                }
+                
             }
             .padding(.horizontal)
-            .padding(.bottom)
-            .padding(.trailing)
+            .padding(.vertical)
+            .alert(isPresented: $isShowingConfirmationAlert) {
+                Alert(
+                    title: Text("Confirmation"),
+                    message: Text("Are you sure you want to reset values?"),
+                    primaryButton: .destructive(Text("Reset"), action: {
+                        
+                        resetValues()
+                        rotationAngle = .degrees(360)
+                        isResetConfirmed.toggle()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                            isResetConfirmed.toggle()
+                            rotationAngle = .degrees(0)
+                        }
+                    }),
+                    secondaryButton: .cancel(Text("Cancel"))
+                )
+            }
+            
+            
             
         }
     }

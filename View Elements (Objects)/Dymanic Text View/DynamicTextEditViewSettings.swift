@@ -23,7 +23,7 @@ struct DynamicTextEditViewSettings: View {
                     MicroControlsView(showMicroControls: $showMicroControls, layer: text)
                 }
                 
-                ResetValues(resetValues: resetDynamicTextValues, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text Object")
+                ResetValues(resetValues: resetDynamicTextValues, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text")
                 }
                 
                 DynamicTextView(text: text)

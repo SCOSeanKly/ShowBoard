@@ -74,7 +74,7 @@ struct CalendarView: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
             .scaleEffect(0.8)
-            .objectAppearanceModifier(layer: vm, systemImageName: "calendar", systemImage2: "", titleText: "Calendar Object", showMicroControls: $showMicroControls)
+            .objectAppearanceModifier(layer: vm, systemImageName: "calendar", systemImage2: "", titleText: "Calendar", showMicroControls: $showMicroControls)
         }
     }
     

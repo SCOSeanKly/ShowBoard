@@ -26,7 +26,7 @@ public struct CustomShapeView: View {
                         .blur(radius: 10, opaque: true)
                 }
                 .clipShape(Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio))
-                .objectAppearanceModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape Object", showMicroControls: $showMicroControls)
+                .objectAppearanceModifier(layer: shape, systemImageName: "star", systemImage2: "", titleText: "Custom Shape", showMicroControls: $showMicroControls)
     }
 }
 

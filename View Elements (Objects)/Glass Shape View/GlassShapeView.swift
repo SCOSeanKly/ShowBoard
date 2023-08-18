@@ -42,7 +42,7 @@ struct GlassShapeView: View {
                 }
                 
             }
-            .objectAppearanceModifier(layer: glass, systemImageName: "bubbles.and.sparkles", systemImage2: "", titleText: "Glass Object", showMicroControls: $showMicroControls)
+            .objectAppearanceModifier(layer: glass, systemImageName: "bubbles.and.sparkles", systemImage2: "", titleText: "Glass Shape", showMicroControls: $showMicroControls)
       
         
     }
