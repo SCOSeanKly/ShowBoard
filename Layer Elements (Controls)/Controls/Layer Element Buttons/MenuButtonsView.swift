@@ -36,6 +36,7 @@ struct MenuButtonsView: View {
                         layersButton()
                         
                         clipboardButton()
+                        
                     }
                     Spacer()
                 }
@@ -136,9 +137,10 @@ struct MenuButtonsView: View {
                     performDelayedAction(after: 0.2) {
                         hideMenuButtons = false
                     }
-                }
-               
-                
+                }  
             }
+            .disabled(placedObjects.count == 0)
+            .opacity(placedObjects.count == 0 ? 0.5 : 1)
     }
+    
 }

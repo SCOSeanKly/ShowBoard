@@ -13,7 +13,7 @@ struct ObjectSelectionButton: View {
     let imageType: ImageType
     let textDescription: String
     let disabled: Bool
-   
+    let cornerRadius: CGFloat
     
     @State private var isPressing: Bool = false
     
@@ -57,9 +57,10 @@ struct ObjectSelectionButton: View {
         }
         .blendMode(disabled ? .luminosity : .normal)
         .opacity(disabled ? 0.3 : 1)
-        .buttonModifier(isPressing: isPressing, disabled: disabled)
+        .buttonModifier(isPressing: isPressing, disabled: disabled, cornerRadius: cornerRadius)
         .onTapGesture {
             //MARK: Button Animation
+          
             isPressing.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressing.toggle()
@@ -86,6 +87,7 @@ struct ImportImageButton: View {
     let systemImage: String
     let buttontext: String
     let disabled: Bool
+    let cornerRadius: CGFloat
     @State private var isPressing: Bool = false
     @Binding var buttonAction: Bool
     @Binding var showLayerElementView: Bool
@@ -126,7 +128,7 @@ struct ImportImageButton: View {
                 
             }
         }
-        .buttonModifier(isPressing: isPressing, disabled: disabled)
+        .buttonModifier(isPressing: isPressing, disabled: disabled, cornerRadius: cornerRadius)
         .onTapGesture {
             isPressing.toggle()
             
@@ -149,11 +151,11 @@ struct ImportImageButton: View {
 }
 
 extension View {
-    func buttonModifier(isPressing: Bool, disabled: Bool) -> some View {
+    func buttonModifier(isPressing: Bool, disabled: Bool, cornerRadius: CGFloat) -> some View {
         self.frame(width: 50, height: 60)
             .padding(10)
             .background(Color.white)
-            .cornerRadius(12)
+            .cornerRadius(cornerRadius)
             .if(!disabled) { view in
                 view.shadow(color: Color.black.opacity(isPressing ? 0.3 : 0.2),
                             radius: isPressing ? 0.5 : 3,
@@ -173,50 +175,52 @@ extension View {
 }
 
 
-struct ButtonsView: View {
-    @Binding var placedObjects: [LayerObject]
-    @Binding var selection: UUID?
-    
-    func removeSelectedObject() {
-        self.placedObjects.removeAll { $0.id == selection }
-    }
-    
-    func addObject(_ object: LayerObject) {
-        self.placedObjects.append(object)
-    }
-    
-    
-    var body: some View {
-        HStack {
-            Button(action: removeSelectedObject) {
-                Image(systemName: "trash")
-                    .tint(.red)
-            }
-            Spacer()
-            Button {
-                self.addObject(TextObject())
-            } label: {
-                Text("Text")
-            }
-            
-            Button {
-                self.addObject(CustomShapeObject())
-            } label: {
-                Text("Shape")
-            }
-            
-            Button {
-                self.addObject(CircleGaugeObject())
-            } label: {
-                Text("Gauge")
-            }
-            
-            Button {
-                self.addObject(MapObject())
-            } label: {
-                Text("Map")
-            }
-        }
-        .padding()
-    }
-}
+/*
+ struct ButtonsView: View {
+ @Binding var placedObjects: [LayerObject]
+ @Binding var selection: UUID?
+ 
+ func removeSelectedObject() {
+ self.placedObjects.removeAll { $0.id == selection }
+ }
+ 
+ func addObject(_ object: LayerObject) {
+ self.placedObjects.append(object)
+ }
+ 
+ 
+ var body: some View {
+ HStack {
+ Button(action: removeSelectedObject) {
+ Image(systemName: "trash")
+ .tint(.red)
+ }
+ Spacer()
+ Button {
+ self.addObject(TextObject())
+ } label: {
+ Text("Text")
+ }
+ 
+ Button {
+ self.addObject(CustomShapeObject())
+ } label: {
+ Text("Shape")
+ }
+ 
+ Button {
+ self.addObject(CircleGaugeObject())
+ } label: {
+ Text("Gauge")
+ }
+ 
+ Button {
+ self.addObject(MapObject())
+ } label: {
+ Text("Map")
+ }
+ }
+ .padding()
+ }
+ }
+ */

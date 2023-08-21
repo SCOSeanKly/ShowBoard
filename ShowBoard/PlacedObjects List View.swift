@@ -11,6 +11,7 @@ import SwiftUI
 struct PlacedObjectsListView: View {
     @Binding var placedObjects: [LayerObject]
     @State private var showAlert = false
+    @State private var alertType: AlertType = .delete
     @State private var objectToDelete: LayerObject?
     @Binding var selection: UUID?
     @Binding var hiddenLayers: Set<UUID>
@@ -19,9 +20,10 @@ struct PlacedObjectsListView: View {
     @State private var isPressingSettings: Bool = false
     @State private var isPressingDelete: Bool = false
     @Binding var showLayerEditView: Bool
-   // @Binding var showLayerElementView: Bool
-    
     let highlightColor = Color.blue.opacity(0.05)
+    @Binding var showGallery: Bool
+    let cornerRadius: CGFloat = 12
+    
     
     
     var body: some View {
@@ -36,8 +38,11 @@ struct PlacedObjectsListView: View {
                 Spacer()
                 
                 if placedObjects.count > 1 {
-                    Button(action: {
-                        showAlertForDeleteAllLayers()
+                    Button(action: { //MARK: Delete all button
+                        feedback()
+                        alertType = .deleteAll
+                        showAlert = true
+                        objectToDelete = nil
                     }, label: {
                         Text("Delete All")
                             .foregroundColor(.red)
@@ -49,80 +54,154 @@ struct PlacedObjectsListView: View {
             
             if placedObjects.isEmpty {
                 // Show "No Layers" text if there are no layers
-                HStack {
+                
+                VStack {
                     Text("No editable layers added yet!")
                         .lineLimit(1)
-                        .font(.body)
-                }
-            } else {
-                
-                List {
-                   
+                        .font(.system(size: 16).weight(.medium))
+                        .foregroundColor(.red)
+                        .padding(.bottom, 5)
                     
-                    ForEach(Array(placedObjects.enumerated()), id: \.element.id) { (index, obj) in
-                        Button {
-                            //Selection of layer
-                            feedback()
-                            
-                            if let currentSelection = selection, currentSelection == obj.id {
-                                
-                                selection = nil
-                                
-                            } else {
-                                
-                                selection = obj.id
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    showLayerEditView.toggle()}
-                            }
-                        } label: {
-                            objectButtonView(for: obj)
-                                .scaleEffect(isPressing ? 0.98 : 1)
-                                .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
-                                .opacity(hiddenLayers.contains(obj.id) ? 0.4 : 1.0)
-                        }
-                       .padding(8)
-                        
-                        .background(selection == obj.id ? highlightColor : Color.clear)
-                        .overlay {
-                            MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
-                                .opacity(0.5)
-                        }
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                    }
-                    .onMove(perform: moveLayer)
+                    Text("Start adding layers by tapping the \(Image(systemName: "square.grid.2x2")) button or alternatively browse the Boards section")
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .font(.system(size: 12).weight(.medium))
+                        .foregroundColor(.red)
+                        .padding(.bottom, 25)
+                        .padding(.horizontal, 30)
+                    
+                    
+                    ObjectSelectionButton(
+                        action: {
+                            showLayerEditView.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                showGallery.toggle()}
+                        },
+                        imageType: .system(name: "arrow.right.doc.on.clipboard"),
+                        textDescription: "ShowBoards",
+                        disabled: false,
+                        cornerRadius: cornerRadius
+                    )
+                    
+                    Text("Browse Boards")
+                        .lineLimit(1)
+                        .font(.system(size: 12).weight(.medium))
                 }
-                .listStyle(.plain)
-                
-            }
-            
-            Spacer()
-        }
-        .alert(isPresented: $showAlert) {
-            if let objectToDelete = objectToDelete {
-                return Alert(
-                    title: Text("Delete Layer"),
-                    message: Text("Are you sure you want to delete this layer?"),
-                    primaryButton: .cancel(Text("Cancel")),
-                    secondaryButton: .destructive(Text("Delete"), action: {
-                        removeLayer(at: objectToDelete.id)
-                        if placedObjects.isEmpty {
-                            showLayerEditView.toggle()
-                        }
-                    })
-                )
             } else {
-                return Alert(
-                    title: Text("Delete All Layers"),
-                    message: Text("Are you sure you want to delete all layers?"),
-                    primaryButton: .cancel(Text("Cancel")),
-                    secondaryButton: .destructive(Text("Delete All"), action: {
-                        removeAllLayers()
-                        if placedObjects.isEmpty {
-                            showLayerEditView.toggle()
+                ZStack {
+                    List {
+                        
+                        ForEach(Array(placedObjects.enumerated()), id: \.element.id) { (index, obj) in
+                            Button {
+                                //Selection of layer
+                                feedback()
+                                
+                                if let currentSelection = selection, currentSelection == obj.id {
+                                    
+                                    selection = nil
+                                    
+                                } else {
+                                    
+                                    selection = obj.id
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        showLayerEditView.toggle()}
+                                }
+                            } label: {
+                                objectButtonView(for: obj)
+                                    .scaleEffect(isPressing ? 0.98 : 1)
+                                    .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
+                                    .opacity(hiddenLayers.contains(obj.id) ? 0.4 : 1.0)
+                            }
+                            .padding(8)
+                            .background(selection == obj.id ? highlightColor : Color.clear)
+                            .overlay {
+                                MarchingAntsBorder(opacity: selection == obj.id ? 1 : 0)
+                                    .opacity(0.5)
+                            }
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
                         }
-                    })
-                )
+                        .onMove(perform: moveLayer)
+                        
+                        
+                    }
+                    .listStyle(.plain)
+                    
+                    VStack {
+                        
+                        Spacer()
+                        HStack{
+                            
+                            Spacer()
+                            
+                            ObjectSelectionButton( //MARK: Save button
+                                action: {
+                                    feedback()
+                                    alertType = .save
+                                    showAlert = true
+                                    
+                                },
+                                imageType: .system(name: "square.and.arrow.down"),
+                                textDescription: "Save",
+                                disabled: false,
+                                cornerRadius: cornerRadius
+                            )
+                            .scaleEffect(0.8)
+                            .padding()
+                        }
+                    }
+                    .alert(isPresented: $showAlert) {
+                        switch alertType {
+                        case .delete:
+                            if let objectToDelete = objectToDelete {
+                                return Alert(
+                                    title: Text("Delete Layer"),
+                                    message: Text("Are you sure you want to delete this layer?"),
+                                    primaryButton: .cancel(Text("Cancel")),
+                                    secondaryButton: .destructive(Text("Delete"), action: {
+                                        removeLayer(at: objectToDelete.id)
+                                        if placedObjects.isEmpty {
+                                            showLayerEditView.toggle()
+                                        }
+                                    })
+                                )
+                            }
+                            else {
+                                return Alert(title: Text(""), message: Text("")) // Empty Alert
+                            }
+                        case .deleteAll:
+                            return  Alert(
+                                title: Text("Delete All Layers"),
+                                message: Text("Are you sure you want to delete all layers?"),
+                                primaryButton: .cancel(Text("Cancel")),
+                                secondaryButton: .destructive(Text("Delete All"), action: {
+                                    removeAllLayers()
+                                    if placedObjects.isEmpty {
+                                        showLayerEditView.toggle()
+                                    }
+                                })
+                            )
+                        case .save:
+                            let saveAlertMessage: Text
+                               if placedObjects.count < 5 {
+                                   saveAlertMessage = Text("Are you certain about saving your current ShowBoard config file? Please note that you currently have \(placedObjects.count) layer(s).")
+                               } else {
+                                   saveAlertMessage = Text("Are you sure you want to save the ShowBoard config file with your current settings? It's recommended to save a backup of any previous config files before making any changes. Would you like to proceed?")
+                               }
+                               
+                               return Alert(
+                                   title: Text("Save ShowBoard?"),
+                                   message: saveAlertMessage,
+                                   primaryButton: .cancel(Text("Cancel")),
+                                   secondaryButton: .destructive(Text("Save"), action: {
+                                       // Perform save action here
+                                   })
+                               )
+                        }
+                    }
+                }
+                
+                Spacer()
             }
         }
     }
@@ -130,12 +209,6 @@ struct PlacedObjectsListView: View {
     private func moveLayer(from source: IndexSet, to destination: Int) {
         // Reorder the placedObjects array based on the new index
         placedObjects.move(fromOffsets: source, toOffset: destination)
-    }
-    
-    
-    private func showAlertForDeleteAllLayers() {
-        showAlert = true
-        objectToDelete = nil
     }
     
     private func removeAllLayers() {
@@ -173,17 +246,20 @@ struct PlacedObjectsListView: View {
             Spacer()
             
             //MARK: Other buttons go here
-           
+            
             
             Button(action: {
+                feedback()
                 isPressingDelete.toggle()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    feedback()
+                 
                     isPressingDelete.toggle()
                 }
-                objectToDelete = obj
+                alertType = .delete
                 showAlert = true
+                objectToDelete = obj
+               
                 
             }, label: {
                 Image(systemName: "trash")
@@ -195,6 +271,11 @@ struct PlacedObjectsListView: View {
         
     }
     
+    enum AlertType {
+        case delete
+        case deleteAll
+        case save
+    }
     
     // Store icons and titles for each objectType in an enum
     enum ObjectTypeInfo {
@@ -258,43 +339,45 @@ struct PlacedObjectsListView: View {
 
 
 /*
-Button(action: {
-    // Action to hide or show layer
-    
-    isPressingHideLayer.toggle()
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-        feedback()
-        isPressingHideLayer.toggle()
-    }
-    if hiddenLayers.contains(obj.id) {
-        hiddenLayers.remove(obj.id)
-    } else {
-        hiddenLayers.insert(obj.id)
-    }
-}, label: {
-    Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
-        .scaleEffect(isPressingHideLayer ? 0.9 : 1)
-        .scaleEffect(0.9)
-        .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
-})
-.buttonStyle(.plain)
+ Button(action: {
+ // Action to hide or show layer
+ 
+ isPressingHideLayer.toggle()
+ 
+ DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+ feedback()
+ isPressingHideLayer.toggle()
+ }
+ if hiddenLayers.contains(obj.id) {
+ hiddenLayers.remove(obj.id)
+ } else {
+ hiddenLayers.insert(obj.id)
+ }
+ }, label: {
+ Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
+ .scaleEffect(isPressingHideLayer ? 0.9 : 1)
+ .scaleEffect(0.9)
+ .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
+ })
+ .buttonStyle(.plain)
+ 
+ 
+ Button(action: {
+ isPressingSettings.toggle()
+ 
+ DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+ feedback()
+ isPressingSettings.toggle()
+ }
+ 
+ }, label: {
+ Image(systemName: "gear")
+ .scaleEffect(isPressingSettings ? 0.9 : 1)
+ .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
+ })
+ .buttonStyle(.plain)
+ .padding(.horizontal)
+ 
+ */
 
 
-Button(action: {
-    isPressingSettings.toggle()
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-        feedback()
-        isPressingSettings.toggle()
-    }
-    
-}, label: {
-    Image(systemName: "gear")
-        .scaleEffect(isPressingSettings ? 0.9 : 1)
-        .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
-})
-.buttonStyle(.plain)
-.padding(.horizontal)
-
-*/

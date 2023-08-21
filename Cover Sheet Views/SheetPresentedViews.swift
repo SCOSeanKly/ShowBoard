@@ -23,7 +23,7 @@ struct SheetPresentedViews: View {
     @Binding var importedImage3: UIImage?
     
     //MARK: Show URL Image Gallery View
-    @Binding var showUrlImageView: Bool
+    @Binding var showGallery: Bool
     
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
@@ -42,9 +42,9 @@ struct SheetPresentedViews: View {
                 .customPresentationWithPrimaryBackground(detent: .large, backgroundColorOpacity: 1.0)
         }
         //MARK: Import URL Image Gallery Element
-        .sheet(isPresented: $showUrlImageView) {
-            URLImagesGallery(showUrlImageView: $showUrlImageView, showLayerElementView: $showLayerElementView)
-                .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
+        .sheet(isPresented: $showGallery) {
+            ShowBoardGallery(showGallery: $showGallery, showLayerElementView: $showLayerElementView)
+                .customPresentationWithPrimaryBackground(detent: .large, backgroundColorOpacity: 1.0)
         }
         //MARK: Layer Edit View
         .sheet(isPresented: $showLayerEditView) {
@@ -52,7 +52,7 @@ struct SheetPresentedViews: View {
             LayerEditView(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
              */
-            PlacedObjectsListView(placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers, showLayerEditView: $showLayerEditView)
+            PlacedObjectsListView(placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers, showLayerEditView: $showLayerEditView, showGallery: $showGallery)
                 .customPresentationWithPrimaryBackground(detent: .medium, detent2: .large, backgroundColorOpacity: 1.0)
         }
     }

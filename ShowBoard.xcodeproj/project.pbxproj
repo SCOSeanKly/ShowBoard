@@ -200,7 +200,7 @@
 		3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */; };
 		3ED802222A7A8DE0005E2835 /* WeatherIconObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED802212A7A8DE0005E2835 /* WeatherIconObject.swift */; };
 		3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDBEBFD2A710806003856DA /* HeartButton.swift */; };
-		3EDE6B722A4DB4DD003ACC2B /* URLImagesGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* URLImagesGallery.swift */; };
+		3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
 /* End PBXBuildFile section */
 
@@ -420,7 +420,7 @@
 		3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidgetView.swift; sourceTree = "<group>"; };
 		3ED802212A7A8DE0005E2835 /* WeatherIconObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconObject.swift; sourceTree = "<group>"; };
 		3EDBEBFD2A710806003856DA /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
-		3EDE6B712A4DB4DD003ACC2B /* URLImagesGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImagesGallery.swift; sourceTree = "<group>"; };
+		3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardGallery.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -803,7 +803,7 @@
 			children = (
 				3E4A13C52A73BF9200B055AD /* ObjectSelectionView.swift */,
 				3E39778F2A7BF194002711FC /* ObjectSelectionButtons.swift */,
-				3EDE6B712A4DB4DD003ACC2B /* URLImagesGallery.swift */,
+				3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */,
 				3E3421262A73F37700CFAD27 /* ImportedImageView.swift */,
 				3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */,
 			);
@@ -1217,7 +1217,7 @@
 				3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */,
 				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
-				3EDE6B722A4DB4DD003ACC2B /* URLImagesGallery.swift in Sources */,
+				3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
 				3E3E68872A82720A00F468DD /* ifExtension.swift in Sources */,
 				3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */,

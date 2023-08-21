@@ -39,6 +39,8 @@ struct ObjectSelectionView: View {
         wObserver.getGorecast(offset: 0)
     }
     
+    let cornerRadius: CGFloat = 12
+    
     
     var body: some View {
         ZStack {
@@ -58,7 +60,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "character.textbox"),
                             textDescription: "Custom",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -68,7 +71,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "globe"),
                             textDescription: "RSS",
-                            disabled: true
+                            disabled: true,
+                            cornerRadius: cornerRadius
                         )
                         .disabled(true)
                         
@@ -79,7 +83,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "text.quote"),
                             textDescription: "Quote",
-                            disabled: true
+                            disabled: true,
+                            cornerRadius: cornerRadius
                         )
                         .disabled(true)
                     }
@@ -100,7 +105,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "sun.max"),
                             textDescription: "iOS Style",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -111,7 +117,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set1_5d"),
                             textDescription: "Style1",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -122,7 +129,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -133,7 +141,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -150,7 +159,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "map"),
                             textDescription: "Map",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -164,7 +174,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "calendar"),
                             textDescription: "Calendar",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                     }
                     .padding([.leading, .bottom, .trailing])
@@ -179,7 +190,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "bubbles.and.sparkles"),
                             textDescription: "Glass",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -189,7 +201,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "square"),
                             textDescription: "Squared",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -199,7 +212,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "star"),
                             textDescription: "Custom",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -209,7 +223,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "alternatingcurrent"),
                             textDescription: "Wavy Dock",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -219,7 +234,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "apple.logo"),
                             textDescription: "SF Symbols",
-                            disabled: true
+                            disabled: true,
+                            cornerRadius: cornerRadius
                         )
                         
                         
@@ -236,7 +252,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "timer"),
                             textDescription: "Battery Circle",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -246,7 +263,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "chart.line.flattrend.xyaxis"),
                             textDescription: "Battery Linear",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -256,7 +274,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "speedometer"),
                             textDescription: "Hi/Lo Circle",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
@@ -266,7 +285,8 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "chart.line.flattrend.xyaxis"),
                             textDescription: "Hi/Lo Linear",
-                            disabled: false
+                            disabled: false,
+                            cornerRadius: cornerRadius
                         )
                         
                         
@@ -277,15 +297,15 @@ struct ObjectSelectionView: View {
                 
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
-                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", disabled: false, buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
+                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", disabled: false, cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage1)
                         }
-                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", disabled: false,buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
+                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", disabled: false,cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage2)
                         }
-                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", disabled: false,buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
+                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", disabled: false,cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage3)
                         }

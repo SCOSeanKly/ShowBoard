@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct URLImagesGallery: View {
+struct ShowBoardGallery: View {
     @ObservedObject var viewModelURLImages = DataViewModelURLImages()
     let screenWidth = UIScreen.main.bounds.width
     @State private var currentIndex = 0
-    @Binding var showUrlImageView: Bool
+    @Binding var showGallery: Bool
     @Binding var showLayerElementView: Bool
     @State private var showAlert = false
     
@@ -25,7 +25,7 @@ struct URLImagesGallery: View {
                 if !viewModelURLImages.images.isEmpty {
                     ScrollView(.vertical, showsIndicators: false) {
                         
-                        LayerBackButton(selfViewToClose: $showUrlImageView, viewToOpen: $showAnotherView, showLayerElementView: $showLayerElementView, headerText: "Gallery", systemImage: "arrow.left.circle", systemImage2: "")
+                        LayerBackButton(selfViewToClose: $showGallery, viewToOpen: $showAnotherView, showLayerElementView: $showAnotherView, headerText: "Gallery", systemImage: "xmark.circle", systemImage2: "")
                         
                         LazyVGrid(columns: gridItemLayout, spacing: 0) { // Use LazyVGrid to create the grid
                             ForEach(viewModelURLImages.images.indices, id: \.self) { index in
@@ -65,7 +65,7 @@ struct URLImagesGallery: View {
                 title: Text("Import Board"),
                 message: Text("Are you sure you want to import this Board?"),
                 primaryButton: .default(Text("Import")) {
-                    showUrlImageView.toggle()
+                    showGallery.toggle()
                 },
                 secondaryButton: .cancel()
             )

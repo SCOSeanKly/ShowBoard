@@ -22,7 +22,7 @@ struct GroupView: View {
     @Binding var importedImage3: UIImage?
     @Binding var importedBackground: UIImage?
     @Binding var showBgPickerSheet: Bool
-    @Binding var showUrlImageView: Bool
+    @Binding var showGallery: Bool
     
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
@@ -43,7 +43,7 @@ struct GroupView: View {
             ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)
             
             //MARK: View containing the SheetPresentedViews
-            SheetPresentedViews(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showUrlImageView: $showUrlImageView, placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers)
+            SheetPresentedViews(showLayerElementView: $showLayerElementView, showLayerEditView: $showLayerEditView, showImagePickerSheet1: $showImagePickerSheet1, showImagePickerSheet2: $showImagePickerSheet2, showImagePickerSheet3: $showImagePickerSheet3, importedImage1: $importedImage1, importedImage2: $importedImage2, importedImage3: $importedImage3, showGallery: $showGallery, placedObjects: $placedObjects, selection: $selection, hiddenLayers: $hiddenLayers)
         }
     }
 }

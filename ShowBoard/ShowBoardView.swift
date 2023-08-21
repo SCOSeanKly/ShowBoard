@@ -34,7 +34,7 @@ struct ShowBoardView: View {
     //MARK: Sheet Presented - Layer Elements
     @State private var showLayerElementView = false
     @State private var showLayerEditView = false
-    @State private var showUrlImageView: Bool = false
+    @State private var showGallery: Bool = false
     @State private var showAppSettings: Bool = false ///Still to be added
     
     //MARK: Observed Objects
@@ -146,7 +146,7 @@ struct ShowBoardView: View {
                       importedImage3: $importedImage3,
                       importedBackground: $importedBackground,
                       showBgPickerSheet: $showBgPickerSheet,
-                      showUrlImageView: $showUrlImageView,
+                      showGallery: $showGallery,
                       placedObjects: $placedObjects,
                       selection: $selection,
                       hiddenLayers: $hiddenLayers)
