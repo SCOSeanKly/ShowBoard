@@ -11,30 +11,28 @@ import SwiftUI
 
 
 class WeatherIconLayerObject: LayerObject {
-     
+    
     // MARK: - Public Properties
-     
-  
+    
+    
+    /// Currently selected weather icon set
     @Published var activeWeatherIconImageSet: WeatherIconImageSet
-     
+    
     enum WeatherIconImageSet {
         case set1
         case set2
         case set3
-        case set4
-        case set5
-        case set6
-        
     }
-     
-    func changeActiveWeatherIconSet(to newSet: WeatherIconImageSet) {
-        DispatchQueue.main.async {
-            self.activeWeatherIconImageSet = newSet
-        }
-    }
-  
+ 
+    
+    
+    // MARK: - Public Methods
+    
+    
     init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), activeWeatherIconImageSet: WeatherIconImageSet = .set1) {
+
         self.activeWeatherIconImageSet = activeWeatherIconImageSet
+       
         
         super.init()
         self.id = id

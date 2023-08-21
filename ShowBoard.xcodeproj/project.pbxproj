@@ -121,7 +121,6 @@
 		3E80F0D52A8E7531009C8D3F /* Fortuna_Dot.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09E2A8E7531009C8D3F /* Fortuna_Dot.ttf */; };
 		3E80F0D62A8E7531009C8D3F /* Bold2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09F2A8E7531009C8D3F /* Bold2.otf */; };
 		3E80F0D72A8E7531009C8D3F /* Serrona_Sans_Outline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F0A02A8E7531009C8D3F /* Serrona_Sans_Outline.ttf */; };
-		3E80F0D82A8E7531009C8D3F /* Altera.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F0A12A8E7531009C8D3F /* Altera.otf */; };
 		3E80F0D92A8E7531009C8D3F /* Bondie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F0A22A8E7531009C8D3F /* Bondie.ttf */; };
 		3E82803C2A7939B800F174F9 /* RainFallLanding.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3E82803A2A7939B800F174F9 /* RainFallLanding.sks */; };
 		3E82803D2A7939B800F174F9 /* RainFall.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3E82803B2A7939B800F174F9 /* RainFall.sks */; };
@@ -334,7 +333,6 @@
 		3E80F09E2A8E7531009C8D3F /* Fortuna_Dot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fortuna_Dot.ttf; sourceTree = "<group>"; };
 		3E80F09F2A8E7531009C8D3F /* Bold2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bold2.otf; sourceTree = "<group>"; };
 		3E80F0A02A8E7531009C8D3F /* Serrona_Sans_Outline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Serrona_Sans_Outline.ttf; sourceTree = "<group>"; };
-		3E80F0A12A8E7531009C8D3F /* Altera.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Altera.otf; sourceTree = "<group>"; };
 		3E80F0A22A8E7531009C8D3F /* Bondie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bondie.ttf; sourceTree = "<group>"; };
 		3E82803A2A7939B800F174F9 /* RainFallLanding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFallLanding.sks; sourceTree = "<group>"; };
 		3E82803B2A7939B800F174F9 /* RainFall.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainFall.sks; sourceTree = "<group>"; };
@@ -539,12 +537,6 @@
 		3E80F06B2A8E751A009C8D3F /* Still to add */ = {
 			isa = PBXGroup;
 			children = (
-				3E80F0932A8E7530009C8D3F /* 1942.ttf */,
-				3E80F0902A8E7530009C8D3F /* Acens.ttf */,
-				3E80F08C2A8E7530009C8D3F /* AirForce_Regular.ttf */,
-				3E80F0982A8E7530009C8D3F /* Akira_Outline.ttf */,
-				3E80F07E2A8E752F009C8D3F /* AlmaMono_Bold.ttf */,
-				3E80F0A12A8E7531009C8D3F /* Altera.otf */,
 				3E80F0832A8E752F009C8D3F /* AltumSans_Bold.ttf */,
 				3E80F0802A8E752F009C8D3F /* Amalfi_Coast.ttf */,
 				3E80F0992A8E7530009C8D3F /* antillesgrad.ttf */,
@@ -739,6 +731,11 @@
 			isa = PBXGroup;
 			children = (
 				3E80F06B2A8E751A009C8D3F /* Still to add */,
+				3E80F0932A8E7530009C8D3F /* 1942.ttf */,
+				3E80F0902A8E7530009C8D3F /* Acens.ttf */,
+				3E80F08C2A8E7530009C8D3F /* AirForce_Regular.ttf */,
+				3E80F0982A8E7530009C8D3F /* Akira_Outline.ttf */,
+				3E80F07E2A8E752F009C8D3F /* AlmaMono_Bold.ttf */,
 				3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */,
 				3E2245972A863810002B35B2 /* Rashavine.ttf */,
 				3E2245952A8637FC002B35B2 /* Spacetron.otf */,
@@ -1067,7 +1064,6 @@
 				3ED8020D2A7A6F86005E2835 /* Monoton-Regular.ttf in Resources */,
 				3E80F0AE2A8E7531009C8D3F /* pincoyablack.otf in Resources */,
 				3E80F0C52A8E7531009C8D3F /* dim.ttf in Resources */,
-				3E80F0D82A8E7531009C8D3F /* Altera.otf in Resources */,
 				3E2245922A8637E8002B35B2 /* Patrick Rastelo.otf in Resources */,
 				3ED802162A7A6F86005E2835 /* NixieOne-Regular.ttf in Resources */,
 				3ED801FB2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf in Resources */,
@@ -1400,7 +1396,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.25;
+				CURRENT_PROJECT_VERSION = 0.0.27;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1443,7 +1439,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.25;
+				CURRENT_PROJECT_VERSION = 0.0.27;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

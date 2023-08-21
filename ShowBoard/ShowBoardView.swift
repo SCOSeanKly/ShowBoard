@@ -9,6 +9,7 @@ import SwiftUI
 import CoreLocation
 import Photos
 
+
 struct ShowBoardView: View {
     //MARK: Modifier Variables
     @GestureState private var dragOffset = CGSize.zero
@@ -41,7 +42,7 @@ struct ShowBoardView: View {
     
     //MARK: Micro controls - Should work on all elements once implemented correctly
     @State private var showMicroControls: Bool = false
-
+    
     //MARK: New Variables
     @State private var placedObjects: [LayerObject] = []
     @State private var selection: UUID?
@@ -49,6 +50,7 @@ struct ShowBoardView: View {
     
     
     var body: some View {
+        
         ZStack {
             
             //MARK: Imported Background (Wallpaper) Image
@@ -69,7 +71,7 @@ struct ShowBoardView: View {
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
-              ImportedImageView1(importedImage1: importedImage1)
+                ImportedImageView1(importedImage1: importedImage1)
                     .onTapGesture {
                         if placedObjects.count >= 1 {
                             if selection != nil{
@@ -81,26 +83,28 @@ struct ShowBoardView: View {
                     }
                 
                 ImportedImageView2(importedImage2: importedImage2)
-                      .onTapGesture {
-                          if placedObjects.count >= 1 {
-                              if selection != nil{
-                                  feedback()
-                                  showMicroControls = false
-                              }
-                          }
-                          selection = nil
-                      }
+                    .onTapGesture {
+                        if placedObjects.count >= 1 {
+                            if selection != nil{
+                                feedback()
+                                showMicroControls = false
+                            }
+                        }
+                        selection = nil
+                    }
                 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
+                            //MARK: Weather icon has a bug where if two are displayed the sliders dont work and also the two placed objects are selected?
+                            case .weatherIcon:   WeatherIconView(showMicroControls: $showMicroControls)
+                
                             case .text:         TextObjectView(text: obj as! TextObject, showMicroControls: $showMicroControls)
                             case .map:          MapView(map: obj as! MapObject, showMicroControls: $showMicroControls)
                             case .customShape:  CustomShapeView(showMicroControls: $showMicroControls)
                             case .wavyDock:     WavyDockView(showMicroControls: $showMicroControls)
                             case .glassShape:   GlassShapeView(showMicroControls: $showMicroControls)
-                            case .weatherIcon:  WeatherIconView(showMicroControls: $showMicroControls)
                             case .squareShape:  SquareShapeView(showMicroControls: $showMicroControls)
                             case .calendar:     CalendarView(showMicroControls: $showMicroControls)
                             case .batteryCircleGauge:  BatteryCircleGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
@@ -118,15 +122,15 @@ struct ShowBoardView: View {
                 }
                 
                 ImportedImageView3(importedImage3: importedImage3)
-                      .onTapGesture {
-                          if placedObjects.count >= 1 {
-                              if selection != nil{
-                                  feedback()
-                                  showMicroControls = false
-                              }
-                          }
-                          selection = nil
-                      }
+                    .onTapGesture {
+                        if placedObjects.count >= 1 {
+                            if selection != nil{
+                                feedback()
+                                showMicroControls = false
+                            }
+                        }
+                        selection = nil
+                    }
             }
             
             GroupView(isDragging: $isDragging,
@@ -146,7 +150,7 @@ struct ShowBoardView: View {
                       showUrlImageView: $showUrlImageView,
                       placedObjects: $placedObjects,
                       selection: $selection,
-                      hiddenLayers: $hiddenLayers)   
+                      hiddenLayers: $hiddenLayers)
         }
         .onAppear {
             batteryViewModel.startBatteryMonitoring()
@@ -167,13 +171,10 @@ struct ShowBoardView: View {
 
 struct ShowBoardView_Previews: PreviewProvider {
     static var previews: some View {
-
+        
         return ShowBoardView()
             .preferredColorScheme(.light)
             .environment(\.sizeCategory, .small)
             .environment(\.colorScheme, .light)
     }
 }
-
-
-

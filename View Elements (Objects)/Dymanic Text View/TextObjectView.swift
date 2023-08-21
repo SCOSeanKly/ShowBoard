@@ -31,11 +31,7 @@ struct TextObjectView: View {
         ZStack {
             if !text.appearance.isCircleText {
                 Text(text.appearance.dynamicText(wk: wObserver).dropLast(Int(text.appearance.dropLast)))
-                 .shadow(
-                 radius: text.appearance.shadow.radius,
-                 x: text.appearance.shadow.offset.x,
-                 y: text.appearance.shadow.offset.y
-                 )
+                 .shadow(color: Color.black.opacity(text.appearance.shadowOpacity), radius: text.appearance.shadow.radius, x: text.appearance.shadow.offset.x, y: text.appearance.shadow.offset.y)
                  .multilineTextAlignment(text.appearance.textAlignment)
                  .frame(width: text.appearance.fontFrameWidth, alignment: alignment)
                  .font(text.appearance.font)

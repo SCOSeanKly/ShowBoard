@@ -8,7 +8,7 @@
 import Foundation
 
 enum LayerObjectType {
-    
+    case weatherIcon
     case text
     case customShape
     case wavyDock
@@ -17,7 +17,6 @@ enum LayerObjectType {
     case batteryLinearGauge
     case glassShape
     case squareShape
-    case weatherIcon
     case calendar
     case hiLoCircleGauge
     case hiLoLinearGauge

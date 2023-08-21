@@ -77,20 +77,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                 .animation(animation, value: isActive)
             }
             .frame(width: bounds.size.width, height: bounds.size.height, alignment: .center)
-            
-            /* //MARK: This code allows dragging the slider without the button
-            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                .updating($isActive) { value, state, transaction in
-                    state = true
-                }
-                .onChanged { gesture in
-                    localTempProgress = T(gesture.translation.width / bounds.size.width)
-                    value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
-                }.onEnded { value in
-                    localRealProgress = max(min(localRealProgress + localTempProgress, 1), 0)
-                    localTempProgress = 0
-                })
-            */
             .onChange(of: isActive) { newValue in
                 value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
                 onEditingChanged(newValue)
@@ -107,6 +93,9 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
         }
         .frame(height: isActive ? height * 2 : height, alignment: .center)
         .padding(.horizontal)
+        .frame(height: 20)
+        .padding(.leading, 5)
+        
     }
     
     private var animation: Animation {

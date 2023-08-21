@@ -10,6 +10,7 @@ import WeatherKit
 
 struct WeatherIconView: View {
     @ObservedObject var wObserver = AppModel.shared.wObserver
+    @StateObject var weatherIconObject = WeatherIconLayerObject()
     @Binding var showMicroControls: Bool
     
     var currentWeather: CurrentWeather? {
@@ -40,6 +41,5 @@ struct WeatherIconView: View {
         }
     }
 }
-
 
 

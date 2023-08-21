@@ -124,7 +124,7 @@ struct AppearanceControlView: View {
                 
                 SliderStepper(color: .blue, title: "Image Opacity:", sliderBindingValue: $layer.appearance.opacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 1)
                 
-                SliderStepperDegrees(color: .blue,title: "Rotation:", sliderBindingValue: $layer.appearance.rotation.degrees,minValue: 0, maxValue: 360, step: 1, specifier: 0, defaultValue: 0)
+                SliderStepperDegrees(color: .blue,title: "Rotation:", sliderBindingValue: $layer.appearance.rotation.degrees,minValue: -180, maxValue: 180, step: 1, specifier: 0, defaultValue: 0)
             }
             
             Group {

@@ -50,8 +50,7 @@ struct SliderStepper: View {
                         
                         CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
                         }
-                        .frame(height: 20)
-                        .padding(.leading, 5)
+                      
                         
                         Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
                             .specifierFont()
@@ -73,8 +72,7 @@ struct SliderStepper: View {
                         CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
                             
                         }
-                        .frame(height: 20)
-                        .padding(.leading, 5)
+                       
                         
                         HStack {
                             if Double(sliderBindingValue.wrappedValue) > minValue {
@@ -136,14 +134,7 @@ struct SliderStepper: View {
             Button(action: {
                 
                 feedback()
-                /*
-                sliderTypeOpacity.toggle()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    sliderTypeOpacity.toggle()
-                }
-                 */
-                
+              
                 isSliderMode.toggle()
                 if !isSliderMode {
                     resetTimer()

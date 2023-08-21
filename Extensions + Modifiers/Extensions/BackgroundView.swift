@@ -22,8 +22,11 @@ struct BackgroundView: View {
         "Double Tap the canvas to import a wallpaper",
         "Tap the menu icon in the top left to get started adding objects to the canvas",
         "Tap the layers icon to edit and delete layers from the canvas",
-        "Use Dynamic Text to string Data and User text together",
-        "When using Dynamic Text make sure to pay close attention to text case"
+        "Use Dynamic Text to string data and user text together",
+        "When using Dynamic Text make sure to pay close attention to text case",
+        "Don't eat yellow snow!",
+        "An iOS Shortcut is required to set the wallpaper"
+        
         // Add more hints here...
     ]
     

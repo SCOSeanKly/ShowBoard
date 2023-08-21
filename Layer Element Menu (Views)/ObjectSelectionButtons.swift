@@ -54,6 +54,7 @@ struct ObjectSelectionButton: View {
                     .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
             }
         }
+        .blendMode(disabled ? .luminosity : .normal)
         .opacity(disabled ? 0.3 : 1)
         .buttonModifier(isPressing: isPressing, disabled: disabled)
         .onTapGesture {

@@ -79,7 +79,7 @@ struct DynamicTextEditViewSettings: View {
                         
                         SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.appearance.fontTracking, minValue: 0, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
                         
-                        SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.appearance.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.width, step: 1, specifier: 0, defaultValue: 200)
+                        SliderStepper(color: .blue, title: "Frame Width:", sliderBindingValue: $text.appearance.fontFrameWidth, minValue: 0, maxValue: UIScreen.main.bounds.height * 1.2, step: 1, specifier: 0, defaultValue: 200)
                          
                     }
                     
@@ -87,7 +87,7 @@ struct DynamicTextEditViewSettings: View {
                 
                     Group {
                         
-                        SliderStepperDegrees(color: .blue, title: "Rotation:", sliderBindingValue: $text.appearance.rotation.degrees, minValue: 0, maxValue: 360, step: 1, specifier: 0, defaultValue: 0)
+                        SliderStepperDegrees(color: .blue, title: "Rotation:", sliderBindingValue: $text.appearance.rotation.degrees, minValue: -180, maxValue: 180, step: 1, specifier: 0, defaultValue: 0)
                             .onChange(of: text.appearance.rotation) { text.appearance.rotation = $0 }
                         
                         SliderStepper(color: .blue, title: "Skew X", sliderBindingValue: $text.appearance.skewY, minValue: -180, maxValue: 180, step: 1, specifier: 1, defaultValue: 0)
@@ -99,6 +99,8 @@ struct DynamicTextEditViewSettings: View {
                         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $text.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: 1, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Shadow Offset:", sliderBindingValue: $text.appearance.shadow.offset.y, minValue: 0, maxValue: 30, step: 0.1, specifier: 1, defaultValue: 0)
+                        
+                        SliderStepper(color: .blue, title: "Shadow Opacity:", sliderBindingValue: $text.appearance.shadowOpacity, minValue: 0, maxValue: 1, step: 0.1, specifier: 1, defaultValue: 0.0)
                     }
                     
                     Group {

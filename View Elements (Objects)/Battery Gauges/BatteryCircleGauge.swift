@@ -37,7 +37,7 @@ struct BatteryCircleGauge: View {
                     .foregroundColor(bat.appearance.minMaxValueLabelColor)
             }
         }
-       
+        .scaleEffect(1.5)
         .tint(bat.appearance.gaugeColor)
         .opacity(bat.appearance.opacity)
         .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
@@ -47,6 +47,7 @@ struct BatteryCircleGauge: View {
             Circle()
                 .fill(Color.white.opacity(0.00001))
         }
+      
     }
        
 }

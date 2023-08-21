@@ -5,7 +5,13 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Autone.ttf</string>
+		<string>1942.ttf</string>
+		<string>Acens.ttf</string>
+		<string>AirForce_Regular.ttf</string>
+		<string>Akira_Outline.ttf</string>
+		<string>AlmaMono_Bold.ttf</string>
 		<string>ModernAge.ttf</string>
+		<string></string>
 		<string>RobotoCondensed-Regular.ttf</string>
 		<string>AlfaSlabOne-Regular.ttf</string>
 		<string>AmaticSC-Regular.ttf</string>

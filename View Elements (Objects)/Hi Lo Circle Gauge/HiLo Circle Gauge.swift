@@ -49,7 +49,7 @@ struct HiLoCircleGauge: View {
                        } minimumValueLabel: {
                            
                             if hiLo.appearance.showMinMaxValueLabels {
-                            Text(highTempString.dropLast(0))
+                            Text(lowTempString.dropLast(0))
                                     .font(.system(size: hiLo.appearance.minMaxValueLabelFontSize))
                                     .foregroundColor(hiLo.appearance.minMaxValueLabelColor)
                             }
@@ -59,13 +59,14 @@ struct HiLoCircleGauge: View {
                        } maximumValueLabel: {
                            
                             if hiLo.appearance.showMinMaxValueLabels {
-                            Text(lowTempString.dropLast(0))
+                            Text(highTempString.dropLast(0))
                                     .font(.system(size: hiLo.appearance.minMaxValueLabelFontSize))
                                     .foregroundColor(hiLo.appearance.minMaxValueLabelColor)
                             }
                             
                          
                        }
+                       .scaleEffect(1.5)
                        .tint(hiLo.appearance.gaugeColor)
                        .opacity(hiLo.appearance.opacity)
                        .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
@@ -75,6 +76,7 @@ struct HiLoCircleGauge: View {
                            Circle()
                                .fill(Color.white.opacity(0.00001))
                        }
+                      
                    }
      
             

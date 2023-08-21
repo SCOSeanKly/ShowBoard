@@ -28,9 +28,11 @@ struct HiLoLinearGauge: View {
         let temperatureString = DynamicText.Placeholder.temp.withCurrentWeather(currentWeather, unit: .celsius)
         let highTempString = DynamicText.Placeholder.highTemp.withDayWeather(todaysForecast, unit: .celsius)
         let lowTempString = DynamicText.Placeholder.lowTemp.withDayWeather(todaysForecast, unit: .celsius)
+     
         
         VStack {
           
+            
             Gauge(value: Double(temperatureString) ?? 0, in: (Double(lowTempString) ?? 0)...(Double(highTempString) ?? 0)) {
 
                          
@@ -47,7 +49,7 @@ struct HiLoLinearGauge: View {
                        } minimumValueLabel: {
                            
                             if hiLo.appearance.showMinMaxValueLabels {
-                            Text(highTempString.dropLast(0))
+                            Text(lowTempString.dropLast(0))
                                     .font(.system(size: hiLo.appearance.minMaxValueLabelFontSize))
                                     .foregroundColor(hiLo.appearance.minMaxValueLabelColor)
                             }
@@ -57,7 +59,7 @@ struct HiLoLinearGauge: View {
                        } maximumValueLabel: {
                            
                             if hiLo.appearance.showMinMaxValueLabels {
-                            Text(lowTempString.dropLast(0))
+                            Text(highTempString.dropLast(0))
                                     .font(.system(size: hiLo.appearance.minMaxValueLabelFontSize))
                                     .foregroundColor(hiLo.appearance.minMaxValueLabelColor)
                             }

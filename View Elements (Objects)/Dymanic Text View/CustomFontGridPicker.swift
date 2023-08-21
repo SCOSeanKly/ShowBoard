@@ -46,7 +46,7 @@ struct CustomFontGridPicker: View {
             .padding(.top)
             
             
-           
+            
             ZStack {
                 TextField("Search fonts...", text: $searchText)
                     .padding(10)
@@ -71,59 +71,58 @@ struct CustomFontGridPicker: View {
                     .padding(.trailing, 30)
                 }
             }
-                    
-                   
-              
-      
-          
             
-        
-                LazyVGrid(columns: columns, spacing: 10) {
-                    ForEach(filteredFontFamilyNames, id: \.self) { familyName in
-                        if let fontName = UIFont.fontNames(forFamilyName: familyName).first {
+            
+            
+            
+            
+            
+            
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(filteredFontFamilyNames, id: \.self) { familyName in
+                    if let fontName = UIFont.fontNames(forFamilyName: familyName).first {
+                        
+                        Button {
                             
-                            Button {
+                            bindingValue = fontName
+                            
+                            isPressing.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                                isPressing.toggle()}
+                        }label: {
+                            ZStack {
                                 
-                                bindingValue = fontName
-                                
-                                isPressing.toggle()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                                    isPressing.toggle()}
-                            }label: {
-                                ZStack {
+                                VStack {
                                     
-                                    VStack {
-                                     
-                                        Spacer()
-                                        
-                                        Text(fontName)
-                                            .font(.system(size: 8).weight(.medium))
-                                            .lineLimit(1)
-                                           
-                                    }
+                                    Spacer()
                                     
-                                    Text("Aa")
-                                        .font(Font.custom(fontName, size: 24))
-                                        .frame(height: 30)
-                                   
+                                    Text(fontName)
+                                        .font(.system(size: 8).weight(.medium))
+                                        .lineLimit(1)
+                                    
                                 }
-                                .frame(width: 50, height: 60)
-                                .padding(10)
-                                .background(Color.white)
-                                .cornerRadius(12)
-                                .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
-                                .tint(.black)
+                                
+                                Text(fontName.prefix(2))
+                                    .font(Font.custom(fontName, size: 24))
+                                    .frame(height: 30)
+                                
                             }
-                            
+                            .frame(width: 50, height: 60)
+                            .padding(10)
+                            .background(Color.white)
+                            .cornerRadius(12)
+                            .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
+                            .tint(.black)
                         }
+                        
                     }
                 }
-                .padding()
-            
+            }
+            .padding()
             .customPresentationWithPrimaryBackground(detent: .medium, backgroundColorOpacity: 1.0)
         }
         
-         var filteredFontFamilyNames: [String] {
+        var filteredFontFamilyNames: [String] {
             if searchText.isEmpty {
                 return UIFont.familyNames.sorted()
             } else {
