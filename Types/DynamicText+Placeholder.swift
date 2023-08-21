@@ -32,6 +32,7 @@ extension DynamicText {
         case lowTemp = "[lo]"
         case precipation = "[precip]"
         case precipationChance = "[precipChance]"
+        case conditionSymbol = "[conditionSymbol]"
       
         
         // Current weather
@@ -111,6 +112,8 @@ extension DynamicText {
                   return "\(val.precipitationAmount)"
               case .precipationChance:
                   return String(format: "%.0f%%", val.precipitationChance * 100)
+            case .conditionSymbol:
+                return String(val.symbolName)
             default:
                 return ""
             }

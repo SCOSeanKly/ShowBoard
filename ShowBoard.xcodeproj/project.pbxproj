@@ -43,6 +43,8 @@
 		3E2245962A8637FC002B35B2 /* Spacetron.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245952A8637FC002B35B2 /* Spacetron.otf */; };
 		3E2245982A863810002B35B2 /* Rashavine.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245972A863810002B35B2 /* Rashavine.ttf */; };
 		3E22459A2A863820002B35B2 /* JapanRich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */; };
+		3E315A552A9391A100D0A42E /* Condition Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A542A9391A100D0A42E /* Condition Asset.swift */; };
+		3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A562A93942400D0A42E /* ConditionAssetObject.swift */; };
 		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */; };
 		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
@@ -255,6 +257,8 @@
 		3E2245952A8637FC002B35B2 /* Spacetron.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Spacetron.otf; sourceTree = "<group>"; };
 		3E2245972A863810002B35B2 /* Rashavine.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rashavine.ttf; sourceTree = "<group>"; };
 		3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JapanRich-Regular.ttf"; sourceTree = "<group>"; };
+		3E315A542A9391A100D0A42E /* Condition Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Condition Asset.swift"; sourceTree = "<group>"; };
+		3E315A562A93942400D0A42E /* ConditionAssetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionAssetObject.swift; sourceTree = "<group>"; };
 		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButtonView.swift; sourceTree = "<group>"; };
 		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 				0940CCF22A6860DC009CE54C /* LayerObjectType.swift */,
 				3E6B7A3D2A811F1200163E58 /* WeatherIconLayerObject.swift */,
 				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
+				3E315A562A93942400D0A42E /* ConditionAssetObject.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -491,6 +496,14 @@
 				3E2245762A862625002B35B2 /* SquareShapeView.swift */,
 			);
 			path = "Square Shape View";
+			sourceTree = "<group>";
+		};
+		3E315A582A939FC200D0A42E /* Condition Asset */ = {
+			isa = PBXGroup;
+			children = (
+				3E315A542A9391A100D0A42E /* Condition Asset.swift */,
+			);
+			path = "Condition Asset";
 			sourceTree = "<group>";
 		};
 		3E371CE02A66C10E00DE743C /* Battery Gauges */ = {
@@ -520,6 +533,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3E315A582A939FC200D0A42E /* Condition Asset */,
 				3EC0DDA42A8FACD000E1A893 /* Hi Lo Circle Gauge */,
 				3EAA6E5A2A8BD1980093BB3A /* Calendar View */,
 				3E2245752A862609002B35B2 /* Square Shape View */,
@@ -1167,6 +1181,7 @@
 				3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */,
 				3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */,
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
+				3E315A552A9391A100D0A42E /* Condition Asset.swift in Sources */,
 				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
 				3EC0DDA62A8FAF0700E1A893 /* HiLoLinearGauge.swift in Sources */,
 				3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */,
@@ -1182,6 +1197,7 @@
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
 				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
 				3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */,
+				3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */,
 				09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */,
 				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,

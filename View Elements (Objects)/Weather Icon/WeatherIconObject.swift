@@ -31,6 +31,8 @@ struct WeatherIconView: View {
                 ProgressView()
             }
             
+          
+            
             Image(DynamicText.Placeholder.conditionAsset.withCurrentWeather(currentWeather, unit: .celsius))
                 .resizable()
                 .aspectRatio(contentMode: .fill)

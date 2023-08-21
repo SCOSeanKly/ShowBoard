@@ -91,6 +91,18 @@ struct ObjectSelectionView: View {
                 Group {
                     ObjectTitleText(titleText: "Weather Icon (Current)")
                     LazyVGrid(columns: gridItems, spacing: 16) {
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                weatherIconObject.activeWeatherIconImageSet = .set3
+                                placedObjects.append(ConditionAssetObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "sun.max"),
+                            textDescription: "iOS Style",
+                            disabled: false
+                        )
+                        
                         ObjectSelectionButton(
                             action: {
                                 weatherIconObject.activeWeatherIconImageSet = .set1
@@ -222,7 +234,7 @@ struct ObjectSelectionView: View {
                                 placedObjects.append(CircleGaugeObject())
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "circle"),
+                            imageType: .system(name: "timer"),
                             textDescription: "Battery Circle",
                             disabled: false
                         )
@@ -232,7 +244,7 @@ struct ObjectSelectionView: View {
                                 placedObjects.append(LinearGaugeObject())
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "line.diagonal"),
+                            imageType: .system(name: "chart.line.flattrend.xyaxis"),
                             textDescription: "Battery Linear",
                             disabled: false
                         )
@@ -242,7 +254,7 @@ struct ObjectSelectionView: View {
                                 placedObjects.append(HiLoGaugeObject())
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "circle.dotted"),
+                            imageType: .system(name: "speedometer"),
                             textDescription: "Hi / Lo",
                             disabled: false
                         )
@@ -252,7 +264,7 @@ struct ObjectSelectionView: View {
                                 placedObjects.append(LinearHiLoObject())
                                 showLayerElementView = false
                             },
-                            imageType: .system(name: "line.diagonal"),
+                            imageType: .system(name: "chart.line.flattrend.xyaxis"),
                             textDescription: "Hi / Lo Linear",
                             disabled: false
                         )

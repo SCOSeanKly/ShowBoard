@@ -36,9 +36,6 @@ struct GroupView: View {
             //MARK: Grid Overlay appears when dragging or micro adjustments are on screen
             GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
             
-            //MARK: Micro controller buttons
-         
-           
             //MARK:  Menu Buttons
             MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls, placedObjects: $placedObjects)
             

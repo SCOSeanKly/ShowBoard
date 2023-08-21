@@ -97,9 +97,7 @@ struct ShowBoardView: View {
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
                             switch obj.objectType {
-                            //MARK: Weather icon has a bug where if two are displayed the sliders dont work and also the two placed objects are selected?
                             case .weatherIcon:   WeatherIconView(showMicroControls: $showMicroControls)
-                
                             case .text:         TextObjectView(text: obj as! TextObject, showMicroControls: $showMicroControls)
                             case .map:          MapView(map: obj as! MapObject, showMicroControls: $showMicroControls)
                             case .customShape:  CustomShapeView(showMicroControls: $showMicroControls)
@@ -111,6 +109,7 @@ struct ShowBoardView: View {
                             case .batteryLinearGauge:  BatteryLinearGauge(batteryViewModel: batteryViewModel, showMicroControls: $showMicroControls)
                             case .hiLoCircleGauge: HiLoCircleGauge(showMicroControls: $showMicroControls)
                             case .hiLoLinearGauge: HiLoLinearGauge(showMicroControls: $showMicroControls)
+                            case .conditionAsset: Condition_Asset(showMicroControls: $showMicroControls)
                             }
                         }
                         .padding(10)

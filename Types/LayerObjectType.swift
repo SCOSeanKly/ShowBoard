@@ -20,5 +20,6 @@ enum LayerObjectType {
     case calendar
     case hiLoCircleGauge
     case hiLoLinearGauge
+    case conditionAsset
 
 }

@@ -15,7 +15,6 @@ struct TextObjectView: View {
     @Binding var showMicroControls: Bool
     
     
-    
     var alignment: Alignment {
         switch text.appearance.textAlignment {
         case .leading:
@@ -44,6 +43,7 @@ struct TextObjectView: View {
                  .blur(radius: text.appearance.blur)
                  .rotation3DEffect(.degrees(text.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))
                  .rotation3DEffect(.degrees(text.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
+                 .padding()
                  .background{
                  Rectangle()
                  .fill(Color.white.opacity(0.00001))
@@ -74,12 +74,11 @@ struct TextObjectView: View {
                 }
             }
         }
-        .if(text.appearance.showReflection) { view in
-            view.reflection(offsetY: text.appearance.reflectionOffset)
-        }
-        
         .onTapGesture {
             text.appearance.showSettings.toggle()
+        }
+        .if(text.appearance.showReflection) { view in
+            view.reflection(offsetY: text.appearance.reflectionOffset)
         }
         .sheet(isPresented: $text.appearance.showSettings){
             DynamicTextEditViewSettings(text: text, showMicroControls: $showMicroControls)

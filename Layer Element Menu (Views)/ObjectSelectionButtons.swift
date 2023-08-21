@@ -28,7 +28,7 @@ struct ObjectSelectionButton: View {
                             Image(systemName: imageName)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 30, height: 30)
+                                .frame(width: 26, height: 26)
                                 .scaleEffect(isPressing ? 0.8 : 1)
                                 .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                             

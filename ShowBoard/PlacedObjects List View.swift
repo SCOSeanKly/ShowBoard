@@ -19,6 +19,7 @@ struct PlacedObjectsListView: View {
     @State private var isPressingSettings: Bool = false
     @State private var isPressingDelete: Bool = false
     @Binding var showLayerEditView: Bool
+   // @Binding var showLayerElementView: Bool
     
     let highlightColor = Color.blue.opacity(0.05)
     
@@ -56,6 +57,8 @@ struct PlacedObjectsListView: View {
             } else {
                 
                 List {
+                   
+                    
                     ForEach(Array(placedObjects.enumerated()), id: \.element.id) { (index, obj) in
                         Button {
                             //Selection of layer
@@ -78,7 +81,7 @@ struct PlacedObjectsListView: View {
                                 .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
                                 .opacity(hiddenLayers.contains(obj.id) ? 0.4 : 1.0)
                         }
-                        .padding(8)
+                       .padding(8)
                         
                         .background(selection == obj.id ? highlightColor : Color.clear)
                         .overlay {
@@ -159,6 +162,7 @@ struct PlacedObjectsListView: View {
         case .calendar: objectTypeInfo = .calendar
         case .hiLoCircleGauge: objectTypeInfo = .hiLoCircleGauge
         case .hiLoLinearGauge: objectTypeInfo = .hiLoLinearGauge
+        case .conditionAsset: objectTypeInfo = .conditionAsset
             
         }
         
@@ -206,6 +210,7 @@ struct PlacedObjectsListView: View {
         case calendar
         case hiLoCircleGauge
         case hiLoLinearGauge
+        case conditionAsset
         
         
         
@@ -213,7 +218,7 @@ struct PlacedObjectsListView: View {
             switch self {
             case .text: return "character.textbox"
             case .map: return "map"
-            case .batteryCircleGauge: return "circle"
+            case .batteryCircleGauge: return "timer"
             case .customShape: return "star"
             case .wavyDock: return "alternatingcurrent"
             case .glassShape: return "bubbles.and.sparkles"
@@ -221,8 +226,9 @@ struct PlacedObjectsListView: View {
             case .squareShape: return "square"
             case .batteryLinearGauge: return "chart.line.flattrend.xyaxis"
             case .calendar: return "calendar"
-            case .hiLoCircleGauge: return "circle.dotted"
+            case .hiLoCircleGauge: return "speedometer"
             case .hiLoLinearGauge: return "chart.line.flattrend.xyaxis"
+            case .conditionAsset: return "sun.max"
                 
                 
             }
@@ -242,6 +248,7 @@ struct PlacedObjectsListView: View {
             case .calendar: return "Calendar"
             case .hiLoCircleGauge: return "Hi/Lo Circle Gauge"
             case .hiLoLinearGauge: return "Hi/Lo Linear Gauge"
+            case .conditionAsset: return "Condition Asset"
                 
                 
             }

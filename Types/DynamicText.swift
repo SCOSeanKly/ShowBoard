@@ -123,6 +123,12 @@ struct DynamicText {
                     unit: .celsius
                 )
                 
+            case .conditionSymbol:
+                replacement = placeholder.withDayWeather(
+                    wk.weather?.dailyForecast.first,
+                    unit: .celsius
+                )
+                
             case .precipation:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
