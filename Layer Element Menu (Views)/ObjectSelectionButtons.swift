@@ -28,7 +28,8 @@ struct ObjectSelectionButton: View {
                             Image(systemName: imageName)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 26, height: 26)
+                                .scaleEffect(0.7)
+                                .frame(width: 40, height: 40)
                                 .scaleEffect(isPressing ? 0.8 : 1)
                                 .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                             
@@ -97,7 +98,8 @@ struct ImportImageButton: View {
                     Image(uiImage: image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .scaleEffect(0.8)
+                        .frame(width: 40, height: 40)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                     
@@ -106,7 +108,8 @@ struct ImportImageButton: View {
                     Image(systemName: systemImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .scaleEffect(0.7)
+                        .frame(width: 40, height: 40)
                         .scaleEffect(isPressing ? 0.8 : 1)
                         .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                     

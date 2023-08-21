@@ -255,7 +255,7 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "speedometer"),
-                            textDescription: "Hi / Lo",
+                            textDescription: "Hi/Lo Circle",
                             disabled: false
                         )
                         
@@ -265,7 +265,7 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "chart.line.flattrend.xyaxis"),
-                            textDescription: "Hi / Lo Linear",
+                            textDescription: "Hi/Lo Linear",
                             disabled: false
                         )
                         

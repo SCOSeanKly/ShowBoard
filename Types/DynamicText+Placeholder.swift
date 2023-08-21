@@ -25,6 +25,9 @@ extension DynamicText {
         case daysRemaining = "[daysRemaining]"
         case daysCount = "[daysCount]"
         case timeOfDay = "[timeOfDay]"
+        case upcomingAppointments = "[upcomingAppointments]"
+        
+        
         
         
         // ForeCast (DayWeather)
@@ -85,7 +88,22 @@ extension DynamicText {
             }
         }
         
-       
+        
+        public func withUpcomingAppointments(appointmentManager: AppointmentManager) -> String {
+            switch self {
+              
+                case .upcomingAppointments:
+                    var upcomingAppointmentsCount = 0
+                    appointmentManager.fetchUpcomingAppointments { count in
+                        upcomingAppointmentsCount = count
+                    }
+                    return "\(upcomingAppointmentsCount)"
+                default:
+                    return "NO DATA"
+            }
+        }
+
+        
         public func withBatteryInfo(_ batteryViewModel: BatteryViewModel) -> String {
           
                switch self {
@@ -241,6 +259,7 @@ extension DynamicText {
             
             return (day, date, month, monthShort, monthNumber, year, time, timeOfDay)
         }
+        
         
         private func daysRemaining() -> Int {
             let calendar = Calendar.current

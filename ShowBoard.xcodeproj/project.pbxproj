@@ -45,6 +45,7 @@
 		3E22459A2A863820002B35B2 /* JapanRich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */; };
 		3E315A552A9391A100D0A42E /* Condition Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A542A9391A100D0A42E /* Condition Asset.swift */; };
 		3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A562A93942400D0A42E /* ConditionAssetObject.swift */; };
+		3E315A5A2A93A57500D0A42E /* AppointmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A592A93A57500D0A42E /* AppointmentManager.swift */; };
 		3E3421272A73F37700CFAD27 /* ImportedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421262A73F37700CFAD27 /* ImportedImageView.swift */; };
 		3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */; };
 		3E371CD72A66807A00DE743C /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E371CD62A66807A00DE743C /* Feedback.swift */; };
@@ -259,6 +260,7 @@
 		3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JapanRich-Regular.ttf"; sourceTree = "<group>"; };
 		3E315A542A9391A100D0A42E /* Condition Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Condition Asset.swift"; sourceTree = "<group>"; };
 		3E315A562A93942400D0A42E /* ConditionAssetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionAssetObject.swift; sourceTree = "<group>"; };
+		3E315A592A93A57500D0A42E /* AppointmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentManager.swift; sourceTree = "<group>"; };
 		3E3421262A73F37700CFAD27 /* ImportedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageView.swift; sourceTree = "<group>"; };
 		3E3421282A74189300CFAD27 /* ImageTrashButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTrashButtonView.swift; sourceTree = "<group>"; };
 		3E371CD62A66807A00DE743C /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
@@ -718,6 +720,7 @@
 				3E3E68862A82720A00F468DD /* ifExtension.swift */,
 				3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */,
 				3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */,
+				3E315A592A93A57500D0A42E /* AppointmentManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1248,6 +1251,7 @@
 				3E371CE42A66C8FF00DE743C /* CustomToggle.swift in Sources */,
 				3E371CD72A66807A00DE743C /* Feedback.swift in Sources */,
 				3EBF306E2A6EC9A8004C12B5 /* CustomBlendModePicker.swift in Sources */,
+				3E315A5A2A93A57500D0A42E /* AppointmentManager.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 				3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */,
@@ -1412,13 +1416,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.27;
+				CURRENT_PROJECT_VERSION = 0.0.28;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShowBoard/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "We need access to your calendar so we can display the upcoming appointments count";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uses location for accurate weather info";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "save wallpaper to photos";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1455,13 +1460,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.27;
+				CURRENT_PROJECT_VERSION = 0.0.28;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShowBoard/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "We need access to your calendar so we can display the upcoming appointments count";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Uses location for accurate weather info";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "save wallpaper to photos";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

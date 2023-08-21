@@ -23,6 +23,8 @@ struct DynamicTextView: View {
     
     private let placeholdersBattery = ["[batteryLevel]", "[batteryStatus]"]
     
+    private let placeholderCalendar = ["[upcomingAppointments]"]
+    
     let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -114,11 +116,9 @@ struct DynamicTextView: View {
                         
                         createDynamicSection(title: "Date:", placeholders: placeholdersDate, textBinding: $text.appearance.inputText)
                                 
-                         
+                        createDynamicSection(title: "Calendar", placeholders: placeholderCalendar, textBinding: $text.appearance.inputText)
                             
                         createDynamicSection(title: "Weather:", placeholders: placeholdersWeather, textBinding: $text.appearance.inputText)
-                               
-                          
                             
                         createDynamicSection(title: "Battery:", placeholders: placeholdersBattery, textBinding: $text.appearance.inputText)
                         
@@ -142,7 +142,7 @@ struct DynamicTextView: View {
                         Text(title)
                             .fontWeight(.semibold)
                             .foregroundColor(.black)
-                            .font(.system(size: 10))
+                            .font(.system(size: 11))
                         Spacer()
                     }
                     
@@ -152,8 +152,8 @@ struct DynamicTextView: View {
                         } label: {
                             Text("\(placeholder)")
                                 .font(.system(size: 10))
-                                .padding(.horizontal, 5)
-                                .padding(.vertical, 5)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 6)
                         }
                         .fixedSize()
                         
