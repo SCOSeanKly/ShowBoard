@@ -24,8 +24,8 @@ struct BackgroundView: View {
         "Tap the layers icon to edit and delete layers from the canvas",
         "Use Dynamic Text to string data and user text together",
         "When using Dynamic Text make sure to pay close attention to text case",
-        "Don't eat yellow snow!",
-        "An iOS Shortcut is required to set the wallpaper"
+        "An iOS Shortcut is required to set the wallpaper",
+        "Use Shortcut automations to periodically set your wallpaper"
         
         // Add more hints here...
     ]
@@ -70,12 +70,15 @@ struct BackgroundView: View {
                         .blur(radius: rainOrSnow ? 2 : 0)
                 }
                 
-                
                 VStack {
                     HStack {
-                        Text("Welcome to ShowBoard")
-                            .font(.custom("Rajdhani-Medium", size: 23))
-                            .shadow(radius: 1)
+                        HStack {
+                            Text("Welcome to ShowBoard")
+                                .font(.custom("Rajdhani-Medium", size: 23))
+                                .shadow(radius: 1)
+                            
+                            Spacer()
+                        }
                         
                         CustomToggle(showTitleText: false, titleText: "", bindingValue: $rainOrSnow, onSymbol: "snowflake", offSymbol: "xmark", rotate: false)
                             .scaleEffect(0.8)
@@ -84,19 +87,17 @@ struct BackgroundView: View {
                     }
                     .frame(height: 20)
                     
-                    
                     HStack {
                         Text("HINT: ")
                             .font(.custom("Rajdhani-Medium", size: 18))
                         +
                         Text(randomHint)
                             .font(.custom("Rajdhani-Medium", size: 14))
+                        
+                        Spacer ()
                     }
                     .frame(height: 50)
-                    .padding(.horizontal, 10)
                     .shadow(radius: 1)
-                  
-                  
                 }
                 .foregroundColor(.white)
                 .frame(width: 300, height: 100)
@@ -113,7 +114,6 @@ struct BackgroundView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .shadow(color: .black.opacity(0.1), radius: 5, x: 0, y: 2.0)
-               // .modifier(ParallaxMotionModifier(manager: manager, magnitude: 20))
                 .scaleEffect(isPressing ? 0.9 : 1.0)
                 .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
                 .gesture(

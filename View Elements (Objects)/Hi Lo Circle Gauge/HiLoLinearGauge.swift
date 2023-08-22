@@ -33,7 +33,7 @@ struct HiLoLinearGauge: View {
         VStack {
           
             
-            Gauge(value: Double(temperatureString) ?? 0, in: (Double(lowTempString) ?? 0)...(Double(highTempString) ?? 0)) {
+            Gauge(value: Double(temperatureString.dropLast(1)) ?? 0, in: (Double(lowTempString.dropLast(1)) ?? 0)...(Double(highTempString.dropLast(1)) ?? 0)) {
 
                          
                        } currentValueLabel: {

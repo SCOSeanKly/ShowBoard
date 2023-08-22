@@ -136,7 +136,6 @@ extension DynamicText {
                 return ""
             }
         }
-
         
         
         public func withCurrentWeather(_ data: CurrentWeather?, unit: UnitTemperature, useMiles: Bool = false) -> String {

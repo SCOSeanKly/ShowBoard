@@ -33,11 +33,9 @@ struct HiLoCircleGauge: View {
         
         VStack {
           
-            Gauge(value: Double(temperatureString) ?? 0, in: (Double(lowTempString) ?? 0)...(Double(highTempString) ?? 0)) {
-
-                         
+            Gauge(value: Double(temperatureString.dropLast(1)) ?? 0, in: (Double(lowTempString.dropLast(1)) ?? 0)...(Double(highTempString.dropLast(1)) ?? 0)) {
+         
                        } currentValueLabel: {
-                           
                            
                             if hiLo.appearance.showCurrentValueLabel {
                             Text(temperatureString.dropLast(0))
@@ -45,7 +43,6 @@ struct HiLoCircleGauge: View {
                                     .foregroundColor(hiLo.appearance.currentValueLabelColor)
                             }
                             
-                         
                        } minimumValueLabel: {
                            
                             if hiLo.appearance.showMinMaxValueLabels {
@@ -54,8 +51,6 @@ struct HiLoCircleGauge: View {
                                     .foregroundColor(hiLo.appearance.minMaxValueLabelColor)
                             }
                             
-                          
-                           
                        } maximumValueLabel: {
                            
                             if hiLo.appearance.showMinMaxValueLabels {
@@ -64,7 +59,6 @@ struct HiLoCircleGauge: View {
                                     .foregroundColor(hiLo.appearance.minMaxValueLabelColor)
                             }
                             
-                         
                        }
                        .scaleEffect(1.5)
                        .tint(hiLo.appearance.gaugeColor)

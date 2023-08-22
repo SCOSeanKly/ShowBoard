@@ -86,6 +86,8 @@ struct PlacedObjectsListView: View {
                     Text("Browse Boards")
                         .lineLimit(1)
                         .font(.system(size: 12).weight(.medium))
+                    
+                    Spacer()
                 }
             } else {
                 ZStack {
