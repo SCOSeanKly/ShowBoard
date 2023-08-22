@@ -30,13 +30,19 @@ struct TextObjectView: View {
         ZStack {
             if !text.appearance.isCircleText {
                 Text(text.appearance.dynamicText(wk: wObserver).dropLast(Int(text.appearance.dropLast)))
+                    .multilineTextAlignment(text.appearance.textAlignment)
+                    .overlay(
+                        LinearGradient(colors: [text.appearance.fillColor, text.appearance.fillColor2], startPoint: .top, endPoint: .bottom)
+                       )
+                    .mask(
+                        Text(text.appearance.dynamicText(wk: wObserver).dropLast(Int(text.appearance.dropLast)))
+                            .multilineTextAlignment(text.appearance.textAlignment)
+                    )
                  .shadow(color: Color.black.opacity(text.appearance.shadowOpacity), radius: text.appearance.shadow.radius, x: text.appearance.shadow.offset.x, y: text.appearance.shadow.offset.y)
-                 .multilineTextAlignment(text.appearance.textAlignment)
                  .frame(width: text.appearance.fontFrameWidth, alignment: alignment)
                  .font(text.appearance.font)
                  .tracking(text.appearance.fontTracking)
                  .fontWeight(text.appearance.fontWeight)
-                 .foregroundColor(text.appearance.fontColor)
                  .blendMode(text.appearance.blendMode)
                  .rotationEffect(text.appearance.rotation)
                  .opacity(text.appearance.opacity)

@@ -47,7 +47,9 @@ struct WavyDockView: View {
         ZStack {
          
                 WavyDock(wavyD: wavyD)
-                    .foregroundColor(wavyD.appearance.fillColor)
+                .fill(
+                    LinearGradient(colors: [wavyD.appearance.fillColor, wavyD.appearance.fillColor2], startPoint: .top, endPoint: .bottom)
+                   )
                     .objectAppearanceModifier(layer: wavyD, systemImageName: "alternatingcurrent", systemImage2: "", titleText: "Wavy Dock", showMicroControls: $showMicroControls)
         }
     

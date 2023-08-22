@@ -21,7 +21,9 @@ struct SquareShapeView: View {
             ZStack {
                 
                 RoundedRectangle(cornerRadius: square.appearance.cornerRadius)
-                    .foregroundColor(square.appearance.fillColor)
+                    .fill(
+                        LinearGradient(colors: [square.appearance.fillColor, square.appearance.fillColor2], startPoint: .top, endPoint: .bottom)
+                       )
             }
             .objectAppearanceModifier(layer: square, systemImageName: "square", systemImage2: "", titleText: "Squared Shape", showMicroControls: $showMicroControls)
       

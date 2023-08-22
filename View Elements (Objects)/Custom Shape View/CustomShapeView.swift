@@ -20,7 +20,9 @@ public struct CustomShapeView: View {
     public var body: some View {
         
         Star(shapePointCount: shape.appearance.shapePointCount, shapeRatio: shape.appearance.shapeRatio)
-                .fill(shape.appearance.fillColor)
+            .fill(
+                LinearGradient(colors: [shape.appearance.fillColor, shape.appearance.fillColor2], startPoint: .top, endPoint: .bottom)
+               )
                 .background {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: 10, opaque: true)

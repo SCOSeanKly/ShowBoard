@@ -118,6 +118,8 @@ struct LayerObjectAppearance {
     
     var fillColor: Color
     
+    var fillColor2: Color
+    
     //MARK: Circle Gauge
     /// Min Value
     var minValue: CGFloat
@@ -189,9 +191,7 @@ struct LayerObjectAppearance {
     }
     var isCircleText: Bool
     var isKeyboardPresented: Bool
-    
-    
-    
+    var useGradientColors: Bool
     
     
     /// The list of the avaliable blend modes
@@ -308,6 +308,8 @@ struct LayerObjectAppearance {
         self.inputText = "ShowBoard - Good [timeOfDay]"
         self.isCircleText = false
         self.isKeyboardPresented = false
+        self.fillColor2 = .white
+        self.useGradientColors = false
         
     
         
@@ -335,7 +337,9 @@ struct LayerObjectAppearance {
          textAlignment: TextAlignment,
          inputText: String,
          isCircleText: Bool,
-         isKeyboardPresented: Bool) {
+         isKeyboardPresented: Bool,
+         fillColor2: Color,
+         useGradientColors: Bool) {
         
         self.position = position
         self.originalSize = originalSize
@@ -402,6 +406,8 @@ struct LayerObjectAppearance {
         self.inputText = inputText
         self.isCircleText = isCircleText
         self.isKeyboardPresented = isKeyboardPresented
+        self.fillColor2 = fillColor2
+        self.useGradientColors = useGradientColors
     }
     
     

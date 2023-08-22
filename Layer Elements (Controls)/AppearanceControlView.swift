@@ -40,7 +40,7 @@ struct AppearanceControlView: View {
                 
                 if layer is WavyDockObject || layer is SquareShapeObject || layer is CustomShapeObject || layer is CircleGaugeObject || layer is LinearGaugeObject || layer is ConditionAssetObject {
                     
-                    CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor)
+                    CustomColorPicker(titleText: "Fill Colour(s)", pickerBindingValue:  $layer.appearance.fillColor2, pickerBindingValue2: $layer.appearance.fillColor)
                 }
             }
             
@@ -49,17 +49,17 @@ struct AppearanceControlView: View {
                 
                 if let _ = layer as? CalendarViewModel {
                     SliderStepper(color: .blue, title: "Days Text Size", sliderBindingValue: $layer.appearance.daysTextSize, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 15)
-                    CustomColorPicker(titleText: "Days Colour", pickerBindingValue:  $layer.appearance.daysColor)
+                    CustomColorPicker(titleText: "Days Colour", pickerBindingValue:  $layer.appearance.daysColor, pickerBindingValue2: nil)
                  
                     SliderStepper(color: .blue, title: "Date Text Size", sliderBindingValue: $layer.appearance.dateTextSize, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 15)
-                    CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor)
-                    CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor)
+                    CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor, pickerBindingValue2: nil)
+                    CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor, pickerBindingValue2: nil)
                     SliderStepper(color: .blue, title: "Date BG Corner Radius", sliderBindingValue: $layer.appearance.dateBackgroundCornerRadius, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 10)
                     
-                    CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor)
+                    CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor, pickerBindingValue2: nil)
                     SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: 1, specifier: 0, defaultValue: 10)
                     
-                    CustomColorPicker(titleText: "Today Indicator Colour", pickerBindingValue:  $layer.appearance.todayIndicator)
+                    CustomColorPicker(titleText: "Today Indicator Colour", pickerBindingValue:  $layer.appearance.todayIndicator, pickerBindingValue2: nil)
                 }
                 
                 
@@ -94,9 +94,9 @@ struct AppearanceControlView: View {
                     
                     CustomToggle(showTitleText: true, titleText: "Show Min/Max Label:", bindingValue: $layer.appearance.showMinMaxValueLabels, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                     
-                    CustomColorPicker(titleText: "Current Label Colour", pickerBindingValue:  $layer.appearance.currentValueLabelColor)
+                    CustomColorPicker(titleText: "Current Label Colour", pickerBindingValue:  $layer.appearance.currentValueLabelColor, pickerBindingValue2: nil)
                     
-                    CustomColorPicker(titleText: "Min/Max Label Colour:", pickerBindingValue: $layer.appearance.minMaxValueLabelColor)
+                    CustomColorPicker(titleText: "Min/Max Label Colour:", pickerBindingValue: $layer.appearance.minMaxValueLabelColor, pickerBindingValue2: nil)
                     
                 }
             }
