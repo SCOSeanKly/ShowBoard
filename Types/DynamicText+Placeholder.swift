@@ -51,6 +51,7 @@ extension DynamicText {
         case uvIndex = "[uvIndex]"
         case wind = "[wind]"
         case apparentTemperature = "[feelsLike]"
+        case location = "[location]"
         
         
         // Battery info
@@ -137,7 +138,7 @@ extension DynamicText {
             }
         }
         
-        
+    
         public func withCurrentWeather(_ data: CurrentWeather?, unit: UnitTemperature, useMiles: Bool = false) -> String {
             
             guard let v = data else { return "-" }
@@ -167,6 +168,7 @@ extension DynamicText {
                 return self.tempteratureToString(value: v.apparentTemperature, unit)
             case .wind:
                 return self.speedToString(value: v.wind.speed, useMiles: useMiles)
+          
             default:
                 return ""
             }

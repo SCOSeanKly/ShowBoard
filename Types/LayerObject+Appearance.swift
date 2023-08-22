@@ -168,6 +168,7 @@ struct LayerObjectAppearance {
     var calendarBackgroundColor: Color
     var calendarBackgroundCornerRadius: CGFloat
     var todayIndicator: Color
+    var todayIndicatorStyle: Bool
     
     
     //MARK: Dynamic Text
@@ -310,6 +311,7 @@ struct LayerObjectAppearance {
         self.isKeyboardPresented = false
         self.fillColor2 = .white
         self.useGradientColors = false
+        self.todayIndicatorStyle = false
         
     
         
@@ -339,7 +341,8 @@ struct LayerObjectAppearance {
          isCircleText: Bool,
          isKeyboardPresented: Bool,
          fillColor2: Color,
-         useGradientColors: Bool) {
+         useGradientColors: Bool,
+         todayIndicatorStyle: Bool) {
         
         self.position = position
         self.originalSize = originalSize
@@ -408,6 +411,7 @@ struct LayerObjectAppearance {
         self.isKeyboardPresented = isKeyboardPresented
         self.fillColor2 = fillColor2
         self.useGradientColors = useGradientColors
+        self.todayIndicatorStyle = todayIndicatorStyle
     }
     
     

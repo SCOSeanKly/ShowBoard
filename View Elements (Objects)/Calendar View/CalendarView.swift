@@ -41,12 +41,21 @@ struct CalendarView: View {
                                                 Text("\(vm.calendar.component(.day, from: day))")
                                                     .font(.system(size: vm.appearance.dateTextSize, weight: .regular))
                                                     .foregroundColor(vm.appearance.dateTextColor)
-                                                
-                                                //Today Indicator
-                                                Circle()
-                                                    .frame(width: 4, height: 4)
-                                                    .foregroundColor(vm.isToday(day: day) ? (vm.isDateSelected(day: day) ? Color.black : vm.appearance.todayIndicator) : Color.clear)
-                                                    .offset(y: 12)
+                                                    .background{
+                                                        if vm.appearance.todayIndicatorStyle {
+                                                            RoundedRectangle(cornerRadius: 8)
+                                                                .frame(width: 25, height: 25)
+                                                                .foregroundColor(vm.isToday(day: day) ? (vm.isDateSelected(day: day) ? Color.black : vm.appearance.todayIndicator) : Color.clear)
+                                                        }
+                                                    }
+                                                     
+                                                if !vm.appearance.todayIndicatorStyle {
+                                                    //Today Indicator
+                                                    Circle()
+                                                        .frame(width: 5, height: 5)
+                                                        .foregroundColor(vm.isToday(day: day) ? (vm.isDateSelected(day: day) ? Color.black : vm.appearance.todayIndicator) : Color.clear)
+                                                        .offset(y: 12)
+                                                }
                                             }
                                             .frame(width: 34, height: 34)
                                             .background{

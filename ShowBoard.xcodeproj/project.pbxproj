@@ -27,6 +27,7 @@
 		3E1ACF492A83EAEB00832F81 /* RefelectionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */; };
 		3E1ACF4B2A83ECAE00832F81 /* SliderToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */; };
 		3E1B1B062A83C049003D70FC /* LinearGaugeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */; };
+		3E20A40C2A94F429005751AF /* CommonControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E20A40B2A94F429005751AF /* CommonControls.swift */; };
 		3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E222AF92A659CBD001EC288 /* SliderStepper.swift */; };
 		3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */; };
 		3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22456D2A84FF3C002B35B2 /* FontNames.swift */; };
@@ -242,6 +243,7 @@
 		3E1ACF482A83EAEB00832F81 /* RefelectionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefelectionModifier.swift; sourceTree = "<group>"; };
 		3E1ACF4A2A83ECAE00832F81 /* SliderToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderToggle.swift; sourceTree = "<group>"; };
 		3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearGaugeObject.swift; sourceTree = "<group>"; };
+		3E20A40B2A94F429005751AF /* CommonControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonControls.swift; sourceTree = "<group>"; };
 		3E222AF92A659CBD001EC288 /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
 		3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WavyDockObject.swift; sourceTree = "<group>"; };
 		3E22456D2A84FF3C002B35B2 /* FontNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontNames.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 			children = (
 				3EC03DF72A67E63C001F1965 /* Controls */,
 				096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */,
+				3E20A40B2A94F429005751AF /* CommonControls.swift */,
 				3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */,
 			);
 			path = "Layer Elements (Controls)";
@@ -1230,6 +1233,7 @@
 				3E41D3162A42EB6A00A29548 /* WeatherKitModel.swift in Sources */,
 				0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */,
 				3E8849B52A41D49400B50BBD /* LocationDataManager.swift in Sources */,
+				3E20A40C2A94F429005751AF /* CommonControls.swift in Sources */,
 				3E1ACF492A83EAEB00832F81 /* RefelectionModifier.swift in Sources */,
 				3E1ACF4B2A83ECAE00832F81 /* SliderToggle.swift in Sources */,
 				3E6B7A3E2A811F1200163E58 /* WeatherIconLayerObject.swift in Sources */,
