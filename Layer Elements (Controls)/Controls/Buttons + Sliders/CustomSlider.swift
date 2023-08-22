@@ -16,9 +16,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
     let height: CGFloat
     let onEditingChanged: (Bool) -> Void
     
-  
-    
-    
     // private variables
     @State private var localRealProgress: T = 0
     @State private var localTempProgress: T = 0
@@ -45,19 +42,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 }
                             })
                         
-                        ZStack {
-                            Circle()
-                                .frame(width: 20)
-                                .foregroundColor(.white)
-                                .shadow(color: .black.opacity(0.15), radius: 1.25, x: 1, y: 1)
-                            
-                            Circle()
-                                .frame(width: 16)
-                                .foregroundColor(.clear)
-                                .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.1), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
-                                .clipShape(Circle())
-                            
-                        }
+                      SliderButton()
                         .frame(height: isActive ? height * 4 : height * 2, alignment: .center) // Increases the size of the button when dragging
                         .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
                         .gesture(DragGesture(minimumDistance: 0)
@@ -88,7 +73,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                 if !isActive {
                     localRealProgress = getPrgPercentage(newValue)
                 }
-             
             }
         }
         .frame(height: isActive ? height * 2 : height, alignment: .center)
@@ -115,5 +99,26 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
     
     private func getPrgValue() -> T {
         return ((localRealProgress + localTempProgress) * (inRange.upperBound - inRange.lowerBound)) + inRange.lowerBound
+    }
+}
+
+struct SliderButton: View {
+    
+    var body: some View {
+      
+        ZStack {
+            Circle()
+                .frame(width: 20)
+                .foregroundColor(.white)
+                .shadow(color: .black.opacity(0.15), radius: 1.25, x: 1, y: 1)
+            
+            Circle()
+                .frame(width: 16)
+                .foregroundColor(.clear)
+                .background(LinearGradient(gradient: Gradient(colors: [.gray.opacity(0.2), .white.opacity(0.1), .white]), startPoint: .top, endPoint: .bottom))
+                .clipShape(Circle())
+             
+            
+        }
     }
 }
