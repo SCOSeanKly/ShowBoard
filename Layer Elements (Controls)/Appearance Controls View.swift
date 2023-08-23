@@ -23,28 +23,32 @@ struct AppearanceControlView: View {
         
         ScrollView (showsIndicators: false) {
             
-            
-            if showMicroControls {
-                MicroControlsView(showMicroControls: $showMicroControls, layer: layer)
+            Group {
+                if showMicroControls {
+                    MicroControlsView(showMicroControls: $showMicroControls, layer: layer)
+                }
+                
+                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
+                
+                WavyDockControls(layer: layer)
+                
+                CalendarControls(layer: layer)
+                
+                CustomShapeControls(layer: layer)
+                
+                ScaleWidthHeightControls(layer: layer)
             }
             
-            ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
-            
-            WavyDockControls(layer: layer)
-            
-            CalendarControls(layer: layer)
-            
-            CustomShapeControls(layer: layer)
-            
-            ScaleWidthHeightControls(layer: layer)
-            
-            Font_GaugeLabelControls(layer: layer)
-            
-            CornerRadiusSkewControls(layer: layer)
-            
-            CommonControls(layer: layer)
-            
-            GlassControls(layer: layer)
+            Group {
+                
+                Font_GaugeLabelControls(layer: layer)
+                
+                CornerRadiusSkewControls(layer: layer)
+                
+                CommonControls(layer: layer)
+                
+                GlassControls(layer: layer)
+            }
             
             Spacer()
                 .frame(height: 100)
