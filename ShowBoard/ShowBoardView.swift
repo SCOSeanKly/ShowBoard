@@ -112,6 +112,12 @@ struct ShowBoardView: View {
                             case .conditionAsset: Condition_Asset(showMicroControls: $showMicroControls)
                             }
                         }
+                        .onAppear {
+                            if let lastAddedObject = placedObjects.last {
+                                // Automatically select the last added object
+                                selection = lastAddedObject.id
+                            }
+                        }
                         .padding(10)
                         .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
                         .disabled(selection == obj.id ? false : true)
@@ -177,3 +183,5 @@ struct ShowBoardView_Previews: PreviewProvider {
             .environment(\.colorScheme, .light)
     }
 }
+
+

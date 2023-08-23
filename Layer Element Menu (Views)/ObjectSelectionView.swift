@@ -91,10 +91,12 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                 }
                 
-                //MARK: 3 buttons for weather icons. Doesnt currently select different "sets"
+                //MARK: 6 buttons for weather icons. Doesnt currently select different "sets"
                
                 Group {
+                    
                     ObjectTitleText(titleText: "Weather Icon (Current)")
+                    
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         
                         ObjectSelectionButton(
@@ -117,7 +119,7 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set1_5d"),
                             textDescription: "Style1",
-                            disabled: false,
+                            disabled: true,
                             cornerRadius: cornerRadius
                         )
                         
@@ -129,7 +131,7 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: false,
+                            disabled: true,
                             cornerRadius: cornerRadius
                         )
                         
@@ -141,7 +143,43 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
+                            disabled: true,
+                            cornerRadius: cornerRadius
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                weatherIconObject.activeWeatherIconImageSet = .set4
+                                placedObjects.append(WeatherIconLayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set4_7d"),
+                            textDescription: "Style4",
                             disabled: false,
+                            cornerRadius: cornerRadius
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                weatherIconObject.activeWeatherIconImageSet = .set5
+                                placedObjects.append(WeatherIconLayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set5_7d"),
+                            textDescription: "Style5",
+                            disabled: true,
+                            cornerRadius: cornerRadius
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                weatherIconObject.activeWeatherIconImageSet = .set6
+                                placedObjects.append(WeatherIconLayerObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set6_1d"),
+                            textDescription: "Style6",
+                            disabled: true,
                             cornerRadius: cornerRadius
                         )
                     }

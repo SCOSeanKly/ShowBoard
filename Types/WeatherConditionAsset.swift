@@ -23,6 +23,12 @@ extension WeatherCondition {
             iconSetPrefix = "set2_"
         case .set3:
             iconSetPrefix = "set3_"
+        case .set4:
+            iconSetPrefix = "set4_"
+        case .set5:
+            iconSetPrefix = "set5_"
+        case .set6:
+            iconSetPrefix = "set6_"
         }
         
         

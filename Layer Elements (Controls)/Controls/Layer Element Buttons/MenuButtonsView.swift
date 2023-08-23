@@ -92,6 +92,7 @@ struct MenuButtonsView: View {
                             .foregroundColor(.white)
                     }
                     .offset(x: -4)
+                  
             }
             
             Image(systemName: "square.3.layers.3d.top.filled")

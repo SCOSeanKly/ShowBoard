@@ -5,13 +5,58 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Autone.ttf</string>
+		<string>Dot.ttf</string>
+		<string>Quicksand_Dash.otf</string>
+		<string>Magistral_Bold.ttf</string>
+		<string>Segality.ttf</string>
+		<string>Road.ttf</string>
+		<string>Serrona_Sans_Outline.ttf</string>
+		<string>Suissnord.otf</string>
+		<string>AltumSans_Bold.ttf</string>
+		<string>superaircraft.ttf</string>
+		<string>Serrona_Sans.ttf</string>
+		<string>tresdias.otf</string>
+		<string>Xico.ttf</string>
+		<string>ScorchedEarthDEMO_KCFonts.otf</string>
+		<string>Zelda.ttf</string>
+		<string>Magistral_Light.ttf</string>
+		<string>East_liberty_sans.otf</string>
+		<string>Majoram.ttf</string>
+		<string>Edingu_Round.ttf</string>
+		<string>Miss_Ellen.ttf</string>
+		<string>Fortuna_Dot.ttf</string>
+		<string>nasa.ttf</string>
+		<string>OstrichSans_Medium.otf</string>
+		<string>freeky.ttf</string>
+		<string>pincoyablack.otf</string>
+		<string>BAQ_Rounded_Outline.ttf</string>
+		<string>pricedown_bl.otf</string>
+		<string>HYDRB___.ttf</string>
+		<string>LCDDotted.ttf</string>
+		<string>Love.ttf</string>
+		<string>Coffee.ttf</string>
+		<string>Lovelo_Line_Light.otf</string>
+		<string>Amalfi_Coast.ttf</string>
+		<string>Lovely_Notes.otf</string>
+		<string>Digital_2.ttf</string>
+		<string>MadameKlara.ttf</string>
+		<string>BAQ_Rounded.ttf</string>
+		<string>dim.ttf</string>
+		<string>antillesgrad.ttf</string>
+		<string>Disclaimer_Classic.ttf</string>
+		<string>Bauhaus.ttf</string>
+		<string>BLACKPLOTAN.otf</string>
+		<string>blemo.ttf</string>
 		<string>1942.ttf</string>
+		<string>BoldLines.ttf</string>
+		<string>Avant.ttf</string>
+		<string>Bondie.ttf</string>
+		<string>BandarRegular.ttf</string>
 		<string>Acens.ttf</string>
 		<string>AirForce_Regular.ttf</string>
 		<string>Akira_Outline.ttf</string>
 		<string>AlmaMono_Bold.ttf</string>
 		<string>ModernAge.ttf</string>
-		<string></string>
 		<string>RobotoCondensed-Regular.ttf</string>
 		<string>AlfaSlabOne-Regular.ttf</string>
 		<string>AmaticSC-Regular.ttf</string>

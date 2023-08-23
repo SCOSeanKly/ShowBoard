@@ -13,6 +13,9 @@ struct CustomFontGridPicker: View {
     @State private var isPressing: Bool = false
     @State private var searchText = ""
     
+  
+
+    
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 10),
@@ -72,12 +75,6 @@ struct CustomFontGridPicker: View {
                 }
             }
             
-            
-            
-            
-            
-            
-            
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(filteredFontFamilyNames, id: \.self) { familyName in
                     if let fontName = UIFont.fontNames(forFamilyName: familyName).first {
@@ -90,28 +87,24 @@ struct CustomFontGridPicker: View {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                                 isPressing.toggle()}
                         }label: {
-                            ZStack {
-                                
                                 VStack {
-                                    
                                     Spacer()
                                     
                                     Text(fontName)
-                                        .font(.system(size: 8).weight(.medium))
+                                        .font(.system(size: 7).weight(.medium).lowercaseSmallCaps())
                                         .lineLimit(1)
                                     
                                 }
-                                
-                                Text(fontName.prefix(2))
-                                    .font(Font.custom(fontName, size: 24))
-                                    .frame(height: 30)
-                                
-                            }
                             .frame(width: 50, height: 60)
                             .padding(10)
                             .background(Color.white)
                             .cornerRadius(12)
                             .shadow(color: .black.opacity(0.2), radius: 3, x: 0, y: 3)
+                            .overlay{
+                                Text(fontName.prefix(2))
+                                    .font(Font.custom(fontName, size: 22))
+                                    .frame(height: 30)
+                            }
                             .tint(.black)
                         }
                         

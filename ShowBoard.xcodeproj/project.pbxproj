@@ -60,6 +60,7 @@
 		3E3977922A7BF998002711FC /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977912A7BF998002711FC /* AppModel.swift */; };
 		3E3977962A7C064D002711FC /* LocationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977952A7C064D002711FC /* LocationObserver.swift */; };
 		3E3977982A7C0B63002711FC /* WeatherObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3977972A7C0B63002711FC /* WeatherObserver.swift */; };
+		3E3CE83B2A962A3C00174885 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3CE83A2A962A3C00174885 /* Shimmer.swift */; };
 		3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */; };
 		3E3E68872A82720A00F468DD /* ifExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68862A82720A00F468DD /* ifExtension.swift */; };
 		3E3E68892A82788C00F468DD /* GlassObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3E68882A82788C00F468DD /* GlassObject.swift */; };
@@ -121,7 +122,6 @@
 		3E80F0D12A8E7531009C8D3F /* BoldLines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09A2A8E7530009C8D3F /* BoldLines.ttf */; };
 		3E80F0D22A8E7531009C8D3F /* Magistral_Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09B2A8E7531009C8D3F /* Magistral_Light.ttf */; };
 		3E80F0D32A8E7531009C8D3F /* East_liberty_sans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09C2A8E7531009C8D3F /* East_liberty_sans.otf */; };
-		3E80F0D42A8E7531009C8D3F /* CimeroPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09D2A8E7531009C8D3F /* CimeroPro.otf */; };
 		3E80F0D52A8E7531009C8D3F /* Fortuna_Dot.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09E2A8E7531009C8D3F /* Fortuna_Dot.ttf */; };
 		3E80F0D62A8E7531009C8D3F /* Bold2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F09F2A8E7531009C8D3F /* Bold2.otf */; };
 		3E80F0D72A8E7531009C8D3F /* Serrona_Sans_Outline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E80F0A02A8E7531009C8D3F /* Serrona_Sans_Outline.ttf */; };
@@ -276,6 +276,7 @@
 		3E3977912A7BF998002711FC /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		3E3977952A7C064D002711FC /* LocationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationObserver.swift; sourceTree = "<group>"; };
 		3E3977972A7C0B63002711FC /* WeatherObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherObserver.swift; sourceTree = "<group>"; };
+		3E3CE83A2A962A3C00174885 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object Appearance Modifier.swift"; sourceTree = "<group>"; };
 		3E3E68862A82720A00F468DD /* ifExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ifExtension.swift; sourceTree = "<group>"; };
 		3E3E68882A82788C00F468DD /* GlassObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassObject.swift; sourceTree = "<group>"; };
@@ -337,7 +338,6 @@
 		3E80F09A2A8E7530009C8D3F /* BoldLines.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BoldLines.ttf; sourceTree = "<group>"; };
 		3E80F09B2A8E7531009C8D3F /* Magistral_Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Magistral_Light.ttf; sourceTree = "<group>"; };
 		3E80F09C2A8E7531009C8D3F /* East_liberty_sans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = East_liberty_sans.otf; sourceTree = "<group>"; };
-		3E80F09D2A8E7531009C8D3F /* CimeroPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CimeroPro.otf; sourceTree = "<group>"; };
 		3E80F09E2A8E7531009C8D3F /* Fortuna_Dot.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fortuna_Dot.ttf; sourceTree = "<group>"; };
 		3E80F09F2A8E7531009C8D3F /* Bold2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bold2.otf; sourceTree = "<group>"; };
 		3E80F0A02A8E7531009C8D3F /* Serrona_Sans_Outline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Serrona_Sans_Outline.ttf; sourceTree = "<group>"; };
@@ -552,9 +552,42 @@
 			path = "View Elements (Objects)";
 			sourceTree = "<group>";
 		};
-		3E80F06B2A8E751A009C8D3F /* Still to add */ = {
+		3E80F06B2A8E751A009C8D3F /* Added */ = {
 			isa = PBXGroup;
 			children = (
+				3E80F0932A8E7530009C8D3F /* 1942.ttf */,
+				3E80F0902A8E7530009C8D3F /* Acens.ttf */,
+				3E80F08C2A8E7530009C8D3F /* AirForce_Regular.ttf */,
+				3E80F0982A8E7530009C8D3F /* Akira_Outline.ttf */,
+				3E80F07E2A8E752F009C8D3F /* AlmaMono_Bold.ttf */,
+				3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */,
+				3E2245972A863810002B35B2 /* Rashavine.ttf */,
+				3E2245952A8637FC002B35B2 /* Spacetron.otf */,
+				3E22458E2A8637E8002B35B2 /* Applentosh.ttf */,
+				3E22458C2A8637E8002B35B2 /* Bygonest Typewriter.ttf */,
+				3E22458B2A8637E7002B35B2 /* Inlander.ttf */,
+				3E22458D2A8637E8002B35B2 /* Patrick Rastelo.otf */,
+				3E22458F2A8637E8002B35B2 /* Torsae.otf */,
+				3E2245892A8635F9002B35B2 /* Freedom45.ttf */,
+				3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */,
+				3ED802072A7A6F86005E2835 /* AmaticSC-Regular.ttf */,
+				3ED802022A7A6F86005E2835 /* BebasNeue-Regular.ttf */,
+				3ED802042A7A6F86005E2835 /* Codystar-Regular.ttf */,
+				3ED802082A7A6F86005E2835 /* FugazOne-Regular.ttf */,
+				3ED8020A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf */,
+				3ED801FF2A7A6F86005E2835 /* Megrim-Regular.ttf */,
+				3ED801FD2A7A6F86005E2835 /* Monoton-Regular.ttf */,
+				3ED802062A7A6F86005E2835 /* NixieOne-Regular.ttf */,
+				3ED802092A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf */,
+				3ED802012A7A6F86005E2835 /* Rajdhani-Medium.ttf */,
+				3ED801FE2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf */,
+				3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */,
+				3ED802002A7A6F86005E2835 /* Shalimar-Regular.ttf */,
+				3ED802052A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf */,
+				3ED802032A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf */,
+				3ECC34A52A4C3866008794BC /* ModernAge.ttf */,
+				3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */,
+				3EADA59B2A4315CC00FA1BCB /* Autone.ttf */,
 				3E80F0832A8E752F009C8D3F /* AltumSans_Bold.ttf */,
 				3E80F0802A8E752F009C8D3F /* Amalfi_Coast.ttf */,
 				3E80F0992A8E7530009C8D3F /* antillesgrad.ttf */,
@@ -568,7 +601,6 @@
 				3E80F09F2A8E7531009C8D3F /* Bold2.otf */,
 				3E80F09A2A8E7530009C8D3F /* BoldLines.ttf */,
 				3E80F0A22A8E7531009C8D3F /* Bondie.ttf */,
-				3E80F09D2A8E7531009C8D3F /* CimeroPro.otf */,
 				3E80F0882A8E752F009C8D3F /* Coffee.ttf */,
 				3E80F07D2A8E752F009C8D3F /* Digital_2.ttf */,
 				3E80F08E2A8E7530009C8D3F /* dim.ttf */,
@@ -605,7 +637,7 @@
 				3E80F07C2A8E752F009C8D3F /* Xico.ttf */,
 				3E80F0912A8E7530009C8D3F /* Zelda.ttf */,
 			);
-			path = "Still to add";
+			path = Added;
 			sourceTree = "<group>";
 		};
 		3E8280392A7939A900F174F9 /* Rainfall Sprite Objects */ = {
@@ -750,40 +782,7 @@
 		3EADA59D2A4315E500FA1BCB /* Custom Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3E80F06B2A8E751A009C8D3F /* Still to add */,
-				3E80F0932A8E7530009C8D3F /* 1942.ttf */,
-				3E80F0902A8E7530009C8D3F /* Acens.ttf */,
-				3E80F08C2A8E7530009C8D3F /* AirForce_Regular.ttf */,
-				3E80F0982A8E7530009C8D3F /* Akira_Outline.ttf */,
-				3E80F07E2A8E752F009C8D3F /* AlmaMono_Bold.ttf */,
-				3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */,
-				3E2245972A863810002B35B2 /* Rashavine.ttf */,
-				3E2245952A8637FC002B35B2 /* Spacetron.otf */,
-				3E22458E2A8637E8002B35B2 /* Applentosh.ttf */,
-				3E22458C2A8637E8002B35B2 /* Bygonest Typewriter.ttf */,
-				3E22458B2A8637E7002B35B2 /* Inlander.ttf */,
-				3E22458D2A8637E8002B35B2 /* Patrick Rastelo.otf */,
-				3E22458F2A8637E8002B35B2 /* Torsae.otf */,
-				3E2245892A8635F9002B35B2 /* Freedom45.ttf */,
-				3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */,
-				3ED802072A7A6F86005E2835 /* AmaticSC-Regular.ttf */,
-				3ED802022A7A6F86005E2835 /* BebasNeue-Regular.ttf */,
-				3ED802042A7A6F86005E2835 /* Codystar-Regular.ttf */,
-				3ED802082A7A6F86005E2835 /* FugazOne-Regular.ttf */,
-				3ED8020A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf */,
-				3ED801FF2A7A6F86005E2835 /* Megrim-Regular.ttf */,
-				3ED801FD2A7A6F86005E2835 /* Monoton-Regular.ttf */,
-				3ED802062A7A6F86005E2835 /* NixieOne-Regular.ttf */,
-				3ED802092A7A6F86005E2835 /* Quicksand-VariableFont_wght.ttf */,
-				3ED802012A7A6F86005E2835 /* Rajdhani-Medium.ttf */,
-				3ED801FE2A7A6F86005E2835 /* RobotoMono-VariableFont_wght.ttf */,
-				3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */,
-				3ED802002A7A6F86005E2835 /* Shalimar-Regular.ttf */,
-				3ED802052A7A6F86005E2835 /* SourceCodePro-VariableFont_wght.ttf */,
-				3ED802032A7A6F86005E2835 /* YsabeauSC-VariableFont_wght.ttf */,
-				3ECC34A52A4C3866008794BC /* ModernAge.ttf */,
-				3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */,
-				3EADA59B2A4315CC00FA1BCB /* Autone.ttf */,
+				3E80F06B2A8E751A009C8D3F /* Added */,
 			);
 			path = "Custom Fonts";
 			sourceTree = "<group>";
@@ -896,6 +895,7 @@
 				3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */,
 				3E22456D2A84FF3C002B35B2 /* FontNames.swift */,
 				3E2245712A856307002B35B2 /* sfSymbols.swift */,
+				3E3CE83A2A962A3C00174885 /* Shimmer.swift */,
 			);
 			path = "Test Views";
 			sourceTree = "<group>";
@@ -1125,7 +1125,6 @@
 				3ED802182A7A6F86005E2835 /* FugazOne-Regular.ttf in Resources */,
 				3E80F0A52A8E7531009C8D3F /* blemo.ttf in Resources */,
 				3E80F0D72A8E7531009C8D3F /* Serrona_Sans_Outline.ttf in Resources */,
-				3E80F0D42A8E7531009C8D3F /* CimeroPro.otf in Resources */,
 				3ED8021A2A7A6F86005E2835 /* LibreBarcode39Text-Regular.ttf in Resources */,
 				3E80F0D92A8E7531009C8D3F /* Bondie.ttf in Resources */,
 				3E80F0BA2A8E7531009C8D3F /* AltumSans_Bold.ttf in Resources */,
@@ -1205,6 +1204,7 @@
 				3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */,
 				3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */,
 				09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */,
+				3E3CE83B2A962A3C00174885 /* Shimmer.swift in Sources */,
 				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */,
@@ -1420,7 +1420,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.29;
+				CURRENT_PROJECT_VERSION = 0.0.30;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1464,7 +1464,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.29;
+				CURRENT_PROJECT_VERSION = 0.0.30;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

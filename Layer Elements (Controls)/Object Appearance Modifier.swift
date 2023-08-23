@@ -56,6 +56,7 @@ struct SettingsMod: ViewModifier {
                 
                 AppearanceControlView(layer: layer, systemImageName: systemImageName, titletext: titletext, showMicroControls: $showMicroControls)
                 
+                
             }
         
       

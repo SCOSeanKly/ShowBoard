@@ -13,7 +13,7 @@ struct PositionButton: View {
     let stackSpacing: Double = 10
     @State private var isDragging = false
     @State private var microAdjustment: Bool = false
-   
+    
     
     var offsetValue: CGFloat {
         return microAdjustment ? 0.5 : 4
@@ -50,9 +50,21 @@ struct PositionButton: View {
             }
             .frame(width: 150, height: 10)
             
-            
-            PressableButtonView(systemImage: "arrow.up") {
-                layer.appearance.offsetY -= offsetValue
+            ZStack {
+                PressableButtonView(systemImage: "arrow.up") {
+                    layer.appearance.offsetY -= offsetValue
+                }
+                VStack {
+                    Text("X: \(String(format: "%.1f", layer.appearance.offsetX))")
+                        .font(.system(size: 8))
+                        .foregroundColor(.black)
+                    
+                    Text("Y: \(String(format: "%.1f", layer.appearance.offsetY))")
+                        .font(.system(size: 8))
+                        .foregroundColor(.black)
+                    
+                }
+                .offset(x: -50)
             }
             HStack(spacing: stackSpacing) {
                 
@@ -60,7 +72,7 @@ struct PositionButton: View {
                     layer.appearance.offsetX -= offsetValue
                 }
                 PressableButtonView(systemImage: "arrow.counterclockwise") {
-                    resetValues() 
+                    resetValues()
                 }
                 PressableButtonView(systemImage: "arrow.right") {
                     layer.appearance.offsetX += offsetValue
@@ -81,10 +93,10 @@ struct ScaleButton: View {
     let stackSpacing: Double = 10
     @State private var isDragging = false
     @State private var microAdjustment: Bool = false
-  
+    
     
     var scaleValue: CGFloat {
-        return microAdjustment ? 0.001 : 0.1
+        return microAdjustment ? 0.01 : 0.1
     }
     
     func resetValues() {
@@ -117,9 +129,22 @@ struct ScaleButton: View {
                 .offset(x: 25, y: 32)
             }
             .frame(width: 150, height: 10)
-            
-            PressableButtonView(systemImage: "plus") {
-                layer.appearance.scaleHeight += scaleValue
+            ZStack {
+                PressableButtonView(systemImage: "plus") {
+                    layer.appearance.scaleHeight += scaleValue
+                }
+                
+                VStack {
+                    Text("W: \(String(format: "%.2f", layer.appearance.scaleWidth))")
+                        .font(.system(size: 8))
+                        .foregroundColor(.black)
+                    
+                    Text("H: \(String(format: "%.2f", layer.appearance.scaleHeight))")
+                        .font(.system(size: 8))
+                        .foregroundColor(.black)
+                    
+                }
+                .offset(x: -50)
             }
             HStack(spacing: stackSpacing) {
                 

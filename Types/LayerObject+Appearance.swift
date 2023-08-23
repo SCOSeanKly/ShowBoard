@@ -177,7 +177,8 @@ struct LayerObjectAppearance {
     var dropLast: CGFloat
     var fontColor: Color
     var fontSize: CGFloat
-    var selectedFontName: String
+   // var selectedFontName: String
+    @AppStorage("selectedFontName") var selectedFontName: String = "Apple SF"
     var fontWeight: Font.Weight
     var font: Font {
         Font.custom(selectedFontName, size: fontSize)
@@ -303,7 +304,7 @@ struct LayerObjectAppearance {
         self.dropLast = 0
         self.fontColor = .white
         self.fontSize = 16
-        self.selectedFontName = "Apple SF"
+      //  self.selectedFontName = "Apple SF"
         self.fontWeight = .medium
         self.textAlignment = .center
         self.inputText = "ShowBoard - Good [timeOfDay]"
@@ -403,7 +404,7 @@ struct LayerObjectAppearance {
         self.dropLast = dropLast
         self.fontColor = fontColor
         self.fontSize = fontSize
-        self.selectedFontName = selectedFontName
+      //  self.selectedFontName = selectedFontName
         self.fontWeight = fontWeight
         self.textAlignment = textAlignment
         self.inputText = inputText
