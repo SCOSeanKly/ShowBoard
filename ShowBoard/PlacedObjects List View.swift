@@ -185,8 +185,9 @@ struct PlacedObjectsListView: View {
                             )
                         case .save:
                             let saveAlertMessage: Text
+                            let layerText = placedObjects.count == 1 ? "layer" : "layers"
                                if placedObjects.count < 5 {
-                                   saveAlertMessage = Text("Are you certain about saving your current ShowBoard config file? Please note that you currently have \(placedObjects.count) layer(s).")
+                                   saveAlertMessage = Text("Are you certain about saving your current ShowBoard config file? Please note that you currently have \(placedObjects.count) \(layerText).")
                                } else {
                                    saveAlertMessage = Text("Are you sure you want to save the ShowBoard config file with your current settings? It's recommended to save a backup of any previous config files before making any changes. Would you like to proceed?")
                                }
