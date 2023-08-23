@@ -124,6 +124,8 @@ struct PlacedObjectsListView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 5))
                         }
                         .onMove(perform: moveLayer)
+                        
+                        
                     }
                     .listStyle(.plain)
                     
@@ -260,6 +262,7 @@ struct PlacedObjectsListView: View {
                 showAlert = true
                 objectToDelete = obj
                
+                
             }, label: {
                 Image(systemName: "trash")
                     .scaleEffect(isPressingDelete ? 0.9 : 1)
@@ -267,6 +270,7 @@ struct PlacedObjectsListView: View {
             })
             .foregroundColor(.red)
         }
+        
     }
     
     enum AlertType {
@@ -292,6 +296,7 @@ struct PlacedObjectsListView: View {
         case conditionAsset
         
         
+        
         var icon: String {
             switch self {
             case .text: return "character.textbox"
@@ -307,9 +312,10 @@ struct PlacedObjectsListView: View {
             case .hiLoCircleGauge: return "speedometer"
             case .hiLoLinearGauge: return "chart.line.flattrend.xyaxis"
             case .conditionAsset: return "sun.max"
+                
+                
             }
         }
-        
         
         var title: String {
             switch self {
@@ -326,8 +332,54 @@ struct PlacedObjectsListView: View {
             case .hiLoCircleGauge: return "Hi/Lo Circle Gauge"
             case .hiLoLinearGauge: return "Hi/Lo Linear Gauge"
             case .conditionAsset: return "Condition Asset"
+                
+                
             }
         }
     }
 }
+
+
+/*
+ Button(action: {
+ // Action to hide or show layer
+ 
+ isPressingHideLayer.toggle()
+ 
+ DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+ feedback()
+ isPressingHideLayer.toggle()
+ }
+ if hiddenLayers.contains(obj.id) {
+ hiddenLayers.remove(obj.id)
+ } else {
+ hiddenLayers.insert(obj.id)
+ }
+ }, label: {
+ Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
+ .scaleEffect(isPressingHideLayer ? 0.9 : 1)
+ .scaleEffect(0.9)
+ .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
+ })
+ .buttonStyle(.plain)
+ 
+ 
+ Button(action: {
+ isPressingSettings.toggle()
+ 
+ DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+ feedback()
+ isPressingSettings.toggle()
+ }
+ 
+ }, label: {
+ Image(systemName: "gear")
+ .scaleEffect(isPressingSettings ? 0.9 : 1)
+ .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
+ })
+ .buttonStyle(.plain)
+ .padding(.horizontal)
+ 
+ */
+
 

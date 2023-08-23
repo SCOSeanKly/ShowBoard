@@ -48,6 +48,7 @@ struct ShowBoardView: View {
     @State private var selection: UUID?
     @State private var hiddenLayers: Set<UUID> = []
     
+    
     var body: some View {
         
         ZStack {
@@ -118,7 +119,6 @@ struct ShowBoardView: View {
                         .fadeOnAppear()
                     }
                 }
-                
                 
                 ImportedImageView3(importedImage3: importedImage3)
                     .onTapGesture {

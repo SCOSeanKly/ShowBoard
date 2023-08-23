@@ -15,8 +15,16 @@ struct CustomColorPicker: View {
     
     var body: some View {
         HStack {
-            Text(titleText)
-                .titleFont()
+            
+            if useGradient {
+                Text("Gradient Fill")
+                    .titleFont()
+            } else {
+                
+                Text(titleText)
+                    .titleFont()
+            }
+            
             Spacer()
             
            

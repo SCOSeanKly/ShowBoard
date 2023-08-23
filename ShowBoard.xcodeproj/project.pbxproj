@@ -15,7 +15,7 @@
 		0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF22A6860DC009CE54C /* LayerObjectType.swift */; };
 		09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09691AE42A7C115F00970EB9 /* AppDelegate.swift */; };
 		096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F80DB2A7521400001D8A3 /* TextObjectView.swift */; };
-		096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */; };
+		096F80DE2A7529E40001D8A3 /* Appearance Controls View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F80DD2A7529E40001D8A3 /* Appearance Controls View.swift */; };
 		0972742F2A4C809B00429786 /* LayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0972742E2A4C809B00429786 /* LayerObject.swift */; };
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
@@ -231,7 +231,7 @@
 		0940CCF22A6860DC009CE54C /* LayerObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectType.swift; sourceTree = "<group>"; };
 		09691AE42A7C115F00970EB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		096F80DB2A7521400001D8A3 /* TextObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObjectView.swift; sourceTree = "<group>"; };
-		096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceControlView.swift; sourceTree = "<group>"; };
+		096F80DD2A7529E40001D8A3 /* Appearance Controls View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appearance Controls View.swift"; sourceTree = "<group>"; };
 		0972742E2A4C809B00429786 /* LayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObject.swift; sourceTree = "<group>"; };
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
@@ -731,7 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC03DF72A67E63C001F1965 /* Controls */,
-				096F80DD2A7529E40001D8A3 /* AppearanceControlView.swift */,
+				096F80DD2A7529E40001D8A3 /* Appearance Controls View.swift */,
 				3E20A40B2A94F429005751AF /* Appearance Controls.swift */,
 				3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */,
 			);
@@ -1156,7 +1156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				096F80DE2A7529E40001D8A3 /* AppearanceControlView.swift in Sources */,
+				096F80DE2A7529E40001D8A3 /* Appearance Controls View.swift in Sources */,
 				3E4BAE6C2A810B2B001DF91B /* KeyboardObserver.swift in Sources */,
 				3E22456B2A84E89A002B35B2 /* WavyDockObject.swift in Sources */,
 				3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */,
@@ -1420,7 +1420,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.28;
+				CURRENT_PROJECT_VERSION = 0.0.29;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1464,7 +1464,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.28;
+				CURRENT_PROJECT_VERSION = 0.0.29;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
