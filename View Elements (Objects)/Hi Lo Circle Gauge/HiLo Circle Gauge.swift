@@ -28,8 +28,8 @@ struct HiLoCircleGauge: View {
     var body: some View {
         
         let temperatureString = DynamicText.Placeholder.temp.withCurrentWeather(currentWeather, unit: .celsius)
-        let highTempString = DynamicText.Placeholder.highTemp.withDayWeather(todaysForecast, unit: .celsius)
-        let lowTempString = DynamicText.Placeholder.lowTemp.withDayWeather(todaysForecast, unit: .celsius)
+        let highTempString = DynamicText.Placeholder.highTemp.withDayWeather(todaysForecast, unit: .celsius, conditionAssetStyle: 1)
+        let lowTempString = DynamicText.Placeholder.lowTemp.withDayWeather(todaysForecast, unit: .celsius, conditionAssetStyle: 1)
         
         VStack {
           

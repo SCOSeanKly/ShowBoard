@@ -114,7 +114,7 @@ struct ShowBoardView: View {
                             case .weatherIcon4: WeatherIcon4View(showMicroControls: $showMicroControls)
                             case .weatherIcon5: WeatherIcon5View(showMicroControls: $showMicroControls)
                             case .weatherIcon6: WeatherIcon6View(showMicroControls: $showMicroControls)
-                                
+                            case .weatherIconPlus7: WeatherIconPlus7View(showMicroControls: $showMicroControls)
                             }
                         }
                         .onAppear {

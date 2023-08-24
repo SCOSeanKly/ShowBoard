@@ -180,6 +180,19 @@ struct ObjectSelectionView: View {
                             disabled: false,
                             cornerRadius: cornerRadius
                         )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                             
+                                placedObjects.append(WeatherIconLayerObjectPlus7())
+                                showLayerElementView = false
+                            },
+                            imageType: .asset(name: "set1_50d"),
+                            textDescription: "Forecast",
+                            disabled: false,
+                            cornerRadius: cornerRadius
+                        )
+                        
                     }
                     .padding([.leading, .bottom, .trailing])
                     

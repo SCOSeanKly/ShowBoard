@@ -158,6 +158,7 @@ struct LayerObjectAppearance {
     
     
     
+    
     //MARK: Calendar
     var daysTextSize: CGFloat
     var daysColor: Color
@@ -198,6 +199,14 @@ struct LayerObjectAppearance {
     //MARK: Rain Effect
     var showRainBounce: Bool
     var addGaradientMask: Bool
+    
+    //MARK: PLus7 Days
+    var showHorizontal: Bool
+    var spacing: CGFloat
+    var daysToShow: CGFloat
+    var showForecastTempString: Bool
+    var weatherIconAssetStyle: Int
+    var labelsOffset: CGFloat
     
     
     /// The list of the avaliable blend modes
@@ -320,6 +329,13 @@ struct LayerObjectAppearance {
         self.showRainBounce = false
         self.addGaradientMask = true
         
+        self.showHorizontal = true
+        self.spacing = -10
+        self.daysToShow = 5
+        self.showForecastTempString = false
+        self.weatherIconAssetStyle = 1
+        self.labelsOffset = 10
+        
         
         
     }
@@ -351,7 +367,13 @@ struct LayerObjectAppearance {
          useGradientColors: Bool,
          todayIndicatorStyle: Bool,
          showRainBounce: Bool,
-         addGaradientMask: Bool) {
+         addGaradientMask: Bool,
+         showHorizontal: Bool,
+         spacing: CGFloat,
+         daysToShow: CGFloat,
+         showForecastTempString: Bool,
+         weatherIconAssetStyle: Int,
+         labelsOffset: CGFloat) {
         
         self.position = position
         self.originalSize = originalSize
@@ -423,8 +445,15 @@ struct LayerObjectAppearance {
         self.todayIndicatorStyle = todayIndicatorStyle
         self.showRainBounce = showRainBounce
         self.addGaradientMask = addGaradientMask
+        self.showHorizontal = showHorizontal
+        self.spacing = spacing
+        self.daysToShow = daysToShow
+        self.showForecastTempString = showForecastTempString
+        self.weatherIconAssetStyle = weatherIconAssetStyle
+        self.labelsOffset = labelsOffset
+        
     }
-   
+    
     
     
     

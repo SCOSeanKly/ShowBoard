@@ -7,6 +7,56 @@
 
 import SwiftUI
 
+struct WeatherIconPLus7Controls: View {
+    
+    @StateObject var layer: LayerObject
+    let specifier: Int = 2
+    
+    
+    var body: some View {
+        
+        if layer is WeatherIconLayerObjectPlus7 {
+            HStack {
+                Text("Weather Icon Style")
+                    .titleFont()
+                
+                Spacer()
+                
+                Button(action: {
+                    // Increment the selected style value
+                    layer.appearance.weatherIconAssetStyle = (layer.appearance.weatherIconAssetStyle % 6) + 1
+                }) {
+                    Image("set\(layer.appearance.weatherIconAssetStyle)_1d") // Display the current style's image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                }
+                .frame(width: 45, height: 45) // Adjust the size of the button as needed
+            }
+            .padding(.horizontal)
+
+
+            
+            CustomToggle(showTitleText: true, titleText: "Layout (Horizontal / Vertical)", bindingValue: $layer.appearance.showHorizontal, onSymbol: "h.circle", offSymbol: "v.circle", rotate: false)
+                .padding(.trailing, 5)
+            
+            SliderStepper(color: .blue, title: "Spacing", sliderBindingValue: $layer.appearance.spacing, minValue: -150, maxValue: 150, step: 0.1, specifier: specifier, defaultValue: -10)
+            
+            SliderStepper(color: .blue, title: "Forecast Days", sliderBindingValue: $layer.appearance.daysToShow, minValue: 3, maxValue: 7, step: 1, specifier: 0, defaultValue: 5)
+            
+            CustomToggle(showTitleText: true, titleText: "Show Min/Max Labels", bindingValue: $layer.appearance.showForecastTempString, onSymbol: "circle", offSymbol: "xmark", rotate: false)
+                .padding(.trailing, 5)
+            
+            SliderStepper(color: .blue, title: "Labels Offset", sliderBindingValue: $layer.appearance.labelsOffset, minValue: -30, maxValue: 100, step: 0.1, specifier: specifier, defaultValue: 10)
+            
+         
+            
+            CustomColorPicker(titleText: "Min/Max Label Colour:", pickerBindingValue: $layer.appearance.minMaxValueLabelColor, pickerBindingValue2: nil)
+            
+        }
+    }
+}
+
+
 struct CommonControls: View {
     
     @StateObject var layer: LayerObject
@@ -18,6 +68,8 @@ struct CommonControls: View {
             
             CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor2, pickerBindingValue2: $layer.appearance.fillColor)
         }
+        
+      
         
         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $layer.appearance.shadow.radius, minValue: 0, maxValue: 20, step: 0.1, specifier: specifier, defaultValue: 0)
         
@@ -135,11 +187,11 @@ struct ScaleWidthHeightControls: View {
     
     var body: some View {
         
-        if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject {
+        if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject || layer is WeatherIconLayerObjectPlus7 {
             SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 4, step: 0.1, specifier: 1, defaultValue: 1)
         }
         
-        if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) {
+        if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) && !(layer is WeatherIconLayerObjectPlus7){
             
             SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: 0.1, specifier: specifier, defaultValue: 200)
             

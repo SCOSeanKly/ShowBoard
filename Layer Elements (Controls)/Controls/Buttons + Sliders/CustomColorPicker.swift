@@ -50,18 +50,21 @@ struct CustomColorPicker: View {
                 )
                 .scaleEffect(0.9)
                 .frame(width: 25)
-                .offset(x: 15)
+                .padding(.trailing, 10)
+               
             }
             
-            CustomToggle(showTitleText: false, titleText: "", bindingValue: $useGradient, onSymbol: "circle", offSymbol: "xmark", rotate: true)
-                .offset(x: 10)
-                .onChange(of: useGradient, perform: { newValue in
-                    // Update the colors when the toggle is switched
-                    if !newValue, let _ = pickerBindingValue2 {
-
-                        pickerBindingValue2?.wrappedValue = pickerBindingValue.wrappedValue
-                    }
-                })
+            if useGradient {
+                CustomToggle(showTitleText: false, titleText: "", bindingValue: $useGradient, onSymbol: "circle", offSymbol: "xmark", rotate: true)
+                    .offset(x: 10)
+                    .onChange(of: useGradient, perform: { newValue in
+                        // Update the colors when the toggle is switched
+                        if !newValue, let _ = pickerBindingValue2 {
+                            
+                            pickerBindingValue2?.wrappedValue = pickerBindingValue.wrappedValue
+                        }
+                    })
+            }
         }
         .frame(height: 30)
         .padding(.horizontal)

@@ -28,5 +28,6 @@ enum LayerObjectType {
     case weatherIcon4
     case weatherIcon5
     case weatherIcon6
+    case weatherIconPlus7
 
 }

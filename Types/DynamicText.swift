@@ -92,29 +92,29 @@ struct DynamicText {
             case .highTemp:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
-                    unit: .celsius
+                    unit: .celsius, conditionAssetStyle: 1
                 )
             case .lowTemp:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
-                    unit: .celsius
+                    unit: .celsius, conditionAssetStyle: 1
                 )
                 
             case .conditionSymbol:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
-                    unit: .celsius
+                    unit: .celsius, conditionAssetStyle: 1
                 )
                 
             case .precipation:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
-                    unit: .celsius)
+                    unit: .celsius, conditionAssetStyle: 1)
                 
             case .precipationChance:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
-                    unit: .celsius)
+                    unit: .celsius, conditionAssetStyle: 1)
                 
             case .batteryLevel:
                 replacement = placeholder.withBatteryInfo(BatteryViewModel())

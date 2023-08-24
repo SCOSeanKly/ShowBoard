@@ -22,7 +22,7 @@ struct Condition_Asset: View {
     
     var body: some View {
         
-        let conditionAssetString = DynamicText.Placeholder.conditionSymbol.withDayWeather(todaysForecast, unit: .celsius)
+        let conditionAssetString = DynamicText.Placeholder.conditionSymbol.withDayWeather(todaysForecast, unit: .celsius, conditionAssetStyle: 1)
      
         
         if !imageLoaded {

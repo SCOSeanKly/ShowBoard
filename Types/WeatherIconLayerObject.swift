@@ -133,3 +133,20 @@ class WeatherIconLayerObject6: LayerObject {
         self.objectType = .weatherIcon6
     }
 }
+
+class WeatherIconLayerObjectPlus7: LayerObject {
+    
+    // MARK: - Public Properties
+    
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .weatherIconPlus7
+    }
+}
