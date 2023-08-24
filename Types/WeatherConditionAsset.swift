@@ -14,8 +14,8 @@ let wI = WeatherIconLayerObject()
 extension WeatherCondition {
     public var asset: String {
         
-        let iconSetPrefix: String
-        
+        let iconSetPrefix: String = "set1_"
+        /*
         switch wI.activeWeatherIconImageSet {
         case .set1:
             iconSetPrefix = "set1_"
@@ -30,6 +30,412 @@ extension WeatherCondition {
         case .set6:
             iconSetPrefix = "set6_"
         }
+         */
+        
+        
+        switch self {
+        case .blizzard:
+            return iconSetPrefix + "50d"
+        case .blowingDust:
+            return iconSetPrefix + "14d"
+        case .blowingSnow:
+            return iconSetPrefix + "9d"
+        case .breezy:
+            return iconSetPrefix + "7d"
+        case .clear:
+            return iconSetPrefix + "1d"
+        case .cloudy:
+            return iconSetPrefix + "2d"
+        case .drizzle:
+            return iconSetPrefix + "5d"
+        case .flurries:
+            return iconSetPrefix + "10d"
+        case .foggy:
+            return iconSetPrefix + "7d"
+        case .freezingDrizzle:
+            return iconSetPrefix + "10d"
+        case .freezingRain:
+            return iconSetPrefix + "10d"
+        case .frigid:
+            return iconSetPrefix + "1d"
+        case .hail:
+            return iconSetPrefix + "10d"
+        case .haze:
+            return iconSetPrefix + "7d"
+        case .heavyRain:
+            return iconSetPrefix + "6d"
+        case .heavySnow:
+            return iconSetPrefix + "9d"
+        case .hot:
+            return iconSetPrefix + "51d"
+        case .hurricane:
+            return iconSetPrefix + "8d"
+        case .isolatedThunderstorms:
+            return iconSetPrefix + "8d"
+        case .mostlyClear:
+            return iconSetPrefix + "1d"
+        case .mostlyCloudy:
+            return iconSetPrefix + "2d"
+        case .partlyCloudy:
+            return iconSetPrefix + "2d"
+        case .rain:
+            return iconSetPrefix + "5d"
+        case .scatteredThunderstorms:
+            return iconSetPrefix + "8d"
+        case .sleet:
+            return iconSetPrefix + "10d"
+        case .smoky:
+            return iconSetPrefix + "7d"
+        case .snow:
+            return iconSetPrefix + "9d"
+        case .strongStorms:
+            return iconSetPrefix + "8d"
+        case .sunFlurries:
+            return iconSetPrefix + "5d"
+        case .sunShowers:
+            return iconSetPrefix + "5d"
+        case .thunderstorms:
+            return iconSetPrefix + "8d"
+        case .tropicalStorm:
+            return iconSetPrefix + "8d"
+        case .windy:
+            return iconSetPrefix + "7d"
+        case .wintryMix:
+            return iconSetPrefix + "10d"
+        @unknown default:
+            return iconSetPrefix + "dunno"
+        }
+    }
+}
+
+extension WeatherCondition {
+    public var asset2: String {
+        
+        let iconSetPrefix: String = "set2_"
+        
+        
+        switch self {
+        case .blizzard:
+            return iconSetPrefix + "50d"
+        case .blowingDust:
+            return iconSetPrefix + "14d"
+        case .blowingSnow:
+            return iconSetPrefix + "9d"
+        case .breezy:
+            return iconSetPrefix + "7d"
+        case .clear:
+            return iconSetPrefix + "1d"
+        case .cloudy:
+            return iconSetPrefix + "2d"
+        case .drizzle:
+            return iconSetPrefix + "5d"
+        case .flurries:
+            return iconSetPrefix + "10d"
+        case .foggy:
+            return iconSetPrefix + "7d"
+        case .freezingDrizzle:
+            return iconSetPrefix + "10d"
+        case .freezingRain:
+            return iconSetPrefix + "10d"
+        case .frigid:
+            return iconSetPrefix + "1d"
+        case .hail:
+            return iconSetPrefix + "10d"
+        case .haze:
+            return iconSetPrefix + "7d"
+        case .heavyRain:
+            return iconSetPrefix + "6d"
+        case .heavySnow:
+            return iconSetPrefix + "9d"
+        case .hot:
+            return iconSetPrefix + "51d"
+        case .hurricane:
+            return iconSetPrefix + "8d"
+        case .isolatedThunderstorms:
+            return iconSetPrefix + "8d"
+        case .mostlyClear:
+            return iconSetPrefix + "1d"
+        case .mostlyCloudy:
+            return iconSetPrefix + "2d"
+        case .partlyCloudy:
+            return iconSetPrefix + "2d"
+        case .rain:
+            return iconSetPrefix + "5d"
+        case .scatteredThunderstorms:
+            return iconSetPrefix + "8d"
+        case .sleet:
+            return iconSetPrefix + "10d"
+        case .smoky:
+            return iconSetPrefix + "7d"
+        case .snow:
+            return iconSetPrefix + "9d"
+        case .strongStorms:
+            return iconSetPrefix + "8d"
+        case .sunFlurries:
+            return iconSetPrefix + "5d"
+        case .sunShowers:
+            return iconSetPrefix + "5d"
+        case .thunderstorms:
+            return iconSetPrefix + "8d"
+        case .tropicalStorm:
+            return iconSetPrefix + "8d"
+        case .windy:
+            return iconSetPrefix + "7d"
+        case .wintryMix:
+            return iconSetPrefix + "10d"
+        @unknown default:
+            return iconSetPrefix + "dunno"
+        }
+    }
+}
+
+extension WeatherCondition {
+    public var asset3: String {
+        
+        let iconSetPrefix: String = "set3_"
+        
+        
+        switch self {
+        case .blizzard:
+            return iconSetPrefix + "50d"
+        case .blowingDust:
+            return iconSetPrefix + "14d"
+        case .blowingSnow:
+            return iconSetPrefix + "9d"
+        case .breezy:
+            return iconSetPrefix + "7d"
+        case .clear:
+            return iconSetPrefix + "1d"
+        case .cloudy:
+            return iconSetPrefix + "2d"
+        case .drizzle:
+            return iconSetPrefix + "5d"
+        case .flurries:
+            return iconSetPrefix + "10d"
+        case .foggy:
+            return iconSetPrefix + "7d"
+        case .freezingDrizzle:
+            return iconSetPrefix + "10d"
+        case .freezingRain:
+            return iconSetPrefix + "10d"
+        case .frigid:
+            return iconSetPrefix + "1d"
+        case .hail:
+            return iconSetPrefix + "10d"
+        case .haze:
+            return iconSetPrefix + "7d"
+        case .heavyRain:
+            return iconSetPrefix + "6d"
+        case .heavySnow:
+            return iconSetPrefix + "9d"
+        case .hot:
+            return iconSetPrefix + "51d"
+        case .hurricane:
+            return iconSetPrefix + "8d"
+        case .isolatedThunderstorms:
+            return iconSetPrefix + "8d"
+        case .mostlyClear:
+            return iconSetPrefix + "1d"
+        case .mostlyCloudy:
+            return iconSetPrefix + "2d"
+        case .partlyCloudy:
+            return iconSetPrefix + "2d"
+        case .rain:
+            return iconSetPrefix + "5d"
+        case .scatteredThunderstorms:
+            return iconSetPrefix + "8d"
+        case .sleet:
+            return iconSetPrefix + "10d"
+        case .smoky:
+            return iconSetPrefix + "7d"
+        case .snow:
+            return iconSetPrefix + "9d"
+        case .strongStorms:
+            return iconSetPrefix + "8d"
+        case .sunFlurries:
+            return iconSetPrefix + "5d"
+        case .sunShowers:
+            return iconSetPrefix + "5d"
+        case .thunderstorms:
+            return iconSetPrefix + "8d"
+        case .tropicalStorm:
+            return iconSetPrefix + "8d"
+        case .windy:
+            return iconSetPrefix + "7d"
+        case .wintryMix:
+            return iconSetPrefix + "10d"
+        @unknown default:
+            return iconSetPrefix + "dunno"
+        }
+    }
+}
+
+extension WeatherCondition {
+    public var asset4: String {
+        
+        let iconSetPrefix: String = "set4_"
+        
+        
+        switch self {
+        case .blizzard:
+            return iconSetPrefix + "50d"
+        case .blowingDust:
+            return iconSetPrefix + "14d"
+        case .blowingSnow:
+            return iconSetPrefix + "9d"
+        case .breezy:
+            return iconSetPrefix + "7d"
+        case .clear:
+            return iconSetPrefix + "1d"
+        case .cloudy:
+            return iconSetPrefix + "2d"
+        case .drizzle:
+            return iconSetPrefix + "5d"
+        case .flurries:
+            return iconSetPrefix + "10d"
+        case .foggy:
+            return iconSetPrefix + "7d"
+        case .freezingDrizzle:
+            return iconSetPrefix + "10d"
+        case .freezingRain:
+            return iconSetPrefix + "10d"
+        case .frigid:
+            return iconSetPrefix + "1d"
+        case .hail:
+            return iconSetPrefix + "10d"
+        case .haze:
+            return iconSetPrefix + "7d"
+        case .heavyRain:
+            return iconSetPrefix + "6d"
+        case .heavySnow:
+            return iconSetPrefix + "9d"
+        case .hot:
+            return iconSetPrefix + "51d"
+        case .hurricane:
+            return iconSetPrefix + "8d"
+        case .isolatedThunderstorms:
+            return iconSetPrefix + "8d"
+        case .mostlyClear:
+            return iconSetPrefix + "1d"
+        case .mostlyCloudy:
+            return iconSetPrefix + "2d"
+        case .partlyCloudy:
+            return iconSetPrefix + "2d"
+        case .rain:
+            return iconSetPrefix + "5d"
+        case .scatteredThunderstorms:
+            return iconSetPrefix + "8d"
+        case .sleet:
+            return iconSetPrefix + "10d"
+        case .smoky:
+            return iconSetPrefix + "7d"
+        case .snow:
+            return iconSetPrefix + "9d"
+        case .strongStorms:
+            return iconSetPrefix + "8d"
+        case .sunFlurries:
+            return iconSetPrefix + "5d"
+        case .sunShowers:
+            return iconSetPrefix + "5d"
+        case .thunderstorms:
+            return iconSetPrefix + "8d"
+        case .tropicalStorm:
+            return iconSetPrefix + "8d"
+        case .windy:
+            return iconSetPrefix + "7d"
+        case .wintryMix:
+            return iconSetPrefix + "10d"
+        @unknown default:
+            return iconSetPrefix + "dunno"
+        }
+    }
+}
+
+extension WeatherCondition {
+    public var asset5: String {
+        
+        let iconSetPrefix: String = "set5_"
+        
+        
+        switch self {
+        case .blizzard:
+            return iconSetPrefix + "50d"
+        case .blowingDust:
+            return iconSetPrefix + "14d"
+        case .blowingSnow:
+            return iconSetPrefix + "9d"
+        case .breezy:
+            return iconSetPrefix + "7d"
+        case .clear:
+            return iconSetPrefix + "1d"
+        case .cloudy:
+            return iconSetPrefix + "2d"
+        case .drizzle:
+            return iconSetPrefix + "5d"
+        case .flurries:
+            return iconSetPrefix + "10d"
+        case .foggy:
+            return iconSetPrefix + "7d"
+        case .freezingDrizzle:
+            return iconSetPrefix + "10d"
+        case .freezingRain:
+            return iconSetPrefix + "10d"
+        case .frigid:
+            return iconSetPrefix + "1d"
+        case .hail:
+            return iconSetPrefix + "10d"
+        case .haze:
+            return iconSetPrefix + "7d"
+        case .heavyRain:
+            return iconSetPrefix + "6d"
+        case .heavySnow:
+            return iconSetPrefix + "9d"
+        case .hot:
+            return iconSetPrefix + "51d"
+        case .hurricane:
+            return iconSetPrefix + "8d"
+        case .isolatedThunderstorms:
+            return iconSetPrefix + "8d"
+        case .mostlyClear:
+            return iconSetPrefix + "1d"
+        case .mostlyCloudy:
+            return iconSetPrefix + "2d"
+        case .partlyCloudy:
+            return iconSetPrefix + "2d"
+        case .rain:
+            return iconSetPrefix + "5d"
+        case .scatteredThunderstorms:
+            return iconSetPrefix + "8d"
+        case .sleet:
+            return iconSetPrefix + "10d"
+        case .smoky:
+            return iconSetPrefix + "7d"
+        case .snow:
+            return iconSetPrefix + "9d"
+        case .strongStorms:
+            return iconSetPrefix + "8d"
+        case .sunFlurries:
+            return iconSetPrefix + "5d"
+        case .sunShowers:
+            return iconSetPrefix + "5d"
+        case .thunderstorms:
+            return iconSetPrefix + "8d"
+        case .tropicalStorm:
+            return iconSetPrefix + "8d"
+        case .windy:
+            return iconSetPrefix + "7d"
+        case .wintryMix:
+            return iconSetPrefix + "10d"
+        @unknown default:
+            return iconSetPrefix + "dunno"
+        }
+    }
+}
+
+extension WeatherCondition {
+    public var asset6: String {
+        
+        let iconSetPrefix: String = "set6_"
         
         
         switch self {

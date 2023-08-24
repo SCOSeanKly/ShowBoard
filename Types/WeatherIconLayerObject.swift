@@ -14,7 +14,7 @@ class WeatherIconLayerObject: LayerObject {
     
     // MARK: - Public Properties
     
-    
+    /*
     /// Currently selected weather icon set
     @Published var activeWeatherIconImageSet: WeatherIconImageSet
     
@@ -27,6 +27,8 @@ class WeatherIconLayerObject: LayerObject {
         case set5
         case set6
     }
+     */
+     
      
  
     
@@ -34,9 +36,9 @@ class WeatherIconLayerObject: LayerObject {
     // MARK: - Public Methods
     
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), activeWeatherIconImageSet: WeatherIconImageSet = .set4) {
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
 
-        self.activeWeatherIconImageSet = activeWeatherIconImageSet
+    //    self.activeWeatherIconImageSet = activeWeatherIconImageSet
        
         
         super.init()
@@ -47,5 +49,87 @@ class WeatherIconLayerObject: LayerObject {
 }
 
 
+class WeatherIconLayerObject2: LayerObject {
+    
+    // MARK: - Public Properties
 
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .weatherIcon2
+    }
+}
  
+class WeatherIconLayerObject3: LayerObject {
+    
+    // MARK: - Public Properties
+    
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .weatherIcon3
+    }
+}
+
+class WeatherIconLayerObject4: LayerObject {
+    
+    // MARK: - Public Properties
+    
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .weatherIcon4
+    }
+}
+
+class WeatherIconLayerObject5: LayerObject {
+    
+    // MARK: - Public Properties
+    
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .weatherIcon5
+    }
+}
+
+class WeatherIconLayerObject6: LayerObject {
+    
+    // MARK: - Public Properties
+    
+    
+    // MARK: - Public Methods
+    
+    
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
+
+        super.init()
+        self.id = id
+        self.appearance = appearance
+        self.objectType = .weatherIcon6
+    }
+}

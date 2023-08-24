@@ -109,6 +109,12 @@ struct ShowBoardView: View {
                             case .hiLoLinearGauge: HiLoLinearGauge(showMicroControls: $showMicroControls)
                             case .conditionAsset: Condition_Asset(showMicroControls: $showMicroControls)
                             case .rain : RainView(showMicroControls: $showMicroControls)
+                            case .weatherIcon2: WeatherIcon2View(showMicroControls: $showMicroControls)
+                            case .weatherIcon3: WeatherIcon3View(showMicroControls: $showMicroControls)
+                            case .weatherIcon4: WeatherIcon4View(showMicroControls: $showMicroControls)
+                            case .weatherIcon5: WeatherIcon5View(showMicroControls: $showMicroControls)
+                            case .weatherIcon6: WeatherIcon6View(showMicroControls: $showMicroControls)
+                                
                             }
                         }
                         .onAppear {

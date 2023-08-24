@@ -240,6 +240,11 @@ struct PlacedObjectsListView: View {
         case .hiLoLinearGauge: objectTypeInfo = .hiLoLinearGauge
         case .conditionAsset: objectTypeInfo = .conditionAsset
         case .rain: objectTypeInfo = .rain
+        case .weatherIcon2: objectTypeInfo = .weatherIcon2
+        case .weatherIcon3: objectTypeInfo = .weatherIcon3
+        case .weatherIcon4: objectTypeInfo = .weatherIcon4
+        case .weatherIcon5: objectTypeInfo = .weatherIcon5
+        case .weatherIcon6: objectTypeInfo = .weatherIcon6
             
         }
         
@@ -289,7 +294,6 @@ struct PlacedObjectsListView: View {
         case customShape
         case wavyDock
         case glassShape
-        case weatherIcon
         case squareShape
         case batteryLinearGauge
         case calendar
@@ -297,6 +301,12 @@ struct PlacedObjectsListView: View {
         case hiLoLinearGauge
         case conditionAsset
         case rain
+        case weatherIcon
+        case weatherIcon2
+        case weatherIcon3
+        case weatherIcon4
+        case weatherIcon5
+        case weatherIcon6
         
         
         
@@ -316,6 +326,11 @@ struct PlacedObjectsListView: View {
             case .hiLoLinearGauge: return "chart.line.flattrend.xyaxis"
             case .conditionAsset: return "sun.max"
             case .rain: return "cloud.heavyrain"
+            case .weatherIcon2: return "sun.max"
+            case .weatherIcon3: return "sun.max"
+            case .weatherIcon4: return "sun.max"
+            case .weatherIcon5: return "sun.max"
+            case .weatherIcon6: return "sun.max"
                 
                 
             }
@@ -329,7 +344,6 @@ struct PlacedObjectsListView: View {
             case .customShape: return "Custom Shape"
             case .wavyDock: return "Wavy Dock"
             case .glassShape: return "Glass"
-            case .weatherIcon: return "Weather Icon"
             case .squareShape: return "Squared Shape"
             case .batteryLinearGauge: return "Linear Gauge"
             case .calendar: return "Calendar"
@@ -337,6 +351,12 @@ struct PlacedObjectsListView: View {
             case .hiLoLinearGauge: return "Hi/Lo Linear Gauge"
             case .conditionAsset: return "Condition Asset"
             case .rain: return "Live Rain Effect"
+            case .weatherIcon: return "Weather Icon Style 1"
+            case .weatherIcon2: return "Weather Icon Style 2"
+            case .weatherIcon3: return "Weather Icon Style 3"
+            case .weatherIcon4: return "Weather Icon Style 4"
+            case .weatherIcon5: return "Weather Icon Style 5"
+            case .weatherIcon6: return "Weather Icon Style 6"
                 
                 
             }

@@ -42,6 +42,12 @@ extension DynamicText {
         case temp = "[temp]"
         case condition = "[condition]"
         case conditionAsset = "[conditionAsset]"
+        case conditionAsset2 = "[conditionaAsset2]"
+        case conditionAsset3 = "[conditionaAsset3]"
+        case conditionAsset4 = "[conditionaAsset4]"
+        case conditionAsset5 = "[conditionaAsset5]"
+        case conditionAsset6 = "[conditionaAsset6]"
+        
         case dayLight = "[dayLight]"
         case cloudCover = "[cloudCover]"
         case visibility = "[visibility]"
@@ -150,6 +156,16 @@ extension DynamicText {
                 return v.condition.description
             case .conditionAsset:
                 return v.condition.asset
+            case .conditionAsset2:
+                return v.condition.asset2
+            case .conditionAsset3:
+                return v.condition.asset3
+            case .conditionAsset4:
+                return v.condition.asset4
+            case .conditionAsset5:
+                return v.condition.asset5
+            case .conditionAsset6:
+                return v.condition.asset6
             case .dayLight:
                 return v.isDaylight ? "Day Time" : "Night Time"
             case .cloudCover:

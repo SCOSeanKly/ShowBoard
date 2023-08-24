@@ -17,9 +17,6 @@ struct WeatherIconView: View {
         wObserver.weather?.currentWeather
     }
     
-    var todaysForecast: DayWeather? {
-        wObserver.getGorecast(offset: 0)
-    }
     
     @State private var imageLoaded = false
     

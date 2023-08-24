@@ -101,7 +101,6 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set3
                                 placedObjects.append(ConditionAssetObject())
                                 showLayerElementView = false
                             },
@@ -113,44 +112,43 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set1
                                 placedObjects.append(WeatherIconLayerObject())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set1_5d"),
                             textDescription: "Style1",
-                            disabled: true,
+                            disabled: false,
                             cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set2
-                                placedObjects.append(WeatherIconLayerObject())
+                              //  weatherIconObject.activeWeatherIconImageSet = .set2
+                                placedObjects.append(WeatherIconLayerObject2())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set2_8d"),
                             textDescription: "Style2",
-                            disabled: true,
+                            disabled: false,
                             cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set3
-                                placedObjects.append(WeatherIconLayerObject())
+                           
+                                placedObjects.append(WeatherIconLayerObject3())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set3_7d"),
                             textDescription: "Style3",
-                            disabled: true,
+                            disabled: false,
                             cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set4
-                                placedObjects.append(WeatherIconLayerObject())
+                            
+                                placedObjects.append(WeatherIconLayerObject4())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set4_7d"),
@@ -161,25 +159,25 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set5
-                                placedObjects.append(WeatherIconLayerObject())
+                            
+                                placedObjects.append(WeatherIconLayerObject5())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set5_7d"),
                             textDescription: "Style5",
-                            disabled: true,
+                            disabled: false,
                             cornerRadius: cornerRadius
                         )
                         
                         ObjectSelectionButton(
                             action: {
-                                weatherIconObject.activeWeatherIconImageSet = .set6
-                                placedObjects.append(WeatherIconLayerObject())
+                             
+                                placedObjects.append(WeatherIconLayerObject6())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set6_1d"),
                             textDescription: "Style6",
-                            disabled: true,
+                            disabled: false,
                             cornerRadius: cornerRadius
                         )
                     }
