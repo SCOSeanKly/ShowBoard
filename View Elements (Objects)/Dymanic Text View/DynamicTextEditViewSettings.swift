@@ -75,7 +75,7 @@ struct DynamicTextEditViewSettings: View {
                         
                         SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.appearance.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)
                         
-                        CustomColorPicker(titleText: "Fill Colour", pickerBindingValue: $text.appearance.fillColor2, pickerBindingValue2: $text.appearance.fillColor)
+                        CustomColorPicker(titleText: "Fill Colour", pickerBindingValue: $text.appearance.fillColor2, pickerBindingValue2: $text.appearance.fillColor, showGradientToggle: true)
                         
                         SliderStepper(color: .blue, title: "Tracking:", sliderBindingValue: $text.appearance.fontTracking, minValue: -10, maxValue: 50, step: 1, specifier: 0, defaultValue: 0)
                         

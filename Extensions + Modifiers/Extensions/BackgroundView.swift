@@ -42,17 +42,42 @@ struct BackgroundView: View {
     @AppStorage("rainOrSnow") private var rainOrSnow: Bool = true
     @ObservedObject var manager = MotionManager()
     
+    let randomImageNames = [
+        "bg1",
+        "bg2",
+        "bg3",
+        "bg4",
+        "bg5",
+        "bg6",
+        "bg7",
+        "bg8",
+        "bg9"  
+    ]
+
+    var randomImageName: String {
+        randomImageNames.randomElement() ?? "sky"
+    }
+    
     
     var body: some View {
         ZStack{
             
-            Image("sky")
+            
+            /*
+            Image(randomImageName)
                 .resizable()
                 .ignoresSafeArea()
                 .overlay {
                     TransparentBlurView(removeAllFilters: true)
                         .blur(radius: 50, opaque: true)
                 }
+             */
+            
+                Image("bg7")
+                    .resizable()
+                    .ignoresSafeArea()
+                  
+         
             
             if (placedObjects.count == 0) {
                 
@@ -66,8 +91,8 @@ struct BackgroundView: View {
                     
                     SpriteView(scene: RainFallLanding(),options: [.allowsTransparency])
                         .offset(y: UIScreen.main.bounds.height * 0.99)
-                        .blendMode(.luminosity)
                         .blur(radius: rainOrSnow ? 2 : 0)
+                        .blendMode(.luminosity)
                 }
                 
                 VStack {
@@ -105,7 +130,7 @@ struct BackgroundView: View {
                 .background {
                     ZStack {
                         TransparentBlurView(removeAllFilters: true)
-                            .blur(radius: 5, opaque: true)
+                            .blur(radius: 15, opaque: true)
                             .background(.white.opacity(0.05))
                         
                         RoundedRectangle(cornerRadius: 20)
@@ -156,7 +181,7 @@ struct BackgroundView: View {
     }
     // New functions to manage the timer
     private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 10, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { _ in
             currentHintIndex = (currentHintIndex + 1) % hints.count
         }
     }

@@ -167,6 +167,7 @@ struct LayerObjectAppearance {
     var dateBackgroundColor: Color
     var dateBackgroundCornerRadius: CGFloat
     var calendarBackgroundColor: Color
+    var calendarBackgroundColor2: Color
     var calendarBackgroundCornerRadius: CGFloat
     var todayIndicator: Color
     var todayIndicatorStyle: Bool
@@ -309,6 +310,7 @@ struct LayerObjectAppearance {
         self.dateBackgroundColor = .clear
         self.dateBackgroundCornerRadius = 10
         self.calendarBackgroundColor = .clear
+        self.calendarBackgroundColor2 = .clear
         self.calendarBackgroundCornerRadius = 10
         self.todayIndicator = .red
         
@@ -349,6 +351,7 @@ struct LayerObjectAppearance {
          dateBackgroundColor: Color,
          dateBackgroundCornerRadius: CGFloat,
          calendarBackgroundColor: Color,
+         calendarBackgroundColor2: Color,
          calendarBackgroundCornerRadius: CGFloat,
          todayIndicator: Color,
          
@@ -426,6 +429,7 @@ struct LayerObjectAppearance {
         self.dateBackgroundColor = dateBackgroundColor
         self.dateBackgroundCornerRadius = dateBackgroundCornerRadius
         self.calendarBackgroundColor = calendarBackgroundColor
+        self.calendarBackgroundColor2 = calendarBackgroundColor2
         self.calendarBackgroundCornerRadius = calendarBackgroundCornerRadius
         self.todayIndicator = todayIndicator
         

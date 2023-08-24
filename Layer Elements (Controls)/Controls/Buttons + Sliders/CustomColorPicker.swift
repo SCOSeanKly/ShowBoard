@@ -12,6 +12,7 @@ struct CustomColorPicker: View {
     let pickerBindingValue: Binding<Color>
     let pickerBindingValue2: Binding<Color>?
     @State private var useGradient: Bool = false
+    let showGradientToggle: Bool
     
     var body: some View {
         HStack {
@@ -54,7 +55,7 @@ struct CustomColorPicker: View {
                
             }
             
-            if useGradient {
+            if showGradientToggle {
                 CustomToggle(showTitleText: false, titleText: "", bindingValue: $useGradient, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                     .offset(x: 10)
                     .onChange(of: useGradient, perform: { newValue in

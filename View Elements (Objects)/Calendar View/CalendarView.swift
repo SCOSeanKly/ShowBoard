@@ -79,6 +79,7 @@ struct CalendarView: View {
             }
             .padding()
             .background(vm.appearance.calendarBackgroundColor)
+            .background(LinearGradient(colors: [vm.appearance.calendarBackgroundColor, vm.appearance.calendarBackgroundColor2], startPoint: .top, endPoint: .bottom))
             .clipShape(RoundedRectangle(cornerRadius: vm.appearance.calendarBackgroundCornerRadius))
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
