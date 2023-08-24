@@ -4,7 +4,7 @@
 //
 //  Created by Sean Kelly on 02/08/2023.
 //
-
+/*
 import SwiftUI
 import WeatherKit
 
@@ -118,7 +118,7 @@ struct SWAWidget2: View {
             .frame(width: UIScreen.main.bounds.width)
             .contentShape(Rectangle())
         }
-        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+        .modifier(WidgetModifier(location: , isDragging: $isDragging, enableZoom: false))
         .modifier(AlertModifier(showClipboardAlert: $showClipboardAlert, runShortcut: {
             runShortcut() }))
     }
@@ -132,6 +132,6 @@ struct SWAWidget2_Previews: PreviewProvider {
 }
  */
  
-
+*/
 
 

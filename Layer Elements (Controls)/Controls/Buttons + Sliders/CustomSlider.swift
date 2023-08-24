@@ -92,9 +92,8 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
             }
         }
         .frame(height: isActive ? height * 2 : height, alignment: .center)
-        .padding(.horizontal)
         .frame(height: 20)
-        .padding(.leading, 5)
+        .padding(.leading, 10)
         
     }
     

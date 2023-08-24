@@ -54,7 +54,8 @@ struct SliderStepper: View {
                         
                         Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
                             .specifierFont()
-                            .frame(width: 30)
+                            
+                            .frame(width: 45, alignment: .trailing)
                             .offset(x: 10)
                     }
                 }

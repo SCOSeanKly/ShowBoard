@@ -30,6 +30,8 @@ struct AppearanceControlView: View {
                 
                 ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
                 
+                rainControls(layer: layer)
+                
                 WavyDockControls(layer: layer)
                 
                 CalendarControls(layer: layer)

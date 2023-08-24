@@ -11,10 +11,7 @@ import SwiftUI
 struct WidgetModifier: ViewModifier {
     @State private var location: CGPoint = .zero
     @Binding var isDragging: Bool
-    @State private var angle: CGFloat = 0
-    @State private var prevAngle: CGFloat = 0
-    let enableZoom: Bool // Variable to enable/disable the zoom modifier
- 
+   
     
     private var drag: some Gesture {
         DragGesture()
@@ -35,16 +32,11 @@ struct WidgetModifier: ViewModifier {
                 .position(location)
                 .gesture(drag)
                 .animation(.easeInOut, value: location)
-                .if(enableZoom) { view in
-                    view.modifier(ZoomModifier(minimum: 0.50, maximum: 1.50))
+                .onLongPressGesture {
+                 
+                        location = CGPoint(x: proxy.size.width * 0.5, y: location.y)
+                    
                 }
-            /*
-             .rotationEffect(.degrees(Double(self.angle)))
-             .gesture(RotateGesture(angle: $angle, prevAngle: $prevAngle, size: size))
-             .onTapGesture(count: 2) {
-             location = CGPoint(x: proxy.size.width * 0.5, y: location.y)
-             }
-             */
                 .onAppear {
                     location = CGPoint(x: proxy.size.width * 0.5, y: proxy.size.height * 0.5)
                 }

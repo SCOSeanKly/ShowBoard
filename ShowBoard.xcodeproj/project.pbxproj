@@ -203,6 +203,8 @@
 		3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDBEBFD2A710806003856DA /* HeartButton.swift */; };
 		3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
+		3EFFD6EF2A9747BE00367B75 /* RainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6EE2A9747BE00367B75 /* RainObject.swift */; };
+		3EFFD6F22A9748EF00367B75 /* Rain View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6F12A9748EF00367B75 /* Rain View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -424,6 +426,8 @@
 		3EDBEBFD2A710806003856DA /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
 		3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardGallery.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
+		3EFFD6EE2A9747BE00367B75 /* RainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainObject.swift; sourceTree = "<group>"; };
+		3EFFD6F12A9748EF00367B75 /* Rain View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rain View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -474,6 +478,7 @@
 				3E6B7A3D2A811F1200163E58 /* WeatherIconLayerObject.swift */,
 				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 				3E315A562A93942400D0A42E /* ConditionAssetObject.swift */,
+				3EFFD6EE2A9747BE00367B75 /* RainObject.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3EFFD6F02A9748DF00367B75 /* Rain View */,
 				3E315A582A939FC200D0A42E /* Condition Asset */,
 				3EC0DDA42A8FACD000E1A893 /* Hi Lo Circle Gauge */,
 				3EAA6E5A2A8BD1980093BB3A /* Calendar View */,
@@ -938,6 +944,14 @@
 			path = "Cover Sheet Views";
 			sourceTree = "<group>";
 		};
+		3EFFD6F02A9748DF00367B75 /* Rain View */ = {
+			isa = PBXGroup;
+			children = (
+				3EFFD6F12A9748EF00367B75 /* Rain View.swift */,
+			);
+			path = "Rain View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1164,6 +1178,7 @@
 				3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
+				3EFFD6F22A9748EF00367B75 /* Rain View.swift in Sources */,
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
 				3E3977922A7BF998002711FC /* AppModel.swift in Sources */,
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
@@ -1219,6 +1234,7 @@
 				3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */,
 				3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */,
 				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
+				3EFFD6EF2A9747BE00367B75 /* RainObject.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
@@ -1420,7 +1436,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.30;
+				CURRENT_PROJECT_VERSION = 0.0.31;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1464,7 +1480,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.30;
+				CURRENT_PROJECT_VERSION = 0.0.31;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

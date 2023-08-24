@@ -239,6 +239,7 @@ struct PlacedObjectsListView: View {
         case .hiLoCircleGauge: objectTypeInfo = .hiLoCircleGauge
         case .hiLoLinearGauge: objectTypeInfo = .hiLoLinearGauge
         case .conditionAsset: objectTypeInfo = .conditionAsset
+        case .rain: objectTypeInfo = .rain
             
         }
         
@@ -295,6 +296,7 @@ struct PlacedObjectsListView: View {
         case hiLoCircleGauge
         case hiLoLinearGauge
         case conditionAsset
+        case rain
         
         
         
@@ -313,6 +315,7 @@ struct PlacedObjectsListView: View {
             case .hiLoCircleGauge: return "speedometer"
             case .hiLoLinearGauge: return "chart.line.flattrend.xyaxis"
             case .conditionAsset: return "sun.max"
+            case .rain: return "cloud.heavyrain"
                 
                 
             }
@@ -333,6 +336,7 @@ struct PlacedObjectsListView: View {
             case .hiLoCircleGauge: return "Hi/Lo Circle Gauge"
             case .hiLoLinearGauge: return "Hi/Lo Linear Gauge"
             case .conditionAsset: return "Condition Asset"
+            case .rain: return "Live Rain Effect"
                 
                 
             }

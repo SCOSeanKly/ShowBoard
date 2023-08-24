@@ -11,9 +11,7 @@ import Photos
 
 
 struct ShowBoardView: View {
-    //MARK: Modifier Variables
-    @GestureState private var dragOffset = CGSize.zero
-    
+  
     //MARK: View Variables
     @State private var showBgPickerSheet = false
     @State private var importedBackground: UIImage? = nil
@@ -110,6 +108,7 @@ struct ShowBoardView: View {
                             case .hiLoCircleGauge: HiLoCircleGauge(showMicroControls: $showMicroControls)
                             case .hiLoLinearGauge: HiLoLinearGauge(showMicroControls: $showMicroControls)
                             case .conditionAsset: Condition_Asset(showMicroControls: $showMicroControls)
+                            case .rain : RainView(showMicroControls: $showMicroControls)
                             }
                         }
                         .onAppear {
@@ -119,7 +118,7 @@ struct ShowBoardView: View {
                             }
                         }
                         .padding(10)
-                        .modifier(WidgetModifier(isDragging: $isDragging, enableZoom: false))
+                        .modifier(WidgetModifier(isDragging: $isDragging))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id)
                         .fadeOnAppear()

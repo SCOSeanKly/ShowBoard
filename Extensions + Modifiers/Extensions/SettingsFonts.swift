@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomFontModifier_TitleFontSettings: ViewModifier {
     func body(content: Content) -> some View {
-        content.font(.system(size: 14).weight(.regular))
+        content.font(.system(size: 12).weight(.regular))
             .lineLimit(1)
           
     }
@@ -24,7 +24,7 @@ extension View {
 
 struct CustomFontModifier_SpecifierFontSettings: ViewModifier {
     func body(content: Content) -> some View {
-        content.font(.system(size: 12).weight(.semibold))
+        content.font(.system(size: 10).weight(.semibold))
             .lineLimit(1)
          
     }

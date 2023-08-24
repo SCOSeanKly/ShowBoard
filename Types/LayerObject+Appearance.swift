@@ -177,7 +177,7 @@ struct LayerObjectAppearance {
     var dropLast: CGFloat
     var fontColor: Color
     var fontSize: CGFloat
-   // var selectedFontName: String
+    // var selectedFontName: String
     @AppStorage("selectedFontName") var selectedFontName: String = "Apple SF"
     var fontWeight: Font.Weight
     var font: Font {
@@ -194,6 +194,10 @@ struct LayerObjectAppearance {
     var isCircleText: Bool
     var isKeyboardPresented: Bool
     var useGradientColors: Bool
+    
+    //MARK: Rain Effect
+    var showRainBounce: Bool
+    var addGaradientMask: Bool
     
     
     /// The list of the avaliable blend modes
@@ -304,7 +308,7 @@ struct LayerObjectAppearance {
         self.dropLast = 0
         self.fontColor = .white
         self.fontSize = 16
-      //  self.selectedFontName = "Apple SF"
+        //  self.selectedFontName = "Apple SF"
         self.fontWeight = .medium
         self.textAlignment = .center
         self.inputText = "ShowBoard - Good [timeOfDay]"
@@ -313,8 +317,10 @@ struct LayerObjectAppearance {
         self.fillColor2 = .white
         self.useGradientColors = false
         self.todayIndicatorStyle = false
+        self.showRainBounce = false
+        self.addGaradientMask = true
         
-    
+        
         
     }
     
@@ -329,7 +335,7 @@ struct LayerObjectAppearance {
          calendarBackgroundColor: Color,
          calendarBackgroundCornerRadius: CGFloat,
          todayIndicator: Color,
-    
+         
          fontTracking: CGFloat,
          fontFrameWidth: CGFloat,
          dropLast: CGFloat,
@@ -343,7 +349,9 @@ struct LayerObjectAppearance {
          isKeyboardPresented: Bool,
          fillColor2: Color,
          useGradientColors: Bool,
-         todayIndicatorStyle: Bool) {
+         todayIndicatorStyle: Bool,
+         showRainBounce: Bool,
+         addGaradientMask: Bool) {
         
         self.position = position
         self.originalSize = originalSize
@@ -404,7 +412,7 @@ struct LayerObjectAppearance {
         self.dropLast = dropLast
         self.fontColor = fontColor
         self.fontSize = fontSize
-      //  self.selectedFontName = selectedFontName
+        //  self.selectedFontName = selectedFontName
         self.fontWeight = fontWeight
         self.textAlignment = textAlignment
         self.inputText = inputText
@@ -413,7 +421,10 @@ struct LayerObjectAppearance {
         self.fillColor2 = fillColor2
         self.useGradientColors = useGradientColors
         self.todayIndicatorStyle = todayIndicatorStyle
+        self.showRainBounce = showRainBounce
+        self.addGaradientMask = addGaradientMask
     }
+   
     
     
     

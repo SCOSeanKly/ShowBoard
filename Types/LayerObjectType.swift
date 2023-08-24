@@ -21,5 +21,6 @@ enum LayerObjectType {
     case hiLoCircleGauge
     case hiLoLinearGauge
     case conditionAsset
+    case rain
 
 }

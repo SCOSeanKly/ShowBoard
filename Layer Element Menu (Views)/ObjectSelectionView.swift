@@ -219,7 +219,7 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                     
                     
-                    ObjectTitleText(titleText: "Shapes")
+                    ObjectTitleText(titleText: "Shapes & Effects")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
                             action: {
@@ -261,6 +261,17 @@ struct ObjectSelectionView: View {
                             },
                             imageType: .system(name: "alternatingcurrent"),
                             textDescription: "Wavy Dock",
+                            disabled: false,
+                            cornerRadius: cornerRadius
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(RainObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "cloud.heavyrain"),
+                            textDescription: "Live Rain",
                             disabled: false,
                             cornerRadius: cornerRadius
                         )
