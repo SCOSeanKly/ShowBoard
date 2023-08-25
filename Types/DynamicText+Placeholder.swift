@@ -160,36 +160,7 @@ extension DynamicText {
                 return ""
             }
         }
-        /*
-         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature, useMiles: Bool = false, conditionAssetStyle: Int) -> String {
-             guard let val = data else { return "-" }
-             
-             switch self {
-             case .lowTemp:
-                 return self.tempteratureToString(value: val.lowTemperature, unit)
-             case .highTemp:
-                 return self.tempteratureToString(value: val.highTemperature, unit)
-             case .precipitation:
-                 return "\(val.precipitationAmount)"
-             case .precipitationChance:
-                 return String(format: "%.0f%%", val.precipitationChance * 100)
-             case .conditionSymbol:
-                 return String(val.symbolName)
-             case .conditionAsset:
-                 switch conditionAssetStyle {
-                 case 6:
-                     return val.condition.asset6
-                 // Add more cases for different icon styles if needed
-                 default:
-                     return ""
-                 }
-             default:
-                 return ""
-             }
-         }
-
-         */
-        
+      
     
         public func withCurrentWeather(_ data: CurrentWeather?, unit: UnitTemperature, useMiles: Bool = false) -> String {
             
@@ -215,7 +186,7 @@ extension DynamicText {
             case .dayLight:
                 return v.isDaylight ? "Day Time" : "Night Time"
             case .cloudCover:
-                return String(round(v.cloudCover))
+                return String(round(v.cloudCover * 100)) + " %"
             case .visibility:
                 return self.lengthToString(value: v.visibility, useMiles: useMiles)
             case .dewPoint:

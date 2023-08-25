@@ -245,7 +245,7 @@ struct PlacedObjectsListView: View {
         case .weatherIcon4: objectTypeInfo = .weatherIcon4
         case .weatherIcon5: objectTypeInfo = .weatherIcon5
         case .weatherIcon6: objectTypeInfo = .weatherIcon6
-        case .weatherIconPlus7: objectTypeInfo = .weatherIconPlus7
+        case .weatherIconForecast: objectTypeInfo = .weatherIconForecast
             
         }
         
@@ -308,7 +308,7 @@ struct PlacedObjectsListView: View {
         case weatherIcon4
         case weatherIcon5
         case weatherIcon6
-        case weatherIconPlus7
+        case weatherIconForecast
         
         
         
@@ -333,7 +333,7 @@ struct PlacedObjectsListView: View {
             case .weatherIcon4: return "sun.max"
             case .weatherIcon5: return "sun.max"
             case .weatherIcon6: return "sun.max"
-            case .weatherIconPlus7: return "sun.max"
+            case .weatherIconForecast: return "sun.max"
                 
                 
             }
@@ -360,7 +360,7 @@ struct PlacedObjectsListView: View {
             case .weatherIcon4: return "Weather Icon Style 4"
             case .weatherIcon5: return "Weather Icon Style 5"
             case .weatherIcon6: return "Weather Icon Style 6"
-            case .weatherIconPlus7: return "Weather Icon PLus 7"
+            case .weatherIconForecast: return "Weather Icon Forecast"
                 
                 
             }

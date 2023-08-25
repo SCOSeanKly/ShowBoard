@@ -105,7 +105,7 @@ struct ObjectSelectionView: View {
                                 showLayerElementView = false
                             },
                             imageType: .system(name: "sun.max"),
-                            textDescription: "iOS Style",
+                            textDescription: "iOS Day",
                             disabled: false,
                             cornerRadius: cornerRadius
                         )
@@ -184,7 +184,7 @@ struct ObjectSelectionView: View {
                         ObjectSelectionButton(
                             action: {
                              
-                                placedObjects.append(WeatherIconLayerObjectPlus7())
+                                placedObjects.append(weatherIconForecast())
                                 showLayerElementView = false
                             },
                             imageType: .asset(name: "set1_50d"),

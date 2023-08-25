@@ -15,7 +15,7 @@ struct WeatherIconPLus7Controls: View {
     
     var body: some View {
         
-        if layer is WeatherIconLayerObjectPlus7 {
+        if layer is weatherIconForecast {
             HStack {
                 Text("Weather Icon Style")
                     .titleFont()
@@ -185,11 +185,11 @@ struct ScaleWidthHeightControls: View {
     
     var body: some View {
         
-        if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject || layer is WeatherIconLayerObjectPlus7 {
+        if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject || layer is weatherIconForecast {
             SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 4, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
         }
         
-        if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) && !(layer is WeatherIconLayerObjectPlus7){
+        if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) && !(layer is weatherIconForecast){
             
             SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 200)
             
