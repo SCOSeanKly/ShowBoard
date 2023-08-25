@@ -41,8 +41,11 @@ struct SliderToggle: View {
                                 sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                             }
                         
-                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
-                        }
+//                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
+//                        }
+                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8, onEditingChanged: { editing in
+                            // Handle editing change
+                        }, step: 0.05)
                         .frame(height: 20)
                         .padding(.leading, 5)
                         

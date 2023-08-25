@@ -22,6 +22,9 @@ struct LayerObjectAppearance {
     /// The position of the object on the layer
     var position: CGPoint
     
+    /// Slider specifier
+    var sliderSpecifier: Int
+    var sliderStep: CGFloat
     
     /// The original size of the object
     var originalSize: CGSize
@@ -337,6 +340,9 @@ struct LayerObjectAppearance {
         self.showForecastTempString = false
         self.weatherIconAssetStyle = 1
         self.labelsOffset = 10
+        self.sliderSpecifier = 2
+        self.sliderStep = 0.05
+      
         
         
         
@@ -376,7 +382,10 @@ struct LayerObjectAppearance {
          daysToShow: CGFloat,
          showForecastTempString: Bool,
          weatherIconAssetStyle: Int,
-         labelsOffset: CGFloat) {
+         labelsOffset: CGFloat,
+         sliderSpecifier: Int,
+         sliderStep: CGFloat,
+         customSliderStep: CGFloat) {
         
         self.position = position
         self.originalSize = originalSize
@@ -455,6 +464,9 @@ struct LayerObjectAppearance {
         self.showForecastTempString = showForecastTempString
         self.weatherIconAssetStyle = weatherIconAssetStyle
         self.labelsOffset = labelsOffset
+        self.sliderSpecifier = sliderSpecifier
+        self.sliderStep = sliderStep
+      
         
     }
     
