@@ -20,6 +20,15 @@
 		097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274302A4C820C00429786 /* LayerObject+Appearance.swift */; };
 		097274332A4C854B00429786 /* TextObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274322A4C854B00429786 /* TextObject.swift */; };
 		097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097274342A4DDCCB00429786 /* ShadowSettings.swift */; };
+		3E04A1DB2A98DD7E007A5D2F /* Weather Icon 7 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1DA2A98DD7E007A5D2F /* Weather Icon 7 View.swift */; };
+		3E04A1DD2A98DD90007A5D2F /* Weather Icon 8 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1DC2A98DD90007A5D2F /* Weather Icon 8 View.swift */; };
+		3E04A1DF2A98DD9A007A5D2F /* Weather Icon 9 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1DE2A98DD9A007A5D2F /* Weather Icon 9 View.swift */; };
+		3E04A1E12A98DDAA007A5D2F /* Weather Icon 10 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1E02A98DDAA007A5D2F /* Weather Icon 10 View.swift */; };
+		3E04A1E32A98DDB5007A5D2F /* Weather Icon 11 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1E22A98DDB5007A5D2F /* Weather Icon 11 View.swift */; };
+		3E04A1E52A98EB18007A5D2F /* Weather Icon 12 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1E42A98EB18007A5D2F /* Weather Icon 12 View.swift */; };
+		3E04A1E72A98EB23007A5D2F /* Weather Icon 13 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1E62A98EB23007A5D2F /* Weather Icon 13 View.swift */; };
+		3E04A1E92A98EB30007A5D2F /* Weather Icon 14 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1E82A98EB30007A5D2F /* Weather Icon 14 View.swift */; };
+		3E04A1EB2A98EB39007A5D2F /* Weather Icon 15 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A1EA2A98EB39007A5D2F /* Weather Icon 15 View.swift */; };
 		3E1748602A866535001FD092 /* MicroControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17485F2A866535001FD092 /* MicroControls.swift */; };
 		3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1748612A8676E8001FD092 /* PlacedObjects List View.swift */; };
 		3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1748632A867744001FD092 /* ImportedImageType.swift */; };
@@ -210,7 +219,7 @@
 		3EFFD6F82A976AE000367B75 /* Weather Icon 4 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6F72A976AE000367B75 /* Weather Icon 4 View.swift */; };
 		3EFFD6FA2A976B6300367B75 /* Weather Icon 5 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6F92A976B6300367B75 /* Weather Icon 5 View.swift */; };
 		3EFFD6FC2A976C9500367B75 /* Weather Icon 6 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6FB2A976C9500367B75 /* Weather Icon 6 View.swift */; };
-		3EFFD6FE2A976D9F00367B75 /* Weather Icon +7 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6FD2A976D9F00367B75 /* Weather Icon +7 View.swift */; };
+		3EFFD6FE2A976D9F00367B75 /* Weather Icon Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFFD6FD2A976D9F00367B75 /* Weather Icon Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +253,15 @@
 		097274302A4C820C00429786 /* LayerObject+Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayerObject+Appearance.swift"; sourceTree = "<group>"; };
 		097274322A4C854B00429786 /* TextObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObject.swift; sourceTree = "<group>"; };
 		097274342A4DDCCB00429786 /* ShadowSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowSettings.swift; sourceTree = "<group>"; };
+		3E04A1DA2A98DD7E007A5D2F /* Weather Icon 7 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 7 View.swift"; sourceTree = "<group>"; };
+		3E04A1DC2A98DD90007A5D2F /* Weather Icon 8 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 8 View.swift"; sourceTree = "<group>"; };
+		3E04A1DE2A98DD9A007A5D2F /* Weather Icon 9 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 9 View.swift"; sourceTree = "<group>"; };
+		3E04A1E02A98DDAA007A5D2F /* Weather Icon 10 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 10 View.swift"; sourceTree = "<group>"; };
+		3E04A1E22A98DDB5007A5D2F /* Weather Icon 11 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 11 View.swift"; sourceTree = "<group>"; };
+		3E04A1E42A98EB18007A5D2F /* Weather Icon 12 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 12 View.swift"; sourceTree = "<group>"; };
+		3E04A1E62A98EB23007A5D2F /* Weather Icon 13 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 13 View.swift"; sourceTree = "<group>"; };
+		3E04A1E82A98EB30007A5D2F /* Weather Icon 14 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 14 View.swift"; sourceTree = "<group>"; };
+		3E04A1EA2A98EB39007A5D2F /* Weather Icon 15 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 15 View.swift"; sourceTree = "<group>"; };
 		3E17485F2A866535001FD092 /* MicroControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroControls.swift; sourceTree = "<group>"; };
 		3E1748612A8676E8001FD092 /* PlacedObjects List View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlacedObjects List View.swift"; sourceTree = "<group>"; };
 		3E1748632A867744001FD092 /* ImportedImageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedImageType.swift; sourceTree = "<group>"; };
@@ -439,7 +457,7 @@
 		3EFFD6F72A976AE000367B75 /* Weather Icon 4 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 4 View.swift"; sourceTree = "<group>"; };
 		3EFFD6F92A976B6300367B75 /* Weather Icon 5 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 5 View.swift"; sourceTree = "<group>"; };
 		3EFFD6FB2A976C9500367B75 /* Weather Icon 6 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 6 View.swift"; sourceTree = "<group>"; };
-		3EFFD6FD2A976D9F00367B75 /* Weather Icon +7 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon +7 View.swift"; sourceTree = "<group>"; };
+		3EFFD6FD2A976D9F00367B75 /* Weather Icon Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon Forecast.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -948,7 +966,16 @@
 				3EFFD6F72A976AE000367B75 /* Weather Icon 4 View.swift */,
 				3EFFD6F92A976B6300367B75 /* Weather Icon 5 View.swift */,
 				3EFFD6FB2A976C9500367B75 /* Weather Icon 6 View.swift */,
-				3EFFD6FD2A976D9F00367B75 /* Weather Icon +7 View.swift */,
+				3E04A1DA2A98DD7E007A5D2F /* Weather Icon 7 View.swift */,
+				3E04A1DC2A98DD90007A5D2F /* Weather Icon 8 View.swift */,
+				3E04A1DE2A98DD9A007A5D2F /* Weather Icon 9 View.swift */,
+				3E04A1E02A98DDAA007A5D2F /* Weather Icon 10 View.swift */,
+				3E04A1E22A98DDB5007A5D2F /* Weather Icon 11 View.swift */,
+				3E04A1E42A98EB18007A5D2F /* Weather Icon 12 View.swift */,
+				3E04A1E62A98EB23007A5D2F /* Weather Icon 13 View.swift */,
+				3E04A1E82A98EB30007A5D2F /* Weather Icon 14 View.swift */,
+				3E04A1EA2A98EB39007A5D2F /* Weather Icon 15 View.swift */,
+				3EFFD6FD2A976D9F00367B75 /* Weather Icon Forecast.swift */,
 			);
 			path = "Weather Icon";
 			sourceTree = "<group>";
@@ -1193,6 +1220,7 @@
 				3E1748622A8676E8001FD092 /* PlacedObjects List View.swift in Sources */,
 				3EAA6E5C2A8BD1AD0093BB3A /* CalendarViewModel.swift in Sources */,
 				3E371CE72A66E2E000DE743C /* CustomColorPicker.swift in Sources */,
+				3E04A1E92A98EB30007A5D2F /* Weather Icon 14 View.swift in Sources */,
 				3E22456E2A84FF3C002B35B2 /* FontNames.swift in Sources */,
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
@@ -1202,6 +1230,7 @@
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
 				3EFFD6FA2A976B6300367B75 /* Weather Icon 5 View.swift in Sources */,
 				3E2245742A86256B002B35B2 /* SquareShapeObject.swift in Sources */,
+				3E04A1EB2A98EB39007A5D2F /* Weather Icon 15 View.swift in Sources */,
 				3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */,
@@ -1223,14 +1252,17 @@
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
 				3E315A552A9391A100D0A42E /* Condition Asset.swift in Sources */,
 				3E371CD92A6689C800DE743C /* MapObject.swift in Sources */,
+				3E04A1DD2A98DD90007A5D2F /* Weather Icon 8 View.swift in Sources */,
 				3EC0DDA62A8FAF0700E1A893 /* HiLoLinearGauge.swift in Sources */,
 				3E1748642A867744001FD092 /* ImportedImageType.swift in Sources */,
 				3E41D3182A42F71900A29548 /* BatteryLinearGauge.swift in Sources */,
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
+				3E04A1E12A98DDAA007A5D2F /* Weather Icon 10 View.swift in Sources */,
 				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */,
+				3E04A1E52A98EB18007A5D2F /* Weather Icon 12 View.swift in Sources */,
 				3E8849BF2A41D5BB00B50BBD /* PersistentOverlays.swift in Sources */,
 				3EC0DDA12A8F9FA500E1A893 /* HiLo Circle Gauge.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
@@ -1238,10 +1270,12 @@
 				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
 				3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */,
 				3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */,
-				3EFFD6FE2A976D9F00367B75 /* Weather Icon +7 View.swift in Sources */,
+				3EFFD6FE2A976D9F00367B75 /* Weather Icon Forecast.swift in Sources */,
+				3E04A1E32A98DDB5007A5D2F /* Weather Icon 11 View.swift in Sources */,
 				09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */,
 				3E3CE83B2A962A3C00174885 /* Shimmer.swift in Sources */,
 				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
+				3E04A1E72A98EB23007A5D2F /* Weather Icon 13 View.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */,
 				3E82803F2A793A8200F174F9 /* Rainfall.swift in Sources */,
@@ -1255,6 +1289,7 @@
 				3E83AABE2A6A86E100E344C9 /* CustomShape.swift in Sources */,
 				3E3E68852A8259A100F468DD /* Object Appearance Modifier.swift in Sources */,
 				3E8B70012A4CCBBC00242998 /* PressableButtonView.swift in Sources */,
+				3E04A1DF2A98DD9A007A5D2F /* Weather Icon 9 View.swift in Sources */,
 				3EFFD6EF2A9747BE00367B75 /* RainObject.swift in Sources */,
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */,
@@ -1298,6 +1333,7 @@
 				3E315A5A2A93A57500D0A42E /* AppointmentManager.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
+				3E04A1DB2A98DD7E007A5D2F /* Weather Icon 7 View.swift in Sources */,
 				3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */,
 				096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */,
 				3ED802222A7A8DE0005E2835 /* Weather Icon 1 View.swift in Sources */,
@@ -1460,7 +1496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.33;
+				CURRENT_PROJECT_VERSION = 0.0.34;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1504,7 +1540,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.33;
+				CURRENT_PROJECT_VERSION = 0.0.34;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

@@ -28,10 +28,12 @@ struct WeatherIcon3View: View {
                 ProgressView()
             }
             
-          
-            
             Image(DynamicText.Placeholder.conditionAsset3.withCurrentWeather(currentWeather, unit: .celsius))
                 .resizable()
+                .if(weatherIconObject3.appearance.showReflection) { view in
+                    view.reflection(offsetY: weatherIconObject3.appearance.reflectionOffset)
+                }
+                .scaleEffect(0.5)
                 .aspectRatio(contentMode: .fill)
                 .onAppear {
                     imageLoaded = true

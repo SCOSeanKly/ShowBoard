@@ -24,7 +24,7 @@ struct WeatherIconPLus7Controls: View {
                 
                 Button(action: {
                     // Increment the selected style value
-                    layer.appearance.weatherIconAssetStyle = (layer.appearance.weatherIconAssetStyle % 6) + 1
+                    layer.appearance.weatherIconAssetStyle = (layer.appearance.weatherIconAssetStyle % 11) + 1
                 }) {
                     Image("set\(layer.appearance.weatherIconAssetStyle)_1d") // Display the current style's image
                         .resizable()
@@ -55,6 +55,10 @@ struct WeatherIconPLus7Controls: View {
 }
 
 
+
+
+
+
 struct CommonControls: View {
     
     @StateObject var layer: LayerObject
@@ -66,8 +70,6 @@ struct CommonControls: View {
             
             CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor2, pickerBindingValue2: $layer.appearance.fillColor, showGradientToggle: true)
         }
-        
-      
         
         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $layer.appearance.shadow.radius, minValue: 0, maxValue: 20, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 0)
         
@@ -87,6 +89,21 @@ struct CommonControls: View {
         CustomBlendModePicker(bindingValue: $layer.appearance.blendMode)
     }
 }
+
+
+
+struct WeatherIconControls: View {
+    
+    @StateObject var layer: LayerObject
+  
+    
+    var body: some View {
+        SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $layer.appearance.reflectionOffset, minValue: -250, maxValue: 250, step: 1, specifier: 0, defaultValue: 0, action: $layer.appearance.showReflection)
+        
+    }
+}
+
+
 
 struct rainControls: View {
     
@@ -185,11 +202,15 @@ struct ScaleWidthHeightControls: View {
     
     var body: some View {
         
-        if layer is WeatherIconLayerObject || layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject || layer is weatherIconForecast {
+        if layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject || layer is weatherIconForecast {
             SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 4, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
         }
         
-        if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) && !(layer is weatherIconForecast){
+        if layer is WeatherIconLayerObject ||  layer is WeatherIconLayerObject2 || layer is WeatherIconLayerObject3 || layer is WeatherIconLayerObject4 || layer is WeatherIconLayerObject5 || layer is WeatherIconLayerObject6 || layer is WeatherIconLayerObject7 || layer is WeatherIconLayerObject8 || layer is WeatherIconLayerObject9 || layer is WeatherIconLayerObject10 || layer is WeatherIconLayerObject11  || layer is WeatherIconLayerObject12 || layer is WeatherIconLayerObject13 || layer is WeatherIconLayerObject14 || layer is WeatherIconLayerObject15 {
+            SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 2.5, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
+        }
+        
+        if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject)  && !(layer is WeatherIconLayerObject2) && !(layer is WeatherIconLayerObject3) && !(layer is WeatherIconLayerObject4) && !(layer is WeatherIconLayerObject5) && !(layer is WeatherIconLayerObject6) && !(layer is WeatherIconLayerObject7) && !(layer is WeatherIconLayerObject8) && !(layer is WeatherIconLayerObject9) && !(layer is WeatherIconLayerObject10) && !(layer is WeatherIconLayerObject11) && !(layer is WeatherIconLayerObject12) && !(layer is WeatherIconLayerObject13) && !(layer is WeatherIconLayerObject14) && !(layer is WeatherIconLayerObject15) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) && !(layer is weatherIconForecast){
             
             SliderStepper(color: .blue, title: "Width:", sliderBindingValue: $layer.appearance.width, minValue: 0, maxValue: UIScreen.main.bounds.width * 1.05, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 200)
             

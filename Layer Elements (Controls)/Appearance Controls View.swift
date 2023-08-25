@@ -51,6 +51,8 @@ struct AppearanceControlView: View {
                 
                 CommonControls(layer: layer)
                 
+                WeatherIconControls(layer: layer)
+                
                 GlassControls(layer: layer)
             }
             

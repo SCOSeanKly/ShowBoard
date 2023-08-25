@@ -15,10 +15,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
     let emptyColor: Color
     let height: CGFloat
     let onEditingChanged: (Bool) -> Void
-    let step: T // Add the step parameter
-    
-    
-    
     
     // private variables
     @State private var localRealProgress: T = 0
@@ -59,25 +55,17 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 .clipShape(Circle())
                             
                         }
-                        .frame(height: isActive ? height * 4 : height * 2, alignment: .center)
-                        .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2)
+                        .frame(height: isActive ? height * 4 : height * 2, alignment: .center) // Increases the size of the button when dragging
+                        .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
                         .gesture(DragGesture(minimumDistance: 0)
                             .updating($isActive) { value, state, transaction in
-                                state = true
+                                state = true // This is what triggers the scale increase of the slider and button
                             }
                             .onChanged { gesture in
                                 let sliderWidth = bounds.size.width
-                                let rangeWidth = inRange.upperBound - inRange.lowerBound
-                               // let stepWidth = CGFloat(step / rangeWidth)
-                                
-                                let rawPercentage = min(max(gesture.location.x / sliderWidth, 0), 1)
-                                let rawValue = inRange.lowerBound + (rangeWidth * T(rawPercentage))
-                                
-                                let numberOfSteps = round((rawValue - inRange.lowerBound) / step)
-                                let adjustedValue = inRange.lowerBound + (step * numberOfSteps)
-                                
-                                localRealProgress = T((adjustedValue - inRange.lowerBound) / rangeWidth)
-                                value = max(min(adjustedValue, inRange.upperBound), inRange.lowerBound)
+                                let percentage = min(max(gesture.location.x / sliderWidth, 0), 1)
+                                localRealProgress = T(percentage)
+                                value = max(min(getPrgValue(), inRange.upperBound), inRange.lowerBound)
                             }
                         )
                     }
@@ -97,7 +85,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                 if !isActive {
                     localRealProgress = getPrgPercentage(newValue)
                 }
-                
+             
             }
         }
         .frame(height: isActive ? height * 2 : height, alignment: .center)
@@ -122,10 +110,6 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
     }
     
     private func getPrgValue() -> T {
-        let stepWidth = (inRange.upperBound - inRange.lowerBound) * step
-        let adjustedLocalTempProgress = round(localTempProgress / step) * step
-        return ((localRealProgress + adjustedLocalTempProgress) * stepWidth) + inRange.lowerBound
+        return ((localRealProgress + localTempProgress) * (inRange.upperBound - inRange.lowerBound)) + inRange.lowerBound
     }
-    
-    
 }

@@ -24,13 +24,13 @@ struct ObjectSelectionView: View {
     @Binding var importedImage2: UIImage?
     @Binding var importedImage3: UIImage?
     
- 
+    
     @Binding var placedObjects: [LayerObject]
     
     @ObservedObject var wObserver = AppModel.shared.wObserver
     @StateObject var weatherIconObject = WeatherIconLayerObject()
     
-  
+    
     var currentWeather: CurrentWeather? {
         wObserver.weather?.currentWeather
     }
@@ -91,112 +91,8 @@ struct ObjectSelectionView: View {
                     .padding([.leading, .bottom, .trailing])
                 }
                 
-                //MARK: 6 buttons for weather icons. Doesnt currently select different "sets"
-               
-                Group {
-                    
-                    ObjectTitleText(titleText: "Weather Icon (Current)")
-                    
-                    LazyVGrid(columns: gridItems, spacing: 16) {
-                        
-                        ObjectSelectionButton(
-                            action: {
-                                placedObjects.append(ConditionAssetObject())
-                                showLayerElementView = false
-                            },
-                            imageType: .system(name: "sun.max"),
-                            textDescription: "iOS Day",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                                placedObjects.append(WeatherIconLayerObject())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set1_5d"),
-                            textDescription: "Style1",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                              //  weatherIconObject.activeWeatherIconImageSet = .set2
-                                placedObjects.append(WeatherIconLayerObject2())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set2_8d"),
-                            textDescription: "Style2",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                           
-                                placedObjects.append(WeatherIconLayerObject3())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set3_7d"),
-                            textDescription: "Style3",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                            
-                                placedObjects.append(WeatherIconLayerObject4())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set4_7d"),
-                            textDescription: "Style4",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                            
-                                placedObjects.append(WeatherIconLayerObject5())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set5_7d"),
-                            textDescription: "Style5",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                             
-                                placedObjects.append(WeatherIconLayerObject6())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set6_1d"),
-                            textDescription: "Style6",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                        ObjectSelectionButton(
-                            action: {
-                             
-                                placedObjects.append(weatherIconForecast())
-                                showLayerElementView = false
-                            },
-                            imageType: .asset(name: "set1_50d"),
-                            textDescription: "Forecast",
-                            disabled: false,
-                            cornerRadius: cornerRadius
-                        )
-                        
-                    }
-                    .padding([.leading, .bottom, .trailing])
-                    
-                }
+                //MARK: Buttons for weather icons. Doesnt currently select different "sets"
+                WeatherIconsObjectSelectionView(showLayerElementView: $showLayerElementView, placedObjects: $placedObjects)
                 
                 Group {
                     ObjectTitleText(titleText: "Map Image")
@@ -430,3 +326,234 @@ enum ImageType: Equatable {
 }
 
 
+struct WeatherIconsObjectSelectionView: View {
+    
+    //MARK: Grid Items for LazyVGrid
+    let gridItems = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    //MARK: Object Selection View
+    @Binding var showLayerElementView: Bool
+    @Binding var placedObjects: [LayerObject]
+    let cornerRadius: CGFloat = 12
+    
+    var body: some View {
+        
+        
+        
+        ObjectTitleText(titleText: "Weather Icon (1)")
+        
+        LazyVGrid(columns: gridItems, spacing: 16) {
+            Group {
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(ConditionAssetObject())
+                        showLayerElementView = false
+                    },
+                    imageType: .system(name: "sun.max"),
+                    textDescription: "iOS Day",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set1_5d"),
+                    textDescription: "Style1",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        //  weatherIconObject.activeWeatherIconImageSet = .set2
+                        placedObjects.append(WeatherIconLayerObject2())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set2_8d"),
+                    textDescription: "Style2",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        
+                        placedObjects.append(WeatherIconLayerObject3())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set3_7d"),
+                    textDescription: "Style3",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        
+                        placedObjects.append(WeatherIconLayerObject4())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set4_7d"),
+                    textDescription: "Style4",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        
+                        placedObjects.append(WeatherIconLayerObject5())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set5_7d"),
+                    textDescription: "Style5",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        
+                        placedObjects.append(WeatherIconLayerObject6())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set6_1d"),
+                    textDescription: "Style6",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject7())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set7_5d"),
+                    textDescription: "Style7",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+            }
+        }
+        .padding([.leading, .bottom, .trailing])
+        
+        
+        ObjectTitleText(titleText: "Weather Icon (2)")
+        
+        LazyVGrid(columns: gridItems, spacing: 16) {
+            Group {
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject8())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set8_5d"),
+                    textDescription: "Style8",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject9())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set9_5d"),
+                    textDescription: "Style9",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject10())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set10_5d"),
+                    textDescription: "Style10",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject11())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set11_5d"),
+                    textDescription: "Style11",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject12())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set12_5d"),
+                    textDescription: "Style12",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject13())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set13_5d"),
+                    textDescription: "Style13",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject14())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set14_5d"),
+                    textDescription: "Style14",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+                
+                ObjectSelectionButton(
+                    action: {
+                        placedObjects.append(WeatherIconLayerObject15())
+                        showLayerElementView = false
+                    },
+                    imageType: .asset(name: "set15_5d"),
+                    textDescription: "Style15",
+                    disabled: false,
+                    cornerRadius: cornerRadius
+                )
+            }
+        }
+        .padding([.leading, .bottom, .trailing])
+        
+        
+        
+        ObjectTitleText(titleText: "Weather Forecast")
+        
+        LazyVGrid(columns: gridItems, spacing: 16) {
+            ObjectSelectionButton(
+                action: {
+                    
+                    placedObjects.append(weatherIconForecast())
+                    showLayerElementView = false
+                },
+                imageType: .asset(name: "set1_50d"),
+                textDescription: "Forecast",
+                disabled: false,
+                cornerRadius: cornerRadius
+            )
+        }
+        .padding([.leading, .bottom, .trailing])
+        
+        
+    }
+}

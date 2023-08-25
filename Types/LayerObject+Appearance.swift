@@ -341,7 +341,7 @@ struct LayerObjectAppearance {
         self.weatherIconAssetStyle = 1
         self.labelsOffset = 10
         self.sliderSpecifier = 2
-        self.sliderStep = 0.05
+        self.sliderStep = 0.01
       
         
         

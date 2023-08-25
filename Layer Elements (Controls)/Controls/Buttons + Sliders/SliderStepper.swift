@@ -48,14 +48,9 @@ struct SliderStepper: View {
                                 sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                             }
                         
-//                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
-//                        }
-                      
-                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8, onEditingChanged: { editing in
-                            // Handle editing change
-                        }, step: 0.05)
+                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
+                        }
 
-                        
                         Text("\(sliderBindingValue.wrappedValue, specifier: "%.\(specifier)f")")
                             .specifierFont()
                             
@@ -74,13 +69,8 @@ struct SliderStepper: View {
                                 sliderBindingValue.wrappedValue = CGFloat(defaultValue)
                             }
                         
-//                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
-//                        }
-                        
-                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8, onEditingChanged: { editing in
-                            // Handle editing change
-                        }, step: 0.05)
-                       
+                        CustomSlider(value: sliderBindingValue, inRange: CGFloat(minValue)...CGFloat(maxValue), activeFillColor: color, fillColor: normalFillColor, emptyColor: emptyColor, height: 8) { started in
+                        }
                         
                         HStack {
                             if Double(sliderBindingValue.wrappedValue) > minValue {

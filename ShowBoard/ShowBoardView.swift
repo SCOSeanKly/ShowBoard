@@ -114,7 +114,16 @@ struct ShowBoardView: View {
                             case .weatherIcon4: WeatherIcon4View(showMicroControls: $showMicroControls)
                             case .weatherIcon5: WeatherIcon5View(showMicroControls: $showMicroControls)
                             case .weatherIcon6: WeatherIcon6View(showMicroControls: $showMicroControls)
-                            case .weatherIconForecast: WeatherIconPlus7View(showMicroControls: $showMicroControls)
+                            case .weatherIcon7: WeatherIcon7View(showMicroControls: $showMicroControls)
+                            case .weatherIcon8: WeatherIcon8View(showMicroControls: $showMicroControls)
+                            case .weatherIcon9: WeatherIcon9View(showMicroControls: $showMicroControls)
+                            case .weatherIcon10: WeatherIcon10View(showMicroControls: $showMicroControls)
+                            case .weatherIcon11: WeatherIcon11View(showMicroControls: $showMicroControls)
+                            case .weatherIcon12: WeatherIcon12View(showMicroControls: $showMicroControls)
+                            case .weatherIcon13: WeatherIcon13View(showMicroControls: $showMicroControls)
+                            case .weatherIcon14: WeatherIcon14View(showMicroControls: $showMicroControls)
+                            case .weatherIcon15: WeatherIcon15View(showMicroControls: $showMicroControls)
+                            case .weatherIconForecast: WeatherIconForecastView(showMicroControls: $showMicroControls)
                             }
                         }
                         .onAppear {

@@ -28,10 +28,10 @@ struct SettingsMod: ViewModifier {
             .cornerRadius(layer.appearance.cornerRadius)
             .rotationEffect(layer.appearance.rotation)
             .blur(radius: layer.appearance.blur)
-            .blendMode(layer.appearance.blendMode)
             .if(layer.appearance.invert) { view in
                 view.colorInvert()
             }
+            .blendMode(layer.appearance.blendMode)
             .shadow(color: Color.black.opacity(layer.appearance.shadowOpacity), radius: layer.appearance.shadow.radius, x: layer.appearance.shadow.offset.x, y: layer.appearance.shadow.offset.y)
             .opacity(layer.appearance.opacity)
             .rotation3DEffect(.degrees(layer.appearance.skewY), axis: (x: 0.0, y: 1.0, z: 0.0))

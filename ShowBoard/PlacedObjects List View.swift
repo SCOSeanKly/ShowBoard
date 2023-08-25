@@ -245,6 +245,15 @@ struct PlacedObjectsListView: View {
         case .weatherIcon4: objectTypeInfo = .weatherIcon4
         case .weatherIcon5: objectTypeInfo = .weatherIcon5
         case .weatherIcon6: objectTypeInfo = .weatherIcon6
+        case .weatherIcon7: objectTypeInfo = .weatherIcon7
+        case .weatherIcon8: objectTypeInfo = .weatherIcon8
+        case .weatherIcon9: objectTypeInfo = .weatherIcon9
+        case .weatherIcon10: objectTypeInfo = .weatherIcon10
+        case .weatherIcon11: objectTypeInfo = .weatherIcon11
+        case .weatherIcon12: objectTypeInfo = .weatherIcon12
+        case .weatherIcon13: objectTypeInfo = .weatherIcon13
+        case .weatherIcon14: objectTypeInfo = .weatherIcon14
+        case .weatherIcon15: objectTypeInfo = .weatherIcon15
         case .weatherIconForecast: objectTypeInfo = .weatherIconForecast
             
         }
@@ -256,7 +265,6 @@ struct PlacedObjectsListView: View {
             Spacer()
             
             //MARK: Other buttons go here
-            
             
             Button(action: {
                 feedback()
@@ -278,7 +286,6 @@ struct PlacedObjectsListView: View {
             })
             .foregroundColor(.red)
         }
-        
     }
     
     enum AlertType {
@@ -308,6 +315,15 @@ struct PlacedObjectsListView: View {
         case weatherIcon4
         case weatherIcon5
         case weatherIcon6
+        case weatherIcon7
+        case weatherIcon8
+        case weatherIcon9
+        case weatherIcon10
+        case weatherIcon11
+        case weatherIcon12
+        case weatherIcon13
+        case weatherIcon14
+        case weatherIcon15
         case weatherIconForecast
         
         
@@ -333,6 +349,15 @@ struct PlacedObjectsListView: View {
             case .weatherIcon4: return "sun.max"
             case .weatherIcon5: return "sun.max"
             case .weatherIcon6: return "sun.max"
+            case .weatherIcon7: return "sun.max"
+            case .weatherIcon8: return "sun.max"
+            case .weatherIcon9: return "sun.max"
+            case .weatherIcon10: return "sun.max"
+            case .weatherIcon11: return "sun.max"
+            case .weatherIcon12: return "sun.max"
+            case .weatherIcon13: return "sun.max"
+            case .weatherIcon14: return "sun.max"
+            case .weatherIcon15: return "sun.max"
             case .weatherIconForecast: return "sun.max"
                 
                 
@@ -360,6 +385,15 @@ struct PlacedObjectsListView: View {
             case .weatherIcon4: return "Weather Icon Style 4"
             case .weatherIcon5: return "Weather Icon Style 5"
             case .weatherIcon6: return "Weather Icon Style 6"
+            case .weatherIcon7: return "Weather Icon Style 7"
+            case .weatherIcon8: return "Weather Icon Style 8"
+            case .weatherIcon9: return "Weather Icon Style 9"
+            case .weatherIcon10: return "Weather Icon Style 10"
+            case .weatherIcon11: return "Weather Icon Style 11"
+            case .weatherIcon12: return "Weather Icon Style 12"
+            case .weatherIcon13: return "Weather Icon Style 13"
+            case .weatherIcon14: return "Weather Icon Style 14"
+            case .weatherIcon15: return "Weather Icon Style 15"
             case .weatherIconForecast: return "Weather Icon Forecast"
                 
                 
@@ -367,48 +401,3 @@ struct PlacedObjectsListView: View {
         }
     }
 }
-
-
-/*
- Button(action: {
- // Action to hide or show layer
- 
- isPressingHideLayer.toggle()
- 
- DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
- feedback()
- isPressingHideLayer.toggle()
- }
- if hiddenLayers.contains(obj.id) {
- hiddenLayers.remove(obj.id)
- } else {
- hiddenLayers.insert(obj.id)
- }
- }, label: {
- Image(systemName: hiddenLayers.contains(obj.id) ? "eye.slash" : "eye")
- .scaleEffect(isPressingHideLayer ? 0.9 : 1)
- .scaleEffect(0.9)
- .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingHideLayer)
- })
- .buttonStyle(.plain)
- 
- 
- Button(action: {
- isPressingSettings.toggle()
- 
- DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
- feedback()
- isPressingSettings.toggle()
- }
- 
- }, label: {
- Image(systemName: "gear")
- .scaleEffect(isPressingSettings ? 0.9 : 1)
- .animation(.interpolatingSpring(stiffness: 200, damping: 10), value: isPressingSettings)
- })
- .buttonStyle(.plain)
- .padding(.horizontal)
- 
- */
-
-
