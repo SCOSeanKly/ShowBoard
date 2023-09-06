@@ -20,7 +20,6 @@ struct StrokeShapeView: View {
         
         ZStack {
             
-           
             if stroke.appearance.strokeDash == 0 {
                 RoundedRectangle(cornerRadius: stroke.appearance.cornerRadius)
                     .stroke(LinearGradient(gradient: Gradient(stops: [
@@ -35,12 +34,8 @@ struct StrokeShapeView: View {
                     ]), startPoint: .top, endPoint: .bottom), style: StrokeStyle(lineWidth: stroke.appearance.strokeWidth, dash: [stroke.appearance.strokeDash], dashPhase: 0.0))
             }
 
-              
-              
-           
         }
         .objectAppearanceModifier(layer: stroke, systemImageName: "square.dashed", systemImage2: "", titleText: "Stroke Shape", showMicroControls: $showMicroControls)
-        
         
     }
 }

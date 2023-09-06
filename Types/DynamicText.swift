@@ -116,10 +116,24 @@ struct DynamicText {
                     wk.weather?.dailyForecast.first,
                     unit: .celsius, conditionAssetStyle: 1)
                 
+            case .sunSet:
+                replacement = placeholder.withDayWeather(
+                    wk.weather?.dailyForecast.first,
+                    unit: .celsius, conditionAssetStyle: 1)
+                
+            case .sunRise:
+                replacement = placeholder.withDayWeather(
+                    wk.weather?.dailyForecast.first,
+                    unit: .celsius, conditionAssetStyle: 1)
+                
+          
             case .batteryLevel:
                 replacement = placeholder.withBatteryInfo(BatteryViewModel())
                 
             case .batteryStatus:
+                replacement = placeholder.withBatteryInfo(BatteryViewModel())
+                
+            case .batteryColor:
                 replacement = placeholder.withBatteryInfo(BatteryViewModel())
                 
             case .upcomingAppointments:

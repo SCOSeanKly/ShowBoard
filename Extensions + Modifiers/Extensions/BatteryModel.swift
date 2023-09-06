@@ -39,11 +39,11 @@ class BatteryViewModel: ObservableObject {
     private func getBatteryColor(for state: UIDevice.BatteryState) -> Color {
         switch state {
         case .unplugged:
-            return .yellow
-        case .charging:
-            return .green
-        case .full:
             return .blue
+        case .charging:
+            return .yellow
+        case .full:
+            return .green
         case .unknown:
             return .gray
         @unknown default:
@@ -54,11 +54,11 @@ class BatteryViewModel: ObservableObject {
     private func getBatteryDescription(for state: UIDevice.BatteryState) -> String {
         switch state {
         case .unplugged:
-            return "DEVICE"
+            return "Unplugged"
         case .charging:
-            return "CHARGING"
+            return "Charging"
         case .full:
-            return "Full"
+            return "Fully Charged"
         case .unknown:
             return "?"
         @unknown default:

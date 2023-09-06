@@ -36,6 +36,8 @@ extension DynamicText {
         case precipation = "[precip]"
         case precipationChance = "[precipChance]"
         case conditionSymbol = "[conditionSymbol]"
+        case sunSet = "[sunset]"
+        case sunRise = "[sunrise]"
       
         
         // Current weather
@@ -72,6 +74,7 @@ extension DynamicText {
         // Battery info
         case batteryLevel = "[batteryLevel]"
         case batteryStatus = "[batteryStatus]"
+        case batteryColor = "[batteryColor]"
         
         
         
@@ -127,10 +130,26 @@ extension DynamicText {
                    return "\(batteryViewModel.batteryLevel)%"
                case .batteryStatus:
                    return "\(batteryViewModel.batteryStateDescription)"
+               case .batteryColor:
+                   return "\(batteryViewModel.batteryStateColor)"
                default:
                    return ""
                }
            }
+        
+        //MARK: Still to do 
+        public func withWeatherMetadata(_ data: WeatherMetadata?) -> String {
+        
+            guard let val = data else { return "-" }
+            
+            switch self {
+            case .location:
+                return "\(val.location)"
+          
+            default:
+                return ""
+            }
+        }
         
     
         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature, useMiles: Bool = false, conditionAssetStyle: Int) -> String {
@@ -146,6 +165,19 @@ extension DynamicText {
                   return "\(val.precipitationAmount)"
               case .precipationChance:
                   return String(format: "%.0f%%", val.precipitationChance * 100)
+            case .sunRise:
+                if let sunriseTime = val.sun.sunrise {
+                    return formatTime(date: sunriseTime)
+                } else {
+                    return ""
+                }
+            case .sunSet:
+                if let sunsetTime = val.sun.sunset {
+                    return formatTime(date: sunsetTime)
+                } else {
+                    return ""
+                }
+          
             case .conditionSymbol:
                 return String(val.symbolName)
             case .conditionAsset:
@@ -183,6 +215,7 @@ extension DynamicText {
                 default:
                     return ""
                 }
+           
             default:
                 return ""
             }
@@ -252,7 +285,11 @@ extension DynamicText {
             }
         }
         
-        
+        private func formatTime(date: Date) -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "hh:mm a" // Format to display hours and minutes with AM/PM
+            return dateFormatter.string(from: date)
+        }
        
         private func tempteratureToString(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""

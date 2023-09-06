@@ -19,9 +19,9 @@ struct DynamicTextView: View {
    
     private let placeholdersDate = ["[day]", "[date]", "[month]", "[monthNumber]", "[monthShort]", "[year]", "[time]", "[daysRemaining]", "[daysCount]", "[timeOfDay]"]
     
-    private let placeholdersWeather = ["[condition]", "[temp]", "[feelsLike]", "[hi]", "[lo]", "[precip]", "[precipChance]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[wind]"]
+    private let placeholdersWeather = ["[condition]", "[temp]", "[feelsLike]", "[hi]", "[lo]", "[precip]", "[precipChance]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[wind]", "[sunrise]", "[sunset]"]
     
-    private let placeholdersBattery = ["[batteryLevel]", "[batteryStatus]"]
+    private let placeholdersBattery = ["[batteryLevel]", "[batteryStatus]", "[batteryColor]"]
     
     private let placeholderCalendar = ["[upcomingAppointments]"]
     
