@@ -53,43 +53,17 @@ struct ShowBoardView: View {
             
             //MARK: Imported Background (Wallpaper) Image
             BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, placedObjects: $placedObjects)
-                .onTapGesture {
-                    if placedObjects.count >= 1 {
-                        if selection != nil {
-                            feedback()
-                            if showMicroControls {
-                                showMicroControls = false
-                            } else {
-                                selection = nil
-                            }
-                        }
-                    }
-                }
-            
+                .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
+               
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
-                ImportedImageView1(importedImage1: importedImage1)
-                    .onTapGesture {
-                        if placedObjects.count >= 1 {
-                            if selection != nil{
-                                feedback()
-                                showMicroControls = false
-                            }
-                        }
-                        selection = nil
-                    }
+                ImportedImageView1(importedImage1: importedImage1, showBgPickerSheet: $showBgPickerSheet)
+                    .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
+                 
                 
-                ImportedImageView2(importedImage2: importedImage2)
-                    .onTapGesture {
-                        if placedObjects.count >= 1 {
-                            if selection != nil{
-                                feedback()
-                                showMicroControls = false
-                            }
-                        }
-                        selection = nil
-                    }
+                ImportedImageView2(importedImage2: importedImage2, showBgPickerSheet: $showBgPickerSheet)
+                    .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
                 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
@@ -124,6 +98,7 @@ struct ShowBoardView: View {
                             case .weatherIcon14: WeatherIcon14View(showMicroControls: $showMicroControls)
                             case .weatherIcon15: WeatherIcon15View(showMicroControls: $showMicroControls)
                             case .weatherIconForecast: WeatherIconForecastView(showMicroControls: $showMicroControls)
+                            case .strokeShape:  StrokeShapeView(showMicroControls: $showMicroControls)
                             }
                         }
                         .onAppear {
@@ -140,16 +115,8 @@ struct ShowBoardView: View {
                     }
                 }
                 
-                ImportedImageView3(importedImage3: importedImage3)
-                    .onTapGesture {
-                        if placedObjects.count >= 1 {
-                            if selection != nil{
-                                feedback()
-                                showMicroControls = false
-                            }
-                        }
-                        selection = nil
-                    }
+                ImportedImageView3(importedImage3: importedImage3, showBgPickerSheet: $showBgPickerSheet)
+                    .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
             }
             
             GroupView(isDragging: $isDragging,
@@ -170,6 +137,7 @@ struct ShowBoardView: View {
                       placedObjects: $placedObjects,
                       selection: $selection,
                       hiddenLayers: $hiddenLayers)
+            
         }
         .onAppear {
             batteryViewModel.startBatteryMonitoring()
@@ -195,6 +163,20 @@ struct ShowBoardView_Previews: PreviewProvider {
             .preferredColorScheme(.light)
             .environment(\.sizeCategory, .small)
             .environment(\.colorScheme, .light)
+    }
+}
+
+extension View {
+    func customOnTapGesture(placedObjects: [LayerObject], selection: Binding<UUID?>, showMicroControls: Binding<Bool>) -> some View {
+        return self.onTapGesture {
+            if placedObjects.count >= 1 {
+                if selection.wrappedValue != nil {
+                 feedback()
+                 showMicroControls.wrappedValue = false
+                }
+            }
+            selection.wrappedValue = nil
+        }
     }
 }
 

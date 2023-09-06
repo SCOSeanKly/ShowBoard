@@ -82,7 +82,7 @@ struct SliderStepper: View {
                                     }
                                     let newValue = sliderBindingValue.wrappedValue - CGFloat(step)
                                     sliderBindingValue.wrappedValue = max(newValue, CGFloat(minValue))
-                                    resetTimer()
+                                  //  resetTimer()
                                 }) {
                                     Image(systemName: "chevron.left")
                                         .fontWeight(.bold)
@@ -104,7 +104,7 @@ struct SliderStepper: View {
                                     }
                                     let newValue = sliderBindingValue.wrappedValue + CGFloat(step)
                                     sliderBindingValue.wrappedValue = min(newValue, CGFloat(maxValue))
-                                    resetTimer()
+                                   // resetTimer()
                                 }) {
                                     Image(systemName: "chevron.right")
                                         .fontWeight(.bold)
@@ -134,11 +134,13 @@ struct SliderStepper: View {
                 feedback()
               
                 isSliderMode.toggle()
+                /*
                 if !isSliderMode {
                     resetTimer()
                 } else {
                     cancelTimer()
                 }
+                 */
                 
             }) {
                 Text(isSliderMode ? "\(Image(systemName: "chevron.right"))" : "\(Image(systemName: "xmark"))")
@@ -149,9 +151,9 @@ struct SliderStepper: View {
         }
         .frame(height: 30)
         .padding(.horizontal)
-        .onAppear(perform: resetTimer) // Reset timer when the view appears
+       // .onAppear(perform: resetTimer) // Reset timer when the view appears
     }
-    
+    /*
     func resetTimer() {
         buttonPressed = false
         timer?.invalidate()
@@ -164,6 +166,7 @@ struct SliderStepper: View {
         timer?.invalidate()
         timer = nil
     }
+     */
 }
 
 

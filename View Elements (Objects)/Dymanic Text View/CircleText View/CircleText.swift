@@ -33,16 +33,22 @@ struct CircularTextView: View {
         }
     }
     
+    @Binding var selectedCase: TextCase
+    
     var body: some View {
         ZStack {
             ForEach(lettersOffset, id: \.offset) { index, letter in // Mark 1
                 VStack {
-                    Text(String(letter).dropLast(Int(text.appearance.dropLast)))
+                    Text(String(letter)
+                        .applyTextCase(selectedCase)
+                        .dropLast(Int(text.appearance.dropLast)))
                         .overlay(
                             LinearGradient(colors: [text.appearance.fillColor, text.appearance.fillColor2], startPoint: .top, endPoint: .bottom)
                            )
                         .mask(
-                            Text(String(letter).dropLast(Int(text.appearance.dropLast)))
+                            Text(String(letter)
+                                .applyTextCase(selectedCase)
+                                .dropLast(Int(text.appearance.dropLast)))
                         )
                         .shadow(
                             radius: text.appearance.shadow.radius,

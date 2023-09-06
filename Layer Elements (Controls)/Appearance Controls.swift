@@ -66,10 +66,21 @@ struct CommonControls: View {
     
     var body: some View {
         
-        if layer is WavyDockObject || layer is SquareShapeObject || layer is CustomShapeObject || layer is CircleGaugeObject || layer is LinearGaugeObject || layer is ConditionAssetObject {
+        if layer is WavyDockObject || layer is SquareShapeObject || layer is CustomShapeObject  || layer is ConditionAssetObject || layer is StrokeShapeObject {
             
             CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor2, pickerBindingValue2: $layer.appearance.fillColor, showGradientToggle: true)
         }
+        
+        if  layer is CircleGaugeObject || layer is LinearGaugeObject || layer is HiLoGaugeObject || layer is LinearHiLoObject {
+            
+            CustomColorPicker(titleText: "Fill Colour", pickerBindingValue:  $layer.appearance.fillColor2, pickerBindingValue2: $layer.appearance.fillColor, showGradientToggle: false)
+        }
+        
+        if layer is StrokeShapeObject {
+            SliderStepper(color: .blue, title: "Stroke Height:", sliderBindingValue: $layer.appearance.strokeWidth, minValue: 0, maxValue: 35, step: layer.appearance.strokeWidth, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
+            SliderStepper(color: .blue, title: "Stroke Dash:", sliderBindingValue: $layer.appearance.strokeDash, minValue: 0, maxValue: 35, step: layer.appearance.strokeWidth, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
+        }
+        
         
         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $layer.appearance.shadow.radius, minValue: 0, maxValue: 20, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 0)
         
@@ -134,7 +145,7 @@ struct CornerRadiusSkewControls: View {
     var body: some View {
         
         
-        if layer is GlassObject || layer is SquareShapeObject || layer is MapObject {
+        if layer is GlassObject || layer is SquareShapeObject || layer is MapObject || layer is StrokeShapeObject {
             SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 0)
         }
         
@@ -186,9 +197,9 @@ struct Font_GaugeLabelControls: View {
             
             CustomToggle(showTitleText: true, titleText: "Show Min/Max Label:", bindingValue: $layer.appearance.showMinMaxValueLabels, onSymbol: "circle", offSymbol: "xmark", rotate: false)
             
-            CustomColorPicker(titleText: "Current Label Colour", pickerBindingValue:  $layer.appearance.currentValueLabelColor, pickerBindingValue2: nil, showGradientToggle: true)
+            CustomColorPicker(titleText: "Current Label Colour", pickerBindingValue:  $layer.appearance.currentValueLabelColor, pickerBindingValue2: nil, showGradientToggle: false)
             
-            CustomColorPicker(titleText: "Min/Max Label Colour:", pickerBindingValue: $layer.appearance.minMaxValueLabelColor, pickerBindingValue2: nil, showGradientToggle: true)
+            CustomColorPicker(titleText: "Min/Max Label Colour:", pickerBindingValue: $layer.appearance.minMaxValueLabelColor, pickerBindingValue2: nil, showGradientToggle: false)
             
         }
     }

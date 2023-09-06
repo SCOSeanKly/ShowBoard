@@ -53,6 +53,9 @@
 		3E2245962A8637FC002B35B2 /* Spacetron.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245952A8637FC002B35B2 /* Spacetron.otf */; };
 		3E2245982A863810002B35B2 /* Rashavine.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245972A863810002B35B2 /* Rashavine.ttf */; };
 		3E22459A2A863820002B35B2 /* JapanRich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */; };
+		3E27877E2AA86F7200658D8E /* WallpaperSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E27877D2AA86F7200658D8E /* WallpaperSettings.swift */; };
+		3E2787842AA873D400658D8E /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3E2787832AA873D400658D8E /* Shaders.metal */; };
+		3E2787862AA8751F00658D8E /* WallpaperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2787852AA8751F00658D8E /* WallpaperObject.swift */; };
 		3E315A552A9391A100D0A42E /* Condition Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A542A9391A100D0A42E /* Condition Asset.swift */; };
 		3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A562A93942400D0A42E /* ConditionAssetObject.swift */; };
 		3E315A5A2A93A57500D0A42E /* AppointmentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E315A592A93A57500D0A42E /* AppointmentManager.swift */; };
@@ -178,6 +181,9 @@
 		3EBF30722A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */; };
 		3EC0DDA12A8F9FA500E1A893 /* HiLo Circle Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0DDA02A8F9FA500E1A893 /* HiLo Circle Gauge.swift */; };
 		3EC0DDA62A8FAF0700E1A893 /* HiLoLinearGauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0DDA52A8FAF0700E1A893 /* HiLoLinearGauge.swift */; };
+		3EC203892AA8B5CB00FE6C73 /* TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC203882AA8B5CB00FE6C73 /* TextCase.swift */; };
+		3EC2038B2AA8BD0300FE6C73 /* StrokeShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */; };
+		3EC2038E2AA8BE9100FE6C73 /* StrokeShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */; };
 		3EC6B7862A83865300CD0934 /* CombinedTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
@@ -286,6 +292,9 @@
 		3E2245952A8637FC002B35B2 /* Spacetron.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Spacetron.otf; sourceTree = "<group>"; };
 		3E2245972A863810002B35B2 /* Rashavine.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rashavine.ttf; sourceTree = "<group>"; };
 		3E2245992A863820002B35B2 /* JapanRich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JapanRich-Regular.ttf"; sourceTree = "<group>"; };
+		3E27877D2AA86F7200658D8E /* WallpaperSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperSettings.swift; sourceTree = "<group>"; };
+		3E2787832AA873D400658D8E /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		3E2787852AA8751F00658D8E /* WallpaperObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperObject.swift; sourceTree = "<group>"; };
 		3E315A542A9391A100D0A42E /* Condition Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Condition Asset.swift"; sourceTree = "<group>"; };
 		3E315A562A93942400D0A42E /* ConditionAssetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionAssetObject.swift; sourceTree = "<group>"; };
 		3E315A592A93A57500D0A42E /* AppointmentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentManager.swift; sourceTree = "<group>"; };
@@ -416,6 +425,9 @@
 		3EBF30712A6ECD4B004C12B5 /* DynamicTextEditViewSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTextEditViewSettings.swift; sourceTree = "<group>"; };
 		3EC0DDA02A8F9FA500E1A893 /* HiLo Circle Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HiLo Circle Gauge.swift"; sourceTree = "<group>"; };
 		3EC0DDA52A8FAF0700E1A893 /* HiLoLinearGauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiLoLinearGauge.swift; sourceTree = "<group>"; };
+		3EC203882AA8B5CB00FE6C73 /* TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCase.swift; sourceTree = "<group>"; };
+		3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapeObject.swift; sourceTree = "<group>"; };
+		3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapeView.swift; sourceTree = "<group>"; };
 		3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedTapGesture.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -492,6 +504,8 @@
 				3E1748632A867744001FD092 /* ImportedImageType.swift */,
 				3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */,
 				3E2245732A86256B002B35B2 /* SquareShapeObject.swift */,
+				3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */,
+				3E2787852AA8751F00658D8E /* WallpaperObject.swift */,
 				0972742E2A4C809B00429786 /* LayerObject.swift */,
 				0913C4272A4875E4007AF26E /* DynamicText.swift */,
 				097274322A4C854B00429786 /* TextObject.swift */,
@@ -572,6 +586,7 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3EC2038C2AA8BE4400FE6C73 /* Stroke Shape */,
 				3EFFD6F02A9748DF00367B75 /* Rain View */,
 				3E315A582A939FC200D0A42E /* Condition Asset */,
 				3EC0DDA42A8FACD000E1A893 /* Hi Lo Circle Gauge */,
@@ -689,6 +704,8 @@
 		3E88497D2A41D47800B50BBD = {
 			isa = PBXGroup;
 			children = (
+				3EC203882AA8B5CB00FE6C73 /* TextCase.swift */,
+				3E2787832AA873D400658D8E /* Shaders.metal */,
 				3ED3F6DC2A82493800494456 /* Test Views */,
 				3ED3F6DD2A82495300494456 /* Models+Observers */,
 				3EBF307B2A6ED7A6004C12B5 /* Extensions + Modifiers */,
@@ -800,6 +817,7 @@
 			children = (
 				3EC03DF72A67E63C001F1965 /* Controls */,
 				096F80DD2A7529E40001D8A3 /* Appearance Controls View.swift */,
+				3E27877D2AA86F7200658D8E /* WallpaperSettings.swift */,
 				3E20A40B2A94F429005751AF /* Appearance Controls.swift */,
 				3E3E68842A8259A100F468DD /* Object Appearance Modifier.swift */,
 			);
@@ -912,6 +930,14 @@
 				3EC0DDA52A8FAF0700E1A893 /* HiLoLinearGauge.swift */,
 			);
 			path = "Hi Lo Circle Gauge";
+			sourceTree = "<group>";
+		};
+		3EC2038C2AA8BE4400FE6C73 /* Stroke Shape */ = {
+			isa = PBXGroup;
+			children = (
+				3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */,
+			);
+			path = "Stroke Shape";
 			sourceTree = "<group>";
 		};
 		3ECC34AB2A4C4163008794BC /* Micro Control Position Buttons */ = {
@@ -1238,6 +1264,7 @@
 				3E2245722A856307002B35B2 /* sfSymbols.swift in Sources */,
 				3EBF30702A6ECB41004C12B5 /* CustomFontPicker.swift in Sources */,
 				3E4A13C62A73BF9200B055AD /* ObjectSelectionView.swift in Sources */,
+				3E2787842AA873D400658D8E /* Shaders.metal in Sources */,
 				3EAA6E642A8D0FEC0093BB3A /* Parallax.swift in Sources */,
 				3ED771E52A4AFE4300AFC1FC /* MapExtensionView.swift in Sources */,
 				3E8849C52A41D61D00B50BBD /* HexColour.swift in Sources */,
@@ -1246,6 +1273,7 @@
 				3E1ACF472A83CF0F00832F81 /* CircleText.swift in Sources */,
 				3EFFD6F62A9767C800367B75 /* Weather Icon 3 View.swift in Sources */,
 				3E1B1B062A83C049003D70FC /* LinearGaugeObject.swift in Sources */,
+				3EC2038E2AA8BE9100FE6C73 /* StrokeShapeView.swift in Sources */,
 				3E3E68892A82788C00F468DD /* GlassObject.swift in Sources */,
 				3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */,
 				3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */,
@@ -1275,10 +1303,12 @@
 				09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */,
 				3E3CE83B2A962A3C00174885 /* Shimmer.swift in Sources */,
 				3EAF65992A77AD020041E918 /* MarchingAntsBorder.swift in Sources */,
+				3E2787862AA8751F00658D8E /* WallpaperObject.swift in Sources */,
 				3E04A1E72A98EB23007A5D2F /* Weather Icon 13 View.swift in Sources */,
 				0913C4282A4875E4007AF26E /* DynamicText.swift in Sources */,
 				3E222AFA2A659CBD001EC288 /* SliderStepper.swift in Sources */,
 				3E82803F2A793A8200F174F9 /* Rainfall.swift in Sources */,
+				3E27877E2AA86F7200658D8E /* WallpaperSettings.swift in Sources */,
 				3EADA5A92A432BE900FA1BCB /* MenuButtonsView.swift in Sources */,
 				3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */,
 				3E371CDF2A66B10500DE743C /* BatteryCircleGauge.swift in Sources */,
@@ -1321,6 +1351,7 @@
 				3EFFD6F82A976AE000367B75 /* Weather Icon 4 View.swift in Sources */,
 				3EFFD6F42A97650800367B75 /* Weather Icon 2 View.swift in Sources */,
 				3ECC34A82A4C40A3008794BC /* Scale + Position buttons.swift in Sources */,
+				3EC203892AA8B5CB00FE6C73 /* TextCase.swift in Sources */,
 				3E1748602A866535001FD092 /* MicroControls.swift in Sources */,
 				091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */,
 				3EADA5B62A433EBF00FA1BCB /* WidgetModifier.swift in Sources */,
@@ -1332,6 +1363,7 @@
 				3EBF306E2A6EC9A8004C12B5 /* CustomBlendModePicker.swift in Sources */,
 				3E315A5A2A93A57500D0A42E /* AppointmentManager.swift in Sources */,
 				097274312A4C820C00429786 /* LayerObject+Appearance.swift in Sources */,
+				3EC2038B2AA8BD0300FE6C73 /* StrokeShapeObject.swift in Sources */,
 				3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */,
 				3E04A1DB2A98DD7E007A5D2F /* Weather Icon 7 View.swift in Sources */,
 				3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */,
@@ -1496,7 +1528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.34;
+				CURRENT_PROJECT_VERSION = 0.0.38;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1540,7 +1572,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.34;
+				CURRENT_PROJECT_VERSION = 0.0.38;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

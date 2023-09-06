@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImportedImageView1: View {
     let importedImage1: UIImage?
+    @Binding var showBgPickerSheet: Bool
     
     var body: some View {
         ZStack {
@@ -19,12 +20,15 @@ struct ImportedImageView1: View {
                     .frame(width: UIScreen.main.bounds.width)
             }
         }
+        .onTapGesture(count: 2) {
+            showBgPickerSheet = true
+        }
     }
 }
 
 struct ImportedImageView2: View {
-    
     let importedImage2: UIImage?
+    @Binding var showBgPickerSheet: Bool
     
     var body: some View {
         ZStack {
@@ -36,11 +40,15 @@ struct ImportedImageView2: View {
                     .frame(width: UIScreen.main.bounds.width)
             }
         }
+        .onTapGesture(count: 2) {
+            showBgPickerSheet = true
+        }
     }
 }
 
 struct ImportedImageView3: View {
     let importedImage3: UIImage?
+    @Binding var showBgPickerSheet: Bool
     
     var body: some View {
         ZStack {
@@ -52,6 +60,9 @@ struct ImportedImageView3: View {
                     .frame(width: UIScreen.main.bounds.width)
                     .allowsHitTesting(false)
             }
+        }
+        .onTapGesture(count: 2) {
+            showBgPickerSheet = true
         }
     }
 }

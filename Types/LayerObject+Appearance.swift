@@ -123,6 +123,9 @@ struct LayerObjectAppearance {
     
     var fillColor2: Color
     
+    var strokeWidth: CGFloat
+    var strokeDash: CGFloat
+    
     //MARK: Circle Gauge
     /// Min Value
     var minValue: CGFloat
@@ -157,9 +160,6 @@ struct LayerObjectAppearance {
     //MARK: WavyDock
     var xAngle: CGFloat
     var amplitude : CGFloat
-    
-    
-    
     
     
     //MARK: Calendar
@@ -211,6 +211,16 @@ struct LayerObjectAppearance {
     var showForecastTempString: Bool
     var weatherIconAssetStyle: Int
     var labelsOffset: CGFloat
+    
+    
+    var hue: Double
+    var contrast: CGFloat
+    var saturation: CGFloat
+    var pixellate: Float
+    var speed: Float
+    var frequency: Float
+    var amplitudeMetal: Float
+    
     
     
     /// The list of the avaliable blend modes
@@ -342,7 +352,20 @@ struct LayerObjectAppearance {
         self.labelsOffset = 10
         self.sliderSpecifier = 2
         self.sliderStep = 0.01
-      
+        
+        
+        self.hue = 0.0
+        self.contrast = 1.0
+        self.saturation = 1.0
+        self.pixellate = 1
+        self.speed = 1
+        self.frequency = 15
+        self.amplitudeMetal = 0
+        self.strokeWidth = 5
+        self.strokeDash = 5
+       
+        
+        
         
         
         
@@ -385,7 +408,17 @@ struct LayerObjectAppearance {
          labelsOffset: CGFloat,
          sliderSpecifier: Int,
          sliderStep: CGFloat,
-         customSliderStep: CGFloat) {
+         customSliderStep: CGFloat,
+         hue: Double,
+         contrast: CGFloat,
+         saturation: CGFloat,
+         pixellate: Float,
+         speed: Float,
+         frequency: Float,
+         amplitudeMetal: Float,
+         strokeWidth: CGFloat,
+         strokeDash: CGFloat
+    ) {
         
         self.position = position
         self.originalSize = originalSize
@@ -466,7 +499,15 @@ struct LayerObjectAppearance {
         self.labelsOffset = labelsOffset
         self.sliderSpecifier = sliderSpecifier
         self.sliderStep = sliderStep
-      
+        self.hue = hue
+        self.contrast = contrast
+        self.saturation = saturation
+        self.pixellate = pixellate
+        self.speed = speed
+        self.frequency = frequency
+        self.amplitudeMetal = amplitudeMetal
+        self.strokeWidth = strokeWidth
+        self.strokeDash = strokeDash
         
     }
     

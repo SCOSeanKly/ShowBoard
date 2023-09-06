@@ -26,16 +26,22 @@ struct TextObjectView: View {
         }
     }
     
+    @State private var selectedCase = TextCase.none
+    
     var body: some View {
         ZStack {
             if !text.appearance.isCircleText {
-                Text(text.appearance.dynamicText(wk: wObserver).dropLast(Int(text.appearance.dropLast)))
+                Text(text.appearance.dynamicText(wk: wObserver)
+                    .applyTextCase(selectedCase)
+                    .dropLast(Int(text.appearance.dropLast)))
                     .multilineTextAlignment(text.appearance.textAlignment)
                     .overlay(
                         LinearGradient(colors: [text.appearance.fillColor, text.appearance.fillColor2], startPoint: .top, endPoint: .bottom)
                        )
                     .mask(
-                        Text(text.appearance.dynamicText(wk: wObserver).dropLast(Int(text.appearance.dropLast)))
+                        Text(text.appearance.dynamicText(wk: wObserver)
+                            .applyTextCase(selectedCase)
+                            .dropLast(Int(text.appearance.dropLast)))
                             .multilineTextAlignment(text.appearance.textAlignment)
                     )
                  .shadow(color: Color.black.opacity(text.appearance.shadowOpacity), radius: text.appearance.shadow.radius, x: text.appearance.shadow.offset.x, y: text.appearance.shadow.offset.y)
@@ -72,13 +78,14 @@ struct TextObjectView: View {
                     radius: text.appearance.fontFrameWidth,
                     height: text.appearance.fontFrameWidth,
                     rotationAngle: rotationAngleInDegrees,
-                    text: text
+                    text: text,
+                    selectedCase: $selectedCase
                 )
-                .background{
-                    Rectangle()
-                        .fill(Color.white.opacity(0.00001))
-                }
             }
+        }
+        .background{
+            Rectangle()
+                .fill(Color.white.opacity(0.00001))
         }
         .onTapGesture {
             text.appearance.showSettings.toggle()
@@ -87,7 +94,7 @@ struct TextObjectView: View {
             view.reflection(offsetY: text.appearance.reflectionOffset)
         }
         .sheet(isPresented: $text.appearance.showSettings){
-            DynamicTextEditViewSettings(text: text, showMicroControls: $showMicroControls)
+            DynamicTextEditViewSettings(text: text, showMicroControls: $showMicroControls, selectedCase: $selectedCase)
         }
     }
     

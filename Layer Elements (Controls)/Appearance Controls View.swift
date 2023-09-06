@@ -28,7 +28,7 @@ struct AppearanceControlView: View {
                     MicroControlsView(showMicroControls: $showMicroControls, layer: layer)
                 }
                 
-                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext)
+                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: systemImageName, titleText: titletext, showMicroControlsButton: true)
                 
                 WeatherIconPLus7Controls(layer: layer)
                 

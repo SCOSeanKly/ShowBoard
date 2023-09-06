@@ -18,6 +18,7 @@ struct ResetValues: View {
     
     let systemImageName: String
     let titleText: String
+    let showMicroControlsButton: Bool
     
     var body: some View {
         
@@ -37,12 +38,14 @@ struct ResetValues: View {
                 
                 Spacer()
                 
-                Button {
-                    showMicroControls.toggle()
-                } label: {
-                    Text("\(Image(systemName: "arrow.up.and.down.and.arrow.left.and.right"))")
+                if showMicroControlsButton {
+                    Button {
+                        showMicroControls.toggle()
+                    } label: {
+                        Text("\(Image(systemName: "arrow.up.and.down.and.arrow.left.and.right"))")
+                    }
+                    .padding(.trailing)
                 }
-                .padding(.trailing)
                 
                 Button(action: {
                     feedback()

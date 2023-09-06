@@ -152,6 +152,17 @@ struct ObjectSelectionView: View {
                         
                         ObjectSelectionButton(
                             action: {
+                                placedObjects.append(StrokeShapeObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "square.dashed"),
+                            textDescription: "Stroke",
+                            disabled: false,
+                            cornerRadius: cornerRadius
+                        )
+                        
+                        ObjectSelectionButton(
+                            action: {
                                 placedObjects.append(CustomShapeObject())
                                 showLayerElementView = false
                             },

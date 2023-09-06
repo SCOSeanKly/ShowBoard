@@ -12,6 +12,7 @@ struct DynamicTextEditViewSettings: View {
     @StateObject var text: TextObject
     @State private var showFontPickerSheet: Bool = false
     @Binding var showMicroControls: Bool
+    @Binding var selectedCase: TextCase
    
     var body: some View {
         
@@ -23,7 +24,7 @@ struct DynamicTextEditViewSettings: View {
                     MicroControlsView(showMicroControls: $showMicroControls, layer: text)
                 }
                 
-                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text")
+                ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text", showMicroControlsButton: true)
                 }
                 
                 DynamicTextView(text: text)
@@ -62,15 +63,16 @@ struct DynamicTextEditViewSettings: View {
                                         Text(alignmentOption.description).tag(alignmentOption)
                                     }
                                 }
-                                
+
                                 .pickerStyle(.menu)
                                 .scaleEffect(0.8)
                             }
                             .frame(height: 30)
                             .padding(.horizontal)
                         }
-                         
                         
+                        TextCasePicker(selectedCase: $selectedCase)
+                         
                         SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $text.appearance.dropLast, minValue: 0, maxValue: 20, step: 1, specifier: 0, defaultValue: 0)
                         
                         SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $text.appearance.fontSize, minValue: 1, maxValue: 200, step: 1, specifier: 0, defaultValue: 16)

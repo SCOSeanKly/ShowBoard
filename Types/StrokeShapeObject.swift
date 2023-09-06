@@ -1,5 +1,5 @@
 //
-//  WallpaperObject.swift
+//  StrokeShapeObject.swift
 //  ShowBoard
 //
 //  Created by Sean Kelly on 06/09/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-    class WallpaperObject: LayerObject {
+    class StrokeShapeObject: LayerObject {
         
         // MARK: - Public Properties
         
@@ -23,7 +23,7 @@ import SwiftUI
             super.init()
             self.id = id
             self.appearance = appearance
-         //   self.objectType = .squareShape //MARK: remember and update this!
+            self.objectType = .strokeShape //MARK: remember and update this!
         }
     }
 

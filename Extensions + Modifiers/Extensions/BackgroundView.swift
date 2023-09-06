@@ -18,6 +18,8 @@ struct BackgroundView: View {
     @State private var isRectangleAnimating = false
     @State private var xOffset: CGFloat = -UIScreen.main.bounds.width
     
+    @State private var showSettings: Bool = false
+    
     let hints = [
         "Double Tap the canvas to import a wallpaper",
         "Tap the menu icon in the top left to get started adding objects to the canvas",
@@ -25,7 +27,8 @@ struct BackgroundView: View {
         "Use Dynamic Text to string data and user text together",
         "When using Dynamic Text make sure to pay close attention to text case",
         "An iOS Shortcut is required to set the wallpaper",
-        "Use Shortcut automations to periodically set your wallpaper"
+        "Use Shortcut automations to periodically set your wallpaper",
+        "Long press the wallpaper image to show additional settings"
         
         // Add more hints here...
     ]
@@ -51,33 +54,22 @@ struct BackgroundView: View {
         "bg6",
         "bg7",
         "bg8",
-        "bg9"  
+        "bg9"
     ]
-
+    
     var randomImageName: String {
         randomImageNames.randomElement() ?? "sky"
     }
     
+    @StateObject var wall =  WallpaperObject()
     
     var body: some View {
         ZStack{
             
-            
-            /*
-            Image(randomImageName)
+            Image("bg7")
                 .resizable()
                 .ignoresSafeArea()
-                .overlay {
-                    TransparentBlurView(removeAllFilters: true)
-                        .blur(radius: 50, opaque: true)
-                }
-             */
             
-                Image("bg7")
-                    .resizable()
-                    .ignoresSafeArea()
-                  
-         
             
             if (placedObjects.count == 0) {
                 
@@ -144,7 +136,7 @@ struct BackgroundView: View {
                 .gesture(
                     TapGesture(count: 1)
                         .onEnded { _ in
-                          
+                            
                             isPressing.toggle()
                             
                             feedback()
@@ -160,14 +152,50 @@ struct BackgroundView: View {
                 )
             }
             
-            
-            
             if let importedBackground = importedBackground {
-                Image(uiImage: importedBackground)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
+                
+                if #available(iOS 17.0, *) {
+                    
+                    Image(uiImage: importedBackground)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width)
+                        .ignoresSafeArea()
+                        .scaleEffect(1.05, anchor: .center)
+                        .animation(.spring(), value: wall.appearance.pixellate)
+                        .hueRotation(Angle(degrees: wall.appearance.hue))
+                        .contrast(wall.appearance.contrast)
+                        .saturation(wall.appearance.saturation)
+                        .distortionEffect(
+                            .init(
+                                function: .init(library: .default, name: "pixellate"),
+                                arguments: [.float(wall.appearance.pixellate)]
+                            ),
+                            maxSampleOffset: .zero
+                        )
+                } else {
+                    
+                    Image(uiImage: importedBackground)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width)
+                        .ignoresSafeArea()
+                        .scaleEffect(1.05, anchor: .center)
+                        .animation(.spring(), value: wall.appearance.pixellate)
+                        .hueRotation(Angle(degrees: wall.appearance.hue))
+                        .contrast(wall.appearance.contrast)
+                        .saturation(wall.appearance.saturation)
+                }
+                
+                
+                TransparentBlurView(removeAllFilters: true)
+                    .blur(radius: wall.appearance.blur, opaque: true)
+                    .ignoresSafeArea()
+                    .opacity(wall.appearance.blur >= 0 ? 1: 0)
             }
+        }
+        .sheet(isPresented: $showSettings){
+            WallpaperSettings(layer: wall)
         }
         .onAppear {
             startTimer()
@@ -178,8 +206,11 @@ struct BackgroundView: View {
         .onTapGesture(count: 2) {
             showBgPickerSheet = true
         }
+        .onLongPressGesture {
+            showSettings.toggle()
+        }
     }
-    // New functions to manage the timer
+    
     private func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 20, repeats: true) { _ in
             currentHintIndex = (currentHintIndex + 1) % hints.count
@@ -190,5 +221,6 @@ struct BackgroundView: View {
         timer?.invalidate()
         timer = nil
     }
+    
 }
 

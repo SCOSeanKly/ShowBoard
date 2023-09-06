@@ -61,7 +61,7 @@ struct HiLoCircleGauge: View {
                             
                        }
                        .scaleEffect(1.5)
-                       .tint(hiLo.appearance.gaugeColor)
+                       .tint(hiLo.appearance.fillColor)
                        .opacity(hiLo.appearance.opacity)
                        .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
                        .scaleEffect(hiLo.appearance.gaugeScale)
