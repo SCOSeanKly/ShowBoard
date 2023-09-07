@@ -15,19 +15,19 @@ struct MarchingAntsBorder: View {
     var body: some View {
         
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(lineWidth: 0.8)
+            RoundedRectangle(cornerRadius: 0)
+                .strokeBorder(lineWidth: 1.2)
                 .foregroundColor(.black)
              
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(style: StrokeStyle(lineWidth: 0.8, dash: [5], dashPhase: phase))
+            RoundedRectangle(cornerRadius: 0)
+                .strokeBorder(style: StrokeStyle(lineWidth: 1.2, dash: [5], dashPhase: phase))
                 .foregroundColor(.white)
             
         }
         .opacity(opacity)
             .onAppear {
                 withAnimation(.linear.repeatForever(autoreverses: false)) {
-                    phase -= 20
+                    phase -= 10
                     
                 }
             }

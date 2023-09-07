@@ -58,13 +58,7 @@ struct ShowBoardView: View {
             
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
-                ImportedImageView1(importedImage1: importedImage1, showBgPickerSheet: $showBgPickerSheet)
-                    .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
-                 
-                
-                ImportedImageView2(importedImage2: importedImage2, showBgPickerSheet: $showBgPickerSheet)
-                    .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
-                
+ 
                 ForEach(self.placedObjects) { obj in
                     if !hiddenLayers.contains(obj.id) {
                         ZStack {
@@ -99,6 +93,9 @@ struct ShowBoardView: View {
                             case .weatherIcon15: WeatherIcon15View(showMicroControls: $showMicroControls)
                             case .weatherIconForecast: WeatherIconForecastView(showMicroControls: $showMicroControls)
                             case .strokeShape:  StrokeShapeView(showMicroControls: $showMicroControls)
+                            case .importedImage1:  ImportedImageView1(importedImage1: importedImage1, showBgPickerSheet: $showBgPickerSheet, showMicroControls: $showMicroControls)
+                            case .importedImage2:  ImportedImageView2(importedImage2: importedImage2, showBgPickerSheet: $showBgPickerSheet, showMicroControls: $showMicroControls)
+                            case .importedImage3:  ImportedImageView3(importedImage3: importedImage3, showBgPickerSheet: $showBgPickerSheet, showMicroControls: $showMicroControls)
                             }
                         }
                         .onAppear {
@@ -114,9 +111,6 @@ struct ShowBoardView: View {
                         .fadeOnAppear()
                     }
                 }
-                
-                ImportedImageView3(importedImage3: importedImage3, showBgPickerSheet: $showBgPickerSheet)
-                    .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
             }
             
             GroupView(isDragging: $isDragging,

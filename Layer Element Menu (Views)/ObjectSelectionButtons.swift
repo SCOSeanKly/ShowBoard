@@ -94,6 +94,7 @@ struct ImportImageButton: View {
     @Binding var buttonAction: Bool
     @Binding var showLayerElementView: Bool
     @Binding var importedImage: UIImage?
+    var action: () -> Void
     
     var body: some View {
         ZStack {
@@ -145,6 +146,7 @@ struct ImportImageButton: View {
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         buttonAction.toggle()
+                        action()
                     }
                     
                 }
@@ -177,54 +179,3 @@ extension View {
             .animation(.easeIn(duration: 0.1), value: isPressing)
     }
 }
-
-
-/*
- struct ButtonsView: View {
- @Binding var placedObjects: [LayerObject]
- @Binding var selection: UUID?
- 
- func removeSelectedObject() {
- self.placedObjects.removeAll { $0.id == selection }
- }
- 
- func addObject(_ object: LayerObject) {
- self.placedObjects.append(object)
- }
- 
- 
- var body: some View {
- HStack {
- Button(action: removeSelectedObject) {
- Image(systemName: "trash")
- .tint(.red)
- }
- Spacer()
- Button {
- self.addObject(TextObject())
- } label: {
- Text("Text")
- }
- 
- Button {
- self.addObject(CustomShapeObject())
- } label: {
- Text("Shape")
- }
- 
- Button {
- self.addObject(CircleGaugeObject())
- } label: {
- Text("Gauge")
- }
- 
- Button {
- self.addObject(MapObject())
- } label: {
- Text("Map")
- }
- }
- .padding()
- }
- }
- */

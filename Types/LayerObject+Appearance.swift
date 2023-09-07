@@ -332,7 +332,6 @@ struct LayerObjectAppearance {
         self.dropLast = 0
         self.fontColor = .white
         self.fontSize = 16
-        //  self.selectedFontName = "Apple SF"
         self.fontWeight = .medium
         self.textAlignment = .center
         self.inputText = "ShowBoard - Good [timeOfDay]"
@@ -351,7 +350,7 @@ struct LayerObjectAppearance {
         self.weatherIconAssetStyle = 1
         self.labelsOffset = 10
         self.sliderSpecifier = 2
-        self.sliderStep = 0.01
+        self.sliderStep = 0.05
         
         
         self.hue = 0.0

@@ -256,6 +256,9 @@ struct PlacedObjectsListView: View {
         case .weatherIcon15: objectTypeInfo = .weatherIcon15
         case .weatherIconForecast: objectTypeInfo = .weatherIconForecast
         case .strokeShape: objectTypeInfo = .strokeShape
+        case .importedImage1: objectTypeInfo = .importedImage1
+        case .importedImage2: objectTypeInfo = .importedImage2
+        case .importedImage3: objectTypeInfo = .importedImage3
             
         }
         
@@ -327,6 +330,9 @@ struct PlacedObjectsListView: View {
         case weatherIcon15
         case weatherIconForecast
         case strokeShape
+        case importedImage1
+        case importedImage2
+        case importedImage3
         
         
         
@@ -362,6 +368,9 @@ struct PlacedObjectsListView: View {
             case .weatherIcon15: return "sun.max"
             case .weatherIconForecast: return "sun.max"
             case .strokeShape: return "square.dashed"
+            case .importedImage1: return "photo"
+            case .importedImage2: return "photo"
+            case .importedImage3: return "photo"
                 
                 
             }
@@ -399,7 +408,9 @@ struct PlacedObjectsListView: View {
             case .weatherIcon15: return "Weather Icon Style 15"
             case .weatherIconForecast: return "Weather Icon Forecast"
             case .strokeShape: return "Stroke Shape"
-                
+            case .importedImage1: return "Imported Image 1"
+            case .importedImage2: return "Imported Image 2"
+            case .importedImage3: return "Imported Image 3"
                 
             }
         }

@@ -255,8 +255,6 @@ struct ObjectSelectionView: View {
                             disabled: false,
                             cornerRadius: cornerRadius
                         )
-                        
-                        
                     }
                     .padding([.leading, .bottom, .trailing])
                 }
@@ -264,15 +262,24 @@ struct ObjectSelectionView: View {
                 
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
-                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", disabled: false, cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1)
+                    ImportImageButton(systemImage: "square.3.layers.3d.bottom.filled", buttontext: "Image1", disabled: false, cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet1, showLayerElementView: $showLayerElementView, importedImage: $importedImage1, action: {
+                        placedObjects.append(ImportedImage1Object())
+                        showLayerElementView = false
+                    })
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage1)
                         }
-                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", disabled: false,cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2)
+                    ImportImageButton(systemImage: "square.3.layers.3d.middle.filled", buttontext: "Image2", disabled: false,cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet2, showLayerElementView: $showLayerElementView, importedImage: $importedImage2, action: {
+                        placedObjects.append(ImportedImage2Object())
+                        showLayerElementView = false
+                    })
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage2)
                         }
-                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", disabled: false,cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3)
+                    ImportImageButton(systemImage: "square.3.layers.3d.top.filled", buttontext: "Image3", disabled: false,cornerRadius: cornerRadius, buttonAction: $showImagePickerSheet3, showLayerElementView: $showLayerElementView, importedImage: $importedImage3, action: {
+                        placedObjects.append(ImportedImage3Object())
+                        showLayerElementView = false
+                    })
                         .overlay {
                             ImageTrashButtonView(importedImage: $importedImage3)
                         }

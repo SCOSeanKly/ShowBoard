@@ -77,8 +77,8 @@ struct CommonControls: View {
         }
         
         if layer is StrokeShapeObject {
-            SliderStepper(color: .blue, title: "Stroke Height:", sliderBindingValue: $layer.appearance.strokeWidth, minValue: 0, maxValue: 35, step: layer.appearance.strokeWidth, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
-            SliderStepper(color: .blue, title: "Stroke Dash:", sliderBindingValue: $layer.appearance.strokeDash, minValue: 0, maxValue: 35, step: layer.appearance.strokeWidth, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
+            SliderStepper(color: .blue, title: "Stroke Height:", sliderBindingValue: $layer.appearance.strokeWidth, minValue: 0, maxValue: 35, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
+            SliderStepper(color: .blue, title: "Stroke Dash:", sliderBindingValue: $layer.appearance.strokeDash, minValue: 0, maxValue: 35, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
         }
         
         
@@ -109,8 +109,10 @@ struct WeatherIconControls: View {
   
     
     var body: some View {
-        SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $layer.appearance.reflectionOffset, minValue: -250, maxValue: 250, step: 1, specifier: 0, defaultValue: 0, action: $layer.appearance.showReflection)
         
+        if !(layer is ImportedImage1Object || layer is ImportedImage2Object || layer is ImportedImage3Object || layer is StrokeShapeObject) {
+            SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $layer.appearance.reflectionOffset, minValue: -250, maxValue: 250, step: 1, specifier: 0, defaultValue: 0, action: $layer.appearance.showReflection)
+        }
     }
 }
 
@@ -145,7 +147,7 @@ struct CornerRadiusSkewControls: View {
     var body: some View {
         
         
-        if layer is GlassObject || layer is SquareShapeObject || layer is MapObject || layer is StrokeShapeObject {
+        if layer is GlassObject || layer is SquareShapeObject || layer is MapObject || layer is StrokeShapeObject || layer is ImportedImage1Object || layer is ImportedImage2Object || layer is ImportedImage3Object {
             SliderStepper(color: .blue, title: "Corner Radius:", sliderBindingValue: $layer.appearance.cornerRadius, minValue: 0, maxValue: 200, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 0)
         }
         

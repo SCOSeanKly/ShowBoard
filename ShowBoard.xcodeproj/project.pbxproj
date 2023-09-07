@@ -184,6 +184,7 @@
 		3EC203892AA8B5CB00FE6C73 /* TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC203882AA8B5CB00FE6C73 /* TextCase.swift */; };
 		3EC2038B2AA8BD0300FE6C73 /* StrokeShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */; };
 		3EC2038E2AA8BE9100FE6C73 /* StrokeShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */; };
+		3EC203902AA9BABE00FE6C73 /* ImportedLayer1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038F2AA9BABE00FE6C73 /* ImportedLayer1.swift */; };
 		3EC6B7862A83865300CD0934 /* CombinedTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
@@ -428,6 +429,7 @@
 		3EC203882AA8B5CB00FE6C73 /* TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCase.swift; sourceTree = "<group>"; };
 		3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapeObject.swift; sourceTree = "<group>"; };
 		3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapeView.swift; sourceTree = "<group>"; };
+		3EC2038F2AA9BABE00FE6C73 /* ImportedLayer1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedLayer1.swift; sourceTree = "<group>"; };
 		3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedTapGesture.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -500,6 +502,8 @@
 		0913C4292A487643007AF26E /* Types */ = {
 			isa = PBXGroup;
 			children = (
+				0940CCF22A6860DC009CE54C /* LayerObjectType.swift */,
+				3EC2038F2AA9BABE00FE6C73 /* ImportedLayer1.swift */,
 				3E17485F2A866535001FD092 /* MicroControls.swift */,
 				3E1748632A867744001FD092 /* ImportedImageType.swift */,
 				3E22456A2A84E89A002B35B2 /* WavyDockObject.swift */,
@@ -518,7 +522,6 @@
 				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
 				3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */,
 				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
-				0940CCF22A6860DC009CE54C /* LayerObjectType.swift */,
 				3E6B7A3D2A811F1200163E58 /* WeatherIconLayerObject.swift */,
 				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 				3E315A562A93942400D0A42E /* ConditionAssetObject.swift */,
@@ -1257,6 +1260,7 @@
 				3EFFD6FA2A976B6300367B75 /* Weather Icon 5 View.swift in Sources */,
 				3E2245742A86256B002B35B2 /* SquareShapeObject.swift in Sources */,
 				3E04A1EB2A98EB39007A5D2F /* Weather Icon 15 View.swift in Sources */,
+				3EC203902AA9BABE00FE6C73 /* ImportedLayer1.swift in Sources */,
 				3E9553212A84DBAD0067CE99 /* Wavy Dock.swift in Sources */,
 				3EADA5B12A4332C700FA1BCB /* BackgroundView.swift in Sources */,
 				3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */,

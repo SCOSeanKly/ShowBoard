@@ -137,15 +137,15 @@ extension DynamicText {
                }
            }
         
-        //MARK: Still to do 
+        
+        //TODO: Pass into to Dymanic Text
         public func withWeatherMetadata(_ data: WeatherMetadata?) -> String {
         
             guard let val = data else { return "-" }
             
             switch self {
             case .location:
-                return "\(val.location)"
-          
+                return "\(val.location.description)"
             default:
                 return ""
             }

@@ -10,6 +10,8 @@ import SwiftUI
 struct ImportedImageView1: View {
     let importedImage1: UIImage?
     @Binding var showBgPickerSheet: Bool
+    @StateObject var image1 = ImportedImage1Object()
+    @Binding var showMicroControls: Bool
     
     var body: some View {
         ZStack {
@@ -17,11 +19,9 @@ struct ImportedImageView1: View {
                 Image(uiImage: importedImage1)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .objectAppearanceModifier(layer: image1, systemImageName: "photo", systemImage2: "", titleText: "Layer Image 1", showMicroControls: $showMicroControls)
             }
-        }
-        .onTapGesture(count: 2) {
-            showBgPickerSheet = true
         }
     }
 }
@@ -29,6 +29,8 @@ struct ImportedImageView1: View {
 struct ImportedImageView2: View {
     let importedImage2: UIImage?
     @Binding var showBgPickerSheet: Bool
+    @StateObject var image1 = ImportedImage2Object()
+    @Binding var showMicroControls: Bool
     
     var body: some View {
         ZStack {
@@ -37,11 +39,9 @@ struct ImportedImageView2: View {
                 Image(uiImage: importedImage2)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .objectAppearanceModifier(layer: image1, systemImageName: "photo", systemImage2: "", titleText: "Layer Image 2", showMicroControls: $showMicroControls)
             }
-        }
-        .onTapGesture(count: 2) {
-            showBgPickerSheet = true
         }
     }
 }
@@ -49,6 +49,8 @@ struct ImportedImageView2: View {
 struct ImportedImageView3: View {
     let importedImage3: UIImage?
     @Binding var showBgPickerSheet: Bool
+    @StateObject var image1 = ImportedImage3Object()
+    @Binding var showMicroControls: Bool
     
     var body: some View {
         ZStack {
@@ -57,12 +59,9 @@ struct ImportedImageView3: View {
                 Image(uiImage: importedImage3)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width)
-                    .allowsHitTesting(false)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .objectAppearanceModifier(layer: image1, systemImageName: "photo", systemImage2: "", titleText: "Layer Image 3", showMicroControls: $showMicroControls)
             }
-        }
-        .onTapGesture(count: 2) {
-            showBgPickerSheet = true
         }
     }
 }

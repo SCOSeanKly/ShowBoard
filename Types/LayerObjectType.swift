@@ -39,5 +39,8 @@ enum LayerObjectType {
     case weatherIcon15
     case weatherIconForecast
     case strokeShape
+    case importedImage1
+    case importedImage2
+    case importedImage3
 
 }
