@@ -10,7 +10,7 @@ import SwiftUI
 struct WeatherIconPLus7Controls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     
     var body: some View {
@@ -33,8 +33,6 @@ struct WeatherIconPLus7Controls: View {
                 .frame(width: 45, height: 45) // Adjust the size of the button as needed
             }
             .padding(.horizontal)
-
-
             
             CustomToggle(showTitleText: true, titleText: "Layout (Horizontal / Vertical)", bindingValue: $layer.appearance.showHorizontal, onSymbol: "h.circle", offSymbol: "v.circle", rotate: false)
                 .padding(.trailing, 5)
@@ -62,7 +60,7 @@ struct WeatherIconPLus7Controls: View {
 struct CommonControls: View {
     
     @StateObject var layer: LayerObject
- 
+    
     
     var body: some View {
         
@@ -80,7 +78,6 @@ struct CommonControls: View {
             SliderStepper(color: .blue, title: "Stroke Height:", sliderBindingValue: $layer.appearance.strokeWidth, minValue: 0, maxValue: 35, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
             SliderStepper(color: .blue, title: "Stroke Dash:", sliderBindingValue: $layer.appearance.strokeDash, minValue: 0, maxValue: 35, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 5)
         }
-        
         
         SliderStepper(color: .blue, title: "Shadow Radius:", sliderBindingValue: $layer.appearance.shadow.radius, minValue: 0, maxValue: 20, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 0)
         
@@ -106,11 +103,11 @@ struct CommonControls: View {
 struct WeatherIconControls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     var body: some View {
         
-        if !(layer is ImportedImage1Object || layer is ImportedImage2Object || layer is ImportedImage3Object || layer is StrokeShapeObject) {
+        if !(layer is ImportedImage1Object || layer is ImportedImage2Object || layer is ImportedImage3Object || layer is StrokeShapeObject || layer is DOTWObject) {
             SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $layer.appearance.reflectionOffset, minValue: -250, maxValue: 250, step: 1, specifier: 0, defaultValue: 0, action: $layer.appearance.showReflection)
         }
     }
@@ -121,20 +118,19 @@ struct WeatherIconControls: View {
 struct rainControls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     var body: some View {
         
         
         if layer is RainObject {
-          
+            
             CustomToggle(showTitleText: true, titleText: "Show Rain Bounce", bindingValue: $layer.appearance.showRainBounce, onSymbol: "circle", offSymbol: "xmark", rotate: true)
                 .padding(.trailing, 5)
             
             CustomToggle(showTitleText: true, titleText: "Add Gradient Mask", bindingValue: $layer.appearance.addGaradientMask, onSymbol: "circle", offSymbol: "xmark", rotate: true)
-                .padding(.trailing, 5) 
+                .padding(.trailing, 5)
         }
-    
     }
 }
 
@@ -142,7 +138,7 @@ struct rainControls: View {
 struct CornerRadiusSkewControls: View {
     
     @StateObject var layer: LayerObject
- 
+    
     
     var body: some View {
         
@@ -163,7 +159,7 @@ struct CornerRadiusSkewControls: View {
 struct GlassControls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     var body: some View {
         
@@ -184,7 +180,7 @@ struct GlassControls: View {
 struct Font_GaugeLabelControls: View {
     
     @StateObject var layer: LayerObject
- 
+    
     
     var body: some View {
         
@@ -211,7 +207,7 @@ struct Font_GaugeLabelControls: View {
 struct ScaleWidthHeightControls: View {
     
     @StateObject var layer: LayerObject
-   
+    
     
     var body: some View {
         
@@ -236,7 +232,7 @@ struct ScaleWidthHeightControls: View {
 struct CustomShapeControls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     var body: some View {
         
@@ -252,29 +248,40 @@ struct CustomShapeControls: View {
 struct CalendarControls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     var body: some View {
         
-        if let _ = layer as? CalendarViewModel {
+        if layer is CalendarViewModel || layer is DOTWObject {
+            
             SliderStepper(color: .blue, title: "Days Text Size", sliderBindingValue: $layer.appearance.daysTextSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
+            
+            if layer is DOTWObject {
+                SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $layer.appearance.dropLast, minValue: 0, maxValue: 2, step: 1, specifier: 0, defaultValue: 0)
+            }
             
             CustomColorPicker(titleText: "Days Colour", pickerBindingValue:  $layer.appearance.daysColor, pickerBindingValue2: nil, showGradientToggle: false)
             
-            SliderStepper(color: .blue, title: "Date Text Size", sliderBindingValue: $layer.appearance.dateTextSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
-            
-            CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor, pickerBindingValue2: nil, showGradientToggle: false)
-            
-            CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor, pickerBindingValue2: nil, showGradientToggle: false)
+            if !(layer is DOTWObject) {
+                SliderStepper(color: .blue, title: "Date Text Size", sliderBindingValue: $layer.appearance.dateTextSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
+                
+                CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor, pickerBindingValue2: nil, showGradientToggle: false)
+                
+                CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor, pickerBindingValue2: nil, showGradientToggle: false)
+            }
             
             SliderStepper(color: .blue, title: "Date BG Corner Radius", sliderBindingValue: $layer.appearance.dateBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
             
-            CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor, pickerBindingValue2: $layer.appearance.calendarBackgroundColor2, showGradientToggle: true)
+            if !(layer is DOTWObject) {
+                CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor, pickerBindingValue2: $layer.appearance.calendarBackgroundColor2, showGradientToggle: true)
+            }
             
             SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
             
-            CustomToggle(showTitleText: true, titleText: "Toggle Today Indicator Style:", bindingValue: $layer.appearance.todayIndicatorStyle, onSymbol: "square", offSymbol: "circle", rotate: false)
-                .padding(.trailing, 5)
+            if !(layer is DOTWObject) {
+                CustomToggle(showTitleText: true, titleText: "Toggle Today Indicator Style:", bindingValue: $layer.appearance.todayIndicatorStyle, onSymbol: "square", offSymbol: "circle", rotate: false)
+                    .padding(.trailing, 5)
+            }
             
             CustomColorPicker(titleText: "Today Indicator Colour", pickerBindingValue:  $layer.appearance.todayIndicator, pickerBindingValue2: nil, showGradientToggle: false)
         }
@@ -284,7 +291,7 @@ struct CalendarControls: View {
 struct WavyDockControls: View {
     
     @StateObject var layer: LayerObject
-  
+    
     
     var body: some View {
         

@@ -13,6 +13,9 @@ struct PositionButton: View {
     let stackSpacing: Double = 10
     @State private var isDragging = false
     @State private var microAdjustment: Bool = false
+    @State private var customXValue: String = ""
+    @State private var customYValue: String = ""
+    @State private var showTextControls: Bool = false
     
     
     var offsetValue: CGFloat {
@@ -25,65 +28,121 @@ struct PositionButton: View {
     }
     
     var body: some View {
-        VStack(spacing: stackSpacing) {
-            HStack {
-                Text("POSITION")
-                    .font(.system(size: 10))
-                    .textCase(.uppercase)
-                    .foregroundColor(.black)
-                    .padding(.vertical, 5)
-                    .padding(.horizontal)
-                    .background(.white.opacity(0.5))
-                    .clipShape(RoundedRectangle(cornerRadius: 50))
-                    .offset(x: 22)
-                VStack {
-                    Toggle("", isOn: $microAdjustment)
-                        .frame(width: 40)
-                        .scaleEffect(0.5)
-                        .rotationEffect(Angle(degrees: -270))
-                    Text("µ")
-                        .font(.system(size: 10))
-                        .foregroundColor(.black)
-                        .offset(y: -5)
-                }
-                .offset(x: 17, y: 32)
-            }
-            .frame(width: 150, height: 10)
-            
-            ZStack {
-                PressableButtonView(systemImage: "arrow.up") {
-                    layer.appearance.offsetY -= offsetValue
-                }
-                VStack {
-                    Text("X: \(String(format: "%.1f", layer.appearance.offsetX))")
-                        .font(.system(size: 8))
-                        .foregroundColor(.black)
+        ZStack {
+            if !showTextControls {
+                VStack(spacing: stackSpacing) {
                     
-                    Text("Y: \(String(format: "%.1f", layer.appearance.offsetY))")
-                        .font(.system(size: 8))
-                        .foregroundColor(.black)
+                    HStack {
+                        Text("POSITION")
+                            .font(.system(size: 10))
+                            .textCase(.uppercase)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal)
+                            .offset(x: 22)
+                        VStack {
+                            Toggle("", isOn: $microAdjustment)
+                                .frame(width: 40)
+                                .scaleEffect(0.5)
+                                .rotationEffect(Angle(degrees: -270))
+                            Text("µ")
+                                .font(.system(size: 10))
+                                .foregroundColor(.black)
+                                .offset(y: -5)
+                        }
+                        .offset(x: 17, y: 32)
+                    }
+                    .frame(width: 150, height: 10)
                     
+                    ZStack {
+                        PressableButtonView(systemImage: "arrow.up") {
+                            layer.appearance.offsetY -= offsetValue
+                        }
+                        VStack {
+                            Text("X: \(String(format: "%.1f", layer.appearance.offsetX))")
+                                .font(.system(size: 8))
+                                .foregroundColor(.black)
+                            
+                            Text("Y: \(String(format: "%.1f", layer.appearance.offsetY))")
+                                .font(.system(size: 8))
+                                .foregroundColor(.black)
+                            
+                        }
+                        .offset(x: -50)
+                        .onTapGesture {
+                            showTextControls.toggle()
+                        }
+                    }
+                    
+                    HStack(spacing: stackSpacing) {
+                        
+                        PressableButtonView(systemImage: "arrow.left") {
+                            layer.appearance.offsetX -= offsetValue
+                        }
+                        PressableButtonView(systemImage: "arrow.counterclockwise") {
+                            resetValues()
+                        }
+                        PressableButtonView(systemImage: "arrow.right") {
+                            layer.appearance.offsetX += offsetValue
+                        }
+                    }
+                    
+                    PressableButtonView(systemImage: "arrow.down") {
+                        layer.appearance.offsetY += offsetValue
+                    }
                 }
-                .offset(x: -50)
-            }
-            HStack(spacing: stackSpacing) {
+                .scaleEffect(0.9)
                 
-                PressableButtonView(systemImage: "arrow.left") {
-                    layer.appearance.offsetX -= offsetValue
+            } else {
+                ZStack {
+                    VStack {
+                        
+                        Text("POSITION")
+                            .font(.system(size: 10))
+                            .textCase(.uppercase)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal)
+                        
+                        TextField("X", text: $customXValue)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .frame(width: 100)
+                            .keyboardType(.numberPad)
+                            .onSubmit {
+                                if let customX = Double(customXValue) {
+                                    layer.appearance.offsetX = CGFloat(customX)
+                                    showTextControls = false
+                                }
+                            }
+                        TextField("Y", text: $customYValue)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .frame(width: 100)
+                            .keyboardType(.numberPad)
+                            .onSubmit {
+                                if let customY = Double(customYValue) {
+                                    layer.appearance.offsetY = CGFloat(customY)
+                                    showTextControls = false
+                                }
+                            }
+                    }
+                    .frame(width: 150, height: 100)
+                    .padding()
+                    .background(.white)
+                    
+                    ZStack {
+                        Button {
+                            showTextControls = false
+                        }label: {
+                            Image(systemName: "xmark.circle.fill")
+                        }
+                    }
+                    .frame(width: 20, height: 20)
+                    .offset(x: 50, y: -50)
+                    .tint(.red)
                 }
-                PressableButtonView(systemImage: "arrow.counterclockwise") {
-                    resetValues()
-                }
-                PressableButtonView(systemImage: "arrow.right") {
-                    layer.appearance.offsetX += offsetValue
-                }
-            }
-            PressableButtonView(systemImage: "arrow.down") {
-                layer.appearance.offsetY += offsetValue
             }
         }
-        .scaleEffect(0.9)
-        
+        .frame(width: 150)
     }
 }
 
@@ -93,6 +152,10 @@ struct ScaleButton: View {
     let stackSpacing: Double = 10
     @State private var isDragging = false
     @State private var microAdjustment: Bool = false
+    
+    @State private var customWidthValue: String = ""
+    @State private var customHeightValue: String = ""
+    @State private var showTextControls: Bool = false
     
     
     var scaleValue: CGFloat {
@@ -105,64 +168,125 @@ struct ScaleButton: View {
     }
     
     var body: some View {
-        VStack(spacing: stackSpacing) {
-            HStack {
-                Text("SCALE")
-                    .font(.system(size: 10))
-                    .textCase(.uppercase)
-                    .foregroundColor(.black)
-                    .padding(.vertical, 5)
-                    .padding(.horizontal)
-                    .background(.white.opacity(0.5))
-                    .clipShape(RoundedRectangle(cornerRadius: 50))
-                    .offset(x: 22)
-                VStack {
-                    Toggle("", isOn: $microAdjustment)
-                        .frame(width: 40)
-                        .scaleEffect(0.5)
-                        .rotationEffect(Angle(degrees: -270))
-                    Text("µ")
-                        .font(.system(size: 10))
-                        .foregroundColor(.black)
-                        .offset(y: -5)
-                }
-                .offset(x: 25, y: 32)
-            }
-            .frame(width: 150, height: 10)
-            ZStack {
-                PressableButtonView(systemImage: "plus") {
-                    layer.appearance.scaleHeight += scaleValue
-                }
-                
-                VStack {
-                    Text("W: \(String(format: "%.2f", layer.appearance.scaleWidth))")
-                        .font(.system(size: 8))
-                        .foregroundColor(.black)
+        ZStack {
+            if !showTextControls {
+                VStack(spacing: stackSpacing) {
                     
-                    Text("H: \(String(format: "%.2f", layer.appearance.scaleHeight))")
-                        .font(.system(size: 8))
-                        .foregroundColor(.black)
+                    HStack {
+                        Text("SCALE")
+                            .font(.system(size: 10))
+                            .textCase(.uppercase)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal)
+                            .offset(x: 22)
+                        VStack {
+                            Toggle("", isOn: $microAdjustment)
+                                .frame(width: 40)
+                                .scaleEffect(0.5)
+                                .rotationEffect(Angle(degrees: -270))
+                            Text("µ")
+                                .font(.system(size: 10))
+                                .foregroundColor(.black)
+                                .offset(y: -5)
+                        }
+                        .offset(x: 25, y: 32)
+                    }
+                    .frame(width: 150, height: 10)
                     
+                    ZStack {
+                        PressableButtonView(systemImage: "plus") {
+                            layer.appearance.scaleHeight += scaleValue
+                        }
+                        
+                        VStack {
+                            Text("W: \(String(format: "%.2f", layer.appearance.scaleWidth))")
+                                .font(.system(size: 8))
+                                .foregroundColor(.black)
+                            
+                            Text("H: \(String(format: "%.2f", layer.appearance.scaleHeight))")
+                                .font(.system(size: 8))
+                                .foregroundColor(.black)
+                            
+                        }
+                        .offset(x: -50)
+                        .onTapGesture {
+                            showTextControls.toggle()
+                        }
+                    }
+                    
+                    HStack(spacing: stackSpacing) {
+                        
+                        PressableButtonView(systemImage: "minus") {
+                            layer.appearance.scaleWidth -= scaleValue
+                        }
+                        PressableButtonView(systemImage: "arrow.counterclockwise") {
+                            resetValues()
+                        }
+                        PressableButtonView(systemImage: "plus") {
+                            layer.appearance.scaleWidth += scaleValue
+                        }
+                    }
+                    
+                    PressableButtonView(systemImage: "minus") {
+                        layer.appearance.scaleHeight -= scaleValue
+                    }
                 }
-                .offset(x: -50)
+                .scaleEffect(0.9)
             }
-            HStack(spacing: stackSpacing) {
-                
-                PressableButtonView(systemImage: "minus") {
-                    layer.appearance.scaleWidth -= scaleValue
+            else {
+                ZStack {
+                    VStack {
+                        
+                        Text("SCALE")
+                            .font(.system(size: 10))
+                            .textCase(.uppercase)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 5)
+                            .padding(.horizontal)
+                        
+                        
+                        TextField("Width", text: $customWidthValue)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .frame(width: 100)
+                        
+                            .keyboardType(.numberPad)
+                            .onSubmit {
+                                if let customWidth = Double(customWidthValue) {
+                                    layer.appearance.scaleWidth = CGFloat(customWidth)
+                                    showTextControls = false
+                                }
+                            }
+                        TextField("Height", text: $customHeightValue)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .frame(width: 100)
+                            .keyboardType(.numberPad)
+                            .onSubmit {
+                                if let customHeight = Double(customHeightValue) {
+                                    layer.appearance.scaleHeight = CGFloat(customHeight)
+                                    showTextControls = false
+                                }
+                            }
+                    }
+                    .frame(width: 150, height: 100)
+                    .padding()
+                    .background(.white)
+                    
+                    ZStack {
+                        Button {
+                            showTextControls = false
+                        }label: {
+                            Image(systemName: "xmark.circle.fill")
+                        }
+                    }
+                    .frame(width: 20, height: 20)
+                    .offset(x: 50, y: -50)
+                    .tint(.red)
                 }
-                PressableButtonView(systemImage: "arrow.counterclockwise") {
-                    resetValues()
-                }
-                PressableButtonView(systemImage: "plus") {
-                    layer.appearance.scaleWidth += scaleValue
-                }
-            }
-            PressableButtonView(systemImage: "minus") {
-                layer.appearance.scaleHeight -= scaleValue
+               
             }
         }
-        .scaleEffect(0.9)
+        .frame(width: 150)
     }
 }
 

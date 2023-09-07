@@ -35,7 +35,7 @@ struct CalendarView: View {
                                     if vm.calendar.isDate(day, equalTo: vm.date, toGranularity: .month) {
                                         ZStack {
                                             fillRange(day: day, week: week, index: index)
-                                            
+                                            /*
                                             ZStack {
                                                 
                                                 Text("\(vm.calendar.component(.day, from: day))")
@@ -62,6 +62,7 @@ struct CalendarView: View {
                                                 RoundedRectangle(cornerRadius: vm.appearance.dateBackgroundCornerRadius)
                                                     .fill(vm.appearance.dateBackgroundColor)
                                             }
+                                             */
                                         }
                                         .frame(height: 34)
                                         .frame(maxWidth: .infinity)

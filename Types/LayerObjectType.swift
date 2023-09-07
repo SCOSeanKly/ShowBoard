@@ -42,5 +42,6 @@ enum LayerObjectType {
     case importedImage1
     case importedImage2
     case importedImage3
+    case DOTW
 
 }

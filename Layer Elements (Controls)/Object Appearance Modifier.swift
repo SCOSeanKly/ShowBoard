@@ -38,7 +38,6 @@ struct SettingsMod: ViewModifier {
             .rotation3DEffect(.degrees(layer.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
             .scaleEffect(layer.appearance.scales.x)
             .scaleEffect(x: layer.appearance.scaleWidth, y: layer.appearance.scaleHeight, anchor: .center)
-            .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
             .background{
                Rectangle()
                     .fill(Color.white.opacity(0.00001))

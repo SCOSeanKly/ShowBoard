@@ -24,7 +24,7 @@ struct PlacedObjectsListView: View {
     @Binding var showGallery: Bool
     let cornerRadius: CGFloat = 12
     
-    
+    @State private var name: String = ""
     
     var body: some View {
         VStack {
@@ -110,10 +110,10 @@ struct PlacedObjectsListView: View {
                                         showLayerEditView.toggle()}
                                 }
                             } label: {
+                                
                                 objectButtonView(for: obj)
                                     .scaleEffect(isPressing ? 0.98 : 1)
                                     .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
-                                    .opacity(hiddenLayers.contains(obj.id) ? 0.4 : 1.0)
                             }
                             .padding(8)
                             .background(selection == obj.id ? highlightColor : Color.clear)
@@ -186,20 +186,20 @@ struct PlacedObjectsListView: View {
                         case .save:
                             let saveAlertMessage: Text
                             let layerText = placedObjects.count == 1 ? "layer" : "layers"
-                               if placedObjects.count < 5 {
-                                   saveAlertMessage = Text("Are you certain about saving your current ShowBoard config file? Please note that you currently have \(placedObjects.count) \(layerText).")
-                               } else {
-                                   saveAlertMessage = Text("Are you sure you want to save the ShowBoard config file with your current settings? It's recommended to save a backup of any previous config files before making any changes. Would you like to proceed?")
-                               }
-                               
-                               return Alert(
-                                   title: Text("Save ShowBoard?"),
-                                   message: saveAlertMessage,
-                                   primaryButton: .cancel(Text("Cancel")),
-                                   secondaryButton: .destructive(Text("Save"), action: {
-                                       // Perform save action here
-                                   })
-                               )
+                            if placedObjects.count < 5 {
+                                saveAlertMessage = Text("Are you certain about saving your current ShowBoard config file? Please note that you currently have \(placedObjects.count) \(layerText).")
+                            } else {
+                                saveAlertMessage = Text("Are you sure you want to save the ShowBoard config file with your current settings? It's recommended to save a backup of any previous config files before making any changes. Would you like to proceed?")
+                            }
+                            
+                            return Alert(
+                                title: Text("Save ShowBoard?"),
+                                message: saveAlertMessage,
+                                primaryButton: .cancel(Text("Cancel")),
+                                secondaryButton: .destructive(Text("Save"), action: {
+                                    // Perform save action here
+                                })
+                            )
                         }
                     }
                 }
@@ -259,12 +259,14 @@ struct PlacedObjectsListView: View {
         case .importedImage1: objectTypeInfo = .importedImage1
         case .importedImage2: objectTypeInfo = .importedImage2
         case .importedImage3: objectTypeInfo = .importedImage3
+        case .DOTW: objectTypeInfo = .DOTW
             
         }
         
         return HStack {
             Image(systemName: objectTypeInfo.icon)
             Text(objectTypeInfo.title)
+            
             
             Spacer()
             
@@ -275,13 +277,13 @@ struct PlacedObjectsListView: View {
                 isPressingDelete.toggle()
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                 
+                    
                     isPressingDelete.toggle()
                 }
                 alertType = .delete
                 showAlert = true
                 objectToDelete = obj
-               
+                
                 
             }, label: {
                 Image(systemName: "trash")
@@ -333,7 +335,7 @@ struct PlacedObjectsListView: View {
         case importedImage1
         case importedImage2
         case importedImage3
-        
+        case DOTW
         
         
         var icon: String {
@@ -371,7 +373,7 @@ struct PlacedObjectsListView: View {
             case .importedImage1: return "photo"
             case .importedImage2: return "photo"
             case .importedImage3: return "photo"
-                
+            case .DOTW: return "birthday.cake"
                 
             }
         }
@@ -411,6 +413,7 @@ struct PlacedObjectsListView: View {
             case .importedImage1: return "Imported Image 1"
             case .importedImage2: return "Imported Image 2"
             case .importedImage3: return "Imported Image 3"
+            case .DOTW: return "Days Of The Week"
                 
             }
         }

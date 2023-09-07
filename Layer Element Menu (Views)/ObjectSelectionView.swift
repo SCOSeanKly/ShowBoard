@@ -122,6 +122,17 @@ struct ObjectSelectionView: View {
                             disabled: false,
                             cornerRadius: cornerRadius
                         )
+                        
+                        ObjectSelectionButton(
+                            action: {
+                                placedObjects.append(DOTWObject())
+                                showLayerElementView = false
+                            },
+                            imageType: .system(name: "birthday.cake"),
+                            textDescription: "DOTW",
+                            disabled: false,
+                            cornerRadius: cornerRadius
+                        )
                     }
                     .padding([.leading, .bottom, .trailing])
                     

@@ -55,7 +55,8 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                                 .clipShape(Circle())
                             
                         }
-                        .frame(height: isActive ? height * 4 : height * 2, alignment: .center) // Increases the size of the button when dragging
+                        .frame(height: height * 2, alignment: .center) // Increases the size of the button when dragging
+                //        .frame(height: isActive ? height * 4 : height * 2, alignment: .center) // Increases the size of the button when dragging
                         .position(x: bounds.size.width * CGFloat(localRealProgress), y: bounds.size.height / 2) // Center the circle
                         .gesture(DragGesture(minimumDistance: 0)
                             .updating($isActive) { value, state, transaction in
@@ -88,8 +89,9 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
              
             }
         }
-        .frame(height: isActive ? height * 2 : height, alignment: .center)
-        .frame(height: 20)
+        .frame(height: height, alignment: .center)
+      //  .frame(height: isActive ? height * 2 : height, alignment: .center)
+       // .frame(height: 20)
         .padding(.leading, 10)
         
     }

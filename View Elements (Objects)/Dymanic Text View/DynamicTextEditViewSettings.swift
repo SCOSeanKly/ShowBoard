@@ -18,14 +18,14 @@ struct DynamicTextEditViewSettings: View {
         
         ScrollView (showsIndicators: false){
             
-            if !text.appearance.isKeyboardPresented {
+         //   if !text.appearance.isKeyboardPresented {
                 
                 if showMicroControls {
                     MicroControlsView(showMicroControls: $showMicroControls, layer: text)
                 }
                 
                 ResetValues(resetValues: {}, showMicroControls: $showMicroControls, systemImageName: "character.textbox", titleText: "Dynamic Text", showMicroControlsButton: true)
-                }
+             //   }
                 
                 DynamicTextView(text: text)
                 
@@ -119,8 +119,6 @@ struct DynamicTextEditViewSettings: View {
                         .frame(height: 100)
                  
                 }
-            
-            
         }
         .onAppear{
             showMicroControls = true
@@ -134,9 +132,7 @@ struct DynamicTextEditViewSettings: View {
             CustomFontGridPicker(bindingValue: $text.appearance.selectedFontName, text: text)
             
         }
-        
     }
-    
 }
 
 extension TextAlignment: CustomStringConvertible {

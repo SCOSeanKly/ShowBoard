@@ -96,6 +96,7 @@ struct ShowBoardView: View {
                             case .importedImage1:  ImportedImageView1(importedImage1: importedImage1, showBgPickerSheet: $showBgPickerSheet, showMicroControls: $showMicroControls)
                             case .importedImage2:  ImportedImageView2(importedImage2: importedImage2, showBgPickerSheet: $showBgPickerSheet, showMicroControls: $showMicroControls)
                             case .importedImage3:  ImportedImageView3(importedImage3: importedImage3, showBgPickerSheet: $showBgPickerSheet, showMicroControls: $showMicroControls)
+                            case .DOTW: DOTWView(showMicroControls: $showMicroControls)
                             }
                         }
                         .onAppear {
@@ -106,9 +107,11 @@ struct ShowBoardView: View {
                         }
                         .padding(10)
                         .modifier(WidgetModifier(isDragging: $isDragging))
+                        .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id)
                         .fadeOnAppear()
+                       
                     }
                 }
             }

@@ -185,6 +185,8 @@
 		3EC2038B2AA8BD0300FE6C73 /* StrokeShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */; };
 		3EC2038E2AA8BE9100FE6C73 /* StrokeShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */; };
 		3EC203902AA9BABE00FE6C73 /* ImportedLayer1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2038F2AA9BABE00FE6C73 /* ImportedLayer1.swift */; };
+		3EC203992AA9FCCD00FE6C73 /* DOTW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC203982AA9FCCD00FE6C73 /* DOTW.swift */; };
+		3EC2039B2AAA046C00FE6C73 /* DOTWObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2039A2AAA046C00FE6C73 /* DOTWObject.swift */; };
 		3EC6B7862A83865300CD0934 /* CombinedTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */; };
 		3ECBE35E2A6E94FD004B59F2 /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */; };
 		3ECC34972A4C1F6B008794BC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC34962A4C1F6B008794BC /* MapView.swift */; };
@@ -430,6 +432,8 @@
 		3EC2038A2AA8BD0300FE6C73 /* StrokeShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapeObject.swift; sourceTree = "<group>"; };
 		3EC2038D2AA8BE9100FE6C73 /* StrokeShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShapeView.swift; sourceTree = "<group>"; };
 		3EC2038F2AA9BABE00FE6C73 /* ImportedLayer1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedLayer1.swift; sourceTree = "<group>"; };
+		3EC203982AA9FCCD00FE6C73 /* DOTW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOTW.swift; sourceTree = "<group>"; };
+		3EC2039A2AAA046C00FE6C73 /* DOTWObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOTWObject.swift; sourceTree = "<group>"; };
 		3EC6B7852A83865300CD0934 /* CombinedTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedTapGesture.swift; sourceTree = "<group>"; };
 		3ECBE35D2A6E94FD004B59F2 /* TransparentBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
 		3ECC34962A4C1F6B008794BC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -526,6 +530,7 @@
 				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 				3E315A562A93942400D0A42E /* ConditionAssetObject.swift */,
 				3EFFD6EE2A9747BE00367B75 /* RainObject.swift */,
+				3EC2039A2AAA046C00FE6C73 /* DOTWObject.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -589,6 +594,8 @@
 		3E41D3192A42F73000A29548 /* View Elements (Objects) */ = {
 			isa = PBXGroup;
 			children = (
+				3E371CE02A66C10E00DE743C /* Battery Gauges */,
+				3EC2039C2AAA0C9F00FE6C73 /* DOTW View */,
 				3EC2038C2AA8BE4400FE6C73 /* Stroke Shape */,
 				3EFFD6F02A9748DF00367B75 /* Rain View */,
 				3E315A582A939FC200D0A42E /* Condition Asset */,
@@ -601,7 +608,6 @@
 				3EBF30732A6ED4FC004C12B5 /* Map View */,
 				3EBF30752A6ED51C004C12B5 /* Glass Shape View */,
 				3EBF30762A6ED529004C12B5 /* Dymanic Text View */,
-				3E371CE02A66C10E00DE743C /* Battery Gauges */,
 			);
 			path = "View Elements (Objects)";
 			sourceTree = "<group>";
@@ -943,6 +949,14 @@
 			path = "Stroke Shape";
 			sourceTree = "<group>";
 		};
+		3EC2039C2AAA0C9F00FE6C73 /* DOTW View */ = {
+			isa = PBXGroup;
+			children = (
+				3EC203982AA9FCCD00FE6C73 /* DOTW.swift */,
+			);
+			path = "DOTW View";
+			sourceTree = "<group>";
+		};
 		3ECC34AB2A4C4163008794BC /* Micro Control Position Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,6 +1268,7 @@
 				3E371CDD2A66932900DE743C /* CircleGaugeObject.swift in Sources */,
 				3EB671982A4EF20A00DF2678 /* GroupView.swift in Sources */,
 				3EFFD6F22A9748EF00367B75 /* Rain View.swift in Sources */,
+				3EC203992AA9FCCD00FE6C73 /* DOTW.swift in Sources */,
 				3E4E6B492A4B733C00942494 /* DynamicTextEditView.swift in Sources */,
 				3E3977922A7BF998002711FC /* AppModel.swift in Sources */,
 				3E371CDB2A668DD400DE743C /* ResetValues.swift in Sources */,
@@ -1328,6 +1343,7 @@
 				3E8849BD2A41D5A500B50BBD /* BatteryModel.swift in Sources */,
 				3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */,
 				3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */,
+				3EC2039B2AAA046C00FE6C73 /* DOTWObject.swift in Sources */,
 				3E3E68872A82720A00F468DD /* ifExtension.swift in Sources */,
 				3E546A712A69526500AE1ED7 /* CustomSlider.swift in Sources */,
 				097274352A4DDCCB00429786 /* ShadowSettings.swift in Sources */,
@@ -1532,7 +1548,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.38;
+				CURRENT_PROJECT_VERSION = 0.0.39;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1576,7 +1592,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.38;
+				CURRENT_PROJECT_VERSION = 0.0.39;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
