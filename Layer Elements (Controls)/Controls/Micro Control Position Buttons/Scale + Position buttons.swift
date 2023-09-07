@@ -107,7 +107,7 @@ struct PositionButton: View {
                         TextField("X", text: $customXValue)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 100)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.numbersAndPunctuation)
                             .onSubmit {
                                 if let customX = Double(customXValue) {
                                     layer.appearance.offsetX = CGFloat(customX)
@@ -117,7 +117,7 @@ struct PositionButton: View {
                         TextField("Y", text: $customYValue)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 100)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.numbersAndPunctuation)
                             .onSubmit {
                                 if let customY = Double(customYValue) {
                                     layer.appearance.offsetY = CGFloat(customY)
@@ -245,22 +245,21 @@ struct ScaleButton: View {
                             .padding(.vertical, 5)
                             .padding(.horizontal)
                         
-                        
                         TextField("Width", text: $customWidthValue)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 100)
-                        
-                            .keyboardType(.numberPad)
+                            .keyboardType(.numbersAndPunctuation)
                             .onSubmit {
                                 if let customWidth = Double(customWidthValue) {
                                     layer.appearance.scaleWidth = CGFloat(customWidth)
                                     showTextControls = false
                                 }
                             }
+                        
                         TextField("Height", text: $customHeightValue)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 100)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.numbersAndPunctuation)
                             .onSubmit {
                                 if let customHeight = Double(customHeightValue) {
                                     layer.appearance.scaleHeight = CGFloat(customHeight)

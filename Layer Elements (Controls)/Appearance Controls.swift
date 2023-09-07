@@ -276,7 +276,9 @@ struct CalendarControls: View {
                 CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor, pickerBindingValue2: $layer.appearance.calendarBackgroundColor2, showGradientToggle: true)
             }
             
-            SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
+            if !(layer is DOTWObject) {
+                SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
+            }
             
             if !(layer is DOTWObject) {
                 CustomToggle(showTitleText: true, titleText: "Toggle Today Indicator Style:", bindingValue: $layer.appearance.todayIndicatorStyle, onSymbol: "square", offSymbol: "circle", rotate: false)

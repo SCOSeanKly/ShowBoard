@@ -46,7 +46,6 @@ struct SettingsMod: ViewModifier {
                 MarchingAntsBorder(opacity: layer.appearance.showSettings ? 1 : 0) // MARK: Change this to show when selection = obj.id
                     .frame(width: layer.appearance.width + layer.appearance.scaleWidth, height: layer.appearance.height + layer.appearance.scaleHeight)
                     .rotationEffect(layer.appearance.rotation)
-                  
             }
             .offset(x: layer.appearance.offsetX, y: layer.appearance.offsetY)
             .onTapGesture {
