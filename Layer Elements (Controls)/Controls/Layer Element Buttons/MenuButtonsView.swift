@@ -16,9 +16,11 @@ struct MenuButtonsView: View {
     @Binding var showAdjustmentsView: Bool
     @Binding var showLayerEditView: Bool
     @Binding var showMicroContols: Bool
+    @Binding var dragAll: Bool
     
     @State private var numberOfShakes: CGFloat = 0
     @State private var isPressing: Bool = false
+    @State private var isPressingDragAll: Bool = false
     @State private var isPressingLayers: Bool = false
     @State private var isPressingExport: Bool = false
     
@@ -31,6 +33,9 @@ struct MenuButtonsView: View {
                 VStack {
                     HStack {
                         microControlsButton()
+                        
+                        dragAllButton()
+                        
                         Spacer()
                         
                         layersButton()
@@ -140,6 +145,30 @@ struct MenuButtonsView: View {
                     }
                 }  
             }
+            .disabled(placedObjects.count == 0)
+            .opacity(placedObjects.count == 0 ? 0.5 : 1)
+    }
+    
+    private func dragAllButton() -> some View {
+        Image(systemName: dragAll ? "hand.draw" : "lock")
+            .font(.title2)
+            .foregroundColor(.white)
+            .padding()
+            .shadow(radius: 5)
+            .contentShape(Circle())
+            .scaleEffect(isPressingDragAll ? 0.8 : 1)
+            .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressingDragAll)
+            .onTapGesture {
+                
+                dragAll.toggle()
+                isPressingDragAll.toggle()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    isPressingDragAll.toggle()
+                }
+            }
+            .offset(x: -15)
+            .transition(.opacity)
             .disabled(placedObjects.count == 0)
             .opacity(placedObjects.count == 0 ? 0.5 : 1)
     }

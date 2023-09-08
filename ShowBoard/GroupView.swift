@@ -23,6 +23,7 @@ struct GroupView: View {
     @Binding var importedBackground: UIImage?
     @Binding var showBgPickerSheet: Bool
     @Binding var showGallery: Bool
+    @Binding var dragAll: Bool
     
     //MARK: New Variables
     @Binding var placedObjects: [LayerObject]
@@ -37,7 +38,7 @@ struct GroupView: View {
             GridOverlay(isDragging: $isDragging, showMicroContols: $showMicroControls)
             
             //MARK:  Menu Buttons
-            MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls, placedObjects: $placedObjects)
+            MenuButtonsView(hideMenuButtons: $hideMenuButtons, showClipboardAlert: $showClipboardAlert, showAdjustmentsView: $showLayerElementView, showLayerEditView: $showLayerEditView, showMicroContols: $showMicroControls, dragAll: $dragAll, placedObjects: $placedObjects)
             
             //MARK: Show Image Picker Sheets
             ImagePickerViews(importedImage1: $importedImage1, showImagePickerSheet1: $showImagePickerSheet1, importedImage2: $importedImage2, showImagePickerSheet2: $showImagePickerSheet2, importedImage3: $importedImage3, showImagePickerSheet3: $showImagePickerSheet3, importedBackground: $importedBackground, showBgPickerSheet: $showBgPickerSheet)

@@ -33,7 +33,7 @@ struct LayerObjectAppearance {
     /// The current scale values of the object
     /// - Parameter x: is the scale of the H-Axis
     /// - Parameter y: is the scale of the V-Axis
-    var scales: CGPoint
+    var scales: CGFloat
     
     
     /// The rotation value of the object
@@ -211,6 +211,7 @@ struct LayerObjectAppearance {
     var showForecastTempString: Bool
     var weatherIconAssetStyle: Int
     var labelsOffset: CGFloat
+    var showDayNames: Bool
     
     
     var hue: Double
@@ -274,7 +275,7 @@ struct LayerObjectAppearance {
     init() {
         self.position = .zero
         self.originalSize = .zero
-        self.scales = .init(x: 1, y: 1)
+        self.scales = 1
         self.rotation = .zero
         self.blendMode = .normal
         self.shadow = ShadowSettings()
@@ -344,6 +345,7 @@ struct LayerObjectAppearance {
         self.addGaradientMask = true
         
         self.showHorizontal = true
+        self.showDayNames = true
         self.spacing = -10
         self.daysToShow = 5
         self.showForecastTempString = false
@@ -370,7 +372,7 @@ struct LayerObjectAppearance {
         
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGPoint, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
+    init(position: CGPoint, originalSize: CGSize, scales: CGFloat, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
          maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat, offsetX: CGFloat, offsetY: CGFloat, scaleWidth: CGFloat, scaleHeight: CGFloat, xAngle: CGFloat, amplitide: CGFloat,
          daysTextSize: CGFloat,
          daysColor: Color,
@@ -416,7 +418,8 @@ struct LayerObjectAppearance {
          frequency: Float,
          amplitudeMetal: Float,
          strokeWidth: CGFloat,
-         strokeDash: CGFloat
+         strokeDash: CGFloat,
+         showDayNames: Bool
     ) {
         
         self.position = position
@@ -507,6 +510,7 @@ struct LayerObjectAppearance {
         self.amplitudeMetal = amplitudeMetal
         self.strokeWidth = strokeWidth
         self.strokeDash = strokeDash
+        self.showDayNames = showDayNames
         
     }
     
@@ -516,8 +520,12 @@ struct LayerObjectAppearance {
     
     /// Sets bot horizontal and vertical scale values with the given value
     /// - Parameter value: The new scale value
+    /// 
+ /*
     public mutating func setScales(with value: CGFloat) {
         self.scales.x = value
         self.scales.y = value
-    }
+  }
+        */
+    
 }

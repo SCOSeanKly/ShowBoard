@@ -70,7 +70,7 @@ struct CustomSlider<T: BinaryFloatingPoint>: View {
                             }
                         )
                     }
-                    .frame(width: isActive ? bounds.size.width * 1.04 : bounds.size.width, alignment: .center)
+                    .frame(width: bounds.size.width, alignment: .center)
                 }
                 .animation(animation, value: isActive)
             }

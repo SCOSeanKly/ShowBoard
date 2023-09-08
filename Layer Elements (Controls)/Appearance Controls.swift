@@ -10,7 +10,7 @@ import SwiftUI
 struct WeatherIconPLus7Controls: View {
     
     @StateObject var layer: LayerObject
-    
+    @State private var showFontPickerSheet: Bool = false
     
     
     var body: some View {
@@ -34,28 +34,52 @@ struct WeatherIconPLus7Controls: View {
             }
             .padding(.horizontal)
             
-            CustomToggle(showTitleText: true, titleText: "Layout (Horizontal / Vertical)", bindingValue: $layer.appearance.showHorizontal, onSymbol: "h.circle", offSymbol: "v.circle", rotate: false)
+            CustomToggle(showTitleText: true, titleText: "Layout (Horizontal / Vertical):", bindingValue: $layer.appearance.showHorizontal, onSymbol: "h.circle", offSymbol: "v.circle", rotate: false)
                 .padding(.trailing, 5)
             
-            SliderStepper(color: .blue, title: "Spacing", sliderBindingValue: $layer.appearance.spacing, minValue: -150, maxValue: 150, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: -10)
+            SliderStepper(color: .blue, title: "Spacing:", sliderBindingValue: $layer.appearance.spacing, minValue: -150, maxValue: 150, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: -10)
             
-            SliderStepper(color: .blue, title: "Forecast Days", sliderBindingValue: $layer.appearance.daysToShow, minValue: 3, maxValue: 7, step: 1, specifier: 0, defaultValue: 5)
+            SliderStepper(color: .blue, title: "Forecast Days:", sliderBindingValue: $layer.appearance.daysToShow, minValue: 3, maxValue: 7, step: 1, specifier: 0, defaultValue: 5)
             
-            CustomToggle(showTitleText: true, titleText: "Show Min/Max Labels", bindingValue: $layer.appearance.showForecastTempString, onSymbol: "circle", offSymbol: "xmark", rotate: false)
+            CustomToggle(showTitleText: true, titleText: "Show Day Labels:", bindingValue: $layer.appearance.showDayNames, onSymbol: "circle", offSymbol: "xmark", rotate: false)
                 .padding(.trailing, 5)
             
-            SliderStepper(color: .blue, title: "Labels Offset", sliderBindingValue: $layer.appearance.labelsOffset, minValue: -30, maxValue: 100, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
+            CustomToggle(showTitleText: true, titleText: "Show Min/Max Labels:", bindingValue: $layer.appearance.showForecastTempString, onSymbol: "circle", offSymbol: "xmark", rotate: false)
+                .padding(.trailing, 5)
+            
+            HStack {
+                
+                Text("Select a font")
+                    .titleFont()
+                
+                Spacer()
+                Button {
+                    showFontPickerSheet.toggle()
+                } label: {
+                    
+                    Text("Selected: \(layer.appearance.selectedFontName)")
+                        .lineLimit(1)
+                        .scaleEffect(0.8)
+                }
+                .sheet(isPresented: $showFontPickerSheet){
+                    
+                    CustomFontGridPicker(bindingValue: $layer.appearance.selectedFontName, text: layer)
+                    
+                }
+                
+            }
+            .padding(.horizontal)
+            .padding(.top, 5)
+            
+            SliderStepper(color: .blue, title: "Font Size:", sliderBindingValue: $layer.appearance.fontSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
+            
+            SliderStepper(color: .blue, title: "Labels Offset:", sliderBindingValue: $layer.appearance.labelsOffset, minValue: -30, maxValue: 100, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
             
             CustomColorPicker(titleText: "Min/Max Label Colour:", pickerBindingValue: $layer.appearance.minMaxValueLabelColor, pickerBindingValue2: nil, showGradientToggle: false)
             
         }
     }
 }
-
-
-
-
-
 
 struct CommonControls: View {
     
@@ -98,8 +122,6 @@ struct CommonControls: View {
     }
 }
 
-
-
 struct WeatherIconControls: View {
     
     @StateObject var layer: LayerObject
@@ -107,13 +129,11 @@ struct WeatherIconControls: View {
     
     var body: some View {
         
-        if !(layer is ImportedImage1Object || layer is ImportedImage2Object || layer is ImportedImage3Object || layer is StrokeShapeObject || layer is DOTWObject) {
+        if !(layer is ImportedImage1Object || layer is ImportedImage2Object || layer is ImportedImage3Object || layer is StrokeShapeObject ) {
             SliderToggle(color: .blue, title: "Reflection", sliderBindingValue: $layer.appearance.reflectionOffset, minValue: -250, maxValue: 250, step: 1, specifier: 0, defaultValue: 0, action: $layer.appearance.showReflection)
         }
     }
 }
-
-
 
 struct rainControls: View {
     
@@ -133,7 +153,6 @@ struct rainControls: View {
         }
     }
 }
-
 
 struct CornerRadiusSkewControls: View {
     
@@ -176,10 +195,10 @@ struct GlassControls: View {
     }
 }
 
-
 struct Font_GaugeLabelControls: View {
     
     @StateObject var layer: LayerObject
+    @State private var showFontPickerSheet: Bool = false
     
     
     var body: some View {
@@ -187,10 +206,33 @@ struct Font_GaugeLabelControls: View {
         
         if layer is LinearGaugeObject || layer is CircleGaugeObject  || layer is HiLoGaugeObject {
             
+            HStack {
+                
+                Text("Select a font")
+                    .titleFont()
+                
+                Spacer()
+                Button {
+                    showFontPickerSheet.toggle()
+                } label: {
+                    
+                    Text("Selected: \(layer.appearance.selectedFontName)")
+                        .lineLimit(1)
+                        .scaleEffect(0.8)
+                }
+                .sheet(isPresented: $showFontPickerSheet){
+                    
+                    CustomFontGridPicker(bindingValue: $layer.appearance.selectedFontName, text: layer)
+                    
+                }
+                
+            }
+            .padding(.horizontal)
+            
             SliderStepper(color: .blue, title: "Current FontSize:", sliderBindingValue: $layer.appearance.currentValueLabelFontSize, minValue: 0, maxValue: 15, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
             
             SliderStepper(color: .blue, title: "Min/Max FontSize:", sliderBindingValue: $layer.appearance.minMaxValueLabelFontSize, minValue: 4, maxValue: 15, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 6)
-            
+
             CustomToggle(showTitleText: true, titleText: "Show Current Label:", bindingValue: $layer.appearance.showCurrentValueLabel, onSymbol: "circle", offSymbol: "xmark", rotate: false)
             
             CustomToggle(showTitleText: true, titleText: "Show Min/Max Label:", bindingValue: $layer.appearance.showMinMaxValueLabels, onSymbol: "circle", offSymbol: "xmark", rotate: false)
@@ -203,7 +245,6 @@ struct Font_GaugeLabelControls: View {
     }
 }
 
-
 struct ScaleWidthHeightControls: View {
     
     @StateObject var layer: LayerObject
@@ -212,11 +253,11 @@ struct ScaleWidthHeightControls: View {
     var body: some View {
         
         if layer is CircleGaugeObject || layer is CalendarViewModel || layer is HiLoGaugeObject || layer is ConditionAssetObject || layer is weatherIconForecast {
-            SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 4, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
+            SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales, minValue: 0, maxValue: 4, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
         }
         
         if layer is WeatherIconLayerObject ||  layer is WeatherIconLayerObject2 || layer is WeatherIconLayerObject3 || layer is WeatherIconLayerObject4 || layer is WeatherIconLayerObject5 || layer is WeatherIconLayerObject6 || layer is WeatherIconLayerObject7 || layer is WeatherIconLayerObject8 || layer is WeatherIconLayerObject9 || layer is WeatherIconLayerObject10 || layer is WeatherIconLayerObject11  || layer is WeatherIconLayerObject12 || layer is WeatherIconLayerObject13 || layer is WeatherIconLayerObject14 || layer is WeatherIconLayerObject15 {
-            SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales.x, minValue: 0, maxValue: 2.5, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
+            SliderStepper(color: .blue, title: "Scale:", sliderBindingValue: $layer.appearance.scales, minValue: 0, maxValue: 2.5, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 1)
         }
         
         if !(layer is CircleGaugeObject) && !(layer is WeatherIconLayerObject)  && !(layer is WeatherIconLayerObject2) && !(layer is WeatherIconLayerObject3) && !(layer is WeatherIconLayerObject4) && !(layer is WeatherIconLayerObject5) && !(layer is WeatherIconLayerObject6) && !(layer is WeatherIconLayerObject7) && !(layer is WeatherIconLayerObject8) && !(layer is WeatherIconLayerObject9) && !(layer is WeatherIconLayerObject10) && !(layer is WeatherIconLayerObject11) && !(layer is WeatherIconLayerObject12) && !(layer is WeatherIconLayerObject13) && !(layer is WeatherIconLayerObject14) && !(layer is WeatherIconLayerObject15) && !(layer is CalendarViewModel) && !(layer is HiLoGaugeObject) && !(layer is ConditionAssetObject) && !(layer is weatherIconForecast){
@@ -227,7 +268,6 @@ struct ScaleWidthHeightControls: View {
         }
     }
 }
-
 
 struct CustomShapeControls: View {
     
@@ -248,45 +288,74 @@ struct CustomShapeControls: View {
 struct CalendarControls: View {
     
     @StateObject var layer: LayerObject
+    @State private var showFontPickerSheet: Bool = false
     
     
     var body: some View {
-        
+      
         if layer is CalendarViewModel || layer is DOTWObject {
-            
-            SliderStepper(color: .blue, title: "Days Text Size", sliderBindingValue: $layer.appearance.daysTextSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
-            
-            if layer is DOTWObject {
-                SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $layer.appearance.dropLast, minValue: 0, maxValue: 2, step: 1, specifier: 0, defaultValue: 0)
-            }
-            
-            CustomColorPicker(titleText: "Days Colour", pickerBindingValue:  $layer.appearance.daysColor, pickerBindingValue2: nil, showGradientToggle: false)
-            
-            if !(layer is DOTWObject) {
-                SliderStepper(color: .blue, title: "Date Text Size", sliderBindingValue: $layer.appearance.dateTextSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
+          
+                HStack {
+                    
+                    Text("Select a font")
+                        .titleFont()
+                    
+                    Spacer()
+                    Button {
+                        showFontPickerSheet.toggle()
+                    } label: {
+                        
+                        Text("Selected: \(layer.appearance.selectedFontName)")
+                            .lineLimit(1)
+                            .scaleEffect(0.8)
+                    }
+                    .sheet(isPresented: $showFontPickerSheet){
+                        
+                        CustomFontGridPicker(bindingValue: $layer.appearance.selectedFontName, text: layer)
+                        
+                    }
+                    
+                }
+                .padding(.horizontal)
+                .padding(.top, 5)
                 
-                CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor, pickerBindingValue2: nil, showGradientToggle: false)
+                SliderStepper(color: .blue, title: "Days Text Size", sliderBindingValue: $layer.appearance.fontSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
                 
-                CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor, pickerBindingValue2: nil, showGradientToggle: false)
+                if layer is DOTWObject {
+                    SliderStepper(color: .blue, title: "Drop Last:", sliderBindingValue: $layer.appearance.dropLast, minValue: 0, maxValue: 2, step: 1, specifier: 0, defaultValue: 0)
+                }
+                
+                CustomColorPicker(titleText: "Days Colour", pickerBindingValue:  $layer.appearance.daysColor, pickerBindingValue2: nil, showGradientToggle: false)
+                
+                if !(layer is DOTWObject) {
+                    
+                    /*
+                    SliderStepper(color: .blue, title: "Date Text Size", sliderBindingValue: $layer.appearance.dateTextSize, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 15)
+                     */
+                    
+                    CustomColorPicker(titleText: "Date Text Colour", pickerBindingValue:  $layer.appearance.dateTextColor, pickerBindingValue2: nil, showGradientToggle: false)
+                    
+                    CustomColorPicker(titleText: "Date BG Colour", pickerBindingValue:  $layer.appearance.dateBackgroundColor, pickerBindingValue2: nil, showGradientToggle: false)
+                }
+                
+                SliderStepper(color: .blue, title: "Date BG Corner Radius", sliderBindingValue: $layer.appearance.dateBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
+                
+                if !(layer is DOTWObject) {
+                    CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor, pickerBindingValue2: $layer.appearance.calendarBackgroundColor2, showGradientToggle: true)
+                }
+                
+                if !(layer is DOTWObject) {
+                    SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
+                }
+                
+                if !(layer is DOTWObject) {
+                    CustomToggle(showTitleText: true, titleText: "Toggle Today Indicator Style:", bindingValue: $layer.appearance.todayIndicatorStyle, onSymbol: "square", offSymbol: "circle", rotate: false)
+                        .padding(.trailing, 5)
+                }
+                
+                CustomColorPicker(titleText: "Today Indicator Colour", pickerBindingValue:  $layer.appearance.todayIndicator, pickerBindingValue2: nil, showGradientToggle: false)
             }
-            
-            SliderStepper(color: .blue, title: "Date BG Corner Radius", sliderBindingValue: $layer.appearance.dateBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
-            
-            if !(layer is DOTWObject) {
-                CustomColorPicker(titleText: "Background Colour", pickerBindingValue:  $layer.appearance.calendarBackgroundColor, pickerBindingValue2: $layer.appearance.calendarBackgroundColor2, showGradientToggle: true)
-            }
-            
-            if !(layer is DOTWObject) {
-                SliderStepper(color: .blue, title: "Background Corner Radius", sliderBindingValue: $layer.appearance.calendarBackgroundCornerRadius, minValue: 2, maxValue: 30, step: layer.appearance.sliderStep, specifier: layer.appearance.sliderSpecifier, defaultValue: 10)
-            }
-            
-            if !(layer is DOTWObject) {
-                CustomToggle(showTitleText: true, titleText: "Toggle Today Indicator Style:", bindingValue: $layer.appearance.todayIndicatorStyle, onSymbol: "square", offSymbol: "circle", rotate: false)
-                    .padding(.trailing, 5)
-            }
-            
-            CustomColorPicker(titleText: "Today Indicator Colour", pickerBindingValue:  $layer.appearance.todayIndicator, pickerBindingValue2: nil, showGradientToggle: false)
-        }
+          
     }
 }
 

@@ -39,6 +39,9 @@ struct BatteryLinearGauge: View {
         .tint(bat.appearance.fillColor)
         .opacity(bat.appearance.opacity)
         .gaugeStyle(.accessoryLinearCapacity) //MARK: how do I add a picker to change the gauge style?
+        .if(bat.appearance.showReflection) { view in
+            view.reflection(offsetY: bat.appearance.reflectionOffset)
+        }
         .objectAppearanceModifier(layer: bat, systemImageName: "line", systemImage2: "", titleText: "Battery Linear", showMicroControls: $showMicroControls)
     }
 }

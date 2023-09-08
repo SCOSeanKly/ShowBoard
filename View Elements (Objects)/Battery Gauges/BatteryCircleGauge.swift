@@ -42,6 +42,9 @@ struct BatteryCircleGauge: View {
         .opacity(bat.appearance.opacity)
         .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
         .scaleEffect(bat.appearance.gaugeScale)
+        .if(bat.appearance.showReflection) { view in
+            view.reflection(offsetY: bat.appearance.reflectionOffset)
+        }
         .objectAppearanceModifier(layer: bat, systemImageName: "circle", systemImage2: "", titleText: "Battery Circle Gauge", showMicroControls: $showMicroControls)
         .background{
             Circle()

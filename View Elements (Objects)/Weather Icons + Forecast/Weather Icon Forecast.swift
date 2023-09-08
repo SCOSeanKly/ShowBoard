@@ -26,8 +26,6 @@ struct WeatherIconForecastView: View {
     let widthHeight: CGFloat = 50
     
     
-    
-    
     var body: some View {
         
         
@@ -55,6 +53,9 @@ struct WeatherIconForecastView: View {
         .onAppear {
             imageLoaded = true
         }
+        .if(weatherIconObject.appearance.showReflection) { view in
+            view.reflection(offsetY: weatherIconObject.appearance.reflectionOffset)
+        }
         .objectAppearanceModifier(layer: weatherIconObject, systemImageName: "sun.max", systemImage2: "", titleText: "Weather Icon", showMicroControls: $showMicroControls)
     }
     
@@ -64,22 +65,39 @@ struct WeatherIconForecastView: View {
         let highTempString = DynamicText.Placeholder.highTemp.withDayWeather(dayWeather, unit: .celsius, conditionAssetStyle: 1)
         let lowTempString = DynamicText.Placeholder.lowTemp.withDayWeather(dayWeather, unit: .celsius, conditionAssetStyle: 1)
         
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EE"
+        
+        let dayName = dateFormatter.string(from: dayWeather!.date)
+        
+        
         return VStack {
+            
+            if weatherIconObject.appearance.showDayNames {
+                Text(dayName)
+                    .font(weatherIconObject.appearance.font)
+                    .textCase(.uppercase)
+                    .foregroundColor(weatherIconObject.appearance.minMaxValueLabelColor)
+                    .offset(y: weatherIconObject.appearance.labelsOffset)
+                    .padding(.bottom, 5)
+            }
+            
             if weatherIconObject.appearance.showForecastTempString {
                 Text(highTempString)
-                    .font(.system(size: 10))
+                    .font(weatherIconObject.appearance.font)
                     .foregroundColor(weatherIconObject.appearance.minMaxValueLabelColor)
                     .offset(y: weatherIconObject.appearance.labelsOffset)
             }
             
             Image(DynamicText.Placeholder.conditionAsset.withDayWeather(dayWeather, unit: .celsius, conditionAssetStyle: weatherIconObject.appearance.weatherIconAssetStyle))
-            
                 .resizable()
                 .frame(width: widthHeight, height: widthHeight, alignment: .center)
                 .aspectRatio(contentMode: .fill)
+            
             if weatherIconObject.appearance.showForecastTempString {
                 Text(lowTempString)
-                    .font(.system(size: 10))
+                    .font(weatherIconObject.appearance.font)
                     .foregroundColor(weatherIconObject.appearance.minMaxValueLabelColor)
                     .offset(y: -weatherIconObject.appearance.labelsOffset)
             }

@@ -19,6 +19,9 @@ struct MapView: View {
     var body: some View {
         ZStack {
             MapExtensionView(map: map)
+                .if(map.appearance.showReflection) { view in
+                    view.reflection(offsetY: map.appearance.reflectionOffset)
+                }
                 .objectAppearanceModifier(layer: map, systemImageName: "map", systemImage2: "", titleText: "Map", showMicroControls: $showMicroControls)
             
         }

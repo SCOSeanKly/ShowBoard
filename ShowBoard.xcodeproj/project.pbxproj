@@ -604,7 +604,7 @@
 				3E2245752A862609002B35B2 /* Square Shape View */,
 				3E22456C2A84F505002B35B2 /* Wavy Dock */,
 				3EBF30742A6ED504004C12B5 /* Custom Shape View */,
-				3ED802202A7A8DCC005E2835 /* Weather Icon */,
+				3ED802202A7A8DCC005E2835 /* Weather Icons + Forecast */,
 				3EBF30732A6ED4FC004C12B5 /* Map View */,
 				3EBF30752A6ED51C004C12B5 /* Glass Shape View */,
 				3EBF30762A6ED529004C12B5 /* Dymanic Text View */,
@@ -1000,7 +1000,7 @@
 			path = "Layer Element Buttons";
 			sourceTree = "<group>";
 		};
-		3ED802202A7A8DCC005E2835 /* Weather Icon */ = {
+		3ED802202A7A8DCC005E2835 /* Weather Icons + Forecast */ = {
 			isa = PBXGroup;
 			children = (
 				3ED802212A7A8DE0005E2835 /* Weather Icon 1 View.swift */,
@@ -1020,7 +1020,7 @@
 				3E04A1EA2A98EB39007A5D2F /* Weather Icon 15 View.swift */,
 				3EFFD6FD2A976D9F00367B75 /* Weather Icon Forecast.swift */,
 			);
-			path = "Weather Icon";
+			path = "Weather Icons + Forecast";
 			sourceTree = "<group>";
 		};
 		3EFAB1882A45CD6D001A9BC7 /* Cover Sheet Views */ = {
@@ -1548,7 +1548,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.39;
+				CURRENT_PROJECT_VERSION = 0.0.41;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1592,7 +1592,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ShowBoard/ShowBoard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 0.0.39;
+				CURRENT_PROJECT_VERSION = 0.0.41;
 				DEVELOPMENT_ASSET_PATHS = "\"ShowBoard/Preview Content\"";
 				DEVELOPMENT_TEAM = V53QHKZTNF;
 				ENABLE_HARDENED_RUNTIME = YES;

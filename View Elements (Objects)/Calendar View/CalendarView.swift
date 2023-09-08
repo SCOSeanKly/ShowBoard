@@ -19,9 +19,10 @@ struct CalendarView: View {
                 HStack(spacing: 0) {
                     ForEach(vm.days, id: \.self) { day in
                         Text("\(day)")
+                            .font(vm.appearance.font)
                             .frame(height: 34)
                             .frame(maxWidth: .infinity)
-                            .font(.system(size: vm.appearance.daysTextSize, weight: .bold))
+                          //  .font(.system(size: vm.appearance.daysTextSize, weight: .bold))
                     }
                 }
                 .foregroundColor(vm.appearance.daysColor)
@@ -39,7 +40,8 @@ struct CalendarView: View {
                                             ZStack {
                                                 
                                                 Text("\(vm.calendar.component(.day, from: day))")
-                                                    .font(.system(size: vm.appearance.dateTextSize, weight: .regular))
+                                                    .font(vm.appearance.font)
+                                                //    .font(.system(size: vm.appearance.dateTextSize, weight: .regular))
                                                     .foregroundColor(vm.appearance.dateTextColor)
                                                     .background{
                                                         if vm.appearance.todayIndicatorStyle {
@@ -79,13 +81,16 @@ struct CalendarView: View {
                 }
             }
             .padding()
-            .background(vm.appearance.calendarBackgroundColor)
             .background(LinearGradient(colors: [vm.appearance.calendarBackgroundColor, vm.appearance.calendarBackgroundColor2], startPoint: .top, endPoint: .bottom))
             .clipShape(RoundedRectangle(cornerRadius: vm.appearance.calendarBackgroundCornerRadius))
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
-            .scaleEffect(0.8)
+            .scaleEffect(0.8, anchor: .center)
+            .if(vm.appearance.showReflection) { view in
+                view.reflection(offsetY: vm.appearance.reflectionOffset)
+            }
             .objectAppearanceModifier(layer: vm, systemImageName: "calendar", systemImage2: "", titleText: "Calendar", showMicroControls: $showMicroControls)
+          
         }
     }
     

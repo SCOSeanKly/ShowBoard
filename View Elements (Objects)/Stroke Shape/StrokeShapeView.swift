@@ -35,6 +35,9 @@ struct StrokeShapeView: View {
             }
 
         }
+        .if(stroke.appearance.showReflection) { view in
+            view.reflection(offsetY: stroke.appearance.reflectionOffset)
+        }
         .objectAppearanceModifier(layer: stroke, systemImageName: "square.dashed", systemImage2: "", titleText: "Stroke Shape", showMicroControls: $showMicroControls)
         
     }

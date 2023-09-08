@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomFontGridPicker: View {
     @Binding var bindingValue: String
-    @StateObject var text: TextObject
+    @StateObject var text: LayerObject
     @State private var isPressing: Bool = false
     @State private var searchText = ""
     

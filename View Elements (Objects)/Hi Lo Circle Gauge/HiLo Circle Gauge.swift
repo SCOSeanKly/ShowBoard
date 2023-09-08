@@ -65,6 +65,9 @@ struct HiLoCircleGauge: View {
                        .opacity(hiLo.appearance.opacity)
                        .gaugeStyle(.accessoryCircular) //MARK: how do I add a picker to change the gauge style?
                        .scaleEffect(hiLo.appearance.gaugeScale)
+                       .if(hiLo.appearance.showReflection) { view in
+                           view.reflection(offsetY: hiLo.appearance.reflectionOffset)
+                       }
                        .objectAppearanceModifier(layer: hiLo, systemImageName: "circle.dotted", systemImage2: "", titleText: "Hi/Lo Weather Circle Gauge", showMicroControls: $showMicroControls)
                        .background{
                            Circle()

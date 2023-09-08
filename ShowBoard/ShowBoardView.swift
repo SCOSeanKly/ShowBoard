@@ -28,6 +28,7 @@ struct ShowBoardView: View {
     @State private var hideMenuButtons = false
     @State private var isDragging = false
     @State private var onAppearOpacity: Bool = false
+    @State private var dragAll: Bool = false
     
     //MARK: Sheet Presented - Layer Elements
     @State private var showLayerElementView = false
@@ -54,8 +55,7 @@ struct ShowBoardView: View {
             //MARK: Imported Background (Wallpaper) Image
             BackgroundView(showBgPickerSheet: $showBgPickerSheet, importedBackground: $importedBackground, hideMenuButtons: $hideMenuButtons, placedObjects: $placedObjects)
                 .customOnTapGesture(placedObjects: placedObjects, selection: $selection, showMicroControls: $showMicroControls)
-               
-            
+        
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
  
@@ -115,6 +115,9 @@ struct ShowBoardView: View {
                     }
                 }
             }
+            .disabled(dragAll)
+            .modifier(WidgetModifier(isDragging: $isDragging))
+            .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
             
             GroupView(isDragging: $isDragging,
                       showMicroControls: $showMicroControls,
@@ -130,7 +133,7 @@ struct ShowBoardView: View {
                       importedImage3: $importedImage3,
                       importedBackground: $importedBackground,
                       showBgPickerSheet: $showBgPickerSheet,
-                      showGallery: $showGallery,
+                      showGallery: $showGallery, dragAll: $dragAll,
                       placedObjects: $placedObjects,
                       selection: $selection,
                       hiddenLayers: $hiddenLayers)
