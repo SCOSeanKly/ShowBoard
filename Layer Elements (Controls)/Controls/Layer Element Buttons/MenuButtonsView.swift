@@ -169,8 +169,8 @@ struct MenuButtonsView: View {
             }
             .offset(x: -15)
             .transition(.opacity)
-            .disabled(placedObjects.count == 0)
-            .opacity(placedObjects.count == 0 ? 0.5 : 1)
+            .disabled(placedObjects.count <= 1)
+            .opacity(placedObjects.count <= 1 ? 0.5 : 1)
     }
     
 }
