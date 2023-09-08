@@ -150,7 +150,7 @@ struct MenuButtonsView: View {
     }
     
     private func dragAllButton() -> some View {
-        Image(systemName: dragAll ? "hand.draw" : "lock")
+        Image(systemName: dragAll ? "hand.draw.fill" : "lock")
             .font(.title2)
             .foregroundColor(.white)
             .padding()

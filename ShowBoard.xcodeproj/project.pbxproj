@@ -218,6 +218,8 @@
 		3ED8021B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */; };
 		3ED8021F2A7A8C3E005E2835 /* SWAWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */; };
 		3ED802222A7A8DE0005E2835 /* Weather Icon 1 View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED802212A7A8DE0005E2835 /* Weather Icon 1 View.swift */; };
+		3EDB55062AAB4D60004B84BF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB55052AAB4D60004B84BF /* LocationManager.swift */; };
+		3EDB55082AAB4D9E004B84BF /* TestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB55072AAB4D9E004B84BF /* TestLocation.swift */; };
 		3EDBEBFE2A710806003856DA /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDBEBFD2A710806003856DA /* HeartButton.swift */; };
 		3EDE6B722A4DB4DD003ACC2B /* ShowBoardGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */; };
 		3EFAB1832A45C8CF001A9BC7 /* SheetPresentedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */; };
@@ -465,6 +467,8 @@
 		3ED8020B2A7A6F86005E2835 /* ShadowsIntoLight-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ShadowsIntoLight-Regular.ttf"; sourceTree = "<group>"; };
 		3ED8021E2A7A8C3E005E2835 /* SWAWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWAWidgetView.swift; sourceTree = "<group>"; };
 		3ED802212A7A8DE0005E2835 /* Weather Icon 1 View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather Icon 1 View.swift"; sourceTree = "<group>"; };
+		3EDB55052AAB4D60004B84BF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3EDB55072AAB4D9E004B84BF /* TestLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLocation.swift; sourceTree = "<group>"; };
 		3EDBEBFD2A710806003856DA /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
 		3EDE6B712A4DB4DD003ACC2B /* ShowBoardGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBoardGallery.swift; sourceTree = "<group>"; };
 		3EFAB1822A45C8CF001A9BC7 /* SheetPresentedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentedViews.swift; sourceTree = "<group>"; };
@@ -788,6 +792,8 @@
 			children = (
 				3E8849B42A41D49400B50BBD /* LocationDataManager.swift */,
 				3E41D3152A42EB6A00A29548 /* WeatherKitModel.swift */,
+				3EDB55052AAB4D60004B84BF /* LocationManager.swift */,
+				3EDB55072AAB4D9E004B84BF /* TestLocation.swift */,
 			);
 			path = "WeatherKit & Location Manager";
 			sourceTree = "<group>";
@@ -1295,6 +1301,7 @@
 				3EC2038E2AA8BE9100FE6C73 /* StrokeShapeView.swift in Sources */,
 				3E3E68892A82788C00F468DD /* GlassObject.swift in Sources */,
 				3EB6719A2A4EF77300DF2678 /* FadeOnAppear.swift in Sources */,
+				3EDB55082AAB4D9E004B84BF /* TestLocation.swift in Sources */,
 				3E88498C2A41D47800B50BBD /* ContentView.swift in Sources */,
 				3EADA5B82A433EE300FA1BCB /* AlertModifier.swift in Sources */,
 				3E315A552A9391A100D0A42E /* Condition Asset.swift in Sources */,
@@ -1315,6 +1322,7 @@
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
 				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
+				3EDB55062AAB4D60004B84BF /* LocationManager.swift in Sources */,
 				3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */,
 				3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */,
 				3EFFD6FE2A976D9F00367B75 /* Weather Icon Forecast.swift in Sources */,

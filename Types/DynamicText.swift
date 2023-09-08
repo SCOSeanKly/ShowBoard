@@ -6,9 +6,11 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 struct DynamicText {
+    
+  
     
     @MainActor static func convert(input: String, wk: WeatherObserver) -> String {
         var text = input
@@ -16,6 +18,7 @@ struct DynamicText {
         let regex = try! NSRegularExpression(pattern: pattern)
         let matches = regex.matches(in: input, range: NSRange(input.startIndex..., in: input))
         
+       
         
         for match in matches {
             let range = match.range
@@ -28,6 +31,36 @@ struct DynamicText {
             var replacement = ""
             
             switch placeholder {
+                
+                //TODO: Doesnt show location data - Is it not being updated?
+                //Location Data
+            case.city:
+                replacement = placeholder.withLocationInfo(LocationManager())
+            
+            case.street:
+                replacement = placeholder.withLocationInfo(LocationManager())
+                
+            case.state:
+                replacement = placeholder.withLocationInfo(LocationManager())
+                
+            case.country:
+                replacement = placeholder.withLocationInfo(LocationManager())
+                
+            case.postalCode:
+                replacement = placeholder.withLocationInfo(LocationManager())
+                
+            case.latitude:
+                replacement = placeholder.withLocationInfo(LocationManager())
+                
+            case.longitude:
+                replacement = placeholder.withLocationInfo(LocationManager())
+                
+            case.neighborhood:
+                replacement = placeholder.withLocationInfo(LocationManager())
+             
+                
+                
+                //Weather Info
             case .condition:
                 replacement = placeholder.withCurrentWeather(
                     wk.weather?.currentWeather,
@@ -88,7 +121,6 @@ struct DynamicText {
                     wk.weather?.currentWeather,
                     unit: .celsius
                 )
-            
             case .highTemp:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
@@ -99,13 +131,11 @@ struct DynamicText {
                     wk.weather?.dailyForecast.first,
                     unit: .celsius, conditionAssetStyle: 1
                 )
-                
             case .conditionSymbol:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
                     unit: .celsius, conditionAssetStyle: 1
                 )
-                
             case .precipation:
                 replacement = placeholder.withDayWeather(
                     wk.weather?.dailyForecast.first,
@@ -126,7 +156,8 @@ struct DynamicText {
                     wk.weather?.dailyForecast.first,
                     unit: .celsius, conditionAssetStyle: 1)
                 
-          
+                
+                //Battery data
             case .batteryLevel:
                 replacement = placeholder.withBatteryInfo(BatteryViewModel())
                 
@@ -136,6 +167,8 @@ struct DynamicText {
             case .batteryColor:
                 replacement = placeholder.withBatteryInfo(BatteryViewModel())
                 
+                
+                //Calendar data
             case .upcomingAppointments:
                 replacement = placeholder.withUpcomingAppointments(appointmentManager: AppointmentManager())
                 
@@ -145,10 +178,10 @@ struct DynamicText {
             
             text = text.replacingOccurrences(of: tag, with: replacement)
         }
-
-
+        
+        
         
         return text
     }
-
+    
 }

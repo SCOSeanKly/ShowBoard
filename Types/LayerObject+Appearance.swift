@@ -11,150 +11,56 @@ import SwiftUI
 struct LayerObjectAppearance {
     
     
-    // MARK: - Public Properties
-    
-    
-    
-    //MARK: GLOBAL
-    /// Generic Bool for showSettings toggle
+    //MARK: Global
     var showSettings: Bool
-    
-    /// The position of the object on the layer
     var position: CGPoint
-    
-    /// Slider specifier
     var sliderSpecifier: Int
     var sliderStep: CGFloat
-    
-    /// The original size of the object
     var originalSize: CGSize
-    
-    
-    /// The current scale values of the object
-    /// - Parameter x: is the scale of the H-Axis
-    /// - Parameter y: is the scale of the V-Axis
     var scales: CGFloat
-    
-    
-    /// The rotation value of the object
     var rotation: Angle
-    
-    
-    /// The currently used blend mode
     var blendMode: BlendMode
-    
-    
-    /// The currently applied shadow settings
     var shadow: ShadowSettings
-    
-    
-    /// Blur radius
     var blur: CGFloat
     var glassBlur: CGFloat
-    
-    
-    /// Opacity ammount
     var opacity: CGFloat
-    
-    
-    /// Corner Radius
     var cornerRadius: CGFloat
-    
     var offsetX: CGFloat
     var offsetY: CGFloat
     var scaleHeight: CGFloat
     var scaleWidth: CGFloat
-    
-    /// Skew Effect X
     var skewX: CGFloat
-    
-    
-    /// Skew Effect Y
     var skewY: CGFloat
-    
-    
-    /// Shadow Opacity
     var shadowOpacity: CGFloat
-    
-    
-    /// Appearnce Dark Mode
     var darkMode: Bool
-    
-    
-    /// Invert Appearance / Color
     var invert: Bool
-    
-    
-    /// Appearance Width
     var width: CGFloat
-    
-    
-    /// Appearance Height
     var height: CGFloat
-    
-    /// Appearance Overlay color
     var overlayColor: Color
-    
-    
-    /// Show Image reflection
     var showReflection: Bool
-    
-    /// Show Image reflection
     var reflectionOffset: CGFloat
     
-    
     //MARK: Custom Shape
-    /// Shape Overlay Grain Effect
     var shapeGrain: Bool
-    
-    /// Shape Border Remove
     var showBorder: Bool
-    
-    /// Shape Border Thickness
     var borderWidth: CGFloat
-    
-    
     var shapePointCount: CGFloat
-    
-    /// The shape inner fill ratio (shape fill to points ratio)
     var shapeRatio: CGFloat
-    
     var fillColor: Color
-    
     var fillColor2: Color
-    
     var strokeWidth: CGFloat
     var strokeDash: CGFloat
     
     //MARK: Circle Gauge
-    /// Min Value
     var minValue: CGFloat
-    
-    /// Max Value
     var maxValue: CGFloat
-    
-    /// Current Value Label Font Size
     var currentValueLabelFontSize: CGFloat
-    
-    /// Min Max Value Label Font Size
     var minMaxValueLabelFontSize: CGFloat
-    
-    /// Gauge Colour
     var gaugeColor: Color
-    
-    /// Show current value label
     var showCurrentValueLabel: Bool
-    
-    /// Show Min and Max value labels
     var showMinMaxValueLabels: Bool
-    
-    /// Current value label color
     var currentValueLabelColor: Color
-    
-    /// Min Max value label colour
     var minMaxValueLabelColor: Color
-    
-    ///Scale effect for gauge
     var gaugeScale: CGFloat
     
     //MARK: WavyDock
@@ -213,7 +119,7 @@ struct LayerObjectAppearance {
     var labelsOffset: CGFloat
     var showDayNames: Bool
     
-    
+    //MARK: Wallpaper Settings
     var hue: Double
     var contrast: CGFloat
     var saturation: CGFloat
@@ -223,12 +129,11 @@ struct LayerObjectAppearance {
     var amplitudeMetal: Float
     
     
-    
     /// The list of the avaliable blend modes
     static let blendModes: [BlendMode] = [.normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .softLight, .hardLight, .difference, .exclusion, .hue, .saturation, .color, .luminosity]
     
     
-    // TODO: Comment
+    // TODO: Blend mode labels
     static func labelForBlendMode(_ blendMode: BlendMode) -> String {
         
         switch blendMode {
@@ -268,8 +173,6 @@ struct LayerObjectAppearance {
             return "Unknown Blend Mode"
         }
     }
-    
-    
     
     
     init() {
@@ -335,7 +238,7 @@ struct LayerObjectAppearance {
         self.fontSize = 16
         self.fontWeight = .medium
         self.textAlignment = .center
-        self.inputText = "ShowBoard - Good [timeOfDay]"
+        self.inputText = "City: [city]"
         self.isCircleText = false
         self.isKeyboardPresented = false
         self.fillColor2 = .white
@@ -364,7 +267,7 @@ struct LayerObjectAppearance {
         self.amplitudeMetal = 0
         self.strokeWidth = 5
         self.strokeDash = 5
-       
+        
         
         
         
@@ -372,8 +275,47 @@ struct LayerObjectAppearance {
         
     }
     
-    init(position: CGPoint, originalSize: CGSize, scales: CGFloat, rotation: Angle, blendMode: BlendMode, shadow: ShadowSettings, blur: CGFloat, opacity: CGFloat, cornerRadius: CGFloat, skewX: CGFloat, skewY: CGFloat, shadowOpacity: CGFloat, darkMode: Bool, invert: Bool, showSettings: Bool, width: CGFloat, height: CGFloat, overlayColor: Color, shapeGrain: Bool, showBorder: Bool, borderWidth: CGFloat, shapePointCount: CGFloat, shapeRatio: CGFloat, fillColor: Color, glassBlur: CGFloat, minValue: CGFloat,
-         maxValue: CGFloat, currentValueLabelFontSize: CGFloat, minMaxValueLabelFontSize: CGFloat, gaugeColor: Color, showCurrentValueLabel: Bool, showMinMaxValueLabels: Bool, currentValueLabelColor: Color, minMaxValueLabelColor: Color, gaugeScale: CGFloat, showReflection: Bool = false, reflectionOffset: CGFloat, offsetX: CGFloat, offsetY: CGFloat, scaleWidth: CGFloat, scaleHeight: CGFloat, xAngle: CGFloat, amplitide: CGFloat,
+    init(position: CGPoint,
+         originalSize: CGSize,
+         scales: CGFloat,
+         rotation: Angle,
+         blendMode: BlendMode,
+         shadow: ShadowSettings,
+         blur: CGFloat,
+         opacity: CGFloat,
+         cornerRadius: CGFloat,
+         skewX: CGFloat, skewY: CGFloat,
+         shadowOpacity: CGFloat,
+         darkMode: Bool, invert: Bool,
+         showSettings: Bool,
+         width: CGFloat,
+         height: CGFloat,
+         overlayColor: Color,
+         shapeGrain: Bool,
+         showBorder: Bool,
+         borderWidth: CGFloat,
+         shapePointCount: CGFloat,
+         shapeRatio: CGFloat,
+         fillColor: Color,
+         glassBlur: CGFloat,
+         minValue: CGFloat,
+         maxValue: CGFloat,
+         currentValueLabelFontSize: CGFloat,
+         minMaxValueLabelFontSize: CGFloat,
+         gaugeColor: Color,
+         showCurrentValueLabel: Bool,
+         showMinMaxValueLabels: Bool,
+         currentValueLabelColor: Color,
+         minMaxValueLabelColor: Color,
+         gaugeScale: CGFloat,
+         showReflection: Bool = false,
+         reflectionOffset: CGFloat,
+         offsetX: CGFloat,
+         offsetY: CGFloat,
+         scaleWidth: CGFloat,
+         scaleHeight: CGFloat,
+         xAngle: CGFloat,
+         amplitide: CGFloat,
          daysTextSize: CGFloat,
          daysColor: Color,
          dateTextColor: Color,
@@ -384,7 +326,6 @@ struct LayerObjectAppearance {
          calendarBackgroundColor2: Color,
          calendarBackgroundCornerRadius: CGFloat,
          todayIndicator: Color,
-         
          fontTracking: CGFloat,
          fontFrameWidth: CGFloat,
          dropLast: CGFloat,
@@ -465,7 +406,6 @@ struct LayerObjectAppearance {
         self.scaleHeight = scaleHeight
         self.xAngle = xAngle
         self.amplitude = amplitide
-        
         self.daysTextSize = daysTextSize
         self.daysColor = daysColor
         self.dateTextColor = dateTextColor
@@ -476,13 +416,11 @@ struct LayerObjectAppearance {
         self.calendarBackgroundColor2 = calendarBackgroundColor2
         self.calendarBackgroundCornerRadius = calendarBackgroundCornerRadius
         self.todayIndicator = todayIndicator
-        
         self.fontTracking = fontTracking
         self.fontFrameWidth = fontFrameWidth
         self.dropLast = dropLast
         self.fontColor = fontColor
         self.fontSize = fontSize
-        //  self.selectedFontName = selectedFontName
         self.fontWeight = fontWeight
         self.textAlignment = textAlignment
         self.inputText = inputText
@@ -513,19 +451,4 @@ struct LayerObjectAppearance {
         self.showDayNames = showDayNames
         
     }
-    
-    
-    
-    
-    
-    /// Sets bot horizontal and vertical scale values with the given value
-    /// - Parameter value: The new scale value
-    /// 
- /*
-    public mutating func setScales(with value: CGFloat) {
-        self.scales.x = value
-        self.scales.y = value
-  }
-        */
-    
 }

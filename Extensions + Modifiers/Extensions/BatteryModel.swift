@@ -9,7 +9,7 @@ import SwiftUI
 
 class BatteryViewModel: ObservableObject {
     @Published var batteryLevel: Int = 0
-    @Published var batteryStateDescription: String = ""
+    @Published var batteryStateDescription: String = "Unknown"
     @Published var batteryStateColor: Color = .gray
     
     init() {

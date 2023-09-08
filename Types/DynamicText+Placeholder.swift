@@ -28,8 +28,6 @@ extension DynamicText {
         case upcomingAppointments = "[upcomingAppointments]"
         
         
-        
-        
         // ForeCast (DayWeather)
         case highTemp = "[hi]"
         case lowTemp = "[lo]"
@@ -59,6 +57,8 @@ extension DynamicText {
         case conditionAsset14 = "[conditionAsset14]"
         case conditionAsset15 = "[conditionAsset15]"
         
+        
+        // Weather
         case dayLight = "[dayLight]"
         case cloudCover = "[cloudCover]"
         case visibility = "[visibility]"
@@ -68,8 +68,7 @@ extension DynamicText {
         case uvIndex = "[uvIndex]"
         case wind = "[wind]"
         case apparentTemperature = "[feelsLike]"
-        case location = "[location]"
-        
+      
         
         // Battery info
         case batteryLevel = "[batteryLevel]"
@@ -77,6 +76,42 @@ extension DynamicText {
         case batteryColor = "[batteryColor]"
         
         
+        //Location
+        case city = "[city]"
+        case street = "[street]"
+        case state = "[state]"
+        case country = "[country]"
+        case postalCode = "[postalCode]"
+        case latitude = "[latitude]"
+        case longitude = "[longitude]"
+        case neighborhood = "[neighborhood]"
+        
+        
+        //MARK: Location data from LocationModel
+        public func withLocationInfo(_ locationManager: LocationManager) -> String {
+          
+               switch self {
+               case .city:
+                   return "\(locationManager.city)"
+               case .street:
+                   return "\(locationManager.street)"
+               case .state:
+                   return "\(locationManager.state)"
+               case .country:
+                   return "\(locationManager.country)"
+               case .postalCode:
+                   return "\(locationManager.postalCode)"
+               case .latitude:
+                   return "\(locationManager.latitude)"
+               case .longitude:
+                   return "\(locationManager.longitude)"
+               case .neighborhood:
+                   return "\(locationManager.neighborhood)"
+               default:
+                   return ""
+               }
+           }
+         
         
         public func withCurrentDate() -> String {
             let currentDate = getCurrentDate()
@@ -138,20 +173,6 @@ extension DynamicText {
            }
         
         
-        //TODO: Pass into to Dymanic Text
-        public func withWeatherMetadata(_ data: WeatherMetadata?) -> String {
-        
-            guard let val = data else { return "-" }
-            
-            switch self {
-            case .location:
-                return "\(val.location.description)"
-            default:
-                return ""
-            }
-        }
-        
-    
         public func withDayWeather(_ data: DayWeather?, unit: UnitTemperature, useMiles: Bool = false, conditionAssetStyle: Int) -> String {
             
             guard let val = data else { return "-" }
@@ -177,6 +198,8 @@ extension DynamicText {
                 } else {
                     return ""
                 }
+                
+           
           
             case .conditionSymbol:
                 return String(val.symbolName)
@@ -285,12 +308,14 @@ extension DynamicText {
             }
         }
         
+        
         private func formatTime(date: Date) -> String {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "hh:mm a" // Format to display hours and minutes with AM/PM
             return dateFormatter.string(from: date)
         }
        
+        
         private func tempteratureToString(value: Measurement<UnitTemperature>, _ unit: UnitTemperature) -> String {
             var ret: String = ""
             let convertedTemp = value.converted(to: unit)
@@ -324,6 +349,7 @@ extension DynamicText {
             let val = value.converted(to: useMiles ? .milesPerHour : .kilometersPerHour).value
             return String(round(val)) + (useMiles ? "mph" : "km/h")
         }
+        
         
         private func getCurrentDate() -> (day: String, date: String, month: String, monthShort: String, monthNumber: String, year: String, time: String, timeOfDay: String) {
             let formatter = DateFormatter()
@@ -388,6 +414,7 @@ extension DynamicText {
             let components = calendar.dateComponents([.day], from: currentDate, to: endOfYear)
             return components.day ?? 0
         }
+        
         
         private func daysCount() -> Int {
             let calendar = Calendar.current

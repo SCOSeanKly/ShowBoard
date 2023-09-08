@@ -103,6 +103,7 @@ struct ShowBoardView: View {
                             if let lastAddedObject = placedObjects.last {
                                 // Automatically select the last added object
                                 selection = lastAddedObject.id
+                                dragAll = false
                             }
                         }
                         .padding(10)

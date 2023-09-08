@@ -21,6 +21,8 @@ struct DynamicTextView: View {
     
     private let placeholdersWeather = ["[condition]", "[temp]", "[feelsLike]", "[hi]", "[lo]", "[precip]", "[precipChance]", "[dayLight]", "[cloudCover]", "[visibility]", "[dewPoint]", "[humidity]", "[pressure]", "[uvIndex]", "[wind]", "[sunrise]", "[sunset]"]
     
+    private let plcaeholdersLocation = ["[city]", "[street]", "[state]", "[country]", "[postalCode]", "[latitude]", "[longitude]", "[neighborhood]"]
+    
     private let placeholdersBattery = ["[batteryLevel]", "[batteryStatus]", "[batteryColor]"]
     
     private let placeholderCalendar = ["[upcomingAppointments]"]
@@ -115,6 +117,8 @@ struct DynamicTextView: View {
                             .padding(.bottom, 1)
                         
                         createDynamicSection(title: "Date:", placeholders: placeholdersDate, textBinding: $text.appearance.inputText)
+                        
+                        createDynamicSection(title: "Location:", placeholders: plcaeholdersLocation, textBinding: $text.appearance.inputText)
                                 
                         createDynamicSection(title: "Calendar", placeholders: placeholderCalendar, textBinding: $text.appearance.inputText)
                             
