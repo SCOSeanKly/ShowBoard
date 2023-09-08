@@ -58,7 +58,7 @@ class AppModel {
     
     
     
-    private func locationDidUpdate(to location: CLLocation?) {
+    private func locationDidUpdate( location: CLLocation?) {
         for subscriber in self.locationSubscribers {
             subscriber?.locationDidUpdate(to: location)
         }

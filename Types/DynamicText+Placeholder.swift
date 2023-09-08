@@ -88,25 +88,25 @@ extension DynamicText {
         
         
         //MARK: Location data from LocationModel
-        public func withLocationInfo(_ locationManager: LocationManager) -> String {
+        public func withLocationInfo() -> String {
           
                switch self {
                case .city:
-                   return "\(locationManager.city)"
+                   return "\(AppModel.shared.lObserver.city)"
                case .street:
-                   return "\(locationManager.street)"
+                   return "\(AppModel.shared.lObserver.street)"
                case .state:
-                   return "\(locationManager.state)"
+                   return "\(AppModel.shared.lObserver.state)"
                case .country:
-                   return "\(locationManager.country)"
+                   return "\(AppModel.shared.lObserver.country)"
                case .postalCode:
-                   return "\(locationManager.postalCode)"
+                   return "\(AppModel.shared.lObserver.postalCode)"
                case .latitude:
-                   return "\(locationManager.latitude)"
+                   return "\(AppModel.shared.lObserver.latitude)"
                case .longitude:
-                   return "\(locationManager.longitude)"
+                   return "\(AppModel.shared.lObserver.longitude)"
                case .neighborhood:
-                   return "\(locationManager.neighborhood)"
+                   return "\(AppModel.shared.lObserver.neighborhood)"
                default:
                    return ""
                }

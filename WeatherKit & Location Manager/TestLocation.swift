@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TestLocation: View {
-    @ObservedObject var locationManager = LocationManager()
+    @ObservedObject var locationManager = AppModel.shared.lObserver
     let font = Font.system(size: 12) // You can replace 12 with your desired font size
 
 

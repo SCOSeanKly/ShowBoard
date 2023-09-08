@@ -34,29 +34,8 @@ struct DynamicText {
                 
                 //TODO: Doesnt show location data - Is it not being updated?
                 //Location Data
-            case.city:
-                replacement = placeholder.withLocationInfo(LocationManager())
-            
-            case.street:
-                replacement = placeholder.withLocationInfo(LocationManager())
-                
-            case.state:
-                replacement = placeholder.withLocationInfo(LocationManager())
-                
-            case.country:
-                replacement = placeholder.withLocationInfo(LocationManager())
-                
-            case.postalCode:
-                replacement = placeholder.withLocationInfo(LocationManager())
-                
-            case.latitude:
-                replacement = placeholder.withLocationInfo(LocationManager())
-                
-            case.longitude:
-                replacement = placeholder.withLocationInfo(LocationManager())
-                
-            case.neighborhood:
-                replacement = placeholder.withLocationInfo(LocationManager())
+            case .city, .street, .state, .country, .postalCode, .latitude, .longitude, .neighborhood:
+                replacement = placeholder.withLocationInfo()
              
                 
                 

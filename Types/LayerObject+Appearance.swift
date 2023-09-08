@@ -238,7 +238,7 @@ struct LayerObjectAppearance {
         self.fontSize = 16
         self.fontWeight = .medium
         self.textAlignment = .center
-        self.inputText = "City: [city]"
+        self.inputText = "ShowBoard - Good [timeOfDay]"
         self.isCircleText = false
         self.isKeyboardPresented = false
         self.fillColor2 = .white
