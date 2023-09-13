@@ -20,6 +20,7 @@ import SwiftUI
         @Published var shadowOffsetY: CGFloat
         @Published var shadowRadius: CGFloat
         @Published var wavyDockColor: Color
+         
         
         
         
@@ -36,6 +37,7 @@ import SwiftUI
             self.shadowOffsetY = shadowOffsetY
             self.shadowRadius = shadowRadius
             self.wavyDockColor = wavyDockColor
+             
            
             super.init()
             self.id = id

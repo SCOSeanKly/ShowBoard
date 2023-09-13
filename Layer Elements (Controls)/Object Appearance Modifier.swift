@@ -15,12 +15,12 @@ extension View {
 
 
 struct SettingsMod: ViewModifier {
-    @StateObject var layer: LayerObject
     
+    @StateObject var layer: LayerObject
     let systemImageName: String
     let titletext: String
     @Binding var showMicroControls: Bool
-
+    
     
     func body(content: Content) -> some View {
         content
@@ -38,8 +38,9 @@ struct SettingsMod: ViewModifier {
             .rotation3DEffect(.degrees(layer.appearance.skewX), axis: (x: 1.0, y: 0.0, z: 0.0))
             .scaleEffect(layer.appearance.scales)
             .scaleEffect(x: layer.appearance.scaleWidth, y: layer.appearance.scaleHeight, anchor: .center)
+          
             .background{
-               Rectangle()
+                Rectangle()
                     .fill(Color.white.opacity(0.00001))
             }
             .overlay {
@@ -54,13 +55,14 @@ struct SettingsMod: ViewModifier {
             .sheet(isPresented: $layer.appearance.showSettings){
                 
                 AppearanceControlView(layer: layer, systemImageName: systemImageName, titletext: titletext, showMicroControls: $showMicroControls)
-                
-                
             }
-        
-      
     }
 }
+
+
+
+
+
 
 
 

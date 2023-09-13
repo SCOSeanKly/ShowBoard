@@ -60,7 +60,7 @@ struct ShowBoardView: View {
             ZStack{
  
                 ForEach(self.placedObjects) { obj in
-                    if !hiddenLayers.contains(obj.id) {
+                
                         ZStack {
                             switch obj.objectType {
                             case .weatherIcon:   WeatherIconView(showMicroControls: $showMicroControls)
@@ -111,9 +111,7 @@ struct ShowBoardView: View {
                         .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id)
-                        .fadeOnAppear()
-                       
-                    }
+                        .fadeOnAppear()  
                 }
             }
             .disabled(dragAll)

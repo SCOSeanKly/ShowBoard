@@ -44,7 +44,7 @@ struct DynamicTextView: View {
                                     .foregroundColor(.black)
                             } else {
                                 Button {
-                                    text.appearance.inputText = ""
+                                    text.appearance.inputText = "Enter text..."
                                 } label: {
                                     Text("\(Image(systemName: "xmark")) Clear Text")
                                         .font(.system(size: 14).weight(.semibold))

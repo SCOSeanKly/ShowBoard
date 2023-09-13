@@ -38,6 +38,7 @@ struct WallpaperSettings: View {
             
             SliderStepper(color: .blue, title: "Saturation", sliderBindingValue: $layer.appearance.saturation, minValue: 0, maxValue: 10, step: 0.5, specifier: 1, defaultValue: 1)
             
+            
             if #available(iOS 17.0, *) {
                 SliderStepper(color: .blue, title: "Pixellate", sliderBindingValue: Binding<CGFloat>(
                     get: { CGFloat(layer.appearance.pixellate) },
@@ -46,6 +47,7 @@ struct WallpaperSettings: View {
                     }
                 ), minValue: 1, maxValue: 15, step: 0.5, specifier: 1, defaultValue: 1)
             }
+             
             
             Spacer()
                 .frame(height: 100)

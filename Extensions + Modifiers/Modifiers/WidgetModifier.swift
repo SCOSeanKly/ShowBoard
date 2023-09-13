@@ -28,7 +28,7 @@ struct WidgetModifier: ViewModifier {
         GeometryReader { proxy in
             
             content
-                .opacity(isDragging ? 0.5 : 1.0)
+                .opacity(isDragging ? 0.75 : 1.0)
                 .position(location)
                 .gesture(drag)
                 .animation(.easeInOut, value: location)

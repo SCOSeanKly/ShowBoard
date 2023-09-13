@@ -154,8 +154,7 @@ struct BackgroundView: View {
             
             if let importedBackground = importedBackground {
                 
-                if #available(iOS 17.0, *) {
-                    
+              
                     Image(uiImage: importedBackground)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -165,26 +164,8 @@ struct BackgroundView: View {
                         .hueRotation(Angle(degrees: wall.appearance.hue))
                         .contrast(wall.appearance.contrast)
                         .saturation(wall.appearance.saturation)
-                        .distortionEffect(
-                            .init(
-                                function: .init(library: .default, name: "pixellate"),
-                                arguments: [.float(wall.appearance.pixellate)]
-                            ),
-                            maxSampleOffset: .zero
-                        )
-                } else {
-                    
-                    Image(uiImage: importedBackground)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width)
-                        .ignoresSafeArea()
-                        .animation(.spring(), value: wall.appearance.pixellate)
-                        .hueRotation(Angle(degrees: wall.appearance.hue))
-                        .contrast(wall.appearance.contrast)
-                        .saturation(wall.appearance.saturation)
-                }
-                
+                        .applyPixellateEffect(layer: wall)
+              
                 
                 TransparentBlurView(removeAllFilters: true)
                     .blur(radius: wall.appearance.blur, opaque: true)
@@ -221,4 +202,33 @@ struct BackgroundView: View {
     }
     
 }
+
+extension View {
+    func applyPixellateEffect(layer: LayerObject) -> some View {
+        self.modifier(PixellateEffectModifier(layer: layer))
+    }
+}
+
+
+struct PixellateEffectModifier: ViewModifier {
+    @StateObject var layer: LayerObject
+
+    func body(content: Content) -> some View {
+        if #available(iOS 17.0, *) {
+            return AnyView(content
+                .distortionEffect(
+                    .init(
+                        function: .init(library: .default, name: "pixellate"),
+                        arguments: [.float(layer.appearance.pixellate)]
+                    ),
+                    maxSampleOffset: .zero
+                )
+            )
+        } else {
+          
+            return AnyView(content)
+        }
+    }
+}
+
 

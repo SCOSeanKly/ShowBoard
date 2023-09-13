@@ -12,7 +12,7 @@ class CircleGaugeObject: LayerObject {
         
     // MARK: - Public Properties
     
-
+/*
     /// Min Value
     @Published var minValue: CGFloat
     
@@ -39,6 +39,7 @@ class CircleGaugeObject: LayerObject {
     
     /// Min Max value label colour
     @Published var minMaxValueLabelColor: Color
+ */
     
   
     
@@ -52,7 +53,7 @@ class CircleGaugeObject: LayerObject {
     
     init(
         id: UUID = UUID(),
-        appearance: LayerObjectAppearance = LayerObjectAppearance(),
+        appearance: LayerObjectAppearance = LayerObjectAppearance()/*,
         minValue: CGFloat = 0.0,
         maxValue: CGFloat = 100.0,
         currentValueLabelFontSize: CGFloat = 12,
@@ -61,8 +62,8 @@ class CircleGaugeObject: LayerObject {
         showCurrentValueLabel: Bool = true,
         showMinMaxValueLabels: Bool = true,
         currentValueLabelColor: Color = Color.white,
-        minMaxValueLabelColor: Color = Color.white) {
-            
+        minMaxValueLabelColor: Color = Color.white*/) {
+            /*
         self.minValue = minValue
         self.maxValue = maxValue
         self.currentValueLabelFontSize = currentValueLabelFontSize
@@ -72,6 +73,7 @@ class CircleGaugeObject: LayerObject {
         self.showMinMaxValueLabels = showCurrentValueLabel
         self.currentValueLabelColor = currentValueLabelColor
         self.minMaxValueLabelColor = minMaxValueLabelColor
+             */
             
         super.init()
         self.id = id

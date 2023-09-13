@@ -11,7 +11,7 @@ import SwiftUI
 class CustomShapeObject: LayerObject {
     
     // MARK: - Public Properties
-    
+    /*
      /// The shape point count
      @Published var shapePointCount: CGFloat
      
@@ -23,17 +23,19 @@ class CustomShapeObject: LayerObject {
     
     /// Shape Transparent Blur effect
     @Published var shapeBlur: CGFloat
+     */
     
     
     
     // MARK: - Public Methods
     
-    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance(), shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeBlur: CGFloat = 8.0) {
-        
+    init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()/*, shapePointCount: CGFloat = 5.0, shapeRatio: CGFloat = 1.0, shapeColor: Color = Color.blue, shapeBlur: CGFloat = 8.0*/) {
+        /*
         self.shapePointCount = shapePointCount
         self.shapeRatio = shapeRatio
         self.shapeColor = shapeColor
         self.shapeBlur = shapeBlur
+         */
        
         
         super.init()

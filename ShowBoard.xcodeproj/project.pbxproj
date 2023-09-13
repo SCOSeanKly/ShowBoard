@@ -11,7 +11,6 @@
 		0913C42B2A48766C007AF26E /* DynamicText+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */; };
 		0913C42F2A4882E3007AF26E /* WeatherConditionAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */; };
 		091703FB2A63FEB10025C0FB /* CustomShapeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */; };
-		091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */; };
 		0940CCF32A6860DC009CE54C /* LayerObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0940CCF22A6860DC009CE54C /* LayerObjectType.swift */; };
 		09691AE52A7C115F00970EB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09691AE42A7C115F00970EB9 /* AppDelegate.swift */; };
 		096F80DC2A7521400001D8A3 /* TextObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F80DB2A7521400001D8A3 /* TextObjectView.swift */; };
@@ -197,7 +196,6 @@
 		3ED771E02A4AEE6B00AFC1FC /* CustomShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */; };
 		3ED771E52A4AFE4300AFC1FC /* MapExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E42A4AFE4300AFC1FC /* MapExtensionView.swift */; };
 		3ED771E72A4B185000AFC1FC /* GlassShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */; };
-		3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */; };
 		3ED771EB2A4B356C00AFC1FC /* LayerBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */; };
 		3ED801FB2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */; };
 		3ED8020C2A7A6F86005E2835 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */; };
@@ -254,7 +252,6 @@
 		0913C42A2A48766C007AF26E /* DynamicText+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DynamicText+Placeholder.swift"; sourceTree = "<group>"; };
 		0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionAsset.swift; sourceTree = "<group>"; };
 		091703FA2A63FEB10025C0FB /* CustomShapeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeObject.swift; sourceTree = "<group>"; };
-		091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateLayerObject.swift; sourceTree = "<group>"; };
 		0940CCF22A6860DC009CE54C /* LayerObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerObjectType.swift; sourceTree = "<group>"; };
 		09691AE42A7C115F00970EB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		096F80DB2A7521400001D8A3 /* TextObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextObjectView.swift; sourceTree = "<group>"; };
@@ -445,7 +442,6 @@
 		3ED771DF2A4AEE6B00AFC1FC /* CustomShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeView.swift; sourceTree = "<group>"; };
 		3ED771E42A4AFE4300AFC1FC /* MapExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapExtensionView.swift; sourceTree = "<group>"; };
 		3ED771E62A4B185000AFC1FC /* GlassShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassShapeView.swift; sourceTree = "<group>"; };
-		3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerButton.swift; sourceTree = "<group>"; };
 		3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerBackButton.swift; sourceTree = "<group>"; };
 		3ED801FA2A7A6AE9005E2835 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		3ED801FC2A7A6F85005E2835 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -527,7 +523,6 @@
 				3E371CD82A6689C800DE743C /* MapObject.swift */,
 				3E371CDC2A66932900DE743C /* CircleGaugeObject.swift */,
 				3E1B1B052A83C049003D70FC /* LinearGaugeObject.swift */,
-				091703FC2A63FF4F0025C0FB /* TemplateLayerObject.swift */,
 				3E6B7A3D2A811F1200163E58 /* WeatherIconLayerObject.swift */,
 				0913C42E2A4882E3007AF26E /* WeatherConditionAsset.swift */,
 				3E315A562A93942400D0A42E /* ConditionAssetObject.swift */,
@@ -997,7 +992,6 @@
 			isa = PBXGroup;
 			children = (
 				3EADA5A82A432BE900FA1BCB /* MenuButtonsView.swift */,
-				3ED771E82A4B2AB600AFC1FC /* LayerButton.swift */,
 				3ED771EA2A4B356C00AFC1FC /* LayerBackButton.swift */,
 			);
 			path = "Layer Element Buttons";
@@ -1310,7 +1304,6 @@
 				0972742F2A4C809B00429786 /* LayerObject.swift in Sources */,
 				3EADA5AB2A432C6D00FA1BCB /* performDelayedAction.swift in Sources */,
 				3E04A1E12A98DDAA007A5D2F /* Weather Icon 10 View.swift in Sources */,
-				3ED771E92A4B2AB600AFC1FC /* LayerButton.swift in Sources */,
 				3E61FC052A49D2D500BABEA5 /* FullScreenCoverImagePickerViews.swift in Sources */,
 				3E3421292A74189300CFAD27 /* ImageTrashButtonView.swift in Sources */,
 				3E04A1E52A98EB18007A5D2F /* Weather Icon 12 View.swift in Sources */,
@@ -1318,7 +1311,6 @@
 				3EC0DDA12A8F9FA500E1A893 /* HiLo Circle Gauge.swift in Sources */,
 				3EADA5BA2A43433D00FA1BCB /* GridOverlay.swift in Sources */,
 				097274332A4C854B00429786 /* TextObject.swift in Sources */,
-				091703FD2A63FF4F0025C0FB /* TemplateLayerObject.swift in Sources */,
 				3EAA6E5E2A8BD1BA0093BB3A /* CalendarView.swift in Sources */,
 				3E315A572A93942400D0A42E /* ConditionAssetObject.swift in Sources */,
 				3EFFD6FE2A976D9F00367B75 /* Weather Icon Forecast.swift in Sources */,

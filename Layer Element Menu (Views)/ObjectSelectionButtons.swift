@@ -31,8 +31,6 @@ struct ObjectSelectionButton: View {
                                 .shadow(radius: 2, y:2)
                                 .scaleEffect(0.7)
                                 .frame(width: 40, height: 40)
-                                .scaleEffect(isPressing ? 0.8 : 1)
-                                .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                             
                         case .asset:
                             Image(imageName)
@@ -40,8 +38,6 @@ struct ObjectSelectionButton: View {
                                 .aspectRatio(contentMode: .fit)
                                 .shadow(radius: 2, y:2)
                                 .frame(width: 40, height: 40)
-                                .scaleEffect(isPressing ? 0.8 : 1)
-                                .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
                         }
                     }
                 }
@@ -53,16 +49,12 @@ struct ObjectSelectionButton: View {
                     .frame(width: 50)
                     .minimumScaleFactor(0.01)
                     .lineLimit(1)
-                    .scaleEffect(isPressing ? 0.9 : 1)
-                    .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
             }
         }
         .blendMode(disabled ? .luminosity : .normal)
         .opacity(disabled ? 0.3 : 1)
         .buttonModifier(isPressing: isPressing, disabled: disabled, cornerRadius: cornerRadius)
         .onTapGesture {
-            //MARK: Button Animation
-          
             isPressing.toggle()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressing.toggle()
@@ -106,9 +98,6 @@ struct ImportImageButton: View {
                         .shadow(radius: 2, y:2)
                         .scaleEffect(0.8)
                         .frame(width: 40, height: 40)
-                        .scaleEffect(isPressing ? 0.8 : 1)
-                        .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
-                    
                     
                 } else {
                     Image(systemName: systemImage)
@@ -117,9 +106,6 @@ struct ImportImageButton: View {
                         .shadow(radius: 2, y:2)
                         .scaleEffect(0.7)
                         .frame(width: 40, height: 40)
-                        .scaleEffect(isPressing ? 0.8 : 1)
-                        .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
-                    
                 }
                 
                 Text(buttontext)
@@ -128,9 +114,6 @@ struct ImportImageButton: View {
                     .padding(.top, -2)
                     .frame(width: 60)
                     .lineLimit(1)
-                    .scaleEffect(isPressing ? 0.9 : 1)
-                    .animation(.interpolatingSpring(stiffness: 300, damping: 12), value: isPressing)
-                
             }
         }
         .buttonModifier(isPressing: isPressing, disabled: disabled, cornerRadius: cornerRadius)
@@ -140,7 +123,6 @@ struct ImportImageButton: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 isPressing.toggle()
                 
-                
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     showLayerElementView = false
                     
@@ -148,9 +130,7 @@ struct ImportImageButton: View {
                         buttonAction.toggle()
                         action()
                     }
-                    
                 }
-                
             }
         }
     }
@@ -175,7 +155,7 @@ extension View {
                             y: 2)
             }
             .tint(.black)
-            .scaleEffect(isPressing ? 0.95 : 1)
-            .animation(.easeIn(duration: 0.1), value: isPressing)
+            .scaleEffect(isPressing ? 0.9 : 1)
+            .animation(.interpolatingSpring(stiffness: 300, damping: 10), value: isPressing)
     }
 }

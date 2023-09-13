@@ -136,7 +136,6 @@ struct ObjectSelectionView: View {
                     }
                     .padding([.leading, .bottom, .trailing])
                     
-                    
                     ObjectTitleText(titleText: "Shapes & Effects")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
@@ -220,7 +219,6 @@ struct ObjectSelectionView: View {
                     }
                     .padding([.leading, .bottom, .trailing])
                     
-                    
                     ObjectTitleText(titleText: "Gauges")
                     LazyVGrid(columns: gridItems, spacing: 16) {
                         ObjectSelectionButton(
@@ -269,7 +267,6 @@ struct ObjectSelectionView: View {
                     }
                     .padding([.leading, .bottom, .trailing])
                 }
-                
                 
                 ObjectTitleText(titleText: "Import Layer Image")
                 LazyVGrid(columns: gridItems, spacing: 16) {
@@ -366,10 +363,7 @@ struct WeatherIconsObjectSelectionView: View {
     
     var body: some View {
         
-        
-        
         ObjectTitleText(titleText: "Weather Icon (1)")
-        
         LazyVGrid(columns: gridItems, spacing: 16) {
             Group {
                 ObjectSelectionButton(
@@ -470,7 +464,6 @@ struct WeatherIconsObjectSelectionView: View {
         
         
         ObjectTitleText(titleText: "Weather Icon (2)")
-        
         LazyVGrid(columns: gridItems, spacing: 16) {
             Group {
                 ObjectSelectionButton(
@@ -565,9 +558,7 @@ struct WeatherIconsObjectSelectionView: View {
         .padding([.leading, .bottom, .trailing])
         
         
-        
         ObjectTitleText(titleText: "Weather Forecast")
-        
         LazyVGrid(columns: gridItems, spacing: 16) {
             ObjectSelectionButton(
                 action: {
@@ -582,7 +573,6 @@ struct WeatherIconsObjectSelectionView: View {
             )
         }
         .padding([.leading, .bottom, .trailing])
-        
         
     }
 }
