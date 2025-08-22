@@ -58,8 +58,8 @@ struct ShowBoardView: View {
         
             //MARK: Widget Placeholder ZStack - All Elements go here
             ZStack{
- 
-                ForEach(self.placedObjects) { obj in
+
+                ForEach($placedObjects) { $obj in
                 
                         ZStack {
                             switch obj.objectType {
@@ -107,15 +107,15 @@ struct ShowBoardView: View {
                             }
                         }
                         .padding(10)
-                        .modifier(WidgetModifier(isDragging: $isDragging))
-                        .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
                         .disabled(selection == obj.id ? false : true)
                         .allowsHitTesting(selection == obj.id)
+                        .modifier(WidgetModifier(isDragging: $isDragging, position: $obj.appearance.position))
+                        .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
                         .fadeOnAppear()  
                 }
             }
             .disabled(dragAll)
-            .modifier(WidgetModifier(isDragging: $isDragging))
+            // Removed invalid WidgetModifier from here as per instructions
             .modifier(ZoomModifier(minimum: 0.5, maximum: 2.0))
             
             GroupView(isDragging: $isDragging,
@@ -178,5 +178,4 @@ extension View {
         }
     }
 }
-
 
