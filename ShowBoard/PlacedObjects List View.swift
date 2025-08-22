@@ -7,6 +7,86 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import Foundation
+
+struct IdentifiableURL: Identifiable {
+    let url: URL
+    var id: URL { url }
+}
+
+// Wrapper for polymorphic LayerObject encoding/decoding
+struct LayerObjectWrapper: Codable {
+    let objectType: String
+    let object: LayerObject
+
+    enum CodingKeys: String, CodingKey {
+        case objectType
+        case object
+    }
+
+    init(object: LayerObject) {
+        self.object = object
+        self.objectType = String(describing: type(of: object))
+    }
+
+    // Custom decoding: determines class from objectType
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        objectType = try container.decode(String.self, forKey: .objectType)
+        let objectData = try container.decode(Data.self, forKey: .object)
+
+        switch objectType {
+        case "WeatherIconLayerObject":
+            object = try JSONDecoder().decode(WeatherIconLayerObject.self, from: objectData)
+        case "WeatherIconLayerObject2":
+            object = try JSONDecoder().decode(WeatherIconLayerObject2.self, from: objectData)
+        case "WeatherIconLayerObject3":
+            object = try JSONDecoder().decode(WeatherIconLayerObject3.self, from: objectData)
+        case "WeatherIconLayerObject4":
+            object = try JSONDecoder().decode(WeatherIconLayerObject4.self, from: objectData)
+        case "WeatherIconLayerObject5":
+            object = try JSONDecoder().decode(WeatherIconLayerObject5.self, from: objectData)
+        case "WeatherIconLayerObject6":
+            object = try JSONDecoder().decode(WeatherIconLayerObject6.self, from: objectData)
+        case "WeatherIconLayerObject7":
+            object = try JSONDecoder().decode(WeatherIconLayerObject7.self, from: objectData)
+        case "WeatherIconLayerObject8":
+            object = try JSONDecoder().decode(WeatherIconLayerObject8.self, from: objectData)
+        case "WeatherIconLayerObject9":
+            object = try JSONDecoder().decode(WeatherIconLayerObject9.self, from: objectData)
+        case "WeatherIconLayerObject10":
+            object = try JSONDecoder().decode(WeatherIconLayerObject10.self, from: objectData)
+        case "WeatherIconLayerObject11":
+            object = try JSONDecoder().decode(WeatherIconLayerObject11.self, from: objectData)
+        case "WeatherIconLayerObject12":
+            object = try JSONDecoder().decode(WeatherIconLayerObject12.self, from: objectData)
+        case "WeatherIconLayerObject13":
+            object = try JSONDecoder().decode(WeatherIconLayerObject13.self, from: objectData)
+        case "WeatherIconLayerObject14":
+            object = try JSONDecoder().decode(WeatherIconLayerObject14.self, from: objectData)
+        case "WeatherIconLayerObject15":
+            object = try JSONDecoder().decode(WeatherIconLayerObject15.self, from: objectData)
+        case "weatherIconForecast":
+            object = try JSONDecoder().decode(weatherIconForecast.self, from: objectData)
+        case "ImportedImage1Object":
+            object = try JSONDecoder().decode(ImportedImage1Object.self, from: objectData)
+        case "ImportedImage2Object":
+            object = try JSONDecoder().decode(ImportedImage2Object.self, from: objectData)
+        case "ImportedImage3Object":
+            object = try JSONDecoder().decode(ImportedImage3Object.self, from: objectData)
+        // Add more cases as needed for your subclasses
+        default:
+            object = try JSONDecoder().decode(LayerObject.self, from: objectData)
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(objectType, forKey: .objectType)
+        let objectData = try JSONEncoder().encode(object)
+        try container.encode(objectData, forKey: .object)
+    }
+}
 
 //MARK: Started on the list view
 struct PlacedObjectsListView: View {
@@ -29,7 +109,7 @@ struct PlacedObjectsListView: View {
 
     @State private var showImporter = false
     @State private var importError: Error? = nil
-    @State private var shareURL: URL? = nil
+    @State private var shareURL: IdentifiableURL? = nil
 
     var body: some View {
         VStack {
@@ -241,29 +321,49 @@ struct PlacedObjectsListView: View {
                 Spacer()
             }
         }
-        .sheet(item: $shareURL) { url in
-            ShareSheet(activityItems: [url])
+        .sheet(item: $shareURL) { identifiable in
+            ShareSheet(activityItems: [identifiable.url])
         }
         .fileImporter(
             isPresented: $showImporter,
             allowedContentTypes: [.json],
             allowsMultipleSelection: false
         ) { result in
+            print("[Importer] Received fileImporter result: \(result)")
             switch result {
             case .success(let urls):
+                print("[Importer] Success, urls: \(urls)")
                 guard let selectedFile = urls.first else { return }
-                do {
-                    let data = try Data(contentsOf: selectedFile)
-                    let decodedObjects = try JSONDecoder().decode([LayerObject].self, from: data)
-                    DispatchQueue.main.async {
-                        placedObjects = decodedObjects
+                print("[Importer] Selected file: \(selectedFile)")
+                if selectedFile.startAccessingSecurityScopedResource() {
+                    print("[Importer] startAccessingSecurityScopedResource GRANTED.")
+                    defer { selectedFile.stopAccessingSecurityScopedResource(); print("[Importer] stopAccessingSecurityScopedResource CALLED.") }
+
+                    do {
+                        print("[Importer] Attempting to read file data...")
+                        let data = try Data(contentsOf: selectedFile)
+                        print("[Importer] File data size: \(data.count) bytes")
+                        print("[Importer] Attempting to decode LayerObjectWrapper array...")
+                        let wrappers = try JSONDecoder().decode([LayerObjectWrapper].self, from: data)
+                        print("[Importer] Decoded wrappers count: \(wrappers.count)")
+                        let decodedObjects = wrappers.map { $0.object }
+                        print("[Importer] Decoded objects count: \(decodedObjects.count)")
+                        print("[Importer] Updating placedObjects...")
+                        DispatchQueue.main.async {
+                            placedObjects = decodedObjects
+                            print("[Importer] placedObjects updated.")
+                        }
+                    } catch {
+                        print("[Importer] Error during decoding or assignment: \(error)")
+                        DispatchQueue.main.async {
+                            importError = error
+                        }
                     }
-                } catch {
-                    DispatchQueue.main.async {
-                        importError = error
-                    }
+                } else {
+                    print("[Importer] Could not access security scoped resource!")
                 }
             case .failure(let error):
+                print("[Importer] File import failed: \(error)")
                 DispatchQueue.main.async {
                     importError = error
                 }
@@ -484,15 +584,16 @@ struct PlacedObjectsListView: View {
     private func exportConfigAndShowShareSheet() {
         print("Starting exportConfigAndShowShareSheet")
         do {
-            let data = try JSONEncoder().encode(placedObjects)
-            print("Successfully encoded placedObjects")
+            let wrappers = placedObjects.map { LayerObjectWrapper(object: $0) }
+            let data = try JSONEncoder().encode(wrappers)
+            print("Successfully encoded placedObjects with wrappers")
             let tempDir = FileManager.default.temporaryDirectory
             let fileURL = tempDir.appendingPathComponent("ShowBoardConfig.json")
             try data.write(to: fileURL)
             print("Successfully wrote file to: \(fileURL.path)")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 print("Triggering SwiftUI share sheet")
-                self.shareURL = fileURL
+                self.shareURL = IdentifiableURL(url: fileURL)
             }
         } catch {
             print("Failed to export config: \(error)")
