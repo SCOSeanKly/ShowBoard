@@ -16,19 +16,20 @@ class GlassObject: LayerObject {
     
     
     
-    
     // MARK: - Public Methods
     
     init(id: UUID = UUID(), appearance: LayerObjectAppearance = LayerObjectAppearance()) {
         
-    
+        
         super.init()
         self.id = id
         self.appearance = appearance
         self.objectType = .customShape
     }
 
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .customShape
+    }
    
 }
-
-

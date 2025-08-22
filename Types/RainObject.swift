@@ -25,4 +25,10 @@ import SwiftUI
             self.appearance = appearance
             self.objectType = .rain //MARK: remember and update this!
         }
+        
+        required init(from decoder: Decoder) throws {
+            try super.init(from: decoder)
+            self.objectType = .rain
+        }
     }
+

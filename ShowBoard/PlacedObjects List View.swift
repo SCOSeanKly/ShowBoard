@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 //MARK: Started on the list view
 struct PlacedObjectsListView: View {
@@ -23,20 +24,24 @@ struct PlacedObjectsListView: View {
     let highlightColor = Color.blue.opacity(0.05)
     @Binding var showGallery: Bool
     let cornerRadius: CGFloat = 12
-    
+
     @State private var name: String = ""
-    
+
+    @State private var showImporter = false
+    @State private var importError: Error? = nil
+    @State private var shareURL: URL? = nil
+
     var body: some View {
         VStack {
             HStack {
                 Image(systemName: "square.3.layers.3d")
                     .font(.title3)
-                
+
                 Text("Edit Layers")
                     .font(.headline.weight(.semibold))
-                
+
                 Spacer()
-                
+
                 if placedObjects.count > 1 {
                     Button(action: { //MARK: Delete all button
                         feedback()
@@ -51,17 +56,17 @@ struct PlacedObjectsListView: View {
                 }
             }
             .padding([.leading, .vertical])
-            
+
             if placedObjects.isEmpty {
                 // Show "No Layers" text if there are no layers
-                
+
                 VStack {
                     Text("No editable layers added yet!")
                         .lineLimit(1)
                         .font(.system(size: 16).weight(.medium))
                         .foregroundColor(.red)
                         .padding(.bottom, 5)
-                    
+
                     Text("Start adding layers by tapping the \(Image(systemName: "square.grid.2x2")) button or alternatively browse the Boards section")
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
@@ -69,7 +74,7 @@ struct PlacedObjectsListView: View {
                         .foregroundColor(.red)
                         .padding(.bottom, 25)
                         .padding(.horizontal, 30)
-                    
+
                     HStack(spacing: 16) {
                         VStack {
                             ObjectSelectionButton(
@@ -83,7 +88,7 @@ struct PlacedObjectsListView: View {
                                 disabled: false,
                                 cornerRadius: cornerRadius
                             )
-                            
+
                             Text("Browse Boards")
                                 .lineLimit(1)
                                 .font(.system(size: 12).weight(.medium))
@@ -91,44 +96,44 @@ struct PlacedObjectsListView: View {
                         VStack {
                             ObjectSelectionButton(
                                 action: {
-                                    importConfig()
+                                    showImporter = true
                                 },
                                 imageType: .system(name: "square.and.arrow.up.on.square"),
                                 textDescription: "Import Config",
                                 disabled: false,
                                 cornerRadius: cornerRadius
                             )
-                            
+
                             Text("Import Config")
                                 .lineLimit(1)
                                 .font(.system(size: 12).weight(.medium))
                         }
                     }
-                    
+
                     Spacer()
                 }
             } else {
                 ZStack {
                     List {
-                        
+
                         ForEach(Array(placedObjects.enumerated()), id: \.element.id) { (index, obj) in
                             Button {
                                 //Selection of layer
                                 feedback()
-                                
+
                                 if let currentSelection = selection, currentSelection == obj.id {
-                                    
+
                                     selection = nil
-                                    
+
                                 } else {
-                                    
+
                                     selection = obj.id
-                                    
+
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                         showLayerEditView.toggle()}
                                 }
                             } label: {
-                                
+
                                 objectButtonView(for: obj)
                                     .scaleEffect(isPressing ? 0.98 : 1)
                                     .animation(.interpolatingSpring(stiffness: 300, damping: 20), value: isPressing)
@@ -142,24 +147,24 @@ struct PlacedObjectsListView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 5))
                         }
                         .onMove(perform: moveLayer)
-                        
-                        
+
+
                     }
                     .listStyle(.plain)
-                    
+
                     VStack {
-                        
+
                         Spacer()
                         HStack{
-                            
+
                             Spacer()
-                            
+
                             ObjectSelectionButton( //MARK: Save button
                                 action: {
                                     feedback()
                                     alertType = .save
                                     showAlert = true
-                                    
+
                                 },
                                 imageType: .system(name: "square.and.arrow.down"),
                                 textDescription: "Save",
@@ -209,40 +214,79 @@ struct PlacedObjectsListView: View {
                             } else {
                                 saveAlertMessage = Text("Are you sure you want to save the ShowBoard config file with your current settings? It's recommended to save a backup of any previous config files before making any changes. Would you like to proceed?")
                             }
-                            
+
                             return Alert(
                                 title: Text("Save ShowBoard?"),
                                 message: saveAlertMessage,
                                 primaryButton: .cancel(Text("Cancel")),
                                 secondaryButton: .destructive(Text("Save"), action: {
-                                    // Perform save action here
+                                    exportConfigAndShowShareSheet()
                                 })
                             )
                         }
                     }
+
+                    if let error = importError {
+                        AlertWrapper(
+                            isPresented: Binding<Bool>(
+                                get: { importError != nil },
+                                set: { newValue in
+                                    if !newValue { importError = nil }
+                                }),
+                            error: error
+                        )
+                    }
                 }
-                
+
                 Spacer()
             }
         }
+        .sheet(item: $shareURL) { url in
+            ShareSheet(activityItems: [url])
+        }
+        .fileImporter(
+            isPresented: $showImporter,
+            allowedContentTypes: [.json],
+            allowsMultipleSelection: false
+        ) { result in
+            switch result {
+            case .success(let urls):
+                guard let selectedFile = urls.first else { return }
+                do {
+                    let data = try Data(contentsOf: selectedFile)
+                    let decodedObjects = try JSONDecoder().decode([LayerObject].self, from: data)
+                    DispatchQueue.main.async {
+                        placedObjects = decodedObjects
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        importError = error
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    importError = error
+                }
+            }
+        }
     }
-    
+
     private func moveLayer(from source: IndexSet, to destination: Int) {
         // Reorder the placedObjects array based on the new index
         placedObjects.move(fromOffsets: source, toOffset: destination)
     }
-    
+
     private func removeAllLayers() {
         placedObjects.removeAll()
     }
-    
+
     private func removeLayer(at index: UUID) {
         placedObjects.removeAll { $0.id == index }
     }
-    
+
     private func objectButtonView(for obj: LayerObject) -> some View {
         let objectTypeInfo: ObjectTypeInfo
-        
+
         switch obj.objectType {
         case .text: objectTypeInfo = .text
         case .map: objectTypeInfo = .map
@@ -278,31 +322,31 @@ struct PlacedObjectsListView: View {
         case .importedImage2: objectTypeInfo = .importedImage2
         case .importedImage3: objectTypeInfo = .importedImage3
         case .DOTW: objectTypeInfo = .DOTW
-            
+
         }
-        
+
         return HStack {
             Image(systemName: objectTypeInfo.icon)
             Text(objectTypeInfo.title)
-            
-            
+
+
             Spacer()
-            
+
             //MARK: Other buttons go here
-            
+
             Button(action: {
                 feedback()
                 isPressingDelete.toggle()
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    
+
                     isPressingDelete.toggle()
                 }
                 alertType = .delete
                 showAlert = true
                 objectToDelete = obj
-                
-                
+
+
             }, label: {
                 Image(systemName: "trash")
                     .scaleEffect(isPressingDelete ? 0.9 : 1)
@@ -311,13 +355,13 @@ struct PlacedObjectsListView: View {
             .foregroundColor(.red)
         }
     }
-    
+
     enum AlertType {
         case delete
         case deleteAll
         case save
     }
-    
+
     // Store icons and titles for each objectType in an enum
     enum ObjectTypeInfo {
         case text
@@ -354,8 +398,8 @@ struct PlacedObjectsListView: View {
         case importedImage2
         case importedImage3
         case DOTW
-        
-        
+
+
         var icon: String {
             switch self {
             case .text: return "character.textbox"
@@ -392,10 +436,10 @@ struct PlacedObjectsListView: View {
             case .importedImage2: return "photo"
             case .importedImage3: return "photo"
             case .DOTW: return "birthday.cake"
-                
+
             }
         }
-        
+
         var title: String {
             switch self {
             case .text: return "Text"
@@ -432,12 +476,59 @@ struct PlacedObjectsListView: View {
             case .importedImage2: return "Imported Image 2"
             case .importedImage3: return "Imported Image 3"
             case .DOTW: return "Days Of The Week"
-                
+
             }
         }
     }
-    
-    private func importConfig() {
-        // TODO: Implement import logic
+
+    private func exportConfigAndShowShareSheet() {
+        print("Starting exportConfigAndShowShareSheet")
+        do {
+            let data = try JSONEncoder().encode(placedObjects)
+            print("Successfully encoded placedObjects")
+            let tempDir = FileManager.default.temporaryDirectory
+            let fileURL = tempDir.appendingPathComponent("ShowBoardConfig.json")
+            try data.write(to: fileURL)
+            print("Successfully wrote file to: \(fileURL.path)")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                print("Triggering SwiftUI share sheet")
+                self.shareURL = fileURL
+            }
+        } catch {
+            print("Failed to export config: \(error)")
+            DispatchQueue.main.async {
+                importError = error
+            }
+        }
     }
+}
+
+private struct AlertWrapper: View {
+    @Binding var isPresented: Bool
+    var error: Error
+
+    var body: some View {
+        EmptyView()
+            .alert("Import Error",
+                   isPresented: $isPresented,
+                   actions: {
+                        Button("OK", role: .cancel) {
+                            isPresented = false
+                        }
+                   },
+                   message: {
+                    Text(error.localizedDescription)
+                   })
+    }
+}
+
+import UIKit
+
+struct ShareSheet: UIViewControllerRepresentable {
+    let activityItems: [Any]
+    let applicationActivities: [UIActivity]? = nil
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+    }
+    func updateUIViewController(_ vc: UIActivityViewController, context: Context) {}
 }

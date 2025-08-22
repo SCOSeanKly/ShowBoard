@@ -27,4 +27,9 @@ class TextObject: LayerObject {
             self.appearance = appearance
             self.objectType = .text
         }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .text
+    }
 }

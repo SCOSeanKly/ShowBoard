@@ -25,6 +25,11 @@ import SwiftUI
             self.appearance = appearance
             self.objectType = .importedImage1 //MARK: remember and update this!
         }
+        
+        required init(from decoder: Decoder) throws {
+            try super.init(from: decoder)
+            self.objectType = .importedImage1
+        }
     }
 
 class ImportedImage2Object: LayerObject {
@@ -45,6 +50,11 @@ class ImportedImage2Object: LayerObject {
         self.appearance = appearance
         self.objectType = .importedImage2 //MARK: remember and update this!
     }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .importedImage2
+    }
 }
 
 class ImportedImage3Object: LayerObject {
@@ -64,5 +74,10 @@ class ImportedImage3Object: LayerObject {
         self.id = id
         self.appearance = appearance
         self.objectType = .importedImage3 //MARK: remember and update this!
+    }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .importedImage3
     }
 }

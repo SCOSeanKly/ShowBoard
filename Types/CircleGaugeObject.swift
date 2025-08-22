@@ -80,6 +80,11 @@ class CircleGaugeObject: LayerObject {
         self.appearance = appearance
         self.objectType = .batteryCircleGauge
     }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .batteryCircleGauge
+    }
 }
 
 class HiLoGaugeObject: LayerObject {
@@ -98,4 +103,9 @@ class HiLoGaugeObject: LayerObject {
             self.appearance = appearance
             self.objectType = .hiLoCircleGauge
         }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .hiLoCircleGauge
+    }
     }

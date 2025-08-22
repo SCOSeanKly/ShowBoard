@@ -25,5 +25,10 @@ import SwiftUI
             self.appearance = appearance
             self.objectType = .strokeShape //MARK: remember and update this!
         }
+        
+        required init(from decoder: Decoder) throws {
+            try super.init(from: decoder)
+            self.objectType = .strokeShape
+        }
     }
 

@@ -30,6 +30,11 @@ class LinearGaugeObject: LayerObject {
         self.appearance = appearance
         self.objectType = .batteryLinearGauge
     }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .batteryLinearGauge
+    }
 }
 
 
@@ -55,5 +60,11 @@ class LinearHiLoObject: LayerObject {
         self.appearance = appearance
         self.objectType = .hiLoLinearGauge
     }
+    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .hiLoLinearGauge
+    }
 }
  
+

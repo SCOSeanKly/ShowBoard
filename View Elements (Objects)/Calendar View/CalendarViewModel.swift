@@ -12,19 +12,18 @@ class CalendarViewModel: LayerObject {
     var calendar = Calendar.current
     @Published var date = Date()
     
-    @Published var firstDate: Date?
-    @Published var secondDate: Date?
+    @Published var firstDate: Date? = nil
+    @Published var secondDate: Date? = nil
     
-    @Published var daysTextSize: CGFloat
-    @Published var daysColor: Color
-    @Published var dateTextColor: Color
-    @Published var dateTextSize: CGFloat
-    @Published var dateBackgroundColor: Color
-    @Published var dateBackgroundCornerRadius: CGFloat
-    @Published var calendarBackgroundColor: Color
-    @Published var calendarBackgroundCornerRadius: CGFloat
-    @Published var todayIndicator: Color
-    
+    @Published var daysTextSize: CGFloat = 12
+    @Published var daysColor: Color = Color.white
+    @Published var dateTextColor: Color = Color.white
+    @Published var dateTextSize: CGFloat = 12
+    @Published var dateBackgroundColor: Color = Color.gray.opacity(0.5)
+    @Published var dateBackgroundCornerRadius: CGFloat = 50
+    @Published var calendarBackgroundColor: Color = Color.clear
+    @Published var calendarBackgroundCornerRadius: CGFloat = 20
+    @Published var todayIndicator: Color = Color.red
     
     
     
@@ -69,15 +68,6 @@ class CalendarViewModel: LayerObject {
     
     init(_ currentDate: Date = Date()) {
         date = currentDate
-        daysColor = Color.white
-        dateTextColor = Color.white
-        dateBackgroundColor = Color.gray.opacity(0.5)
-        dateBackgroundCornerRadius = 50
-        calendarBackgroundColor = Color.clear
-        calendarBackgroundCornerRadius = 20
-        daysTextSize = 12
-        dateTextSize = 12
-        todayIndicator = Color.red
         
         super.init()
         self.id = id
@@ -85,7 +75,10 @@ class CalendarViewModel: LayerObject {
         self.objectType = .calendar
     }
     
-    
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .calendar
+    }
     
     func selectDay(_ day: Date) {
         if firstDate == nil {
@@ -195,4 +188,3 @@ extension Date {
         return calendar.date(from: components)!
     }
 }
-

@@ -25,5 +25,10 @@ import SwiftUI
             self.appearance = appearance
          //   self.objectType = .squareShape //MARK: remember and update this!
         }
+        
+        required init(from decoder: Decoder) throws {
+            try super.init(from: decoder)
+            // self.objectType = .wallpaper // Uncomment and set the appropriate object type if needed
+        }
     }
 

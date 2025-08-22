@@ -35,4 +35,12 @@ import SwiftUI
             self.appearance = appearance
             self.objectType = .squareShape //MARK: remember and update this!
         }
+        
+        required init(from decoder: Decoder) throws {
+            try super.init(from: decoder)
+            // If you plan to encode/decode MicroControls-specific properties, decode them here
+            // For now, this just calls the superclass implementation
+            self.objectType = .squareShape // Ensure correct type after decoding
+        }
     }
+

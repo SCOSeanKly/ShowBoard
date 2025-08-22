@@ -44,6 +44,10 @@ class CustomShapeObject: LayerObject {
         self.objectType = .customShape
     }
 
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+        self.objectType = .customShape
+    }
    
 }
 
