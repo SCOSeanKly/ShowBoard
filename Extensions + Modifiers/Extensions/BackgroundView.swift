@@ -157,8 +157,9 @@ struct BackgroundView: View {
               
                     Image(uiImage: importedBackground)
                         .resizable()
+                       
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width)
                         .ignoresSafeArea()
                         .animation(.spring(), value: wall.appearance.pixellate)
                         .hueRotation(Angle(degrees: wall.appearance.hue))

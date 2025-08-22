@@ -136,9 +136,11 @@ struct MenuButtonsView: View {
                 performDelayedAction(after: 0.2) {
                     copyImageToClipboard()
                     
-                    performDelayedAction(after: 0.2) {
-                        showClipboardAlert = true
-                    }
+                    shareScreenshot()
+                    
+//                    performDelayedAction(after: 0.2) {
+//                        showClipboardAlert = true
+//                    }
                     
                     performDelayedAction(after: 0.2) {
                         hideMenuButtons = false
