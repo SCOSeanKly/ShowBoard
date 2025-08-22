@@ -70,22 +70,40 @@ struct PlacedObjectsListView: View {
                         .padding(.bottom, 25)
                         .padding(.horizontal, 30)
                     
-                    
-                    ObjectSelectionButton(
-                        action: {
-                            showLayerEditView.toggle()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                showGallery.toggle()}
-                        },
-                        imageType: .system(name: "arrow.right.doc.on.clipboard"),
-                        textDescription: "ShowBoards",
-                        disabled: false,
-                        cornerRadius: cornerRadius
-                    )
-                    
-                    Text("Browse Boards")
-                        .lineLimit(1)
-                        .font(.system(size: 12).weight(.medium))
+                    HStack(spacing: 16) {
+                        VStack {
+                            ObjectSelectionButton(
+                                action: {
+                                    showLayerEditView.toggle()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        showGallery.toggle()}
+                                },
+                                imageType: .system(name: "arrow.right.doc.on.clipboard"),
+                                textDescription: "ShowBoards",
+                                disabled: false,
+                                cornerRadius: cornerRadius
+                            )
+                            
+                            Text("Browse Boards")
+                                .lineLimit(1)
+                                .font(.system(size: 12).weight(.medium))
+                        }
+                        VStack {
+                            ObjectSelectionButton(
+                                action: {
+                                    importConfig()
+                                },
+                                imageType: .system(name: "square.and.arrow.up.on.square"),
+                                textDescription: "Import Config",
+                                disabled: false,
+                                cornerRadius: cornerRadius
+                            )
+                            
+                            Text("Import Config")
+                                .lineLimit(1)
+                                .font(.system(size: 12).weight(.medium))
+                        }
+                    }
                     
                     Spacer()
                 }
@@ -417,5 +435,9 @@ struct PlacedObjectsListView: View {
                 
             }
         }
+    }
+    
+    private func importConfig() {
+        // TODO: Implement import logic
     }
 }
